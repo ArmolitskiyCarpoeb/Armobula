@@ -8,6 +8,15 @@
 	paint_color = COLOR_WALL_GUNMETAL
 	stripe_color = COLOR_GUNMETAL
 
+/turf/wall/prepainted2
+	color = COLOR_SUPERMETAL
+	paint_color = COLOR_SUPERMETAL
+	stripe_color = COLOR_GUNMETAL
+/turf/wall/r_wall/prepainted2
+	color = COLOR_SUPERMETAL
+	paint_color = COLOR_SUPERMETAL
+	stripe_color = COLOR_GUNMETAL
+
 /turf/wall/r_wall
 	color = "#a8a9b2"
 	icon_state = "reinforced_solid"

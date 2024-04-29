@@ -31,7 +31,7 @@
 	if(species)
 		set_max_damage(species.total_health)
 	else
-		set_max_damage(200)
+		set_max_damage(50)
 
 /obj/item/organ/internal/brain/proc/initialize_brainmob()
 	if(istype(_brainmob))
@@ -52,7 +52,7 @@
 	if(species)
 		set_max_damage(species.total_health)
 	else
-		set_max_damage(200)
+		set_max_damage(50)
 
 /obj/item/organ/internal/brain/Destroy()
 	if(istype(_brainmob))

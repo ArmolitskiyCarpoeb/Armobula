@@ -62,8 +62,8 @@
 
 	// High brute damage or sharp objects may damage internal organs
 	if(LAZYLEN(internal_organs) && damage_internal_organs(brute, burn, damage_flags))
-		brute /= 2
-		burn  /= 2
+		brute /= 1
+		burn  /= 1
 
 	if((status & ORGAN_BROKEN) && brute)
 		jostle_bone(brute)
@@ -164,12 +164,13 @@
 	organ_hit_chance += 5 * damage_amt/organ_damage_threshold
 
 	if(encased && !(status & ORGAN_BROKEN)) //ribs protect
-		organ_hit_chance *= 0.6
+		organ_hit_chance *= 0.8
 
 	organ_hit_chance = min(organ_hit_chance, 100)
 	if(prob(organ_hit_chance))
 		var/obj/item/organ/internal/victim = pickweight(victims)
-		damage_amt -= max(damage_amt*victim.damage_reduction, 0)
+//		damage_amt -= max(damage_amt*0.1*victim.damage_reduction, 0)
+		damage_amt = max(damage_amt*4)
 		victim.take_internal_damage(damage_amt)
 		return TRUE
 

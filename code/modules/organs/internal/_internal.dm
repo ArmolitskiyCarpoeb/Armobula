@@ -22,7 +22,7 @@
 	var/surface_accessible = FALSE
 	var/relative_size = 25   // Relative size of the organ. Roughly % of space they take in the target projection :D
 	var/min_bruised_damage = 10       // Damage before considered bruised
-	var/damage_reduction = 0.5     //modifier for internal organ injury
+	var/damage_reduction = 0.1     //modifier for internal organ injury
 
 	/// Whether or not we should try to transfer a brainmob when removed or replaced in a mob.
 	var/transfer_brainmob_with_organ = FALSE

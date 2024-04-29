@@ -2,7 +2,7 @@
 	organ_tag = BP_HEAD
 	name = "head"
 	slot_flags = SLOT_LOWER_BODY
-	max_damage = 75
+	max_damage = 65
 	min_broken_damage = 35
 	w_class = ITEM_SIZE_NORMAL
 	cavity_max_w_class = ITEM_SIZE_SMALL
