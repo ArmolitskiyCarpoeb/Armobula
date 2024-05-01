@@ -75,7 +75,7 @@
 		slowdown_accessory += accessory.accessory_slowdown
 
 /**
- *  Attach accessory A to src
+ *  Attach accessory accessory to src
  *
  *  user is the user doing the attaching. Can be null, such as when attaching
  *  items on spawn
@@ -137,9 +137,23 @@
 			accessory.emp_act(severity)
 	..()
 
-/obj/item/clothing/attack_hand(var/mob/user)
+// Make 'strict' a bit less strict, for accessories.
+// If we're checking strictly and our parent is an accessory,
+// This will need to be handled differently if we ever allow non-clothing accessories!
+/obj/item/clothing/can_interact_with_storage(user, strict = FALSE)
+	if((. = ..(user, FALSE)) || !strict) // Ignore the parent strictness check.
+		return .
 	if(istype(loc, /obj/item/clothing))
-		return TRUE //we aren't an object on the ground so don't call parent
+		var/obj/item/clothing/parent = loc
+		return (src in parent.accessories) && loc.can_interact_with_storage(user, strict)
+	return user == loc // Same as in parent, since we pass strict = FALSE to it.
+
+/obj/item/clothing/can_be_picked_up(mob/user)
+	. = ..()
+	var/obj/item/clothing/parent = loc
+	return . && (!istype(parent) || !(src in parent.accessories))
+
+/obj/item/clothing/attack_hand(var/mob/user)
 	//only forward to the attached accessory if the clothing is equipped (not in a storage)
 	if(!length(accessories) || loc != user)
 		return ..()
@@ -188,8 +202,25 @@
 
 /obj/item/clothing/OnDisguise(obj/item/copy, mob/user)
 	. = ..()
+	if(!QDELETED(copy))
+		fallback_slot = copy.get_fallback_slot()
+
 	if(istype(copy, /obj/item/clothing))
 		var/obj/item/clothing/clothes = copy
-		accessory_hide_on_states = clothes.accessory_hide_on_states?.Copy()
+		accessory_hide_on_states  = clothes.accessory_hide_on_states?.Copy()
+		accessory_slot            = clothes.accessory_slot
+		accessory_removable       = clothes.accessory_removable
+		accessory_visibility      = clothes.accessory_visibility
+		accessory_slowdown        = clothes.accessory_slowdown
+		mimicking_state_modifiers = TRUE
+		clothing_state_modifiers = clothes.clothing_state_modifiers?.Copy()
 	else
-		accessory_hide_on_states = get_initial_accessory_hide_on_states()
+		accessory_hide_on_states  = get_initial_accessory_hide_on_states()
+		accessory_slot            = initial(accessory_slot)
+		accessory_removable       = initial(accessory_removable)
+		accessory_visibility      = initial(accessory_visibility)
+		accessory_slowdown        = initial(accessory_slowdown)
+		mimicking_state_modifiers = FALSE
+		clothing_state_modifiers  = null
+
+	update_clothing_state_toggles()

@@ -10,7 +10,7 @@
 	var/material_health_multiplier = 0.2
 	var/hitsound
 	/// This is used to determine on which slots an item can fit.
-	var/slot_flags = SLOT_NONE      
+	var/slot_flags = SLOT_NONE
 	/// If it's an item we don't want to log attack_logs with, set this to TRUE
 	var/no_attack_log = 0
 	var/obj/item/master = null
@@ -236,7 +236,7 @@
 	return FALSE
 
 /obj/item/examine(mob/user, distance)
-	
+
 	var/list/desc_comp = list()
 	desc_comp += "It is a [w_class_description()] item."
 
@@ -424,13 +424,18 @@
 	. = ..()
 	squash_item()
 
+/// Whether this item can be picked up.
+/// Primarily exists to be overridden to prevent, e.g. accessories from being removed by clicking on them while worn.
+/obj/item/proc/can_be_picked_up(mob/user)
+	return !anchored
+
 /obj/item/attack_hand(mob/user)
 
 	. = ..()
 	if(.)
 		return
 
-	if(anchored)
+	if(!can_be_picked_up(user))
 		return ..()
 
 	if(!user.check_dexterity(DEXTERITY_EQUIP_ITEM, silent = TRUE))
@@ -671,7 +676,7 @@
 	if(!usr.get_empty_hand_slot())
 		to_chat(usr, SPAN_WARNING("Your hands are full."))
 		return
-	usr.UnarmedAttack(src)
+	usr.UnarmedAttack(src, usr.Adjacent(src))
 
 
 //This proc is executed when someone clicks the on-screen UI button. To make the UI button show, set the 'icon_action_button' to the icon_state of the image of the button in screen1_action.dmi
@@ -1102,3 +1107,5 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		return TRUE
 	return ..()
 
+/obj/item/proc/loadout_setup(mob/wearer, metadata)
+	return
