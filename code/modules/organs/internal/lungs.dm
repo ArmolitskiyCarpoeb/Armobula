@@ -176,7 +176,7 @@
 	if(!forced && breatheffect && !GET_CHEMICAL_EFFECT(owner, CE_STABLE)) //opiates are bad mmkay
 		safe_pressure_min *= 1 + breatheffect
 
-	if(owner.lying)
+	if(owner.current_posture.prone)
 		safe_pressure_min *= 0.8
 
 	var/failed_inhale = 0
@@ -264,7 +264,7 @@
 			owner.emote(pick(/decl/emote/visible/shiver,/decl/emote/visible/twitch))
 
 	if(damage || GET_CHEMICAL_EFFECT(owner, CE_BREATHLOSS) || world.time > last_successful_breath + 2 MINUTES)
-		owner.take_damage(OXY, HUMAN_MAX_OXYLOSS*breath_fail_ratio)
+		owner.take_damage(HUMAN_MAX_OXYLOSS*breath_fail_ratio, OXY)
 
 	SET_HUD_ALERT_MAX(owner, /decl/hud_element/condition/oxygen, 2)
 	last_int_pressure = 0
