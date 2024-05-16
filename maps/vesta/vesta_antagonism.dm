@@ -1,7 +1,7 @@
-/decl/special_role/traitor/Initialize()
-	. = ..()
-	LAZYINITLIST(protected_jobs)
-	protected_jobs   |= list(/datum/job/officer, /datum/job/warden, /datum/job/detective, /datum/job/captain, /datum/job/lawyer, /datum/job/hos)
+///decl/special_role/traitor/Initialize()
+//	. = ..()
+//	LAZYINITLIST(protected_jobs)
+//	protected_jobs   |= list(/datum/job/officer, /datum/job/warden, /datum/job/detective, /datum/job/captain, /datum/job/lawyer, /datum/job/hos)
 
 /decl/special_role/godcultist/Initialize()
 	. = ..()
