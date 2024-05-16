@@ -16,7 +16,7 @@
 	num_exoplanets = 1
 
 	lobby_screens = list(
-		'maps/exodus/lobby/exodus.png'
+		'maps/vesta/lobby/vesta.png'
 	)
 
 	evac_controller_type = /datum/evacuation_controller/shuttle
