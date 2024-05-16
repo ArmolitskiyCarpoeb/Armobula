@@ -28,3 +28,10 @@
 /turf/floor/wood/yew
 	color = WOOD_COLOR_YELLOW
 	initial_flooring = /decl/flooring/wood/yew
+
+/turf/floor/wood2
+	name = "wooden floor"
+	icon = 'icons/turf/flooring/wood.dmi'
+	icon_state = "wood2"
+	color = WOOD_COLOR_GENERIC
+	initial_flooring = /decl/flooring/wood2

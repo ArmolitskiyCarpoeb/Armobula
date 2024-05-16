@@ -33,3 +33,15 @@
 /decl/flooring/wood/yew
 	color = WOOD_COLOR_YELLOW
 	build_type = /obj/item/stack/tile/yew
+
+/decl/flooring/wood2
+	name = "wooden floor"
+	desc = "Polished wood planks."
+	icon = 'icons/turf/flooring/wood.dmi'
+	icon_base = "wood2"
+	damage_temperature = T0C+200
+	descriptor = "planks"
+	build_type = /obj/item/stack/tile/wood
+	flags = TURF_CAN_BREAK | TURF_IS_FRAGILE | TURF_REMOVE_SCREWDRIVER
+	footstep_type = /decl/footsteps/wood
+	color = WOOD_COLOR_GENERIC
