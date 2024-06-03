@@ -101,7 +101,8 @@ var/global/list/music_tracks = list(
 	"80s All Over Again" = /decl/music_track/eighties,
 	"Wild Encounters" = /decl/music_track/wildencounters,
 	"Torn" = /decl/music_track/torn,
-	"Nebula" = /decl/music_track/nebula
+	"Nebula" = /decl/music_track/nebula,
+	"Tree" = /decl/music_track/tree
 )
 
 /proc/setup_music_tracks(var/list/tracks)
