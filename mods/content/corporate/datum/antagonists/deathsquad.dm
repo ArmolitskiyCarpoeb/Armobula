@@ -11,7 +11,6 @@
 		access_cent_storage
 	)
 	antaghud_indicator = "huddeathsquad"
-	default_access = list(access_cent_specops)
 
 	hard_cap = 4
 	hard_cap_round = 8
@@ -31,7 +30,6 @@
 	name =     "Special Role - Deathsquad Commando"
 	l_ear =    /obj/item/radio/headset/ert
 	uniform =  /obj/item/clothing/jumpsuit/green
-	l_ear =    /obj/item/radio/headset/hacked
 	l_pocket = /obj/item/plastique
 	shoes =    /obj/item/clothing/shoes/jackboots/swat
 	glasses =  /obj/item/clothing/glasses/thermal
@@ -67,7 +65,7 @@
 	else
 		syndicate_commando_rank = pick("Lieutenant", "Captain", "Major")
 
-	var/syndicate_commando_name = pick(global.last_names)
+	var/syndicate_commando_name = pick(global.using_map.last_names)
 
 	var/datum/preferences/A = new() //Randomize appearance for the commando.
 	A.randomize_appearance_and_body_for(player.current)

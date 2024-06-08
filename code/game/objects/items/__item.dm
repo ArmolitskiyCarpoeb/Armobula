@@ -172,6 +172,12 @@
 
 /obj/item/Destroy()
 
+	if(LAZYLEN(_item_effects))
+		_item_effects = null
+		SSitem_effects.queued_items -= src
+
+	global.listening_objects -= src
+
 	STOP_PROCESSING(SSobj, src)
 	QDEL_NULL(hidden_uplink)
 	QDEL_NULL(coating)
@@ -352,7 +358,8 @@
 	if(user.client && istype(inv) && inv.slot_id && (over in user.client.screen))
 		// Remove the item from our bag if necessary.
 		if(istype(loc?.storage))
-			loc.storage.remove_from_storage(user, src)
+			if(!loc.storage.remove_from_storage(user, src))
+				return ..()
 			dropInto(get_turf(loc))
 		// Otherwise remove it from our inventory if necessary.
 		else if(ismob(loc))
@@ -459,9 +466,8 @@
 				else
 					dropInto(get_turf(user))
 				return TRUE
-			if(loc?.storage)
+			if(loc?.storage?.remove_from_storage(user, src))
 				visible_message(SPAN_NOTICE("\The [user] fumbles \the [src] out of \the [loc]."))
-				loc.storage.remove_from_storage(user, src)
 				dropInto(get_turf(loc))
 				return TRUE
 		to_chat(user, SPAN_WARNING("You are not dexterous enough to pick up \the [src]."))
@@ -505,12 +511,16 @@
 	if(R.hud_used)
 		R.hud_used.update_robot_modules_display()
 
-/obj/item/attackby(obj/item/W, mob/user)
-
+/obj/item/proc/try_slapcrafting(obj/item/W, mob/user)
 	if(SSfabrication.try_craft_with(src, W, user))
 		return TRUE
-
 	if(SSfabrication.try_craft_with(W, src, user))
+		return TRUE
+	return FALSE
+
+/obj/item/attackby(obj/item/W, mob/user)
+
+	if(try_slapcrafting(W, user))
 		return TRUE
 
 	if(W.storage?.use_to_pickup)
@@ -698,11 +708,11 @@
 		if(default_parry_check(user, attacker, damage_source) && prob(parry_chance))
 			user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"))
 			playsound(user.loc, 'sound/weapons/punchmiss.ogg', 50, 1)
-			on_parry(damage_source)
+			on_parry(user, damage_source, attacker)
 			return 1
 	return 0
 
-/obj/item/proc/on_parry(damage_source)
+/obj/item/proc/on_parry(mob/user, damage_source, mob/attacker)
 	return
 
 /obj/item/proc/get_parry_chance(mob/user)
@@ -860,7 +870,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/proc/get_examine_name()
 	. = name
-	if(coating)
+	if(coating?.total_volume)
 		. = SPAN_WARNING("<font color='[coating.get_color()]'>stained</font> [.]")
 	if(gender == PLURAL)
 		. = "some [.]"
@@ -874,9 +884,14 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		. += " <a href='?src=\ref[ID];look_at_id=1'>\[Look at ID\]</a>"
 
 /obj/item/proc/on_active_hand()
-
-/obj/item/proc/has_embedded()
 	return
+
+/obj/item/proc/has_embedded(mob/living/victim)
+	if(istype(victim))
+		LAZYDISTINCTADD(victim.embedded, src)
+		victim.verbs |= /mob/proc/yank_out_object
+		return TRUE
+	return FALSE
 
 /obj/item/proc/get_pressure_weakness(pressure,zone)
 	. = 1
@@ -1048,6 +1063,9 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	// delay for 1ds to allow the rest of the call stack to resolve
 	if(!QDELETED(src) && !QDELETED(user) && user.get_equipped_slot_for_item(src) == slot)
 		try_burn_wearer(user, slot, 1)
+
+/obj/item/can_embed()
+	return !anchored && !is_robot_module(src)
 
 /obj/item/clear_matter()
 	..()
