@@ -1,34 +1,24 @@
-/decl/hierarchy/outfit/job/science
-	abstract_type = /decl/hierarchy/outfit/job/science
+/decl/hierarchy/outfit/job/vesta/scientist
 	l_ear = /obj/item/radio/headset/headset_sci
-	suit = /obj/item/clothing/suit/toggle/labcoat
 	shoes = /obj/item/clothing/shoes/color/white
 	pda_type = /obj/item/modular_computer/pda/science
+	name = "vesta - Job - Researcher"
+	uniform = /obj/item/clothing/jumpsuit/white
+	id_type = /obj/item/card/id/vesta/scientist
 
-/decl/hierarchy/outfit/job/science/rd
-	name = "Job - Chief Science Officer"
+/obj/item/card/id/vesta/scientist
+	name = "identification card"
+	desc = "A card issued to science staff."
+	detail_color = COLOR_PALE_PURPLE_GRAY
+
+/decl/hierarchy/outfit/job/vesta/scientist/head
+	name = "Tradeship - Job - Head Researcher"
 	l_ear = /obj/item/radio/headset/heads/rd
-	uniform = /obj/item/clothing/under/research_director
-	shoes = /obj/item/clothing/shoes/color/brown
-	hands = list(/obj/item/clipboard)
-	id_type = /obj/item/card/id/science/head
-	pda_type = /obj/item/modular_computer/pda/heads
-
-/decl/hierarchy/outfit/job/science/scientist
-	name = "Job - Scientist"
-	uniform = /obj/item/clothing/under/color/white
-	id_type = /obj/item/card/id/science
-	suit = /obj/item/clothing/suit/toggle/labcoat/science
-
-/decl/hierarchy/outfit/job/science/roboticist
-	name = "Job - Roboticist"
-	uniform = /obj/item/clothing/under/color/white
-	shoes = /obj/item/clothing/shoes/color/black
-	belt = /obj/item/belt/utility/full
-	id_type = /obj/item/card/id/science
-	pda_slot = slot_r_store_str
+	shoes = /obj/item/clothing/shoes/dress
 	pda_type = /obj/item/modular_computer/pda/science
+	id_type = /obj/item/card/id/vesta/scientist/head
 
-/decl/hierarchy/outfit/job/science/roboticist/Initialize()
-	. = ..()
-	backpack_overrides.Cut()
+/obj/item/card/id/vesta/scientist/head
+	name = "identification card"
+	desc = "A card which represents knowledge and reasoning."
+	extra_details = list("goldstripe")

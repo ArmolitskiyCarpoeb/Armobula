@@ -19,6 +19,10 @@
 		'maps/vesta/lobby/vesta.png'
 	)
 
+	lobby_tracks = list(
+		/decl/music_track/tree
+	)
+
 	evac_controller_type = /datum/evacuation_controller/shuttle
 
 //  For /datum/evacuation_controller/shuttle

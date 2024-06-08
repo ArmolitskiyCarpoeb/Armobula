@@ -1,233 +1,114 @@
-/datum/job/assistant
-	title = "Assistant"
+/datum/job/vesta/assistant
+	title = "Recruit"
 	total_positions = -1
 	spawn_positions = -1
 	supervisors = "absolutely everyone"
 	economic_power = 1
 	access = list()
 	minimal_access = list()
-	alt_titles = list("Technical Assistant","Medical Intern","Research Assistant","Visitor")
-	outfit_type = /decl/hierarchy/outfit/job/generic/assistant
+	hud_icon = "hudassistant"
+	alt_titles = list("Technical Recruit","Medical Recruit","Research Recruit","Visitor")
+	outfit_type = /decl/hierarchy/outfit/job/vesta_assistant
 	department_types = list(/decl/department/civilian)
+	event_categories = list(ASSIGNMENT_GARDENER)
 
-/datum/job/assistant/get_access()
+/datum/job/vesta/assistant/get_access()
 	if(get_config_value(/decl/config/toggle/assistant_maint))
 		return list(access_maint_tunnels)
 	return list()
 
-/datum/job/chaplain
-	title = "Chaplain"
-	department_types = list(/decl/department/civilian)
-	total_positions = 1
-	spawn_positions = 1
-	supervisors = "the head of personnel"
-	access = list(
-		access_morgue,
-		access_chapel_office,
-		access_crematorium,
-		access_maint_tunnels
-	)
-	minimal_access = list(
-		access_morgue,
-		access_chapel_office,
-		access_crematorium
-	)
-	outfit_type = /decl/hierarchy/outfit/job/chaplain
-	is_holy = TRUE
-	min_skill = list(
-		SKILL_LITERACY = SKILL_ADEPT,
-		SKILL_FINANCE  = SKILL_BASIC
-	)
-	skill_points = 20
-	software_on_spawn = list(/datum/computer_file/program/reports)
+/decl/hierarchy/outfit/job/vesta_assistant
+	name = "Job - Vesta Assistant"
 
-//Food
-/datum/job/bartender
+/datum/job/vesta/bartender
 	title = "Bartender"
-	department_types = list(/decl/department/service)
-	total_positions = 1
-	spawn_positions = 1
-	supervisors = "the head of personnel"
-	access = list(
-		access_hydroponics,
-		access_bar,
-		access_kitchen
-	)
-	minimal_access = list(access_bar)
-	alt_titles = list("Barista")
-	outfit_type = /decl/hierarchy/outfit/job/service/bartender
-	min_skill = list(
-		SKILL_LITERACY  = SKILL_ADEPT,
-		SKILL_COOKING   = SKILL_BASIC,
-	    SKILL_BOTANY    = SKILL_BASIC,
-	    SKILL_CHEMISTRY = SKILL_BASIC
-	)
-
-/datum/job/chef
-	title = "Chef"
-	department_types = list(/decl/department/service)
-	total_positions = 2
-	spawn_positions = 2
-	supervisors = "the head of personnel"
-	access = list(
-		access_hydroponics,
-		access_bar,
-		access_kitchen
-	)
-	minimal_access = list(access_kitchen)
-	alt_titles = list("Cook")
-	outfit_type = /decl/hierarchy/outfit/job/service/chef
-	min_skill = list(
-		SKILL_LITERACY  = SKILL_ADEPT,
-		SKILL_COOKING   = SKILL_ADEPT,
-	    SKILL_BOTANY    = SKILL_BASIC,
-	    SKILL_CHEMISTRY = SKILL_BASIC
-	)
-
-/datum/job/hydro
-	title = "Gardener"
-	department_types = list(/decl/department/service)
+	alt_titles = list("Cook","Barista")
+	supervisors = "the Lieutenant and the Captain"
 	total_positions = 2
 	spawn_positions = 1
-	supervisors = "the head of personnel"
-	access = list(
-		access_hydroponics,
-		access_bar,
-		access_kitchen
-	)
-	minimal_access = list(access_hydroponics)
-	alt_titles = list("Hydroponicist")
-	outfit_type = /decl/hierarchy/outfit/job/service/gardener
-	min_skill = list(
-		SKILL_LITERACY  = SKILL_ADEPT,
-		SKILL_BOTANY    = SKILL_BASIC,
-	    SKILL_CHEMISTRY = SKILL_BASIC
-	)
-	event_categories = list(ASSIGNMENT_GARDENER)
-
-//Cargo
-/datum/job/qm
-	title = "Quartermaster"
-	department_types = list(/decl/department/supply)
-	total_positions = 1
-	spawn_positions = 1
-	supervisors = "the head of personnel"
+	outfit_type = /decl/hierarchy/outfit/job/vesta/bartender
+	department_types = list(/decl/department/service)
+	selection_color = "#3fbe4a"
 	economic_power = 5
 	access = list(
-		access_maint_tunnels,
-		access_mailsorting,
-		access_cargo,
-		access_cargo_bot,
-		access_qm,
-		access_mining,
-		access_mining_station
+		access_hydroponics,
+		access_bar,
+		access_kitchen
 	)
 	minimal_access = list(
-		access_maint_tunnels,
-		access_mailsorting,
-		access_cargo,
-		access_cargo_bot,
-		access_qm,
-		access_mining,
-		access_mining_station
+		access_hydroponics,
+		access_bar,
+		access_kitchen
 	)
-	minimal_player_age = 3
-	ideal_character_age = 40
-	outfit_type = /decl/hierarchy/outfit/job/cargo/qm
 	min_skill = list(
-		SKILL_LITERACY = SKILL_ADEPT,
-	    SKILL_FINANCE  = SKILL_BASIC,
-	    SKILL_HAULING  = SKILL_BASIC,
-	    SKILL_EVA      = SKILL_BASIC,
-	    SKILL_PILOT    = SKILL_BASIC
+		SKILL_COOKING	= SKILL_ADEPT,
+		SKILL_BOTANY	= SKILL_BASIC,
+		SKILL_CHEMISTRY	= SKILL_BASIC
 	)
 	max_skill = list(
-		SKILL_PILOT    = SKILL_MAX
+		SKILL_COOKING	= SKILL_MAX,
+		SKILL_BOTANY	= SKILL_MAX
 	)
-	skill_points = 18
-	software_on_spawn = list(
-		/datum/computer_file/program/supply,
-		/datum/computer_file/program/deck_management,
-		/datum/computer_file/program/reports
-	)
+	skill_points = 30
 
-/datum/job/cargo_tech
+/datum/job/vesta/cargo
 	title = "Cargo Technician"
-	department_types = list(/decl/department/supply)
-	total_positions = 2
-	spawn_positions = 2
-	supervisors = "the quartermaster and the head of personnel"
-	access = list(
-		access_maint_tunnels,
-		access_mailsorting,
-		access_cargo,
-		access_cargo_bot,
-		access_qm,
-		access_mining,
-		access_mining_station
-	)
-	minimal_access = list(
-		access_maint_tunnels,
-		access_cargo,
-		access_cargo_bot,
-		access_mailsorting
-	)
-	outfit_type = /decl/hierarchy/outfit/job/cargo/cargo_tech
-	min_skill = list(
-		SKILL_LITERACY = SKILL_ADEPT,
-		SKILL_FINANCE  = SKILL_BASIC,
-		SKILL_HAULING  = SKILL_BASIC
-	)
-	max_skill = list(
-		SKILL_PILOT    = SKILL_MAX
-	)
-	software_on_spawn = list(
-		/datum/computer_file/program/supply,
-		/datum/computer_file/program/deck_management,
-		/datum/computer_file/program/reports
-	)
-
-/datum/job/mining
-	title = "Shaft Miner"
-	department_types = list(/decl/department/supply)
+	alt_titles = list("Shaft Miner","Drill Technician","Prospector")
+	supervisors = "the Lieutenant and the Captain"
 	total_positions = 3
-	spawn_positions = 3
-	supervisors = "the quartermaster and the head of personnel"
+	spawn_positions = 1
+	outfit_type = /decl/hierarchy/outfit/job/vesta/cargo
+	department_types = list(/decl/department/service)
+	selection_color = "#8a7c00"
 	economic_power = 5
 	access = list(
-		access_maint_tunnels,
-		access_mailsorting,
 		access_cargo,
 		access_cargo_bot,
-		access_qm,
 		access_mining,
-		access_mining_station
-	)
-	minimal_access = list(
+		access_mailsorting,
 		access_mining,
 		access_mining_station,
-		access_mailsorting
+		access_external_airlocks,
+		access_eva
 	)
-	alt_titles = list(
-		"Drill Technician",
-		"Prospector"
+	minimal_access = list(
+		access_cargo,
+		access_cargo_bot,
+		access_mining,
+		access_mailsorting,
+		access_eva,
+		access_mining,
+		access_mining_station,
+		access_external_airlocks
 	)
-	outfit_type = /decl/hierarchy/outfit/job/cargo/mining
 	min_skill = list(
-		SKILL_LITERACY = SKILL_ADEPT,
-		SKILL_HAULING  = SKILL_ADEPT,
-	    SKILL_EVA      = SKILL_BASIC
+		SKILL_FINANCE	= SKILL_BASIC,
+		SKILL_HAULING	= SKILL_ADEPT,
+		SKILL_EVA		= SKILL_BASIC,
+		SKILL_COMPUTER	= SKILL_BASIC,
+		SKILL_LITERACY	= SKILL_BASIC
 	)
 	max_skill = list(
-		SKILL_PILOT    = SKILL_MAX
+		SKILL_HAULING	= SKILL_MAX,
+		SKILL_EVA		= SKILL_MAX,
+		SKILL_FINANCE	= SKILL_MAX
+	)
+	skill_points = 30
+	software_on_spawn = list(
+		/datum/computer_file/program/supply,
+		/datum/computer_file/program/deck_management,
+		/datum/computer_file/program/reports
 	)
 
-/datum/job/janitor
+/datum/job/vesta/janitor
 	title = "Janitor"
+	event_categories = list(ASSIGNMENT_JANITOR)
 	department_types = list(/decl/department/service)
-	total_positions = 1
+	total_positions = 2
 	spawn_positions = 1
-	supervisors = "the head of personnel"
+	supervisors = "the Lieutenant and the Captain"
+	economic_power = 3
+	selection_color = "#940088"
 	access = list(
 		access_janitor,
 		access_maint_tunnels,
@@ -248,75 +129,27 @@
 		"Custodian",
 		"Sanitation Technician"
 	)
-	outfit_type = /decl/hierarchy/outfit/job/service/janitor
+	outfit_type = /decl/hierarchy/outfit/job/vesta/janitor
 	min_skill = list(
-		SKILL_LITERACY = SKILL_ADEPT,
 		SKILL_HAULING  = SKILL_BASIC
 	)
-	event_categories = list(ASSIGNMENT_JANITOR)
+	skill_points = 28
 
-//More or less assistants
-/datum/job/librarian
+/datum/job/vesta/librarian
 	title = "Librarian"
-	department_types = list(/decl/department/civilian)
+	department_types = list(/decl/department/service)
 	total_positions = 1
-	spawn_positions = 1
-	supervisors = "the head of personnel"
-	access = list(
-		access_library,
-		access_maint_tunnels
-	)
-	minimal_access = list(access_library)
-	alt_titles = list("Journalist")
-	outfit_type = /decl/hierarchy/outfit/job/librarian
-	min_skill = list(
-		SKILL_LITERACY = SKILL_ADEPT,
-		SKILL_FINANCE  = SKILL_BASIC
-	)
-	skill_points = 20
-	software_on_spawn = list(/datum/computer_file/program/reports)
-
-/datum/job/lawyer
-	title = "Internal Affairs Agent"
-	department_types = list(/decl/department/support)
-	total_positions = 2
 	spawn_positions = 2
-	supervisors = "company officials and Corporate Regulations"
-	economic_power = 7
-	access = list(
-		access_lawyer,
-		access_sec_doors,
-		access_maint_tunnels,
-		access_bridge
+	supervisors = "the Lieutenant, the Captain, and the smell of old paper"
+	economic_power = 5
+	selection_color = "#008800"
+	access = list(access_library)
+	minimal_access = list(access_library)
+	alt_titles = list(
+		"Curator",
+		"Archivist"
 	)
-	minimal_access = list(
-		access_lawyer,
-		access_sec_doors,
-		access_bridge
-	)
-	minimal_player_age = 10
-	outfit_type = /decl/hierarchy/outfit/job/internal_affairs_agent
+	outfit_type = /decl/hierarchy/outfit/job/vesta/librarian
 	min_skill = list(
-		SKILL_LITERACY = SKILL_ADEPT,
-		SKILL_FINANCE  = SKILL_BASIC
+		SKILL_LITERACY = SKILL_AVERAGE
 	)
-	skill_points = 20
-	software_on_spawn = list(/datum/computer_file/program/reports)
-
-/datum/job/lawyer/equip_job(var/mob/living/carbon/human/H)
-	. = ..()
-	if(.)
-		H.implant_loyalty(H)
-
-/obj/item/card/id/cargo
-	name = "identification card"
-	desc = "A card issued to cargo staff."
-	detail_color = COLOR_BROWN
-
-/obj/item/card/id/cargo/head
-	name = "identification card"
-	desc = "A card which represents service and planning."
-	extra_details = list("goldstripe")
-
-/obj/item/card/id/civilian/internal_affairs_agent
-	detail_color = COLOR_NAVY_BLUE

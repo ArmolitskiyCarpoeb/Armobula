@@ -1,34 +1,35 @@
-/decl/hierarchy/outfit/job/engineering
-	abstract_type = /decl/hierarchy/outfit/job/engineering
+/decl/hierarchy/outfit/job/vesta/engineer
+	name = "Job - Station Engineer"
 	belt = /obj/item/belt/utility/full
 	l_ear = /obj/item/radio/headset/headset_eng
 	shoes = /obj/item/clothing/shoes/workboots
 	pda_slot = slot_l_store_str
-	outfit_flags = OUTFIT_HAS_BACKPACK|OUTFIT_EXTENDED_SURVIVAL | OUTFIT_HAS_VITALS_SENSOR
+	outfit_flags = OUTFIT_HAS_BACKPACK | OUTFIT_EXTENDED_SURVIVAL | OUTFIT_HAS_VITALS_SENSOR
+	head = /obj/item/clothing/head/hardhat
+	uniform = /obj/item/clothing/jumpsuit/hazard
+	r_pocket = /obj/item/t_scanner
+	id_type = /obj/item/card/id/vesta/engineering
+	pda_type = /obj/item/modular_computer/pda/engineering
 
-/decl/hierarchy/outfit/job/engineering/Initialize()
+/decl/hierarchy/outfit/job/vesta/engineer/Initialize()
 	. = ..()
 	BACKPACK_OVERRIDE_ENGINEERING
 
-/decl/hierarchy/outfit/job/engineering/chief_engineer
-	name = "Job - Chief Engineer"
-	head = /obj/item/clothing/head/hardhat/white
-	uniform = /obj/item/clothing/under/chief_engineer
-	l_ear = /obj/item/radio/headset/heads/ce
+/obj/item/card/id/vesta/engineering
+	name = "identification card"
+	desc = "A card issued to engineering staff."
+	detail_color = COLOR_SUN
+
+/decl/hierarchy/outfit/job/vesta/chief_engineer
+	name = "Job - Head Engineer"
+	uniform = /obj/item/clothing/jumpsuit/hazard
+	glasses = /obj/item/clothing/glasses/welding/superior
+	suit = /obj/item/clothing/suit/hazardvest
 	gloves = /obj/item/clothing/gloves/thick
-	id_type = /obj/item/card/id/engineering/head
+	shoes = /obj/item/clothing/shoes/workboots
 	pda_type = /obj/item/modular_computer/pda/heads/ce
-
-/decl/hierarchy/outfit/job/engineering/engineer
-	name = "Job - Engineer"
-	head = /obj/item/clothing/head/hardhat
-	uniform = /obj/item/clothing/under/engineer
-	r_pocket = /obj/item/t_scanner
-	id_type = /obj/item/card/id/engineering
-	pda_type = /obj/item/modular_computer/pda/engineering
-
-/decl/hierarchy/outfit/job/engineering/atmos
-	name = "Job - Atmospheric technician"
-	uniform = /obj/item/clothing/under/atmospheric_technician
-	belt = /obj/item/belt/utility/atmostech
-	pda_type = /obj/item/modular_computer/pda/engineering
+	hands = list(/obj/item/wrench)
+	belt = /obj/item/belt/utility/full
+	id_type = /obj/item/card/id/vesta/engineering
+	l_ear = /obj/item/radio/headset/heads/ce
+	outfit_flags = OUTFIT_HAS_BACKPACK | OUTFIT_EXTENDED_SURVIVAL | OUTFIT_HAS_VITALS_SENSOR

@@ -1,66 +1,49 @@
-/decl/hierarchy/outfit/job/service
-	l_ear = /obj/item/radio/headset/headset_service
-	abstract_type = /decl/hierarchy/outfit/job/service
+/decl/hierarchy/outfit/job/vesta/cargo
+	l_ear = /obj/item/radio/headset/headset_cargo
+	name = "vesta - Job - Cargo technician"
+	uniform = /obj/item/clothing/jumpsuit/cargotech
+	id_type = /obj/item/card/id/vesta/cargo
+	pda_type = /obj/item/modular_computer/pda/cargo
+	backpack_contents = list(/obj/item/crowbar = 1, /obj/item/ore = 1)
+	outfit_flags = OUTFIT_HAS_BACKPACK | OUTFIT_EXTENDED_SURVIVAL | OUTFIT_HAS_VITALS_SENSOR
 
-/decl/hierarchy/outfit/job/service/bartender
-	name = "Job - Bartender"
-	uniform = /obj/item/clothing/under/bartender
-	id_type = /obj/item/card/id/civilian
-	pda_type = /obj/item/modular_computer/pda
-
-/decl/hierarchy/outfit/job/service/chef
-	name = "Job - Chef"
-	uniform = /obj/item/clothing/under/chef
-	suit = /obj/item/clothing/suit/chef
-	head = /obj/item/clothing/head/chefhat
-	id_type = /obj/item/card/id/civilian
-	pda_type = /obj/item/modular_computer/pda
-
-/decl/hierarchy/outfit/job/service/gardener
-	name = "Job - Gardener"
-	uniform = /obj/item/clothing/under/hydroponics
-	suit = /obj/item/clothing/suit/apron
-	gloves = /obj/item/clothing/gloves/thick/botany
-	r_pocket = /obj/item/scanner/plant
-	id_type = /obj/item/card/id/civilian
-	pda_type = /obj/item/modular_computer/pda
-
-/decl/hierarchy/outfit/job/service/gardener/Initialize()
+/decl/hierarchy/outfit/job/vesta/cargo/Initialize()
 	. = ..()
-	backpack_overrides[/decl/backpack_outfit/backpack]      = /obj/item/backpack/hydroponics
-	backpack_overrides[/decl/backpack_outfit/satchel]       = /obj/item/backpack/satchel/hyd
-	backpack_overrides[/decl/backpack_outfit/messenger_bag] = /obj/item/backpack/messenger/hyd
+	BACKPACK_OVERRIDE_ENGINEERING
 
-/decl/hierarchy/outfit/job/service/janitor
-	name = "Job - Janitor"
-	uniform = /obj/item/clothing/under/janitor
-	id_type = /obj/item/card/id/civilian
+/decl/hierarchy/outfit/job/vesta/bartender
+	l_ear = /obj/item/radio/headset/headset_service
+	name = "vesta - Job - Bartender"
+	uniform = /obj/item/clothing/under/bartender
+	id_type = /obj/item/card/id/vesta/bartender
+	pda_type = /obj/item/modular_computer/pda
+	head = /obj/item/clothing/head/chefhat
+
+/decl/hierarchy/outfit/job/vesta/janitor
+	l_ear = /obj/item/radio/headset/headset_service
+	name = "vesta - Job - Janitor"
+	uniform = /obj/item/clothing/jumpsuit/janitor
+	id_type = /obj/item/card/id/vesta/janitor
 	pda_type = /obj/item/modular_computer/pda
 
-/decl/hierarchy/outfit/job/librarian
-	name = "Job - Librarian"
-	uniform = /obj/item/clothing/under/formal/red
-	id_type = /obj/item/card/id/civilian
+/decl/hierarchy/outfit/job/vesta/librarian
+	l_ear = /obj/item/radio/headset/headset_service
+	name = "vesta - Job - Librarian"
+	uniform = /obj/item/clothing/under/librarian
+	id_type = /obj/item/card/id/vesta/librarian
 	pda_type = /obj/item/modular_computer/pda
 
-/obj/item/radio/headset/heads/ia
-	name = "internal affair's headset"
-	desc = "The headset of your worst enemy."
+//cards
+/obj/item/card/id/vesta/cargo
+	name = "identification card"
+	desc = "A card issued to cargo staff."
+	detail_color = COLOR_BROWN
 
-/decl/hierarchy/outfit/job/internal_affairs_agent
-	name = "Job - Internal affairs agent"
-	l_ear = /obj/item/radio/headset/heads/ia
-	uniform = /obj/item/clothing/under/internalaffairs
-	suit = /obj/item/clothing/suit/jacket/black
-	shoes = /obj/item/clothing/shoes/color/brown
-	glasses = /obj/item/clothing/glasses/sunglasses/big
-	hands = list(/obj/item/briefcase)
-	id_type = /obj/item/card/id/civilian/internal_affairs_agent
-	pda_type = /obj/item/modular_computer/pda/heads/paperpusher
+/obj/item/card/id/vesta/bartender
+	desc = "A card issued to kitchen staff."
 
-/decl/hierarchy/outfit/job/chaplain
-	name = "Job - Chaplain"
-	uniform = /obj/item/clothing/under/chaplain
-	hands = list(/obj/item/bible)
-	id_type = /obj/item/card/id/civilian
-	pda_type = /obj/item/modular_computer/pda/medical
+/obj/item/card/id/vesta/janitor
+	desc = "A card issued to custodial staff."
+
+/obj/item/card/id/vesta/librarian
+	desc = "A card issued to the station librarian."
