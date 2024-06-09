@@ -89,3 +89,7 @@
 	icon_base = "ridged"
 	color = COLOR_GUNMETAL
 	build_type = /obj/item/stack/tile/ridge
+
+/decl/flooring/tiling/new_tile/steel_grid_2
+	icon_base = "steel_grid"
+	build_type = null

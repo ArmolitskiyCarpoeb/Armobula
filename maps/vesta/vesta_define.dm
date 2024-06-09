@@ -1,4 +1,4 @@
-/datum/map/exodus
+/datum/map/vesta
 	name          = "VESTA"
 	full_name     = "VESTA Colony"
 	path          = "vesta"

@@ -104,3 +104,8 @@
 	name = "airless floor"
 	initial_gas = null
 	temperature = TCMB
+
+/turf/floor/tiled/steel_grid_2
+	name = "steel floor"
+	icon_state = "steel_grid"
+	initial_flooring = /decl/flooring/tiling/new_tile/steel_grid_2

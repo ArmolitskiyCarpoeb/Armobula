@@ -58,7 +58,7 @@
 
 	#include "vesta.dmm"
 
-	#define USING_MAP_DATUM /datum/map/exodus
+	#define USING_MAP_DATUM /datum/map/vesta
 
 #elif !defined(MAP_OVERRIDE)
 	#warn A map has already been included, ignoring Vesta
