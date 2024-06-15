@@ -60,6 +60,8 @@
 	//This exists to store air during zone rebuilds, as well as for unsimulated turfs.
 	//They are never deleted to not overwhelm the garbage collector.
 	var/datum/gas_mixture/air
+	///Whether this tile is willing to copy air from a previous tile through ChangeTurf, transfer_turf_properties etc.
+	var/can_inherit_air = TRUE
 	///Is this turf queued in the TURFS cycle of SSair?
 	var/needs_air_update = 0
 
@@ -517,27 +519,20 @@
 			below.update_weather(new_weather)
 
 // Updates turf participation in ZAS according to outside status. Must be called whenever the outside status of a turf may change.
-/turf/proc/update_external_atmos_participation(overwrite_air = TRUE)
+/turf/proc/update_external_atmos_participation()
+	var/old_outside = last_outside_check
+	last_outside_check = OUTSIDE_UNCERTAIN
 	if(is_outside())
 		if(zone && external_atmosphere_participation)
 			if(can_safely_remove_from_zone())
-				#ifdef MULTIZAS
-				var/dirs = global.cardinalz
-				#else
-				var/dirs = global.cardinal
-				#endif
 				zone.remove(src)
-				// Update neighbors to create edges between zones and exterior
-				for(var/dir in dirs)
-					var/turf/neighbor = get_step(src, dir)
-					SSair.mark_for_update(neighbor)
 			else
 				zone.rebuild()
-	else if(zone_membership_candidate)
+	else if(!zone && zone_membership_candidate && old_outside == OUTSIDE_YES)
 		// Set the turf's air to the external atmosphere to add to its new zone.
-		if(overwrite_air)
-			air = get_external_air(FALSE)
-		SSair.mark_for_update(src)
+		air = get_external_air(FALSE)
+
+	SSair.mark_for_update(src)
 
 /turf/proc/is_outside()
 
@@ -577,9 +572,9 @@
 		return FALSE
 
 	is_outside = new_outside
-	last_outside_check = OUTSIDE_UNCERTAIN
-	SSambience.queued |= src
 	update_external_atmos_participation()
+	SSambience.queued |= src
+
 	if(!skip_weather_update)
 		update_weather()
 
@@ -592,7 +587,7 @@
 		checking = GetBelow(checking)
 		if(!isturf(checking))
 			break
-		checking.last_outside_check = OUTSIDE_UNCERTAIN
+		checking.update_external_atmos_participation()
 		if(!checking.is_open())
 			break
 	return TRUE

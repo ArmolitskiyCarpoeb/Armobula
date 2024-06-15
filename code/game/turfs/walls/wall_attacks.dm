@@ -47,7 +47,6 @@
 			update_thermal(turf)
 			SSair.mark_for_update(turf)
 
-
 /turf/wall/proc/update_thermal(var/turf/source)
 	if(istype(source) && source.simulated)
 		if(density && opacity)

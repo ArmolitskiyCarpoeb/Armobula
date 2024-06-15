@@ -6,7 +6,6 @@
 	desc = "Bare, barren sand."
 	icon_state = "0"
 	footstep_type = /decl/footsteps/asteroid
-	open_turf_type = /turf/open
 	turf_flags = TURF_FLAG_BACKGROUND | TURF_IS_HOLOMAP_PATH
 
 	base_name = "ground"
@@ -116,8 +115,8 @@
 	if(!QDELETED(src) && reagent_type && height < 0 && !QDELETED(reagents) && reagents.total_volume < abs(height))
 		add_to_reagents(reagent_type, abs(height) - reagents.total_volume)
 
-/turf/floor/natural/dismantle_turf(devastated, explode, no_product)
-	return !!switch_to_base_turf()
+/turf/floor/natural/dismantle_turf(devastated, explode, no_product, keep_air = TRUE)
+	return !!switch_to_base_turf(keep_air)
 
 /turf/floor/natural/get_soil_color()
 	return dirt_color
