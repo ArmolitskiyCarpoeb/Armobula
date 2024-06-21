@@ -101,3 +101,11 @@
 		else
 			M.adjust_fire_stacks(-(amount / 10))
 			holder.remove_reagent(type, amount)
+
+/decl/material/liquid/water/sink
+	name = "water"
+	codex_name = "liquid sink water"
+	lore_text = "A ubiquitous chemical substance composed of hydrogen and oxygen. Not very good for health."
+	taste_description = "strange water"
+	toxicity = 1
+	toxicity_targets_organ = BP_BRAIN

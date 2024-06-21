@@ -5,12 +5,12 @@
 	density = TRUE
 	w_class = ITEM_SIZE_NORMAL
 
-	color = GLASS_COLOR
+	color = null
 	layer = SIDE_WINDOW_LAYER
 	anchored = TRUE
 	atom_flags = ATOM_FLAG_CHECKS_BORDER | ATOM_FLAG_CAN_BE_PAINTED
 	obj_flags = OBJ_FLAG_ROTATABLE | OBJ_FLAG_MOVES_UNSUPPORTED
-	alpha = 180
+	alpha = 255
 	material = /decl/material/solid/glass
 	rad_resistance_modifier = 0.5
 	atmos_canpass = CANPASS_PROC
@@ -434,7 +434,7 @@
 
 /obj/structure/window/basic
 	icon_state = "window"
-	color = GLASS_COLOR
+	color = null
 
 /obj/structure/window/basic/full
 	dir = NORTHEAST
@@ -445,7 +445,7 @@
 
 /obj/structure/window/borosilicate
 	name = "borosilicate window"
-	color = GLASS_COLOR_SILICATE
+	color = null
 	material = /decl/material/solid/glass/borosilicate
 
 /obj/structure/window/borosilicate/full
@@ -455,7 +455,7 @@
 /obj/structure/window/borosilicate_reinforced
 	name = "reinforced borosilicate window"
 	icon_state = "rwindow"
-	color = GLASS_COLOR_SILICATE
+	color = null
 	material = /decl/material/solid/glass/borosilicate
 	reinf_material = /decl/material/solid/metal/steel
 

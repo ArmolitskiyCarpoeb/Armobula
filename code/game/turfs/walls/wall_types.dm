@@ -23,6 +23,11 @@
 	material = /decl/material/solid/metal/plasteel
 	reinf_material = /decl/material/solid/metal/plasteel
 
+/turf/wall/r_wall/super
+	icon_state = "reinforced_solid"
+	material = /decl/material/solid/metal/plasteel
+	reinf_material = /decl/material/solid/metal/plasteel
+
 /turf/wall/r_wall/hull
 	name = "hull"
 	color = COLOR_HULL

@@ -1,13 +1,13 @@
 var/global/list/wall_blend_objects = list(
-	/obj/machinery/door,
-	/obj/structure/door,
-	/obj/structure/wall_frame,
-	/obj/structure/grille,
-	/obj/structure/window/reinforced/full,
-	/obj/structure/window/reinforced/polarized/full,
-	/obj/structure/window/shuttle,
-	/obj/structure/window/borosilicate/full,
-	/obj/structure/window/borosilicate_reinforced/full
+//	/obj/machinery/door,
+//	/obj/structure/door,
+	/obj/structure/wall_frame
+//	/obj/structure/grille,
+//	/obj/structure/window/reinforced/full,
+//	/obj/structure/window/reinforced/polarized/full,
+//	/obj/structure/window/shuttle,
+//	/obj/structure/window/borosilicate/full,
+//	/obj/structure/window/borosilicate_reinforced/full
 )
 var/global/list/wall_noblend_objects = list(
 	/obj/machinery/door/window

@@ -77,7 +77,7 @@ var/global/list/hygiene_props = list()
 				playsound(T, pick(SSfluids.gurgles), 50, 1)
 			var/adding = min(flood_amt-T?.reagents?.total_volume, rand(30,50)*clogged)
 			if(adding > 0)
-				T.add_to_reagents(/decl/material/liquid/water, adding)
+				T.add_to_reagents(/decl/material/liquid/water/sink, adding)
 
 /obj/structure/hygiene/proc/drain()
 	if(!can_drain) return
@@ -320,7 +320,7 @@ var/global/list/hygiene_props = list()
 		for(var/thing in loc.get_contained_external_atoms())
 			wash_mob(thing)
 			process_heat(thing)
-		add_to_reagents(/decl/material/liquid/water, REAGENTS_FREE_SPACE(reagents))
+		add_to_reagents(/decl/material/liquid/water/sink, REAGENTS_FREE_SPACE(reagents))
 		if(world.time >= next_wash)
 			next_wash = world.time + (10 SECONDS)
 			reagents.splash(get_turf(src), reagents.total_volume, max_spill = 0)
@@ -402,6 +402,7 @@ var/global/list/hygiene_props = list()
 			SPAN_NOTICE("\The [user] fills \the [chem_container] using \the [src]."),
 			SPAN_NOTICE("You fill \the [chem_container] using \the [src]."))
 		playsound(loc, 'sound/effects/sink.ogg', 75, 1)
+<<<<<<< Updated upstream
 		chem_container.add_to_reagents(/decl/material/liquid/water, min(REAGENTS_FREE_SPACE(chem_container.reagents), chem_container.amount_per_transfer_from_this))
 		return TRUE
 
@@ -423,6 +424,34 @@ var/global/list/hygiene_props = list()
 		if(REAGENTS_FREE_SPACE(hit_with.reagents) >= 5)
 			hit_with.add_to_reagents(/decl/material/liquid/water, 5)
 			to_chat(user, SPAN_NOTICE("You wet \the [hit_with] in \the [src]."))
+=======
+		RG.add_to_reagents(/decl/material/liquid/water/sink, min(RG.volume - RG.reagents.total_volume, RG.amount_per_transfer_from_this))
+		return 1
+
+	else if (istype(O, /obj/item/baton))
+		var/obj/item/baton/B = O
+		var/obj/item/cell/cell = B.get_cell()
+		if(cell)
+			if(cell.charge > 0 && B.status == 1)
+				flick("baton_active", src)
+				if(isliving(user))
+					var/mob/living/M = user
+					SET_STATUS_MAX(M, STAT_STUN, 10)
+					SET_STATUS_MAX(M, STAT_STUTTER, 10)
+					SET_STATUS_MAX(M, STAT_WEAK, 10)
+				if(isrobot(user))
+					var/mob/living/silicon/robot/R = user
+					R.cell.charge -= 20
+				else
+					B.deductcharge(B.hitcost)
+				var/decl/pronouns/G = user.get_pronouns()
+				user.visible_message(SPAN_DANGER("\The [user] was stunned by [G.his] wet [O]!"))
+				return 1
+	else if(istype(O, /obj/item/mop))
+		if(REAGENTS_FREE_SPACE(O.reagents) >= 5)
+			O.add_to_reagents(/decl/material/liquid/water/sink, 5)
+			to_chat(user, SPAN_NOTICE("You wet \the [O] in \the [src]."))
+>>>>>>> Stashed changes
 			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 		else
 			to_chat(user, SPAN_WARNING("\The [hit_with] is saturated."))
@@ -576,7 +605,7 @@ var/global/list/hygiene_props = list()
 		next_gurgle = world.time + 80
 		playsound(T, pick(SSfluids.gurgles), 50, 1)
 
-	T.add_to_reagents(/decl/material/liquid/water, min(75, fill_level - T.get_fluid_depth()))
+	T.add_to_reagents(/decl/material/liquid/water/sink, min(75, fill_level - T.get_fluid_depth()))
 
 /obj/structure/hygiene/faucet/Process()
 	..()
