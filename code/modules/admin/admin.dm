@@ -169,23 +169,15 @@ var/global/BSACooldown = 0
 			else
 				body += "<A href='?src=\ref[src];makeanimal=\ref[M]'>Animalize</A> | "
 
-			// DNA2 - Admin Hax
-			if(M.dna)
+			if(M.can_have_genetic_conditions())
 				body += "<br><br>"
-				body += "<b>DNA Blocks:</b><br><table border='0'><tr><th>&nbsp;</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>"
-				var/bname
-				for(var/block=1;block<=DNA_SE_LENGTH;block++)
-					if(((block-1)%5)==0)
-						body += "</tr><tr><th>[block-1]</th>"
-					bname = assigned_blocks[block]
-					body += "<td>"
-					if(bname)
-						var/bstate=M.dna.GetSEState(block)
-						var/bcolor="[(bstate)?"#006600":"#ff0000"]"
-						body += "<A href='?src=\ref[src];togmutate=\ref[M];block=[block]' style='color:[bcolor];'>[bname]</A><sub>[block]</sub>"
-					else
-						body += "[block]"
-					body+="</td>"
+				body += "<b>Genetic conditions:</b><br><table border='0'><tr>"
+				var/i = 1
+				for(var/decl/genetic_condition/mutation as anything in decls_repository.get_decls_of_type_unassociated(/decl/genetic_condition))
+					if(i % 5 == 0)
+						body += "</tr><tr>"
+					body += "<td><a href='?src=\ref[src];toggle_mutation=\ref[M];block=\ref[mutation]' style='color:[M.has_genetic_condition(mutation.type) ? "#006600" : "#ff0000"];'>[mutation.name]</a></td>"
+					i++
 				body += "</tr></table>"
 
 			body += "<br><br><b>Rudimentary transformation:</b><font size=2><br>These transformations only create a new mob type and copy stuff over. They do not take into account MMIs and similar mob-specific things. The buttons in 'Transformations' are preferred, when possible.</font><br>"
@@ -905,16 +897,6 @@ var/global/BSACooldown = 0
 		log_admin("[key_name(usr)] toggled Aliens to Off.")
 		message_admins("[key_name_admin(usr)] toggled Aliens off.", 1)
 	SSstatistics.add_field_details("admin_verb","TA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
-/datum/admins/proc/toggle_space_ninja()
-	set category = "Server"
-	set desc="Toggle space ninjas spawning."
-	set name="Toggle Space Ninjas"
-	if(!check_rights(R_ADMIN))
-		return
-	toggle_config_value(/decl/config/toggle/ninjas_allowed)
-	log_and_message_admins("toggled Space Ninjas [get_config_value(/decl/config/toggle/ninjas_allowed) ? "on" : "off"].")
-	SSstatistics.add_field_details("admin_verb","TSN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/delay()
 	set category = "Server"

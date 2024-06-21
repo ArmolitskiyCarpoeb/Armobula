@@ -32,13 +32,11 @@
 
 #define isEye(A) istype(A, /mob/observer/eye)
 
-#define ishuman(A) istype(A, /mob/living/carbon/human)
+#define ishuman(A) istype(A, /mob/living/human)
 
 #define isitem(A) istype(A, /obj/item)
 
 #define isliving(A) istype(A, /mob/living)
-
-#define isdeity(A) istype(A, /mob/living/deity)
 
 #define ismouse(A) istype(A, /mob/living/simple_animal/passive/mouse)
 

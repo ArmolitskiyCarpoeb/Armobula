@@ -175,7 +175,7 @@
 			return
 
 /mob/living/bot/secbot/handleAdjacentTarget()
-	var/mob/living/carbon/human/H = target
+	var/mob/living/human/H = target
 	var/threat = check_threat(target)
 	if(awaiting_surrender < SECBOT_WAIT_TIME && istype(H) && !H.current_posture.prone && threat < SECBOT_THREAT_ATTACK)
 		if(awaiting_surrender == -1)
@@ -184,10 +184,10 @@
 	else
 		UnarmedAttack(target)
 
-/mob/living/bot/secbot/proc/cuff_target(var/mob/living/carbon/C)
-	if(istype(C) && !C.get_equipped_item(slot_handcuffed_str))
-		handcuffs.place_handcuffs(C, src)
-	resetTarget() //we're done, failed or not. Don't want to get stuck if C is not
+/mob/living/bot/secbot/proc/cuff_target(var/mob/living/target)
+	if(istype(target) && !target.get_equipped_item(slot_handcuffed_str))
+		handcuffs.place_handcuffs(target, src)
+	resetTarget() //we're done, failed or not. Don't want to get stuck if target is not
 
 /mob/living/bot/get_target_zone()
 	if(!client)
@@ -203,7 +203,7 @@
 	if(!istype(M))
 		return FALSE
 
-	var/mob/living/carbon/human/H = M
+	var/mob/living/human/H = M
 	if(istype(H) && H.current_posture.prone)
 		cuff_target(H)
 		return TRUE
@@ -228,7 +228,7 @@
 
 /mob/living/bot/secbot/proc/target_name(mob/living/T)
 	if(ishuman(T))
-		var/mob/living/carbon/human/H = T
+		var/mob/living/human/H = T
 		return H.get_id_name("unidentified person")
 	return "unidentified lifeform"
 

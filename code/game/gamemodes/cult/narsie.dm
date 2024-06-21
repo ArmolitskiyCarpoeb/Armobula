@@ -97,7 +97,7 @@ var/global/list/narsie_list = list()
 				targets += cult_nh_mind.current
 		// If we have no valid cultists, go for any human.
 		if(!length(targets))
-			for(var/mob/living/carbon/human/food in global.living_mob_list_)
+			for(var/mob/living/human/food in global.living_mob_list_)
 				if(food.stat)
 					var/turf/pos = get_turf(food)
 					if(pos?.z in current_zs)
@@ -147,7 +147,7 @@ var/global/list/narsie_list = list()
 			new /obj/effect/narsie_footstep(T)
 
 	if(prob(25))
-		for(var/mob/living/carbon/M in oviewers(8, src))
+		for(var/mob/living/M in oviewers(8, src))
 			if(M.stat == CONSCIOUS && !(M.status_flags & GODMODE) && !iscultist(M))
 				to_chat(M, SPAN_DANGER("You feel your sanity crumble away in an instant as you gaze upon [src.name]..."))
 				M.apply_effect(3, STUN)

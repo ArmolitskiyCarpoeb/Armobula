@@ -6,7 +6,7 @@
 	material = /decl/material/solid/metal/stainlesssteel
 	var/obj/item/tank/tank_one
 	var/obj/item/tank/tank_two
-	var/obj/item/attached_device
+	var/obj/item/assembly/attached_device
 	var/mob/attacher = null
 	var/valve_open = 0
 	var/toggle = 1
@@ -110,14 +110,14 @@
 	else if(attached_device)
 		if(href_list["rem_device"])
 			attached_device.dropInto(loc)
-			attached_device:holder = null
+			attached_device.holder = null
 			attached_device = null
 			update_icon()
 		if(href_list["device"])
 			attached_device.attack_self(usr)
 	return 1 // Returning 1 sends an update to attached UIs
 
-/obj/item/transfer_valve/proc/process_activation(var/obj/item/D)
+/obj/item/transfer_valve/proc/process_activation(var/obj/item/activator)
 	if(toggle)
 		toggle = 0
 		toggle_valve()

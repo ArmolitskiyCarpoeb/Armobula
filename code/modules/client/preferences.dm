@@ -344,7 +344,7 @@ var/global/list/time_prefs_fixed = list()
 	update_setup_window(usr)
 	return 1
 
-/datum/preferences/proc/copy_to(mob/living/carbon/human/character, is_preview_copy = FALSE)
+/datum/preferences/proc/copy_to(mob/living/human/character, is_preview_copy = FALSE)
 
 	if(!player_setup)
 		return // WHY IS THIS EVEN HAPPENING.
@@ -418,13 +418,8 @@ var/global/list/time_prefs_fixed = list()
 	if(LAZYLEN(appearance_descriptors))
 		character.appearance_descriptors = appearance_descriptors.Copy()
 
-	if(character.dna)
-		character.dna.ready_dna(character)
-		if(blood_type)
-			character.dna.b_type = blood_type
-
 	character.force_update_limbs()
-	character.update_mutations(0)
+	character.update_genetic_conditions(0)
 	character.update_body(0)
 	character.update_underwear(0)
 	character.update_hair(0)

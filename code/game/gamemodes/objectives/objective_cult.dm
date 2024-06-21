@@ -16,9 +16,10 @@
 	var/list/possible_targets = list()
 	if(!possible_targets.len)
 		var/decl/special_role/cult = GET_DECL(/decl/special_role/cultist)
-		for(var/mob/living/carbon/human/player in global.player_list)
+		for(var/mob/living/human/player in global.player_list)
 			if(player.mind && !(player.mind in cult.current_antagonists))
 				possible_targets += player.mind
 	if(possible_targets.len > 0)
 		target = pick(possible_targets)
 	if(target) explanation_text = "Sacrifice [target.name], the [target.assigned_role]. You will need the sacrifice rune (Hell blood join) and three acolytes to do so."
+	return target

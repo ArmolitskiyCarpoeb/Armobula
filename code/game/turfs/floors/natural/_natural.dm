@@ -14,6 +14,8 @@
 	base_icon_state = "0"
 	base_color = null
 
+	can_engrave = FALSE
+
 	var/dirt_color = "#7c5e42"
 	var/possible_states = 0
 	var/icon_edge_layer = -1
@@ -111,7 +113,10 @@
 	return ..()
 
 /turf/floor/natural/on_reagent_change()
-	. = ..()
+
+	if(!(. = ..()))
+		return
+
 	if(!QDELETED(src) && reagent_type && height < 0 && !QDELETED(reagents) && reagents.total_volume < abs(height))
 		add_to_reagents(reagent_type, abs(height) - reagents.total_volume)
 
