@@ -7,7 +7,7 @@
 	door_color = COLOR_NT_RED
 
 /obj/machinery/door/airlock/security/research
-	door_color = COLOR_WHITE
+	door_color = COLOR_GRAY80
 	stripe_color = COLOR_NT_RED
 
 /obj/machinery/door/airlock/engineering
@@ -15,7 +15,7 @@
 	door_color = COLOR_AMBER
 
 /obj/machinery/door/airlock/medical
-	door_color = COLOR_WHITE
+	door_color = COLOR_GRAY80
 	stripe_color = COLOR_DEEP_SKY_BLUE
 
 /obj/machinery/door/airlock/medical/open
@@ -23,7 +23,7 @@
 	begins_closed = FALSE
 
 /obj/machinery/door/airlock/virology
-	door_color = COLOR_WHITE
+	door_color = COLOR_GRAY80
 	stripe_color = COLOR_GREEN
 
 /obj/machinery/door/airlock/mining
@@ -36,11 +36,11 @@
 	stripe_color = COLOR_CYAN
 
 /obj/machinery/door/airlock/research
-	door_color = COLOR_WHITE
+	door_color = COLOR_GRAY80
 	stripe_color = COLOR_BOTTLE_GREEN
 
 /obj/machinery/door/airlock/science
-	door_color = COLOR_WHITE
+	door_color = COLOR_GRAY80
 	stripe_color = COLOR_VIOLET
 
 /obj/machinery/door/airlock/sol
@@ -54,7 +54,7 @@
 
 /obj/machinery/door/airlock/freezer
 	name = "Freezer Airlock"
-	door_color = COLOR_WHITE
+	door_color = COLOR_GRAY80
 
 /obj/machinery/door/airlock/maintenance
 	name = "Maintenance Access"
@@ -85,11 +85,11 @@
 	stripe_color = COLOR_RED
 
 /obj/machinery/door/airlock/glass/medical
-	door_color = COLOR_WHITE
+	door_color = COLOR_GRAY80
 	stripe_color = COLOR_DEEP_SKY_BLUE
 
 /obj/machinery/door/airlock/glass/virology
-	door_color = COLOR_WHITE
+	door_color = COLOR_GRAY80
 	stripe_color = COLOR_GREEN
 	stock_part_presets = list(
 		/decl/stock_part_preset/radio/receiver/airlock/external_air = 1,
@@ -105,11 +105,11 @@
 	stripe_color = COLOR_CYAN
 
 /obj/machinery/door/airlock/glass/research
-	door_color = COLOR_WHITE
+	door_color = COLOR_GRAY80
 	stripe_color = COLOR_RESEARCH
 
 /obj/machinery/door/airlock/glass/science
-	door_color = COLOR_WHITE
+	door_color = COLOR_GRAY80
 	stripe_color = COLOR_VIOLET
 
 /obj/machinery/door/airlock/glass/sol
@@ -117,7 +117,7 @@
 	stripe_color = COLOR_AMBER
 
 /obj/machinery/door/airlock/glass/freezer
-	door_color = COLOR_WHITE
+	door_color = COLOR_GRAY80
 
 /obj/machinery/door/airlock/glass/maintenance
 	name = "Maintenance Access"
