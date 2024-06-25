@@ -42,8 +42,6 @@
 
 #define islizard(A) istype(A, /mob/living/simple_animal/lizard)
 
-#define isconstruct(A) istype(A, /mob/living/simple_animal/construct)
-
 #define isnewplayer(A) istype(A, /mob/new_player)
 
 #define isobj(A) istype(A, /obj)
@@ -94,7 +92,7 @@
 
 /proc/place_meta_charset(content)
 	if(istext(content))
-		content = "<meta charset=\"utf-8\">" + content
+		content = "<!DOCTYPE html><meta charset=\"utf-8\">" + content
 	return content
 
 #define to_chat(target, message)                            target << (message)

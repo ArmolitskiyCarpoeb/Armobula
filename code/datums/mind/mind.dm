@@ -112,7 +112,7 @@
 
 	var/out = "<B>[name]</B>[(current&&(current.real_name!=name))?" (as [current.real_name])":""]<br>"
 	out += "Mind currently owned by key: [key] [active?"(synced)":"(not synced)"]<br>"
-	out += "Assigned role: [assigned_role]. <a href='?src=\ref[src];role_edit=1'>Edit</a><br>"
+	out += "Assigned role: [assigned_role]. <a href='byond://?src=\ref[src];role_edit=1'>Edit</a><br>"
 	out += "<hr>"
 	out += "Factions and special roles:<br><table>"
 	var/list/all_antag_types = decls_repository.get_decls_of_subtype(/decl/special_role)
@@ -126,16 +126,16 @@
 		var/num = 1
 		for(var/datum/objective/O in objectives)
 			out += "<b>Objective #[num]:</b> [O.explanation_text] "
-			out += " <a href='?src=\ref[src];obj_delete=\ref[O]'>\[remove\]</a><br>"
+			out += " <a href='byond://?src=\ref[src];obj_delete=\ref[O]'>\[remove\]</a><br>"
 			num++
-		out += "<br><a href='?src=\ref[src];obj_announce=1'>\[announce objectives\]</a>"
+		out += "<br><a href='byond://?src=\ref[src];obj_announce=1'>\[announce objectives\]</a>"
 
 	else
 		out += "None."
-	out += "<br><a href='?src=\ref[src];obj_add=1'>\[add\]</a><br><br>"
+	out += "<br><a href='byond://?src=\ref[src];obj_add=1'>\[add\]</a><br><br>"
 
 	var/datum/goal/ambition/ambition = SSgoals.ambitions[src]
-	out += "<b>Ambitions:</b> [ambition ? ambition.description : "None"] <a href='?src=\ref[src];amb_edit=\ref[src]'>\[edit\]</a></br>"
+	out += "<b>Ambitions:</b> [ambition ? ambition.description : "None"] <a href='byond://?src=\ref[src];amb_edit=\ref[src]'>\[edit\]</a></br>"
 	show_browser(usr, out, "window=edit_memory[src]")
 
 /datum/mind/proc/get_goal_from_href(var/href)
@@ -544,25 +544,6 @@
 /mob/living/simple_animal/corgi/mind_initialize()
 	..()
 	mind.assigned_role = "Corgi"
-
-/mob/living/simple_animal/shade/mind_initialize()
-	..()
-	mind.assigned_role = "Shade"
-
-/mob/living/simple_animal/construct/builder/mind_initialize()
-	..()
-	mind.assigned_role = "Artificer"
-	mind.assigned_special_role = "Cultist"
-
-/mob/living/simple_animal/construct/wraith/mind_initialize()
-	..()
-	mind.assigned_role = "Wraith"
-	mind.assigned_special_role = "Cultist"
-
-/mob/living/simple_animal/construct/armoured/mind_initialize()
-	..()
-	mind.assigned_role = "Juggernaut"
-	mind.assigned_special_role = "Cultist"
 
 /datum/mind/proc/get_special_role_name(var/default_role_name)
 	if(istext(assigned_special_role))
