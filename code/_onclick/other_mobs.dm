@@ -82,14 +82,14 @@
 	var/decl/pronouns/G = get_pronouns()
 	face_atom(A)
 	if(attack_delay)
-		walk_to(src, 0) // Cancel any baked-in movement.
+		stop_automove() // Cancel any baked-in movement.
 		do_windup_animation(A, attack_delay, no_reset = TRUE)
 		if(!do_after(src, attack_delay, A) || !Adjacent(A))
 			visible_message(SPAN_NOTICE("\The [src] misses [G.his] attack on \the [A]!"))
 			animate(src, pixel_x = default_pixel_x, pixel_y = default_pixel_y, time = 2) // reset wherever the attack animation got us to.
-			MoveToTarget(TRUE) // Restart hostile mob tracking.
+			ai?.move_to_target(TRUE) // Restart hostile mob tracking.
 			return TRUE
-		MoveToTarget(TRUE) // Restart hostile mob tracking.
+		ai?.move_to_target(TRUE) // Restart hostile mob tracking.
 
 	if(ismob(A)) // Clientless mobs are too dum to move away, so they can be missed.
 		var/mob/mob = A
@@ -97,7 +97,9 @@
 			visible_message(SPAN_NOTICE("\The [src] misses [G.his] attack on \the [A]!"))
 			return TRUE
 
-	return A.attackby(attacking_with, src)
+	. = A.attackby(attacking_with, src)
+	if(isliving(A))
+		apply_attack_effects(A)
 
 // Attack hand but for simple animals
 /atom/proc/attack_animal(mob/user)
