@@ -37,7 +37,7 @@
 /obj/item/card/id/vesta/cargo
 	name = "identification card"
 	desc = "A card issued to cargo staff."
-	detail_color = COLOR_BROWN
+	icon_state = "cargo"
 
 /obj/item/card/id/vesta/bartender
 	desc = "A card issued to kitchen staff."

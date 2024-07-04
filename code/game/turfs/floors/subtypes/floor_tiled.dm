@@ -75,6 +75,8 @@
 	icon_state = "steel_ridged"
 	initial_flooring = /decl/flooring/tiling/new_tile/steel_ridged
 
+//
+
 /turf/floor/tiled/old_tile
 	name = "floor"
 	icon_state = "tile_full"
@@ -84,6 +86,18 @@
 	name = "floor"
 	icon_state = "cargo_one_full"
 	initial_flooring = /decl/flooring/tiling/new_tile/cargo_one
+
+/turf/floor/tiled/old_tile2
+	name = "floor"
+	icon_state = "tile_full"
+	initial_flooring = /decl/flooring/tiling/new_tile2
+
+/turf/floor/tiled/old_cargo2
+	name = "floor"
+	icon_state = "cargo_one_full"
+	initial_flooring = /decl/flooring/tiling/new_tile2/cargo_one2
+
+//
 
 /turf/floor/tiled/kafel_full
 	name = "floor"

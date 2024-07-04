@@ -95,7 +95,6 @@
 	stripe_color = COLOR_AMBER
 
 /obj/machinery/door/airlock/double/civilian
-	stripe_color = COLOR_CIVIE_GREEN
 
 /obj/machinery/door/airlock/double/freezer
 	name = "Freezer Airlock"
@@ -154,4 +153,3 @@
 	stripe_color = COLOR_AMBER
 
 /obj/machinery/door/airlock/double/glass/civilian
-	stripe_color = COLOR_CIVIE_GREEN

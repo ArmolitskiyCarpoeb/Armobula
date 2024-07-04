@@ -11,7 +11,7 @@
 		/decl/material/solid/glass =       MATTER_AMOUNT_TRACE
 	)
 	w_class = ITEM_SIZE_SMALL
-	light_strength = 2
+	light_strength = 1
 	slot_flags = SLOT_ID | SLOT_LOWER_BODY
 	stores_pen = TRUE
 	stored_pen = /obj/item/pen/retractable

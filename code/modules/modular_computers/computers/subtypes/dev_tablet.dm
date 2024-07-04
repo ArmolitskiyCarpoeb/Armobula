@@ -4,7 +4,7 @@
 	icon = 'icons/obj/modular_computers/modular_tablet.dmi'
 	icon_state = "tablet"
 	w_class = ITEM_SIZE_SMALL
-	light_strength = 2 // same as PDAs
+	light_strength = 1 // same as PDAs
 	interact_sounds = list('sound/machines/pda_click.ogg')
 	interact_sound_volume = 20
 	computer_type = /datum/extension/assembly/modular_computer/tablet

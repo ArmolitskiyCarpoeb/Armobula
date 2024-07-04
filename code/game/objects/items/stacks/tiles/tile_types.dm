@@ -167,6 +167,13 @@
 	material = /decl/material/solid/metal/steel
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 
+/obj/item/stack/tile/mono/gray
+	name = "gray mono tile"
+	singular_name = "gray mono tile"
+	icon_state = "tile"
+	material = /decl/material/solid/metal/steel
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
 /obj/item/stack/tile/grid
 	name = "grey grid tile"
 	singular_name = "grey grid tile"
@@ -178,6 +185,13 @@
 	name = "grey ridge tile"
 	singular_name = "grey ridge tile"
 	icon_state = "tile_ridged"
+	material = /decl/material/solid/metal/steel
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/gray
+	name = "gray tile"
+	singular_name = "gray tile"
+	icon_state = "tile"
 	material = /decl/material/solid/metal/steel
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 

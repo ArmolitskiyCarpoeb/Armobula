@@ -4,7 +4,8 @@
 	door_color = COLOR_COMMAND_BLUE
 
 /obj/machinery/door/airlock/security
-	door_color = COLOR_NT_RED
+	door_color = COLOR_GRAY40
+	stripe_color = COLOR_MAROON
 
 /obj/machinery/door/airlock/security/research
 	door_color = COLOR_GRAY80
@@ -12,11 +13,12 @@
 
 /obj/machinery/door/airlock/engineering
 	name = "Maintenance Hatch"
-	door_color = COLOR_AMBER
+	door_color = COLOR_YELLOW_GRAY
+	stripe_color = COLOR_SUPERMETAL
 
 /obj/machinery/door/airlock/medical
 	door_color = COLOR_GRAY80
-	stripe_color = COLOR_DEEP_SKY_BLUE
+	stripe_color = COLOR_BOTTLE_GREEN
 
 /obj/machinery/door/airlock/medical/open
 	icon_state = "open"
@@ -24,7 +26,7 @@
 
 /obj/machinery/door/airlock/virology
 	door_color = COLOR_GRAY80
-	stripe_color = COLOR_GREEN
+	stripe_color = COLOR_CIVIE_GREEN
 
 /obj/machinery/door/airlock/mining
 	name = "Mining Airlock"
@@ -32,7 +34,7 @@
 	stripe_color = COLOR_BEASTY_BROWN
 
 /obj/machinery/door/airlock/atmos
-	door_color = COLOR_AMBER
+	door_color = COLOR_YELLOW_GRAY
 	stripe_color = COLOR_CYAN
 
 /obj/machinery/door/airlock/research
@@ -47,7 +49,7 @@
 	door_color = COLOR_BLUE_GRAY
 
 /obj/machinery/door/airlock/civilian
-	stripe_color = COLOR_CIVIE_GREEN
+	door_color = COLOR_GRAY
 
 /obj/machinery/door/airlock/chaplain
 	stripe_color = COLOR_GRAY20
@@ -58,7 +60,7 @@
 
 /obj/machinery/door/airlock/maintenance
 	name = "Maintenance Access"
-	stripe_color = COLOR_AMBER
+	stripe_color = COLOR_WARM_YELLOW
 
 
 // Glass airlock presets
@@ -74,23 +76,22 @@
 
 /obj/machinery/door/airlock/glass/command
 	door_color = COLOR_COMMAND_BLUE
-	stripe_color = COLOR_SKY_BLUE
 
 /obj/machinery/door/airlock/glass/security
-	door_color = COLOR_NT_RED
-	stripe_color = COLOR_ORANGE
+	door_color = COLOR_GRAY40
+	stripe_color = COLOR_MAROON
 
 /obj/machinery/door/airlock/glass/engineering
-	door_color = COLOR_AMBER
-	stripe_color = COLOR_RED
+	door_color = COLOR_YELLOW_GRAY
+	stripe_color = COLOR_SUPERMETAL
 
 /obj/machinery/door/airlock/glass/medical
 	door_color = COLOR_GRAY80
-	stripe_color = COLOR_DEEP_SKY_BLUE
+	stripe_color = COLOR_BOTTLE_GREEN
 
 /obj/machinery/door/airlock/glass/virology
 	door_color = COLOR_GRAY80
-	stripe_color = COLOR_GREEN
+	stripe_color = COLOR_CIVIE_GREEN
 	stock_part_presets = list(
 		/decl/stock_part_preset/radio/receiver/airlock/external_air = 1,
 		/decl/stock_part_preset/radio/event_transmitter/airlock/external_air = 1
@@ -101,7 +102,7 @@
 	stripe_color = COLOR_BEASTY_BROWN
 
 /obj/machinery/door/airlock/glass/atmos
-	door_color = COLOR_AMBER
+	door_color = COLOR_YELLOW_GRAY
 	stripe_color = COLOR_CYAN
 
 /obj/machinery/door/airlock/glass/research
@@ -124,7 +125,7 @@
 	stripe_color = COLOR_AMBER
 
 /obj/machinery/door/airlock/glass/civilian
-	stripe_color = COLOR_CIVIE_GREEN
+	door_color = COLOR_GRAY
 
 
 // External airlock presets

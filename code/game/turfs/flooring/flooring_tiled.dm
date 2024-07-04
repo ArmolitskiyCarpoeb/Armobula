@@ -55,14 +55,27 @@
 	icon_base = "techfloor_grid"
 	build_type = /obj/item/stack/tile/techgrid
 
+//
+
 /decl/flooring/tiling/new_tile
 	icon_base = "tile_full"
 	color = null
-	build_type = null
+	build_type = /obj/item/stack/tile/gray
 
 /decl/flooring/tiling/new_tile/cargo_one
 	icon_base = "cargo_one_full"
-	build_type = null
+	build_type = /obj/item/stack/tile/mono/gray
+
+/decl/flooring/tiling/new_tile2
+	icon_base = "tile_full"
+	color = COLOR_GRAY40
+	build_type = /obj/item/stack/tile/gray
+
+/decl/flooring/tiling/new_tile2/cargo_one2
+	icon_base = "cargo_one_full"
+	build_type = /obj/item/stack/tile/mono/gray
+
+//
 
 /decl/flooring/tiling/new_tile/kafel
 	icon_base = "kafel_full"
@@ -92,4 +105,4 @@
 
 /decl/flooring/tiling/new_tile/steel_grid_2
 	icon_base = "steel_grid"
-	build_type = null
+	build_type = /obj/item/stack/tile/grid

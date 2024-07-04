@@ -5,9 +5,10 @@
 	icon = 'icons/obj/lighting/lamp.dmi'
 	w_class = ITEM_SIZE_LARGE
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
-	flashlight_range = 5
+	flashlight_range = 3
 	light_wedge = LIGHT_OMNI
 	on = TRUE
+	light_color = "#ffebb8"
 
 /obj/item/flashlight/lamp/verb/toggle_light()
 	set name = "Toggle light"
@@ -21,4 +22,5 @@
 	desc = "A classic green-shaded desk lamp."
 	icon = 'icons/obj/lighting/greenlamp.dmi'
 	light_color = "#ffc58f"
-	flashlight_range = 4
+	flashlight_range = 3
+	light_color = "#ffebb8"

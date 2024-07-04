@@ -379,17 +379,15 @@ var/global/const/NO_EMAG_ACT = -50
 	registered_name = "Syndicate"
 	assignment = "Syndicate Overlord"
 	access = list(access_hacked, access_external_airlocks)
-	color = COLOR_RED_GRAY
-	detail_color = COLOR_GRAY40
+	icon_state = "syndieGold"
 
 /obj/item/card/id/captains_spare
 	name = "captain's spare ID"
 	desc = "The spare ID of the High Lord himself."
-	icon_state = ICON_STATE_WORLD
 	item_state = "gold_id"
 	registered_name = "Captain"
 	assignment = "Captain"
-	detail_color = COLOR_AMBER
+	icon_state = "gold"
 
 /obj/item/card/id/captains_spare/Initialize()
 	. = ..()
@@ -414,9 +412,7 @@ var/global/const/NO_EMAG_ACT = -50
 	desc = "An ID straight from Cent. Com."
 	registered_name = "Central Command"
 	assignment = "General"
-	color = COLOR_GRAY40
-	detail_color = COLOR_COMMAND_BLUE
-	extra_details = list("goldstripe")
+	icon_state = "centcomGold"
 
 /obj/item/card/id/centcom/station/Initialize()
 	. = ..()
@@ -445,7 +441,7 @@ var/global/const/NO_EMAG_ACT = -50
 /obj/item/card/id/civilian
 	name = "identification card"
 	desc = "A card issued to civilian staff."
-	detail_color = COLOR_CIVIE_GREEN
+	icon_state = "civ"
 
 /obj/item/card/id/civilian/head //This is not the HoP. There's no position that uses this right now.
 	name = "identification card"
@@ -456,16 +452,15 @@ var/global/const/NO_EMAG_ACT = -50
 	name = "identification card"
 	desc = "A card issued to Merchants, indicating their right to sell and buy goods."
 	access = list(access_merchant)
-	color = COLOR_OFF_WHITE
-	detail_color = COLOR_BEIGE
+	icon_state = "trader"
 
 /obj/item/card/id/silver
 	name = "identification card"
 	desc = "A silver card which shows honour and dedication."
 	item_state = "silver_id"
+	icon_state = "silver"
 
 /obj/item/card/id/gold
 	name = "identification card"
 	desc = "A golden card which shows power and might."
-	color = "#d4c780"
-	extra_details = list("goldstripe")
+	icon_state = "gold"

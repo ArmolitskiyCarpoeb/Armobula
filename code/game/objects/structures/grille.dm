@@ -14,7 +14,7 @@
 	parts_type = /obj/item/stack/material/rods
 	parts_amount = 2
 
-	handle_generic_blending = TRUE
+	handle_generic_blending = FALSE
 	material_alteration = MAT_FLAG_ALTERATION_COLOR | MAT_FLAG_ALTERATION_NAME
 	max_health = 20
 

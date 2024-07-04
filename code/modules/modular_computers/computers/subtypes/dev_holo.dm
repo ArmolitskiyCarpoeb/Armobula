@@ -28,7 +28,7 @@
 
 	default_programs = list(/datum/computer_file/program/wordprocessor)
 
-	light_strength = 2
+	light_strength = 1
 	light_color = "#0a50ff"
 
 	/// Will contain text file with this text, if not empty.

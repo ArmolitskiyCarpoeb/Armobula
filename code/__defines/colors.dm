@@ -210,6 +210,8 @@ var/global/list/telecomms_colours = list(
 #define LIGHT_COLOR_TUNGSTEN   "#fae1af" //Extremely diluted yellow, close to skin color (for some reason). rgb(250, 225, 175)
 #define LIGHT_COLOR_HALOGEN    "#f0fafa" //Barely visible cyan-ish hue, as the doctor prescribed. rgb(240, 250, 250)
 #define LIGHT_COLOR_EMERGENCY  "#ff3232" //Red color used by emergency lighting. rgb(255, 50, 50)
+#define LIGHT_COLOR_NEW_BLUE   "#ddeeff"
+#define LIGHT_COLOR_NEW_YELLOW "#f0e891"
 
 // Used by fluid system.
 #define COLOR_LIQUID_WATER "#99f5ff"

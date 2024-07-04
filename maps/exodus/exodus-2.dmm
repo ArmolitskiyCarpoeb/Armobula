@@ -10340,7 +10340,6 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/hologram/holopad,
-/obj/abstract/landmark/paperwork_finish_exodus,
 /turf/floor/tiled/steel_grid,
 /area/exodus/bridge)
 "avT" = (
@@ -20975,7 +20974,6 @@
 /turf/floor/tiled/dark,
 /area/exodus/chapel/main)
 "aSm" = (
-/obj/structure/cult/tome,
 /obj/item/clothing/pants/slacks/red/outfit,
 /obj/item/radio/intercom{
 	dir = 8;
@@ -23105,7 +23103,6 @@
 	dir = 5
 	},
 /obj/structure/table/reinforced,
-/obj/abstract/landmark/paperwork_spawn_exodus,
 /turf/floor/tiled/steel_grid,
 /area/exodus/bridge)
 "aXl" = (
@@ -23191,7 +23188,6 @@
 	dir = 5
 	},
 /obj/structure/table/reinforced,
-/obj/abstract/landmark/paperwork_spawn_exodus,
 /turf/floor/tiled/steel_grid,
 /area/exodus/bridge)
 "aXu" = (
