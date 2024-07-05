@@ -4,11 +4,18 @@ var/global/list/closets = list()
 	name = "closet"
 	desc = "It's a basic storage unit."
 	icon = 'icons/obj/closets/bases/closet.dmi'
-	icon_state = "base"
+	icon_state = "closed"
 	density = TRUE
 	max_health = 100
 	material = /decl/material/solid/metal/steel
 	tool_interaction_flags = TOOL_INTERACTION_ANCHOR
+
+	var/icon_closed = "closed"
+	var/icon_opened = "open"
+
+	var/icon_locked
+	var/icon_broken = "sparks"
+	var/icon_off
 
 	var/welded = 0
 	var/large = 1
@@ -37,13 +44,6 @@ var/global/list/closets = list()
 	global.closets += src
 	if((setup & CLOSET_HAS_LOCK))
 		verbs += /obj/structure/closet/proc/togglelock_verb
-
-	if(ispath(closet_appearance))
-		var/decl/closet_appearance/app = GET_DECL(closet_appearance)
-		if(app)
-			icon = app.icon
-			color = null
-			queue_icon_update()
 
 	return INITIALIZE_HINT_LATELOAD
 
@@ -381,16 +381,33 @@ var/global/list/closets = list()
 	else
 		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
 
-/obj/structure/closet/on_update_icon()
-	..()
-	if(opened)
-		icon_state = "open"
-	else if(broken)
-		icon_state = "closed_emagged[welded ? "_welded" : ""]"
-	else if(locked)
-		icon_state = "closed_locked[welded ? "_welded" : ""]"
+
+/obj/structure/closet/on_update_icon()//Putting the welded stuff in update_icon() so it's easy to overwrite for special cases (Fridges, cabinets, and whatnot)
+	overlays.Cut()
+
+	if(!opened)
+		if(broken && icon_off)
+			icon_state = icon_off
+			overlays += icon_broken
+		else if((setup & CLOSET_HAS_LOCK) && locked && icon_locked)
+			icon_state = icon_locked
+		else
+			icon_state = icon_closed
+		if(welded)
+			overlays += "welded"
 	else
-		icon_state = "closed_unlocked[welded ? "_welded" : ""]"
+		icon_state = icon_opened
+
+///obj/structure/closet/on_update_icon()
+//	..()
+//	if(opened)
+//		icon_state = "open"
+//	else if(broken)
+//		icon_state = "closed_emagged[welded ? "_welded" : ""]"
+//	else if(locked)
+//		icon_state = "closed_locked[welded ? "_welded" : ""]"
+//	else
+//		icon_state = "closed_unlocked[welded ? "_welded" : ""]"
 
 /obj/structure/closet/proc/req_breakout()
 	if(opened)

@@ -376,14 +376,6 @@
 	)
 
 /decl/closet_appearance/secure_closet/security
-	color = COLOR_NT_RED
-	decals = list(
-		"lower_holes"
-	)
-	extra_decals = list(
-		"stripe_vertical_mid_full" = COLOR_WARM_YELLOW,
-		"security" = COLOR_WARM_YELLOW
-	)
 
 /decl/closet_appearance/secure_closet/security/warden
 	extra_decals = list(
