@@ -1,9 +1,11 @@
 /obj/structure/closet/coffin
 	name = "coffin"
 	desc = "It's a burial receptacle for the dearly departed."
-	icon = 'icons/obj/closets/coffin.dmi'
+	icon = 'icons/obj/closets/bases/closet.dmi'
 	setup = 0
-	closet_appearance = null
+	icon_state = "coffin"
+	icon_closed = "coffin"
+	icon_opened = "coffin_open"
 
 	var/screwdriver_time_needed = 7.5 SECONDS
 
@@ -46,6 +48,8 @@
 /obj/structure/closet/coffin/wooden
 	name = "coffin"
 	desc = "It's a burial receptacle for the dearly departed."
-	icon = 'icons/obj/closets/coffin_wood.dmi'
+	icon = 'icons/obj/closets/bases/closet.dmi'
 	setup = 0
-	closet_appearance = null
+	icon_state = "coffin_black"
+	icon_closed = "coffin_black"
+	icon_opened = "coffin_black_open"

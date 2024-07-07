@@ -1,7 +1,9 @@
 /obj/structure/closet/cabinet
 	name = "cabinet"
 	desc = "Old will forever be in fashion."
-	closet_appearance = /decl/closet_appearance/cabinet
+	icon_state = "cabinet_closed"
+	icon_closed = "cabinet_closed"
+	icon_opened = "cabinet_open"
 
 /obj/structure/closet/cabinet/wooden
 	desc = "A stout cabinet."
@@ -15,18 +17,24 @@
 /obj/structure/closet/acloset
 	name = "strange closet"
 	desc = "It looks alien!"
-	closet_appearance = /decl/closet_appearance/alien
+	icon_state = "acloset"
+	icon_closed = "acloset"
+	icon_opened = "aclosetopen"
 
 /obj/structure/closet/gimmick
 	name = "administrative supply closet"
 	desc = "It's a storage unit for things that have no right being here."
-	closet_appearance = /decl/closet_appearance/tactical
+	icon_state = "syndicate1"
+	icon_closed = "syndicate1"
+	icon_opened = "syndicate1open"
 	anchored = FALSE
 
 /obj/structure/closet/gimmick/russian
 	name = "russian surplus closet"
 	desc = "It's a storage unit for Russian standard-issue surplus."
-	closet_appearance = /decl/closet_appearance/tactical
+	icon_state = "syndicate1"
+	icon_closed = "syndicate1"
+	icon_opened = "syndicate1open"
 
 /obj/structure/closet/gimmick/russian/WillContain()
 	return list(
@@ -36,7 +44,9 @@
 /obj/structure/closet/gimmick/tacticool
 	name = "tacticool gear closet"
 	desc = "It's a storage unit for Tacticool gear."
-	closet_appearance = /decl/closet_appearance/tactical
+	icon_state = "syndicate1"
+	icon_closed = "syndicate1"
+	icon_opened = "syndicate1open"
 
 
 /obj/structure/closet/gimmick/tacticool/WillContain()
@@ -53,7 +63,9 @@
 /obj/structure/closet/thunderdome
 	name = "\improper Thunderdome closet"
 	desc = "Everything you need!"
-	closet_appearance = /decl/closet_appearance/tactical/alt
+	icon_state = "syndicate"
+	icon_closed = "syndicate"
+	icon_opened = "syndicateopen"
 
 	anchored = TRUE
 
@@ -72,7 +84,9 @@
 
 /obj/structure/closet/thunderdome/tdgreen
 	name = "green-team Thunderdome closet"
-	closet_appearance = /decl/closet_appearance/tactical
+	icon_state = "syndicate1"
+	icon_closed = "syndicate1"
+	icon_opened = "syndicate1open"
 
 /obj/structure/closet/thunderdome/tdgreen/WillContain()
 	return list(

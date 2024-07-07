@@ -14,8 +14,11 @@
 
 /obj/structure/closet/secure_closet/freezer/meat
 	name = "meat fridge"
-	icon = 'icons/obj/closets/fridge.dmi'
-	closet_appearance = null
+	icon_state = "fridge1"
+	icon_closed = "fridge"
+	icon_locked = "fridge1"
+	icon_opened = "fridgeopen"
+	icon_off = "fridgebroken"
 
 /obj/structure/closet/secure_closet/freezer/meat/WillContain()
 	return list(
@@ -25,8 +28,11 @@
 
 /obj/structure/closet/secure_closet/freezer/fridge
 	name = "refrigerator"
-	icon = 'icons/obj/closets/fridge.dmi'
-	closet_appearance = null
+	icon_state = "fridge1"
+	icon_closed = "fridge"
+	icon_locked = "fridge1"
+	icon_opened = "fridgeopen"
+	icon_off = "fridgebroken"
 
 /obj/structure/closet/secure_closet/freezer/fridge/WillContain()
 	return list(
@@ -37,8 +43,11 @@
 
 /obj/structure/closet/secure_closet/freezer/money
 	name = "secure locker"
-	icon = 'icons/obj/closets/fridge.dmi'
-	closet_appearance = null
+	icon_state = "fridge1"
+	icon_closed = "fridge"
+	icon_locked = "fridge1"
+	icon_opened = "fridgeopen"
+	icon_off = "fridgebroken"
 	req_access = list(access_heads_vault)
 
 /obj/structure/closet/secure_closet/freezer/money/WillContain()

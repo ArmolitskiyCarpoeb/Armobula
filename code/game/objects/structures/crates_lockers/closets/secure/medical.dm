@@ -14,7 +14,11 @@
 /obj/structure/closet/secure_closet/medical1
 	name = "medical equipment closet"
 	desc = "Filled with medical junk."
-	closet_appearance = /decl/closet_appearance/secure_closet/medical
+	icon_state = "medical1"
+	icon_closed = "medical"
+	icon_locked = "medical1"
+	icon_opened = "medicalopen"
+	icon_off = "medicaloff"
 	req_access = list(access_medical_equip)
 
 /obj/structure/closet/secure_closet/medical1/WillContain()
@@ -33,7 +37,11 @@
 /obj/structure/closet/secure_closet/medical3
 	name = "medical doctor's locker"
 	req_access = list(access_medical_equip)
-	closet_appearance = /decl/closet_appearance/secure_closet/medical/alt
+	icon_state = "securemed1"
+	icon_closed = "securemed"
+	icon_locked = "securemed1"
+	icon_opened = "securemedopen"
+	icon_off = "securemedoff"
 
 /obj/structure/closet/secure_closet/medical3/WillContain()
 	return list(
@@ -58,7 +66,11 @@
 /obj/structure/closet/secure_closet/paramedic
 	name = "paramedic locker"
 	desc = "Supplies for a first responder."
-	closet_appearance = /decl/closet_appearance/secure_closet/medical
+	icon_state = "medical1"
+	icon_closed = "medical"
+	icon_locked = "medical1"
+	icon_opened = "medicalopen"
+	icon_off = "medicaloff"
 	req_access = list(access_medical_equip)
 
 /obj/structure/closet/secure_closet/paramedic/WillContain()
@@ -88,7 +100,11 @@
 /obj/structure/closet/secure_closet/cmo
 	name = "chief medical officer's locker"
 	req_access = list(access_cmo)
-	closet_appearance = /decl/closet_appearance/secure_closet/cmo
+	icon_state = "cmosecure1"
+	icon_closed = "cmosecure"
+	icon_locked = "cmosecure1"
+	icon_opened = "cmosecureopen"
+	icon_off = "cmosecureoff"
 
 /obj/structure/closet/secure_closet/cmo/WillContain()
 	return list(
@@ -111,7 +127,11 @@
 /obj/structure/closet/secure_closet/chemical
 	name = "chemical closet"
 	desc = "Store dangerous chemicals in here."
-	closet_appearance = /decl/closet_appearance/secure_closet/medical
+	icon_state = "medical1"
+	icon_closed = "medical"
+	icon_locked = "medical1"
+	icon_opened = "medicalopen"
+	icon_off = "medicaloff"
 	req_access = list(access_chemistry)
 
 /obj/structure/closet/secure_closet/chemical/WillContain()
@@ -123,7 +143,12 @@
 /obj/structure/closet/secure_closet/medical_wall
 	name = "first aid closet"
 	desc = "It's a secure wall-mounted storage unit for first aid supplies."
-	closet_appearance = /decl/closet_appearance/wall/medical
+	icon_state = "medical_wall_locked"
+	icon_closed = "medical_wall_unlocked"
+	icon_locked = "medical_wall_locked"
+	icon_opened = "medical_wall_open"
+	icon_broken = "medical_wall_sparks"
+	icon_off = "medical_wall_off"
 	anchored = TRUE
 	density = FALSE
 	wall_mounted = 1
@@ -148,7 +173,11 @@
 
 /obj/structure/closet/secure_closet/counselor
 	name = "counselor's locker"
-	closet_appearance = /decl/closet_appearance/secure_closet/medical
+	icon_state = "chaplainsecure1"
+	icon_closed = "chaplainsecure"
+	icon_locked = "chaplainsecure1"
+	icon_opened = "chaplainsecureopen"
+	icon_off = "chaplainsecureoff"
 	req_access = list(access_psychiatrist)
 
 /obj/structure/closet/secure_closet/counselor/WillContain()
@@ -173,7 +202,11 @@
 
 /obj/structure/closet/secure_closet/virology
 	name = "virologist's locker"
-	closet_appearance = /decl/closet_appearance/secure_closet/medical/virology
+	icon_state = "secureviro1"
+	icon_closed = "secureviro"
+	icon_locked = "secureviro1"
+	icon_opened = "secureviroopen"
+	icon_off = "securevirooff"
 
 	req_access = list(access_virology)
 
@@ -201,7 +234,11 @@
 /obj/structure/closet/secure_closet/psychiatry
 	name = "Psychiatrist's locker"
 	desc = "Everything you need to keep the lunatics at bay."
-	closet_appearance = /decl/closet_appearance/secure_closet/medical/alt
+	icon_state = "securemed1"
+	icon_closed = "securemed"
+	icon_locked = "securemed1"
+	icon_opened = "securemedopen"
+	icon_off = "securemedoff"
 	req_access = list(access_psychiatrist)
 
 /obj/structure/closet/secure_closet/psychiatry/WillContain()

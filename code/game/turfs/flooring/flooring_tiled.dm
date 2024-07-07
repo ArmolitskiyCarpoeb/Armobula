@@ -18,6 +18,11 @@
 	color = COLOR_DARK_GRAY
 	build_type = /obj/item/stack/tile/mono/dark
 
+/decl/flooring/tiling/mono/gray
+	icon_base = "catwalk_platedgray"
+	color = COLOR_GRAY
+	build_type = /obj/item/stack/tile/mono/gray
+
 /decl/flooring/tiling/mono/white
 	icon_base = "monotile_light"
 	color = COLOR_OFF_WHITE
@@ -100,9 +105,12 @@
 
 /decl/flooring/tiling/new_tile/steel_ridged
 	icon_base = "ridged"
-	color = COLOR_GUNMETAL
 	build_type = /obj/item/stack/tile/ridge
 
 /decl/flooring/tiling/new_tile/steel_grid_2
 	icon_base = "steel_grid"
-	build_type = /obj/item/stack/tile/grid
+	build_type = /obj/item/stack/tile/floor
+
+/decl/flooring/tiling/new_tile/sad_floor
+	icon_base = "sad_floor"
+	build_type = /obj/item/stack/tile/floor

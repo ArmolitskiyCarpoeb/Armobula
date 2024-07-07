@@ -2,7 +2,9 @@
 	name = "crate"
 	desc = "A rectangular steel crate."
 	icon = 'icons/obj/closets/bases/crate.dmi'
-	closet_appearance = /decl/closet_appearance/crate
+	icon_state = "crate"
+	icon_opened = "crateopen"
+	icon_closed = "crate"
 	atom_flags = ATOM_FLAG_CLIMBABLE
 	setup = 0
 	storage_types = CLOSET_STORAGE_ITEMS
@@ -64,18 +66,35 @@
 /obj/structure/closet/crate/secure
 	desc = "A secure crate."
 	name = "Secure crate"
-	closet_appearance = /decl/closet_appearance/crate/secure
+	icon_state = "securecrate"
+	icon_opened = "securecrateopen"
+	icon_closed = "securecrate"
 	setup = CLOSET_HAS_LOCK
 	locked = TRUE
+	var/redlight = "securecrater"
+	var/greenlight = "securecrateg"
+	var/sparks = "securecratesparks"
+	var/emag = "securecrateemag"
 
 /obj/structure/closet/crate/secure/Initialize()
 	. = ..()
 	update_icon()
 
+/obj/structure/closet/crate/secure/update_icon()
+	..()
+	if(broken)
+		overlays += emag
+	else if(locked)
+		overlays += redlight
+	else
+		overlays += greenlight
+
 /obj/structure/closet/crate/plastic
 	name = "plastic crate"
 	desc = "A rectangular plastic crate."
-	closet_appearance = /decl/closet_appearance/crate/plastic
+	icon_state = "plasticcrate"
+	icon_opened = "plasticcrateopen"
+	icon_closed = "plasticcrate"
 
 /obj/structure/closet/crate/internals
 	name = "internals crate"
@@ -91,13 +110,17 @@
 /obj/structure/closet/crate/trashcart
 	name = "trash cart"
 	desc = "A heavy, metal trashcart with wheels."
-	closet_appearance = /decl/closet_appearance/cart/trash
+	icon_state = "trashcart"
+	icon_opened = "trashcartopen"
+	icon_closed = "trashcart"
 	icon = 'icons/obj/closets/bases/cart.dmi'
 
 /obj/structure/closet/crate/medical
 	name = "medical crate"
 	desc = "A medical crate."
-	closet_appearance = /decl/closet_appearance/crate/medical
+	icon_state = "medicalcrate"
+	icon_opened = "medicalcrateopen"
+	icon_closed = "medicalcrate"
 
 /obj/structure/closet/crate/rcd
 	name = "\improper RCD crate"
@@ -130,7 +153,9 @@
 	name = "freezer"
 	desc = "A freezer."
 	temperature = -16 CELSIUS
-	closet_appearance = /decl/closet_appearance/crate/freezer
+	icon_state = "freezer"
+	icon_opened = "freezeropen"
+	icon_closed = "freezer"
 
 	var/target_temp = T0C - 40
 	var/cooling_power = 40
@@ -172,16 +197,24 @@
 /obj/structure/closet/crate/bin
 	name = "large bin"
 	desc = "A large bin."
+	icon_state = "largebin"
+	icon_opened = "largebinopen"
+	icon_closed = "largebin"
 
 /obj/structure/closet/crate/radiation
 	name = "radioactive crate"
 	desc = "A leadlined crate with a radiation sign on it."
-	closet_appearance = /decl/closet_appearance/crate/radiation
+	icon_state = "radiation"
+	icon_opened = "radiationopen"
+	icon_closed = "radiation"
+
 
 /obj/structure/closet/crate/radiation_gear
 	name = "radioactive gear crate"
 	desc = "A crate with a radiation sign on it."
-	closet_appearance = /decl/closet_appearance/crate/radiation
+	icon_state = "radiation"
+	icon_opened = "radiationopen"
+	icon_closed = "radiation"
 
 /obj/structure/closet/crate/radiation_gear/WillContain()
 	return list(/obj/item/clothing/suit/radiation = 8)
@@ -189,12 +222,16 @@
 /obj/structure/closet/crate/secure/weapon
 	name = "weapons crate"
 	desc = "A secure weapons crate."
-	closet_appearance = /decl/closet_appearance/crate/secure/weapon
+	icon_state = "weaponcrate"
+	icon_opened = "weaponcrateopen"
+	icon_closed = "weaponcrate"
 
 /obj/structure/closet/crate/secure/explosives
 	name = "explosives crate"
 	desc = "A secure exploxives crate."
-	closet_appearance = /decl/closet_appearance/crate/secure/hazard
+	icon_state = "weaponcrate"
+	icon_opened = "weaponcrateopen"
+	icon_closed = "weaponcrate"
 
 /obj/structure/closet/crate/secure/shuttle
 	name = "storage compartment"
@@ -205,20 +242,26 @@
 /obj/structure/closet/crate/secure/gear
 	name = "gear crate"
 	desc = "A secure gear crate."
-	closet_appearance = /decl/closet_appearance/crate/secure/weapon
+	icon_state = "secgearcrate"
+	icon_opened = "secgearcrateopen"
+	icon_closed = "secgearcrate"
 
 /obj/structure/closet/crate/secure/hydrosec
 	name = "secure hydroponics crate"
 	desc = "A crate with a lock on it, painted in the scheme of botany and botanists."
-	closet_appearance = /decl/closet_appearance/crate/secure/hydroponics
+	icon_state = "hydrosecurecrate"
+	icon_opened = "hydrosecurecrateopen"
+	icon_closed = "hydrosecurecrate"
 
 /obj/structure/closet/crate/large
 	name = "large crate"
 	desc = "A hefty metal crate."
 	storage_capacity = 2 * MOB_SIZE_LARGE
 	storage_types = CLOSET_STORAGE_ITEMS|CLOSET_STORAGE_STRUCTURES
-	closet_appearance = /decl/closet_appearance/large_crate
-	icon = 'icons/obj/closets/bases/large_crate.dmi'
+	icon_state = "largemetal"
+	icon_opened = "largemetalopen"
+	icon_closed = "largemetal"
+	icon = 'icons/obj/closets/bases/crate.dmi'
 
 /obj/structure/closet/crate/large/hydroponics
 	closet_appearance = /decl/closet_appearance/large_crate/hydroponics
@@ -226,14 +269,20 @@
 /obj/structure/closet/crate/secure/large
 	name = "large crate"
 	desc = "A hefty metal crate with an electronic locking system."
-	closet_appearance = /decl/closet_appearance/large_crate/secure
+	icon_state = "largermetal"
+	icon_opened = "largermetalopen"
+	icon_closed = "largermetal"
+	redlight = "largemetalr"
+	greenlight = "largemetalg"
 
 	storage_capacity = 2 * MOB_SIZE_LARGE
 	storage_types = CLOSET_STORAGE_ITEMS|CLOSET_STORAGE_STRUCTURES
-	icon = 'icons/obj/closets/bases/large_crate.dmi'
+	icon = 'icons/obj/closets/bases/crate.dmi'
 
 /obj/structure/closet/crate/secure/large/supermatter
-	closet_appearance = /decl/closet_appearance/large_crate/secure/hazard
+	icon_state = "largermetal"
+	icon_opened = "largermetalopen"
+	icon_closed = "largermetal"
 
 //fluff variant
 /obj/structure/closet/crate/secure/large/reinforced
@@ -242,7 +291,9 @@
 /obj/structure/closet/crate/hydroponics
 	name = "hydroponics crate"
 	desc = "All you need to destroy those pesky weeds and pests."
-	closet_appearance = /decl/closet_appearance/crate/hydroponics
+	icon_state = "hydrocrate"
+	icon_opened = "hydrocrateopen"
+	icon_closed = "hydrocrate"
 
 /obj/structure/closet/crate/hydroponics/prespawned/WillContain()
 	return list(
@@ -273,7 +324,9 @@
 	open_sound = 'sound/items/Deconstruct.ogg'
 	close_sound = 'sound/items/Deconstruct.ogg'
 	req_access = list(access_xenobiology)
-	closet_appearance = /decl/closet_appearance/cart/biohazard
+	icon_state = "biohazard"
+	icon_opened = "biohazardopen"
+	icon_closed = "biohazard"
 	storage_capacity = 2 * MOB_SIZE_LARGE
 	storage_types = CLOSET_STORAGE_ITEMS|CLOSET_STORAGE_MOBS|CLOSET_STORAGE_STRUCTURES
 	movable_flags = MOVABLE_FLAG_WHEELED
@@ -292,12 +345,17 @@
 	name = "biowaste disposal cart"
 	desc = "A heavy cart used for organ disposal with markings indicating the things inside are probably gross."
 	req_access = list(access_surgery)
-	closet_appearance = /decl/closet_appearance/cart/biohazard/alt
+	icon_state = "biohazard"
+	icon_opened = "biohazardopen"
+	icon_closed = "biohazard"
 	movable_flags = MOVABLE_FLAG_WHEELED
 
 /obj/structure/closet/crate/paper_refill
 	name = "paper refill crate"
 	desc = "A rectangular plastic crate, filled up with blank papers for refilling bins and printers. A bureaucrat's favorite."
+	icon_state = "plasticcrate"
+	icon_opened = "plasticcrateopen"
+	icon_closed = "plasticcrate"
 
 /obj/structure/closet/crate/paper_refill/WillContain()
 	return list(/obj/item/paper = 30)
@@ -305,7 +363,9 @@
 /obj/structure/closet/crate/uranium
 	name = "fissibles crate"
 	desc = "A crate with a radiation sign on it."
-	closet_appearance = /decl/closet_appearance/crate/radiation
+	icon_state = "radiation"
+	icon_opened = "radiationopen"
+	icon_closed = "radiation"
 
 /obj/structure/closet/crate/uranium/WillContain()
 	return list(/obj/item/stack/material/puck/mapped/uranium/ten = 5)

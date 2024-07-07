@@ -1,6 +1,8 @@
 /obj/structure/closet/malf/suits
 	desc = "It's a storage unit for operational gear."
-	closet_appearance = /decl/closet_appearance/tactical
+	icon_state = "syndicate"
+	icon_closed = "syndicate"
+	icon_opened = "syndicateopen"
 
 /obj/structure/closet/malf/suits/WillContain()
 	return list(

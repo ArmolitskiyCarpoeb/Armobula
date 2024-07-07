@@ -1,7 +1,8 @@
 /obj/structure/closet/athletic_mixed
 	name = "athletic wardrobe"
 	desc = "It's a storage unit for athletic wear."
-	closet_appearance = /decl/closet_appearance/wardrobe/mixed
+	icon_state = "mixed"
+	icon_closed = "mixed"
 
 /obj/structure/closet/athletic_mixed/WillContain()
 	return list(

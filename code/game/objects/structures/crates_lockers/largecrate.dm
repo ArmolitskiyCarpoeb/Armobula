@@ -1,7 +1,7 @@
 /obj/structure/largecrate
 	name = "large crate"
 	desc = "A hefty wooden crate."
-	icon = 'icons/obj/shipping_crates.dmi'
+	icon = 'icons/obj/closets/bases/crate.dmi'
 	icon_state = "densecrate"
 	density = TRUE
 	atom_flags = ATOM_FLAG_CLIMBABLE

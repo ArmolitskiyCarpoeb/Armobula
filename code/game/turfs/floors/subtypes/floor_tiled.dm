@@ -123,3 +123,8 @@
 	name = "steel floor"
 	icon_state = "steel_grid"
 	initial_flooring = /decl/flooring/tiling/new_tile/steel_grid_2
+
+/turf/floor/tiled/sad_floor
+	name = "steel floor"
+	icon_state = "sad_floor"
+	initial_flooring = /decl/flooring/tiling/new_tile/sad_floor

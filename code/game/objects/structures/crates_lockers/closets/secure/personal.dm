@@ -21,7 +21,12 @@
 	return list(/obj/item/clothing/suit/hospital/blue, /obj/item/clothing/suit/hospital/green, /obj/item/clothing/suit/hospital/pink)
 
 /obj/structure/closet/secure_closet/personal/cabinet
-	closet_appearance = /decl/closet_appearance/cabinet/secure
+	icon_state = "cabinetdetective"
+	icon_closed = "cabinetdetective"
+	icon_locked = "cabinetdetective_locked"
+	icon_opened = "cabinetdetective_open"
+	icon_broken = "cabinetdetective_sparks"
+	icon_off = "cabinetdetective_broken"
 
 /obj/structure/closet/secure_closet/personal/cabinet/WillContain()
 	return list(/obj/item/backpack/satchel/grey/withwallet, /obj/item/radio/headset)

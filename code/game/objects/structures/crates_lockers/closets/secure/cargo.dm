@@ -1,7 +1,11 @@
 /obj/structure/closet/secure_closet/cargotech
 	name = "cargo technician's locker"
 	req_access = list(access_cargo)
-	closet_appearance = /decl/closet_appearance/secure_closet/cargo
+	icon_state = "securecargo1"
+	icon_closed = "securecargo"
+	icon_locked = "securecargo1"
+	icon_opened = "securecargoopen"
+	icon_off = "securecargooff"
 
 /obj/structure/closet/secure_closet/cargotech/WillContain()
 	return list(
@@ -18,7 +22,11 @@
 /obj/structure/closet/secure_closet/quartermaster
 	name = "quartermaster's locker"
 	req_access = list(access_qm)
-	closet_appearance = /decl/closet_appearance/secure_closet/cargo/qm
+	icon_state = "secureqm1"
+	icon_closed = "secureqm"
+	icon_locked = "secureqm1"
+	icon_opened = "secureqmopen"
+	icon_off = "secureqmoff"
 
 /obj/structure/closet/secure_closet/quartermaster/WillContain()
 	return list(

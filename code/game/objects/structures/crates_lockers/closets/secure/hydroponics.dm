@@ -1,7 +1,11 @@
 /obj/structure/closet/secure_closet/hydroponics
 	name = "botanist's locker"
 	req_access = list(access_hydroponics)
-	closet_appearance = /decl/closet_appearance/secure_closet/hydroponics
+	icon_state = "hydrosecure1"
+	icon_closed = "hydrosecure"
+	icon_locked = "hydrosecure1"
+	icon_opened = "hydrosecureopen"
+	icon_off = "hydrosecureoff"
 
 /obj/structure/closet/secure_closet/hydroponics/WillContain()
 	return list(
