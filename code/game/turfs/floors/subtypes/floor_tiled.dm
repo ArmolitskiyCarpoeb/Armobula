@@ -92,10 +92,10 @@
 	icon_state = "tile_full"
 	initial_flooring = /decl/flooring/tiling/new_tile2
 
-/turf/floor/tiled/old_cargo2
-	name = "floor"
-	icon_state = "cargo_one_full"
-	initial_flooring = /decl/flooring/tiling/new_tile2/cargo_one2
+// /turf/floor/tiled/old_cargo2
+//	name = "floor"
+//	icon_state = "cargo_one_full"
+//	initial_flooring = /decl/flooring/tiling/new_tile2/cargo_one2
 
 //
 
@@ -128,3 +128,18 @@
 	name = "steel floor"
 	icon_state = "sad_floor"
 	initial_flooring = /decl/flooring/tiling/new_tile/sad_floor
+
+// SAD FLOORS COLORED
+
+/turf/floor/tiled/sad_floor/red_1
+	name = "steel floor"
+	icon_state = "sad_floor_red_1"
+	initial_flooring = /decl/flooring/tiling/new_tile/sad_floor_red_1
+
+
+/turf/floor/tiled/sad_floor/red_2
+	name = "steel floor"
+	icon_state = "sad_floor_red_2"
+	initial_flooring = /decl/flooring/tiling/new_tile/sad_floor_red_2
+
+// SAD FLOORS COLORED

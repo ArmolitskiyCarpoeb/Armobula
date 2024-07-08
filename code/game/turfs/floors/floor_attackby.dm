@@ -117,6 +117,14 @@
 					return TRUE
 				if(S.use(use_flooring.build_cost))
 					set_flooring(use_flooring)
+					if (S.color)
+						src.color = S.color
+					var/obj/item/stack/tile/F = null
+					if (istype(S,/obj/item/stack/tile))
+						F = S
+						if(F.stored_decals)
+							src.decals = F.stored_decals
+					src.update_icon()
 					playsound(src, 'sound/items/Deconstruct.ogg', 80, 1)
 					return TRUE
 

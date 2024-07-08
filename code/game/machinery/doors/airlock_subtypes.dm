@@ -69,7 +69,7 @@
 	name = "Glass Airlock"
 	icon_state = "preview_glass"
 	hitsound = 'sound/effects/Glasshit.ogg'
-	max_health = 300
+	max_health = 275
 	explosion_resistance = 5
 	opacity = FALSE
 	glass = TRUE

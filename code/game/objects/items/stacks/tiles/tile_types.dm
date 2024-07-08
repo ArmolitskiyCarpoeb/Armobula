@@ -22,6 +22,7 @@
 	throw_range = 20
 	item_flags = 0
 	obj_flags = 0
+	var/image/stored_decals = null
 	var/replacement_turf_type = /turf/floor
 
 /obj/item/stack/tile/proc/try_build_turf(var/mob/user, var/turf/target)
@@ -145,6 +146,25 @@
 	material = /decl/material/solid/metal/steel
 	throwforce = 15
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/sad_floor
+	icon_state = "tile"
+	material = /decl/material/solid/metal/steel
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+// SAD FLOORS COLORED
+
+/obj/item/stack/tile/sad_floor_red_1
+	icon_state = "tile"
+	material = /decl/material/solid/metal/steel
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/sad_floor_red_2
+	icon_state = "tile"
+	material = /decl/material/solid/metal/steel
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+// SAD FLOORS COLORED
 
 /obj/item/stack/tile/mono
 	name = "steel mono tile"

@@ -75,6 +75,15 @@
 		else
 			to_chat(user, "There is enough charge for [get_amount()].")
 
+	if(color)
+		. += "It's painted."
+
+	if(istype(src, /obj/item/stack/tile))
+		var/obj/item/stack/tile/T = src
+
+		if(length(T.stored_decals))
+			. += "It's has painted decals on it."
+
 /obj/item/stack/on_update_icon()
 	. = ..()
 	if(!isturf(loc))

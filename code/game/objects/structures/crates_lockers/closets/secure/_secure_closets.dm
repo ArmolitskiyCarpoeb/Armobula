@@ -14,5 +14,20 @@
 	wall_mounted = 0 //never solid (You can always pass over it)
 	current_health = 200
 
+	var/redlight = "light_r"
+	var/greenlight = "light_g"
+	var/emag = "sparks"
+
 /obj/structure/closet/secure_closet/slice_into_parts(obj/item/weldingtool/WT, mob/user)
 	to_chat(user, "<span class='notice'>\The [src] is too strong to be taken apart.</span>")
+
+/obj/structure/closet/secure_closet/update_icon()
+	..()
+	if(broken)
+		overlays += emag
+	else if(locked)
+		overlays += redlight
+		set_light(0.5, 0.8, LIGHT_COLOR_RED)
+	else
+		overlays += greenlight
+		set_light(0.5, 0.8, LIGHT_COLOR_GREEN)

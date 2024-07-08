@@ -3,7 +3,7 @@
 	desc = "A solid, heavy set of flooring plates."
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_base = "tiled"
-	color = COLOR_DARK_GUNMETAL
+	color = null
 	damage_temperature = T0C+1400
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK | TURF_CAN_BURN
 	build_type = /obj/item/stack/tile/floor
@@ -76,9 +76,9 @@
 	color = COLOR_GRAY40
 	build_type = /obj/item/stack/tile/gray
 
-/decl/flooring/tiling/new_tile2/cargo_one2
-	icon_base = "cargo_one_full"
-	build_type = /obj/item/stack/tile/mono/gray
+// /decl/flooring/tiling/new_tile2/cargo_one2
+//	icon_base = "cargo_one_full"
+//	build_type = /obj/item/stack/tile/mono/gray
 
 //
 
@@ -113,4 +113,16 @@
 
 /decl/flooring/tiling/new_tile/sad_floor
 	icon_base = "sad_floor"
-	build_type = /obj/item/stack/tile/floor
+	build_type = /obj/item/stack/tile/sad_floor
+
+// SAD FLOORS COLORED
+
+/decl/flooring/tiling/new_tile/sad_floor_red_1
+	icon_base = "sad_floor_red_1"
+	build_type = /obj/item/stack/tile/sad_floor_red_1
+
+/decl/flooring/tiling/new_tile/sad_floor_red_2
+	icon_base = "sad_floor_red_2"
+	build_type = /obj/item/stack/tile/sad_floor_red_2
+
+// SAD FLOORS COLORED

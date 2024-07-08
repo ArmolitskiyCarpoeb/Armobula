@@ -109,6 +109,10 @@
 	if(flooring)
 		flooring.on_remove()
 		if(flooring.build_type && place_product)
+			var/obj/F =  new flooring.build_type(src)
+			if (color)
+				F.color = color
+			var/obj/item/stack/tile/T = null
 			// If build type uses material stack, check for it
 			// Because material stack uses different arguments
 			// And we need to use build material to spawn stack
@@ -117,9 +121,18 @@
 				if(!M)
 					CRASH("[src] at ([x], [y], [z]) cannot create stack because it has a bad build_material path: '[flooring.build_material]'")
 				M.create_object(src, flooring.build_cost, flooring.build_type)
+			if (istype(F,/obj/item/stack/tile))	//checking if stack is a tile cause only tiles can store decals
+				T = F
+				T.stored_decals = src.decals
+				src.decals = null
+				if(T.stored_decals)
+					F.overlays += image("icons/obj/tiles.dmi", "decal_state")
 			else
 				new flooring.build_type(src)
 		flooring = null
+
+	if (base_color)
+		color = base_color
 
 	set_light(0)
 	set_floor_broken(skip_update = TRUE)
