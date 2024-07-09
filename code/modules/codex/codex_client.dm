@@ -4,7 +4,7 @@
 
 /client/verb/search_codex(searching as text)
 
-	set name = "Search Codex"
+	set name = ""
 	set category = "IC"
 	set src = usr
 
@@ -60,7 +60,7 @@
 
 /client/verb/list_codex_entries()
 
-	set name = "List Codex Entries"
+	set name = ""
 	set category = "IC"
 	set src = usr
 
@@ -105,7 +105,7 @@
 	codex_on_cooldown = FALSE
 
 /client/verb/codex()
-	set name = "Codex"
+	set name = ""
 	set category = "IC"
 	set src = usr
 

@@ -34,7 +34,7 @@
 /atom/proc/get_lore_info()
 	return
 
-/atom/examine(mob/user, distance, infix = "", suffix = "")
-	. = ..()
-	if(user?.get_preference_value(/datum/client_preference/inquisitive_examine) == PREF_ON && user.can_use_codex() && SScodex.get_codex_entry(get_codex_value(user)))
-		to_chat(user, SPAN_NOTICE("The codex has <b><a href='byond://?src=\ref[SScodex];show_examined_info=\ref[src];show_to=\ref[user]'>relevant information</a></b> available."))
+///atom/examine(mob/user, distance, infix = "", suffix = "")
+//	. = ..()
+//	if(user?.get_preference_value(/datum/client_preference/inquisitive_examine) == PREF_ON && user.can_use_codex() && SScodex.get_codex_entry(get_codex_value(user)))
+//		to_chat(user, SPAN_NOTICE("The codex has <b><a href='byond://?src=\ref[SScodex];show_examined_info=\ref[src];show_to=\ref[user]'>relevant information</a></b> available."))
