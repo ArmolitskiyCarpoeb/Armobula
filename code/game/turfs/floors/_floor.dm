@@ -95,9 +95,9 @@
 //This proc auto corrects the grass tiles' siding.
 /turf/floor/proc/make_plating(var/place_product, var/defer_icon_update)
 
-	LAZYCLEARLIST(decals)
-	for(var/obj/effect/decal/writing/W in src)
-		qdel(W)
+//	LAZYCLEARLIST(decals)
+//	for(var/obj/effect/decal/writing/W in src)
+//		qdel(W)
 
 	SetName(base_name)
 	desc = base_desc

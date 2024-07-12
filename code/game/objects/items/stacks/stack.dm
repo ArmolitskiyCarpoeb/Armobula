@@ -76,39 +76,39 @@
 			to_chat(user, "There is enough charge for [get_amount()].")
 
 	if(color)
-		. += "It's painted."
+		to_chat(user, "It's painted.")
 
 	if(istype(src, /obj/item/stack/tile))
 		var/obj/item/stack/tile/T = src
 
 		if(length(T.stored_decals))
-			. += "It's has painted decals on it."
+			to_chat(user, "It's has painted decals on it.")
 
-/obj/item/stack/on_update_icon()
-	. = ..()
-	if(!isturf(loc))
-		var/image/I = image(null)
-		I.plane = HUD_PLANE
-		I.layer = HUD_ABOVE_ITEM_LAYER
-		I.appearance_flags |= (RESET_COLOR|RESET_TRANSFORM)
-		I.maptext_x = 2
-		I.maptext_y = 2
-		I.maptext = STYLE_SMALLFONTS_OUTLINE(get_amount(), 6, (color || COLOR_WHITE), COLOR_BLACK)
-		add_overlay(I)
-	else
-		compile_overlays() // prevent maptext from showing when we're dropped
+///obj/item/stack/on_update_icon()
+//	. = ..()
+//	if(!isturf(loc))
+//		var/image/I = image(null)
+//		I.plane = HUD_PLANE
+//		I.layer = HUD_ABOVE_ITEM_LAYER
+//		I.appearance_flags |= (RESET_COLOR|RESET_TRANSFORM)
+//		I.maptext_x = 2
+//		I.maptext_y = 2
+//		I.maptext = STYLE_SMALLFONTS_OUTLINE(get_amount(), 6, (color || COLOR_WHITE), COLOR_BLACK)
+//		add_overlay(I)
+//	else
+//		compile_overlays() // prevent maptext from showing when we're dropped
 
-/obj/item/stack/Move()
-	var/on_turf = isturf(loc)
-	. = ..()
-	if(. && on_turf != isturf(loc))
-		update_icon()
+///obj/item/stack/Move()
+//	var/on_turf = isturf(loc)
+//	. = ..()
+//	if(. && on_turf != isturf(loc))
+//		update_icon()
 
-/obj/item/stack/forceMove()
-	var/on_turf = isturf(loc)
-	. = ..()
-	if(. && on_turf != isturf(loc))
-		update_icon()
+///obj/item/stack/forceMove()
+//	var/on_turf = isturf(loc)
+//	. = ..()
+//	if(. && on_turf != isturf(loc))
+//		update_icon()
 
 /obj/item/stack/attack_self(mob/user)
 	list_recipes(user)
@@ -336,6 +336,16 @@
 		return 0
 	if (isnull(tamount))
 		tamount = src.get_amount()
+	if (color != S.color)
+		return 0
+	if (istype(S,/obj/item/stack/tile) && istype(src,/obj/item/stack/tile))
+		var/obj/item/stack/tile/FT = src
+		var/obj/item/stack/tile/F = S
+		if (FT.stored_decals)
+			FT.stored_decals = null
+		if (F.stored_decals)
+			F.stored_decals = null
+		S.cut_overlays()	//cuts off decal status icon applied in /turf/simulated/floor/proc/make_plating()
 
 	var/transfer = max(min(tamount, src.get_amount(), (S.get_max_amount() - S.get_amount())), 0)
 

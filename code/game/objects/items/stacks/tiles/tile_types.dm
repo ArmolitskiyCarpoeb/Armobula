@@ -164,7 +164,91 @@
 	material = /decl/material/solid/metal/steel
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 
+/obj/item/stack/tile/sad_floor_green_1
+	icon_state = "tile"
+	material = /decl/material/solid/metal/steel
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/sad_floor_green_2
+	icon_state = "tile"
+	material = /decl/material/solid/metal/steel
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/sad_floor_blue_1
+	icon_state = "tile"
+	material = /decl/material/solid/metal/steel
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/sad_floor_blue_2
+	icon_state = "tile"
+	material = /decl/material/solid/metal/steel
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/sad_floor_pink_1
+	icon_state = "tile"
+	material = /decl/material/solid/metal/steel
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/sad_floor_pink_2
+	icon_state = "tile"
+	material = /decl/material/solid/metal/steel
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/sad_floor_purple_1
+	icon_state = "tile"
+	material = /decl/material/solid/metal/steel
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/sad_floor_purple_2
+	icon_state = "tile"
+	material = /decl/material/solid/metal/steel
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/sad_floor_orange_1
+	icon_state = "tile"
+	material = /decl/material/solid/metal/steel
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/sad_floor_orange_2
+	icon_state = "tile"
+	material = /decl/material/solid/metal/steel
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/sad_floor_biege_1
+	icon_state = "tile"
+	material = /decl/material/solid/metal/steel
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/sad_floor_biege_2
+	icon_state = "tile"
+	material = /decl/material/solid/metal/steel
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
 // SAD FLOORS COLORED
+
+/obj/item/stack/tile/tile_full_green_1
+	name = "white floor tile"
+	singular_name = "white floor tile"
+	icon_state = "tile_white"
+	material = /decl/material/solid/metal/steel
+
+/obj/item/stack/tile/tile_full_green_2
+	name = "white floor tile"
+	singular_name = "white floor tile"
+	icon_state = "tile_white"
+	material = /decl/material/solid/metal/steel
+
+/obj/item/stack/tile/tile_full_lime_1
+	name = "white floor tile"
+	singular_name = "white floor tile"
+	icon_state = "tile_white"
+	material = /decl/material/solid/metal/steel
+
+/obj/item/stack/tile/tile_full_lime_2
+	name = "white floor tile"
+	singular_name = "white floor tile"
+	icon_state = "tile_white"
+	material = /decl/material/solid/metal/steel
 
 /obj/item/stack/tile/mono
 	name = "steel mono tile"

@@ -12,6 +12,7 @@
 
 /decl/flooring/tiling/mono
 	icon_base = "monotile"
+	color = null
 	build_type = /obj/item/stack/tile/mono
 
 /decl/flooring/tiling/mono/dark
@@ -96,7 +97,7 @@
 
 /decl/flooring/tiling/new_tile/monofloor
 	icon_base = "monofloor"
-	color = COLOR_GUNMETAL
+	color = null
 
 /decl/flooring/tiling/new_tile/steel_grid
 	icon_base = "grid"
@@ -125,4 +126,71 @@
 	icon_base = "sad_floor_red_2"
 	build_type = /obj/item/stack/tile/sad_floor_red_2
 
+/decl/flooring/tiling/new_tile/sad_floor_green_1
+	icon_base = "sad_floor_green_1"
+	build_type = /obj/item/stack/tile/sad_floor_green_1
+
+/decl/flooring/tiling/new_tile/sad_floor_green_2
+	icon_base = "sad_floor_green_2"
+	build_type = /obj/item/stack/tile/sad_floor_green_2
+
+/decl/flooring/tiling/new_tile/sad_floor_blue_1
+	icon_base = "sad_floor_blue_1"
+	build_type = /obj/item/stack/tile/sad_floor_blue_1
+
+/decl/flooring/tiling/new_tile/sad_floor_blue_2
+	icon_base = "sad_floor_blue_2"
+	build_type = /obj/item/stack/tile/sad_floor_blue_2
+
+/decl/flooring/tiling/new_tile/sad_floor_pink_1
+	icon_base = "sad_floor_pink_1"
+	build_type = /obj/item/stack/tile/sad_floor_pink_1
+
+/decl/flooring/tiling/new_tile/sad_floor_pink_2
+	icon_base = "sad_floor_pink_2"
+	build_type = /obj/item/stack/tile/sad_floor_pink_2
+
+/decl/flooring/tiling/new_tile/sad_floor_purple_1
+	icon_base = "sad_floor_purple_1"
+	build_type = /obj/item/stack/tile/sad_floor_purple_1
+
+/decl/flooring/tiling/new_tile/sad_floor_purple_2
+	icon_base = "sad_floor_purple_2"
+	build_type = /obj/item/stack/tile/sad_floor_purple_2
+
+/decl/flooring/tiling/new_tile/sad_floor_orange_1
+	icon_base = "sad_floor_orange_1"
+	build_type = /obj/item/stack/tile/sad_floor_orange_1
+
+/decl/flooring/tiling/new_tile/sad_floor_orange_2
+	icon_base = "sad_floor_orange_2"
+	build_type = /obj/item/stack/tile/sad_floor_orange_2
+
+/decl/flooring/tiling/new_tile/sad_floor_biege_1
+	icon_base = "sad_floor_biege_1"
+	build_type = /obj/item/stack/tile/sad_floor_biege_1
+
+/decl/flooring/tiling/new_tile/sad_floor_biege_2
+	icon_base = "sad_floor_biege_2"
+	build_type = /obj/item/stack/tile/sad_floor_biege_2
 // SAD FLOORS COLORED
+
+/decl/flooring/tiling/new_tile_green_1
+	icon_base = "tile_full_green_2"
+	color = null
+	build_type = /obj/item/stack/tile/tile_full_green_1
+
+/decl/flooring/tiling/new_tile_green_2
+	icon_base = "tile_full_green_2"
+	color = null
+	build_type = /obj/item/stack/tile/tile_full_green_2
+
+/decl/flooring/tiling/new_tile_lime_1
+	icon_base = "tile_full_lime_1"
+	color = null
+	build_type = /obj/item/stack/tile/tile_full_lime_1
+
+/decl/flooring/tiling/new_tile_lime_2
+	icon_base = "tile_full_lime_2"
+	color = null
+	build_type = /obj/item/stack/tile/tile_full_lime_2

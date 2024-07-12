@@ -9,7 +9,7 @@
 	climb_speed_mult = 0.25
 	anchored = FALSE
 	atom_flags = ATOM_FLAG_CHECKS_BORDER | ATOM_FLAG_CLIMBABLE
-	obj_flags = OBJ_FLAG_ROTATABLE | OBJ_FLAG_MOVES_UNSUPPORTED
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	material = DEFAULT_FURNITURE_MATERIAL
 	material_alteration = MAT_FLAG_ALTERATION_ALL
 	max_health = 100
@@ -32,6 +32,16 @@
 	parts_type = /obj/item/stack/material/plank
 	color = WOOD_COLOR_GENERIC
 	paint_color = null
+
+/obj/structure/railing/red
+	anchored = TRUE
+	color = COLOR_RED
+	paint_color = COLOR_RED
+
+/obj/structure/railing/gray
+	anchored = TRUE
+	color = COLOR_GRAY40
+	paint_color = COLOR_GRAY40
 
 // Subtypes.
 #define WOOD_RAILING_SUBTYPE(material_name) \
