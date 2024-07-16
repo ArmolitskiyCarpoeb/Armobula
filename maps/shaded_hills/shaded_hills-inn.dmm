@@ -23,6 +23,12 @@
 "bW" = (
 /obj/structure/table/woodentable/ebony,
 /obj/item/chems/cooking_vessel/skillet,
+/obj/item/chems/glass/pottery/bowl,
+/obj/item/chems/glass/pottery/bowl,
+/obj/item/chems/glass/pottery/bowl,
+/obj/item/chems/glass/pottery/cup,
+/obj/item/chems/glass/pottery/cup,
+/obj/item/chems/glass/pottery/cup,
 /turf/floor/wood/walnut,
 /area/shaded_hills/shrine)
 "cl" = (
@@ -1080,6 +1086,8 @@
 /obj/item/chems/food/grown/carrot,
 /obj/item/chems/food/grown/carrot,
 /obj/item/chems/food/grown/cabbage,
+/obj/item/chems/condiment/flour,
+/obj/item/chems/condiment/large/salt,
 /turf/floor/wood/walnut,
 /area/shaded_hills/shrine)
 "TR" = (
@@ -8758,11 +8766,11 @@ Ee
 Ee
 Ee
 Ee
+iX
 Ee
 Ee
 Ee
-Ee
-Ee
+iX
 Ee
 Ee
 TR
@@ -18149,12 +18157,12 @@ CR
 QB
 QB
 QB
+Kh
 QB
 QB
 QB
 QB
-QB
-QB
+Kh
 QB
 QB
 QB
@@ -18754,7 +18762,7 @@ iK
 kv
 kv
 kv
-QB
+Kh
 CR
 CR
 QB
@@ -19370,7 +19378,7 @@ Wh
 CR
 QB
 QB
-QB
+Kh
 QB
 QB
 QB
@@ -20426,13 +20434,13 @@ kv
 kv
 By
 kv
-QB
+Kh
 ev
 gL
 Ke
 wg
 qL
-QB
+Kh
 Aw
 WE
 VM

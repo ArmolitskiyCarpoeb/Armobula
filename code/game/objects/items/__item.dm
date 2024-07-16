@@ -1056,8 +1056,8 @@ modules/mob/living/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/proc/setup_power_supply(loaded_cell_type, accepted_cell_type, power_supply_extension_type, charge_value)
 	SHOULD_CALL_PARENT(FALSE)
-	if(loaded_cell_type && accepted_cell_type)
-		set_extension(src, (power_supply_extension_type || /datum/extension/loaded_cell), accepted_cell_type, loaded_cell_type, charge_value)
+	if(loaded_cell_type || accepted_cell_type)
+		set_extension(src, (power_supply_extension_type || /datum/extension/loaded_cell), (accepted_cell_type || loaded_cell_type), loaded_cell_type, charge_value)
 
 /obj/item/proc/handle_loadout_equip_replacement(obj/item/old_item)
 	return
@@ -1073,7 +1073,15 @@ modules/mob/living/human/life.dm if you die, you will be zoomed out.
 		try_burn_wearer(user, slot, 1)
 
 /obj/item/can_embed()
-	return !anchored && !is_robot_module(src)
+	. = !anchored && !is_robot_module(src)
+	if(. && isliving(loc))
+		var/mob/living/holder = loc
+		// Terrible check for if the mob is being driven by an AI or not.
+		// AI can't retrieve the weapon currently so this is unfair.
+		if(holder.get_attack_telegraph_delay() > 0)
+			return FALSE
+		// Skill check to avoid getting it stuck.
+		return holder.skill_fail_prob(SKILL_COMBAT, 100, no_more_fail = SKILL_EXPERT)
 
 /obj/item/clear_matter()
 	..()
