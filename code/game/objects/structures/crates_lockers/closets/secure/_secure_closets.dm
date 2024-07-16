@@ -24,10 +24,12 @@
 /obj/structure/closet/secure_closet/update_icon()
 	..()
 	if(broken)
-		overlays += emag
+		overlays += emissive_overlay(icon, "sparks")
 	else if(locked)
-		overlays += redlight
-		set_light(0.5, 0.8, LIGHT_COLOR_RED)
+		overlays += emissive_overlay(icon, "light_r")
+		set_light(0.4, 0.7, LIGHT_COLOR_RED)
 	else
-		overlays += greenlight
-		set_light(0.5, 0.8, LIGHT_COLOR_GREEN)
+		overlays += emissive_overlay(icon, "light_g")
+		set_light(0.4, 0.7, LIGHT_COLOR_GREEN)
+	if(opened)
+		overlays -= emissive_overlay(icon, "light_g")

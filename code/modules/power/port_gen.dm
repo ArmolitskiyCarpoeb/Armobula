@@ -438,19 +438,19 @@
 	var/rads = rad_power*25 + (sheets + sheet_left)*1.5
 	SSradiation.radiate(src, (max(40, rads)))
 
-	explosion(src.loc, rad_power+1, rad_power+1, rad_power*2, 3)
+	explosion(src.loc, 5, 10, rad_power*3, 50)
 	qdel(src)
 
 /obj/machinery/port_gen/pacman/super/potato
 	name = "nuclear reactor"
 	desc = "PTTO-3, an industrial all-in-one nuclear power plant by Neo-Chernobyl GmbH. It uses uranium and vodka as a fuel source. Rated for 150 kW max safe output."
-	power_gen = 30000			//Watts output per power_output level
+	power_gen = 25000			//Watts output per power_output level
 	icon_state = "potato"
-	max_safe_output = 4
+	max_safe_output = 2
 	max_power_output = 8	//The maximum power setting without emagging.
-	temperature_gain = 80	//how much the temperature increases per power output level, in degrees per level
-	max_temperature = 450
-	time_per_sheet = 400
+	temperature_gain = 100	//how much the temperature increases per power output level, in degrees per level
+	max_temperature = 350
+	time_per_sheet = 275
 	rad_power = 12
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	anchored = TRUE

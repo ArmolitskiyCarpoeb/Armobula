@@ -56,6 +56,13 @@
 	if(.)
 		queue_icon_update()
 
+/obj/machinery/light/uv
+	desc = "A lighting fixture."
+	light_type = /obj/item/light/tube/uv
+	accepts_light_type = /obj/item/light/tube/uv
+	base_type = /obj/machinery/light
+	frame_type = /obj/item/frame/light
+
 // the smaller bulb light fixture
 /obj/machinery/light/small
 	icon_state = "bulb_map"
@@ -497,7 +504,7 @@
 	matter = list(/decl/material/solid/metal/aluminium = MATTER_AMOUNT_REINFORCEMENT)
 
 	b_range = 6
-	b_power = 1.3
+	b_power = 1.0
 	b_color = LIGHT_COLOR_NEW_BLUE
 	lighting_modes = list(
 		LIGHTMODE_EMERGENCY = list(l_range = 5, l_power = 1.2, l_color = LIGHT_COLOR_EMERGENCY),
@@ -511,12 +518,20 @@
 /obj/item/light/tube/large
 	w_class = ITEM_SIZE_SMALL
 	name = "large light tube"
-	b_power = 3
-	b_range = 9
+	b_power = 2
+	b_range = 6
 
 /obj/item/light/tube/large/party/Initialize() //Randomly colored light tubes. Mostly for testing, but maybe someone will find a use for them.
 	. = ..()
 	b_color = rgb(pick(0,255), pick(0,255), pick(0,255))
+
+/obj/item/light/tube/uv
+	w_class = ITEM_SIZE_SMALL
+	name = "UV light tube"
+	desc = "Good for plants."
+	b_power = 2
+	b_range = 3
+	b_color = LIGHT_COLOR_VIOLET
 
 /obj/item/light/bulb
 	name = "light bulb"
@@ -525,8 +540,8 @@
 	base_state = "lbulb"
 	item_state = "contvapour"
 	broken_chance = 3
-	b_range = 5
-	b_power = 1.1
+	b_range = 4
+	b_power = 3
 	material = /decl/material/solid/glass
 	b_color = LIGHT_COLOR_NEW_YELLOW
 	lighting_modes = list(

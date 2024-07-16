@@ -224,6 +224,16 @@
 	material = /decl/material/solid/metal/steel
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 
+/obj/item/stack/tile/sad_floor_yellow_1
+	icon_state = "tile"
+	material = /decl/material/solid/metal/steel
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/sad_floor_yellow_2
+	icon_state = "tile"
+	material = /decl/material/solid/metal/steel
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
 // SAD FLOORS COLORED
 
 /obj/item/stack/tile/tile_full_green_1
@@ -312,6 +322,15 @@
 	icon_state = "techtile_grid"
 	material = /decl/material/solid/metal/steel
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+//
+/obj/item/stack/tile/doted_floor
+	name = "grid tile"
+	singular_name = "grid tile"
+	icon_state = "techtile_grid"
+	material = /decl/material/solid/metal/steel
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+//
 
 /obj/item/stack/tile/techmaint
 	name = "dark techfloor tile"

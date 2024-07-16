@@ -8,7 +8,7 @@
 	layer = CATWALK_LAYER
 	footstep_type = /decl/footsteps/catwalk
 	obj_flags = OBJ_FLAG_NOFALL | OBJ_FLAG_MOVES_UNSUPPORTED
-	handle_generic_blending = TRUE
+	handle_generic_blending = FALSE
 	tool_interaction_flags = TOOL_INTERACTION_DECONSTRUCT
 	material = /decl/material/solid/metal/steel
 	parts_type = /obj/item/stack/material/rods
@@ -65,7 +65,7 @@
 	icon_state = ""
 	if(!hatch_open)
 		for(var/i = 1 to 4)
-			add_overlay(image(icon, "catwalk[connections ? connections[i] : "0"]", dir = BITFLAG(i-1)))
+			add_overlay(image(icon, "catwalk"))
 	if(plated_tile)
 		var/image/I = image(icon, "plated")
 		I.color = plated_tile.color

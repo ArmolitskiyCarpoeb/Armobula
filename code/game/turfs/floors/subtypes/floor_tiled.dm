@@ -54,6 +54,21 @@
 	icon_state = "steel_monofloor"
 	initial_flooring = /decl/flooring/tiling/new_tile/monofloor
 
+/turf/floor/tiled/monofloor2
+	name = "floor"
+	icon_state = "monofloor2"
+	initial_flooring = /decl/flooring/tiling/new_tile/monofloor2
+
+/turf/floor/tiled/monofloor3
+	name = "floor"
+	icon_state = "monofloor3"
+	initial_flooring = /decl/flooring/tiling/new_tile/monofloor3
+
+/turf/floor/tiled/doted_floor
+	name = "floor"
+	icon_state = "doted_floor"
+	initial_flooring = /decl/flooring/tiling/new_tile/doted_floor
+
 /turf/floor/tiled/techfloor
 	name = "floor"
 	icon = 'icons/turf/flooring/techfloor.dmi'
@@ -128,6 +143,16 @@
 	name = "steel floor"
 	icon_state = "sad_floor"
 	initial_flooring = /decl/flooring/tiling/new_tile/sad_floor
+
+/turf/floor/tiled/sad_floor_mono
+	name = "steel floor"
+	icon_state = "sad_floor_mono"
+	initial_flooring = /decl/flooring/tiling/new_tile/sad_floor_mono
+
+/turf/floor/tiled/sad_floor_ridged
+	name = "steel floor"
+	icon_state = "sad_floor_ridged"
+	initial_flooring = /decl/flooring/tiling/new_tile/sad_floor_ridged
 
 // SAD FLOORS COLORED
 
@@ -206,6 +231,17 @@
 	name = "steel floor"
 	icon_state = "sad_floor_biege_2"
 	initial_flooring = /decl/flooring/tiling/new_tile/sad_floor_biege_2
+
+
+/turf/floor/tiled/sad_floor/yellow_1
+	name = "steel floor"
+	icon_state = "sad_floor_yellow_1"
+	initial_flooring = /decl/flooring/tiling/new_tile/sad_floor_yellow_1
+
+/turf/floor/tiled/sad_floor/yellow_2
+	name = "steel floor"
+	icon_state = "sad_floor_yellow_2"
+	initial_flooring = /decl/flooring/tiling/new_tile/sad_floor_yellow_2
 // SAD FLOORS COLORED
 
 

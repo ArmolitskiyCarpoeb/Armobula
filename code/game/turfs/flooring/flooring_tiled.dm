@@ -81,6 +81,19 @@
 //	icon_base = "cargo_one_full"
 //	build_type = /obj/item/stack/tile/mono/gray
 
+
+/decl/flooring/tiling/new_tile/monofloor2
+	icon_base = "monofloor2"
+	build_type = /obj/item/stack/tile/mono/gray
+
+/decl/flooring/tiling/new_tile/monofloor3
+	icon_base = "monofloor3"
+	build_type = /obj/item/stack/tile/mono/gray
+
+/decl/flooring/tiling/new_tile/doted_floor
+	icon_base = "doted_floor"
+	build_type = /obj/item/stack/tile/doted_floor
+
 //
 
 /decl/flooring/tiling/new_tile/kafel
@@ -115,6 +128,14 @@
 /decl/flooring/tiling/new_tile/sad_floor
 	icon_base = "sad_floor"
 	build_type = /obj/item/stack/tile/sad_floor
+
+/decl/flooring/tiling/new_tile/sad_floor_mono
+	icon_base = "sad_floor_mono"
+	build_type = /obj/item/stack/tile/mono/gray
+
+/decl/flooring/tiling/new_tile/sad_floor_ridged
+	icon_base = "sad_floor_ridged"
+	build_type = /obj/item/stack/tile/ridge
 
 // SAD FLOORS COLORED
 
@@ -173,6 +194,14 @@
 /decl/flooring/tiling/new_tile/sad_floor_biege_2
 	icon_base = "sad_floor_biege_2"
 	build_type = /obj/item/stack/tile/sad_floor_biege_2
+
+/decl/flooring/tiling/new_tile/sad_floor_yellow_1
+	icon_base = "sad_floor_yellow_1"
+	build_type = /obj/item/stack/tile/sad_floor_yellow_1
+
+/decl/flooring/tiling/new_tile/sad_floor_yellow_2
+	icon_base = "sad_floor_yellow_2"
+	build_type = /obj/item/stack/tile/sad_floor_yellow_2
 // SAD FLOORS COLORED
 
 /decl/flooring/tiling/new_tile_green_1
