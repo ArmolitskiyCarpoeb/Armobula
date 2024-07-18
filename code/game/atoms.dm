@@ -100,6 +100,13 @@
 	return null
 
 /**
+	Merge an exhaled air volume into air contents..
+*/
+/atom/proc/merge_exhaled_volume(datum/gas_mixture/exhaled)
+	var/datum/gas_mixture/environment = return_air()
+	environment?.merge(exhaled)
+
+/**
 	Get the air of this atom or its location's air
 
 	- Return: The `/datum/gas_mixture` of this atom
@@ -473,6 +480,9 @@
 /// Handle this atom being destroyed through melting
 /atom/proc/handle_melting(list/meltable_materials)
 	SHOULD_CALL_PARENT(TRUE)
+
+/atom/proc/handle_destroyed_by_heat()
+	return handle_melting()
 
 /**
 	Handle this atom being exposed to lava. Calls qdel() by default
