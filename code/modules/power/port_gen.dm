@@ -447,11 +447,11 @@
 	power_gen = 25000			//Watts output per power_output level
 	icon_state = "potato"
 	max_safe_output = 2
-	max_power_output = 8	//The maximum power setting without emagging.
-	temperature_gain = 100	//how much the temperature increases per power output level, in degrees per level
-	max_temperature = 350
-	time_per_sheet = 275
-	rad_power = 12
+	max_power_output = 6	//The maximum power setting without emagging.
+	temperature_gain = 150	//how much the temperature increases per power output level, in degrees per level
+	max_temperature = 300
+	time_per_sheet = 250
+	rad_power = 16
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	anchored = TRUE
 

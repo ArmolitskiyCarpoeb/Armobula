@@ -507,7 +507,7 @@
 	b_power = 1.0
 	b_color = LIGHT_COLOR_NEW_BLUE
 	lighting_modes = list(
-		LIGHTMODE_EMERGENCY = list(l_range = 5, l_power = 1.2, l_color = LIGHT_COLOR_EMERGENCY),
+		LIGHTMODE_EMERGENCY = list(l_range = 5, l_power = 1.5, l_color = LIGHT_COLOR_EMERGENCY),
 	)
 	sound_on = 'sound/machines/lightson.ogg'
 
@@ -540,12 +540,12 @@
 	base_state = "lbulb"
 	item_state = "contvapour"
 	broken_chance = 3
-	b_range = 4
-	b_power = 3
+	b_range = 5
+	b_power = 1.5
 	material = /decl/material/solid/glass
 	b_color = LIGHT_COLOR_NEW_YELLOW
 	lighting_modes = list(
-		LIGHTMODE_EMERGENCY = list(l_range = 4, l_power = 1, l_color = LIGHT_COLOR_EMERGENCY),
+		LIGHTMODE_EMERGENCY = list(l_range = 4, l_power = 2, l_color = LIGHT_COLOR_EMERGENCY),
 	)
 
 /obj/item/light/bulb/red
