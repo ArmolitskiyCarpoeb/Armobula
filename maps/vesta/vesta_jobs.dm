@@ -1,10 +1,10 @@
-/decl/spawnpoint/gateway
-	name = "Gateway"
-	spawn_announcement = "has completed translation from offsite gateway"
-	uid = "spawn_exodus_gateway"
+///decl/spawnpoint/gateway
+//	name = "Gateway"
+//	spawn_announcement = "has completed translation from offsite gateway"
+//	uid = "spawn_exodus_gateway"
 
-/obj/abstract/landmark/latejoin/gateway
-	spawn_decl = /decl/spawnpoint/gateway
+///obj/abstract/landmark/latejoin/gateway
+//	spawn_decl = /decl/spawnpoint/gateway
 
 /datum/map/vesta
 	default_job_type = /datum/job/vesta/assistant

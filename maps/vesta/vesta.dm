@@ -57,6 +57,7 @@
 	#include "outfits/security.dm"
 
 	#include "vesta.dmm"
+	#include "vesta-admin.dmm"
 
 	#define USING_MAP_DATUM /datum/map/vesta
 
