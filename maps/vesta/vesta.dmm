@@ -172,7 +172,7 @@
 "eP" = (/obj/effect/floor_decal/spline/plain/black{dir = 1},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 9},/turf/floor/tiled/sad_floor_mono,/area/exodus/quartermaster/miningdock)
 "eQ" = (/obj/structure/bed/chair/armchair/red,/turf/floor/tiled/steel_ridged,/area/exodus/crew_quarters/bar)
 "eS" = (/obj/structure/bed/chair/shuttle/black{dir = 4},/obj/effect/floor_decal/techfloor{dir = 8},/turf/floor/tiled/steel_ridged,/area/ship/exodus_pod_mining)
-"eT" = (/obj/effect/floor_decal/techfloor{dir = 1},/obj/machinery/light{dir = 1},/obj/machinery/network/relay,/turf/floor/tiled/sad_floor/biege_2,/area/exodus/bridge)
+"eT" = (/obj/effect/floor_decal/techfloor{dir = 1},/obj/machinery/light{dir = 1},/obj/machinery/network/relay{initial_network_id = "molluscnet"},/turf/floor/tiled/sad_floor/biege_2,/area/exodus/bridge)
 "eU" = (/obj/machinery/power/apc{dir = 1; name = "_North APC"; pixel_y = 24},/obj/structure/cable{icon_state = "0-2"},/turf/floor/tiled/monofloor3,/area/exodus/security/main)
 "eV" = (/obj/structure/curtain/open/shower,/obj/structure/hygiene/shower{pixel_y = 16; dir = 4},/turf/floor/tiled/freezer,/area/exodus/security/main)
 "eZ" = (/turf/floor/tiled/sad_floor/yellow_2,/area/exodus/engineering)
@@ -244,7 +244,7 @@
 "gW" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/door/airlock/engineering,/obj/effect/catwalk_plated/white,/obj/machinery/door/firedoor,/turf/floor/plating,/area/exodus/engineering)
 "gX" = (/obj/machinery/door/airlock/mining,/obj/effect/catwalk_plated/white,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/turf/floor/plating,/area/exodus/quartermaster/miningdock)
 "gY" = (/turf/wall/r_wall/prepainted2,/area/exodus/quartermaster/storage)
-"gZ" = (/obj/machinery/network/acl,/turf/floor/tiled/monofloor2,/area/exodus/research/server)
+"gZ" = (/obj/machinery/network/acl{initial_network_id = "molluscnet"},/turf/floor/tiled/monofloor2,/area/exodus/research/server)
 "hb" = (/turf/floor,/area/ship/exodus_pod_mining)
 "hc" = (/obj/machinery/door/airlock/hatch/maintenance,/obj/effect/catwalk_plated/white,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/turf/floor/plating,/area/exodus/hallway/primary/central_one)
 "hd" = (/obj/structure/cable{icon_state = "1-2"},/obj/effect/catwalk_plated/white,/obj/machinery/door/firedoor,/turf/floor/plating,/area/exodus/hallway/primary/central_one)
@@ -587,7 +587,7 @@
 "qq" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 9},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 9},/obj/structure/cable{icon_state = "4-8"},/turf/floor/tiled/sad_floor,/area/exodus/security/main)
 "qr" = (/obj/machinery/door/window/northleft,/obj/item/gun/projectile/pistol,/obj/item/gun/projectile/pistol,/obj/item/gun/projectile/pistol,/obj/structure/rack/dark,/turf/floor/plating,/area/exodus/security/armoury)
 "qs" = (/obj/structure/rack,/obj/item/firstaid/surgery,/turf/floor/tiled/doted_floor,/area/exodus/medical/medbay)
-"qt" = (/obj/item/radio/intercom{pixel_y = 20},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/turf/floor/tiled/sad_floor,/area/exodus/quartermaster/miningdock)
+"qt" = (/obj/structure/window/basic,/obj/machinery/door/firedoor,/obj/machinery/fabricator,/turf/floor/plating,/area/exodus/quartermaster/office)
 "qv" = (/obj/machinery/portable_atmospherics/canister/carbon_dioxide,/turf/floor/plating,/area/exodus/engineering)
 "qB" = (/obj/machinery/door/airlock/hatch/maintenance,/obj/structure/cable{icon_state = "1-2"},/turf/floor/plating,/area/exodus/maintenance/medbay)
 "qC" = (/obj/machinery/firealarm{dir = 1; pixel_y = -24},/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 1},/turf/floor/lino,/area/exodus/medical/medbay)
@@ -775,7 +775,7 @@
 "vQ" = (/turf/wall/r_wall/prepainted2,/area/exoplanet/underground)
 "vR" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/door/firedoor,/obj/effect/floor_decal/techfloor,/turf/floor/tiled/sad_floor,/area/exodus/hallway/primary/central_one)
 "vT" = (/obj/machinery/atmospherics/pipe/manifold{dir = 4},/obj/effect/catwalk_plated/white,/turf/floor/plating,/area/exodus/quartermaster/miningdock)
-"vV" = (/obj/machinery/network/router,/turf/floor/tiled/monofloor2,/area/exodus/research/server)
+"vV" = (/obj/machinery/network/router{initial_network_id = "molluscnet"},/turf/floor/tiled/monofloor2,/area/exodus/research/server)
 "vW" = (/obj/machinery/atmospherics/unary/heat_exchanger{dir = 8},/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 1; current_health = 1e+006},/turf/floor/plating,/area/exodus/engineering/atmos)
 "vX" = (/obj/structure/cable{icon_state = "1-8"},/turf/floor/plating,/area/exodus/maintenance/dormitory)
 "vY" = (/obj/effect/floor_decal/techfloor{dir = 10},/turf/floor/tiled/sad_floor/biege_1,/area/exodus/medical/medbay)
@@ -920,7 +920,7 @@
 "zL" = (/turf/wall/r_wall/prepainted2,/area/exodus/security/checkpoint2)
 "zM" = (/obj/effect/catwalk_plated/white,/turf/floor/plating,/area/exodus/hallway/primary/central_one)
 "zN" = (/obj/machinery/atmospherics/binary/pump{dir = 1; name = "waste pump"},/turf/floor/tiled/monofloor3,/area/exodus/engineering/atmos)
-"zP" = (/obj/machinery/network/mainframe,/turf/floor/tiled/monofloor2,/area/exodus/research/server)
+"zP" = (/obj/machinery/network/mainframe{initial_network_id = "molluscnet"},/turf/floor/tiled/monofloor2,/area/exodus/research/server)
 "zT" = (/obj/machinery/atmospherics/pipe/manifold/visible/black{dir = 4},/obj/structure/window/borosilicate_reinforced/full,/turf/floor/tiled/steel_ridged,/area/exodus/engineering/atmos)
 "zU" = (/obj/effect/catwalk_plated/white,/obj/machinery/atmospherics/pipe/simple/hidden{dir = 4},/turf/floor/plating,/area/exodus/quartermaster/miningdock)
 "zV" = (/obj/machinery/alarm{locked = 0; pixel_y = 20},/turf/floor/wood/walnut,/area/exodus/bridge/meeting_room)
@@ -967,7 +967,7 @@
 "Ba" = (/obj/structure/closet/secure_closet/personal/empty,/turf/floor/wood2{color = "#e6b08e"},/area/exodus/quartermaster/miningdock)
 "Bb" = (/obj/machinery/door/blast/shutters{dir = 2; id_tag = "qm_warehouse2"; name = "Warehouse Shutters"},/obj/machinery/door/firedoor,/turf/floor/tiled/sad_floor,/area/exodus/quartermaster/storage)
 "Bc" = (/obj/effect/floor_decal/borderfloorblack{dir = 8},/turf/floor/tiled/sad_floor,/area/exodus/quartermaster/office)
-"Bd" = (/obj/machinery/network/relay,/turf/floor/tiled/steel_grid_2,/area/exodus/hallway/primary/central_one)
+"Bd" = (/obj/machinery/network/relay{initial_network_id = "molluscnet"},/turf/floor/tiled/steel_grid_2,/area/exodus/hallway/primary/central_one)
 "Be" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/manifold/hidden/supply{dir = 1},/obj/structure/cable{icon_state = "4-8"},/obj/effect/catwalk_plated/white,/turf/floor/plating,/area/exodus/crew_quarters/sleep)
 "Bf" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/floor/reinforced/ramp,/area/exodus/hallway/primary/central_one)
 "Bi" = (/obj/effect/floor_decal/techfloor{dir = 8},/turf/floor/lino,/area/exodus/hallway/secondary/entry/port)
@@ -1167,13 +1167,13 @@
 "GA" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/turf/floor/tiled/sad_floor_mono,/area/exodus/medical/medbay)
 "GB" = (/obj/structure/cable{icon_state = "4-8"},/turf/floor/plating,/area/exodus/maintenance/medbay)
 "GC" = (/obj/structure/fitness/punchingbag,/obj/effect/floor_decal/techfloor{dir = 1},/turf/floor/tiled/sad_floor,/area/exodus/crew_quarters/sleep)
-"GD" = (/obj/machinery/network/relay,/turf/floor/tiled/monofloor2,/area/exodus/research/server)
+"GD" = (/obj/machinery/network/relay{initial_network_id = "molluscnet"},/turf/floor/tiled/monofloor2,/area/exodus/research/server)
 "GI" = (/obj/structure/window/basic{dir = 1},/obj/machinery/computer/modular/preset/security,/turf/floor/plating,/area/exodus/security/main)
 "GL" = (/obj/effect/floor_decal/techfloor{dir = 5},/turf/floor/tiled/old_tile_green_2,/area/exodus/medical/medbay)
 "GM" = (/obj/machinery/atmospherics/binary/pump/high_power,/turf/floor/tiled/techfloor/grid,/area/exodus/engineering/atmos)
 "GN" = (/obj/structure/closet/crate/freezer,/turf/floor/tiled/old_tile,/area/exodus/medical/virology)
 "GO" = (/obj/machinery/alarm{locked = 0; pixel_y = 20},/turf/floor/tiled/old_tile_lime_1,/area/exodus/medical/virology)
-"GP" = (/obj/machinery/network/message_server,/turf/floor/tiled/monofloor2,/area/exodus/research/server)
+"GP" = (/obj/machinery/network/message_server{initial_network_id = "molluscnet"},/turf/floor/tiled/monofloor2,/area/exodus/research/server)
 "GR" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 1},/turf/floor/tiled/steel_ridged,/area/exodus/security/main)
 "GS" = (/obj/effect/floor_decal/borderfloorblack{dir = 1},/obj/machinery/atmospherics/pipe/manifold/hidden/supply{dir = 1},/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{dir = 1},/obj/structure/cable{icon_state = "4-8"},/turf/floor/tiled/old_tile,/area/exodus/medical/medbay)
 "GT" = (/obj/machinery/atmospherics/pipe/manifold/visible/red{dir = 1},/turf/floor/tiled/monofloor3,/area/exodus/engineering/atmos)
@@ -1264,7 +1264,7 @@
 "Jl" = (/obj/machinery/door/airlock/external/bolted{id_tag = "cargo_bay_door"; name = "Cargo Docking Hatch"},/obj/machinery/conveyor{dir = 8; id_tag = "QMLoad2"},/turf/floor/plating,/area/exodus/quartermaster/miningdock)
 "Jm" = (/obj/machinery/atmospherics/unary/vent_scrubber/on,/obj/effect/floor_decal/spline/plain/black{dir = 1},/turf/floor/tiled/monofloor3,/area/exodus/bridge)
 "Jn" = (/obj/machinery/disposal,/turf/floor/tiled/old_tile,/area/exodus/medical/medbay)
-"Jo" = (/obj/machinery/network/relay,/turf/floor/plating,/area/exodus/hallway/primary/central_one)
+"Jo" = (/obj/machinery/network/relay{initial_network_id = "molluscnet"},/turf/floor/plating,/area/exodus/hallway/primary/central_one)
 "Jp" = (/obj/machinery/atmospherics/pipe/simple/visible/fuel,/obj/abstract/landmark/start{name = "Assistant"},/obj/structure/window/borosilicate_reinforced/full,/turf/floor/tiled/steel_ridged,/area/exodus/engineering/atmos)
 "Jq" = (/obj/machinery/flasher/portable,/turf/floor/tiled/monofloor2,/area/exodus/security/armoury)
 "Jr" = (/obj/effect/floor_decal/borderfloorblack,/turf/floor/tiled/sad_floor/red_2,/area/exodus/security/main)
@@ -1312,7 +1312,7 @@
 "Kz" = (/obj/structure/table{name = "plastic table frame"},/turf/floor/lino,/area/exodus/medical/medbay)
 "KA" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/effect/catwalk_plated/white,/obj/structure/cable{icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/turf/floor/plating,/area/exodus/engineering)
 "KC" = (/turf/floor/tiled/steel_ridged,/area/exodus/hallway/secondary/entry/port)
-"KD" = (/obj/machinery/network/telecomms_hub,/turf/floor/tiled/monofloor2,/area/exodus/research/server)
+"KD" = (/obj/machinery/network/telecomms_hub{initial_network_id = "molluscnet"},/turf/floor/tiled/monofloor2,/area/exodus/research/server)
 "KF" = (/obj/structure/cable{icon_state = "1-2"},/obj/effect/catwalk_plated/white,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/turf/floor/plating,/area/exodus/hallway/primary/central_one)
 "KJ" = (/obj/machinery/atmospherics/pipe/simple/visible/green{dir = 4},/obj/machinery/meter,/turf/floor/tiled/techfloor/grid,/area/exodus/engineering/atmos)
 "KK" = (/obj/effect/floor_decal/techfloor/corner{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/turf/floor/tiled/sad_floor,/area/exodus/hallway/primary/central_one)
@@ -1429,6 +1429,7 @@
 "NI" = (/obj/structure/bed/chair/shuttle/black{dir = 4},/obj/effect/floor_decal/techfloor{dir = 8},/obj/machinery/alarm{dir = 4; pixel_x = -22},/turf/floor/tiled/steel_ridged,/area/ship/exodus_pod_mining)
 "NJ" = (/obj/structure/railing/gray,/turf/floor/tiled/sad_floor/biege_2,/area/exodus/bridge)
 "NK" = (/obj/effect/floor_decal/techfloor{dir = 1},/turf/floor/tiled/sad_floor/purple_1,/area/exodus/crew_quarters/bar)
+"NL" = (/obj/machinery/network/relay{initial_network_id = "molluscnet"},/turf/floor/plating,/area/exodus/maintenance/arrivals)
 "NM" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/structure/cable{icon_state = "4-8"},/obj/effect/floor_decal/borderfloorblack{dir = 1},/turf/floor/tiled/sad_floor/red_2,/area/exodus/security/main)
 "NN" = (/obj/structure/closet/secure_closet/personal,/turf/floor/wood2{color = "#e6b08e"},/area/exodus/crew_quarters/sleep/bedrooms)
 "NO" = (/obj/structure/bed/sofa/middle/black{dir = 1},/turf/floor/tiled/steel_ridged,/area/exodus/crew_quarters/bar)
@@ -1492,7 +1493,7 @@
 "Pl" = (/obj/effect/floor_decal/industrial/outline/yellow,/turf/floor/tiled/sad_floor/biege_2,/area/exodus/quartermaster/storage)
 "Pm" = (/obj/effect/floor_decal/borderfloorblack{dir = 1},/obj/structure/closet/secure_closet/cargotech,/turf/floor/tiled/sad_floor/biege_2,/area/exodus/quartermaster/office)
 "Pp" = (/obj/machinery/atmospherics/pipe/manifold/visible/green,/turf/floor/tiled/techfloor/grid,/area/exodus/engineering/atmos)
-"Pq" = (/obj/machinery/light/small{dir = 8},/turf/floor/tiled/monofloor2,/area/exodus/research/server)
+"Pq" = (/obj/machinery/light/small{dir = 8},/obj/machinery/design_database,/turf/floor/tiled/monofloor2,/area/exodus/research/server)
 "Pr" = (/obj/structure/bed,/obj/item/bedsheet/blue,/turf/floor/wood2{color = "#e6b08e"},/area/exodus/crew_quarters/sleep/bedrooms)
 "Ps" = (/obj/machinery/firealarm{pixel_y = 24},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/structure/cable{icon_state = "4-8"},/obj/effect/catwalk_plated/white,/turf/floor/plating,/area/exodus/crew_quarters/sleep)
 "Pu" = (/obj/effect/floor_decal/techfloor,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/structure/cable{icon_state = "4-8"},/obj/machinery/light,/turf/floor/tiled/sad_floor,/area/exodus/hallway/primary/central_one)
@@ -1714,6 +1715,7 @@
 "VE" = (/obj/machinery/atmospherics/unary/vent_scrubber/on,/turf/floor/tiled/monofloor3,/area/exodus/medical/virology)
 "VG" = (/obj/structure/grille,/obj/structure/window/reinforced/tinted,/obj/structure/window/reinforced/tinted{dir = 1},/obj/structure/window/reinforced/tinted{dir = 4},/turf/floor/plating,/area/exodus/security/main)
 "VH" = (/obj/machinery/light/small{dir = 4},/turf/floor/wood/walnut,/area/exodus/crew_quarters/captain)
+"VL" = (/obj/structure/cable{icon_state = "4-8"},/obj/item/radio/intercom{pixel_y = 20},/turf/floor/tiled/steel_grid_2,/area/exodus/quartermaster/miningdock)
 "VM" = (/obj/structure/closet/crate,/turf/floor/tiled/monofloor3,/area/exodus/quartermaster/storage)
 "VN" = (/obj/effect/floor_decal/techfloor,/turf/floor/tiled/sad_floor,/area/exodus/medical/medbay)
 "VO" = (/obj/structure/grille,/obj/structure/window/basic/full,/turf/floor/plating,/area/exodus/security/main)
@@ -1970,12 +1972,12 @@ jAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAOgFxFxRMRMRMFxtQOgAMAMAMAMAMAMAMAMAMAMAM
 jAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAOgOgOgOgOgOgOgaKOgOgAMAMAMAMAMAMAMAMAMAMAMAMAMAMAMAMAMAMAMAMAMAMAMAMvQnEhbGjGjGjhbArabRabYRaBpBpBpMoBpBpTkryryryryryryryryWQryryryryryryryryryryryryryrygwryryryryKSryryryryryrynNaaryJcJcJcRyRyRyRyssRyyuRyRyPTryryryrytaryJcryliutryJcJcWYBchZwGoEhZGnWYnZBawEehjNjxZVUUukvhvhInInInInInInInvQvQvQvQvQvQjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjA
 jAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAOgpEvIpEOgjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAAMAMAMAMvQnEnEnEnEnEnEArabUJHCRaHQlOlOMmlOBpuVptNTvmpjPXNNNTLaKkKkKkKkKkKkKkKkKkKkKkKkKkKkKkzMzMryjMEYxyXdpXrytLXdrydjvZryJcJcJcRyZWfjcriaJHyoajRyPTryixogQZNhryJcryliutryJcJcWYWYjmbeAfUhWYWYWYWYukukukzuukukukvhvhvhvhvhInnEnEnEnEnEnEnEnEvQjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjA
 jAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAOgpEvIpEOgjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAAMAMAMAMvQvQvQvQvQvQvQabababababBpBpBpMmlOBpMjCNprXnWEWEWENTxXKkNTNTNTNTNTrYrYEPrYrYrYrYrYrYJczMgwZKZKZKZKZKzMZKZKrydjnfryJcJcJcRypkVQVQpmVSxvZsRyPTryelDqUkzIryJcryliutryJcJcWYMPSJTvHVqmplPmyBWYYEYEeKYEYEYEukukukjqInInInnEnEnEnEnEnEnEnEvQjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjA
-jAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAOgOgcpOgOgjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAAMAMAMAMAMAMAMAMAMAMAMAMAMwCBpHzVRHzBpMmlOBpMjCrNTubrgPXNNNTLaKkNTNNlePrNNrYGxvbMfxfxfrYefrYJczMrywpZKZKZKOGryZKZKrydjvZryJcJcJcAndhtMtMcOVSxvVSRyPTryLLNhjXoIryJcrylimeryJcJcWYARpbIpkYkYkYkYGbXycEcEcEcEcEcEcEcEmVYEYEuknEnEnEnEnEnEnEnEnEvQjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjA
+jAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAOgOgcpOgOgjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAAMAMAMAMAMAMAMAMAMAMAMAMAMwCBpHzVRHzBpMmlOBpMjCrNTubrgPXNNNTLaKkNTNNlePrNNrYGxvbMfxfxfrYefrYJczMrywpZKZKZKOGryZKZKrydjvZryJcJcJcAndhtMtMcOVSxvVSRyPTryLLNhjXoIryJcrylimeryJcJcWYARpbIpkYkYkYkYGbXycEcEcEcEcEcEVLcEmVYEYEuknEnEnEnEnEnEnEnEnEvQjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjA
 jAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAnEnEtbnEnEjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAAMAMAMAMAMAMAMAMAMAMAMAMAMwCBpuhlquhBpMmlOBpfaFUNTNTNTNTNTNTLaKkNTcgJuVyXnrYrJJANBKhknrYySrYJczMryyAiRKQZKckryZKBdrynAskryJcJcJcRyZMxqVudoaqAUAUAFaIlguMjrDEzIryJcryliutryJcJcWYGaOAwxwxyywxwxMuWYYEYEYEYEYEYEYEYEYEYEYEuknEnEnEnEnEnEnEnEnEvQjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjA
-jAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAnEnEtbnEnEjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAAMAMAMAMAMAMAMAMAMAMAMAMAMwCBpVRVRVRZbCvuhZbMjCNeMrqLobxgxeMSsUtNTNTprNTNTrYdxPyWSedededwgrYrygwryryKSrygwtaryryryryKVCDryrygwryRyRyRyRyRyRyRyRyRyhcryrydHryryrygwryliutrygwryWYCMWOCMCMWYWYrtWYWYugTBlHzqEKukzqEKukoqkbukukuknEnEnEnEnEnEnEvQjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjA
-jAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjACijAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAAMAMAMAMAMAMAMAMAMAMAMvQvQBpBpBpBpBpBpMmlOBpSzRmsxBGBGBGBGRTyOyOXUSbyOyOYFrYBArYrYrYrYrYrYrYIjIjIjIjIjIjIjIjIjlPStxtmtKFNQdVqKqKUKUKUKUKUKxDUKUKUKhPqKqKlXqKqKqKqKqKEXKKqKqKqKqKlKFgFgFgiuQkQkvxNxNqePYGnwnwCZnwnwqtBJEAlxgflxudnEnEnEnEnEnEvQjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjA
+jAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAnEnEtbnEnEjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAAMAMAMAMAMAMAMAMAMAMAMAMAMwCBpVRVRVRZbCvuhZbMjCNeMrqLobxgxeMSsUtNTNTprNTNTrYdxPyWSedededwgrYrygwryryKSrygwtaryryryryKVCDryrygwryRyRyRyRyRyRyRyRyRyhcryrydHryryrygwryliutrygwryWYCMWOCMqtWYWYrtWYWYugTBlHzqEKukzqEKukoqkbukukuknEnEnEnEnEnEnEvQjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjA
+jAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjACijAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAAMAMAMAMAMAMAMAMAMAMAMvQvQBpBpBpBpBpBpMmlOBpSzRmsxBGBGBGBGRTyOyOXUSbyOyOYFrYBArYrYrYrYrYrYrYIjIjIjIjIjIjIjIjIjlPStxtmtKFNQdVqKqKUKUKUKUKUKxDUKUKUKhPqKqKlXqKqKqKqKqKEXKKqKqKqKqKlKFgFgFgiuQkQkvxNxNqePYGnwnwCZnwnwnwBJEAlxgflxudnEnEnEnEnEnEvQjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjA
 jAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjACijAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAAMAMAMAMvQvQvQvQvQAMAMMsLalOlOBplOlOlOMmlOBpDngngngngngngnmWwUhUhUhUhUhUhUTeaSBecFawCtPsGkCCLkLkWdLkLkLkLkLkLkLkjylQsGuwaiqcSmBVFDVVOdVVVVcwVVFYVVVVVVVVVVVVFYVVVVVVOdVVVVFYVVVVXwRRRRnzxctytycTpeolOttyVDVDVDVDVDwnwncQJlbcJludnEnEnEnEnEnEvQjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjA
-jAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjACijAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjALaLaMsMsMsMsMsMsMsMsLaLaLaMswCAMMsLalOlOlOlOlOlOMmLQLQovLQLQLQLQLQLQLQLQLQeMeMeMeMSseMiYHayOWtMnGCyOeMeMeMryryryryryryryryryryekhdjwjwkaXXjwjwjwBIjwjwjwjwjwjwjwjwjwjwjwYIYIgjYIYIYIYIKXKXmPUgRRHRgYgYxCLbeLgYgYgYVDVDVDVDVDVDVDkPukukukudnEnEPVnEnEnEvQjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjA
+jAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjACijAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjALaLaMsMsMsMsMsMsMsMsLaLaLaMswCAMMsLaNLlOlOlOlOlOMmLQLQovLQLQLQLQLQLQLQLQLQeMeMeMeMSseMiYHayOWtMnGCyOeMeMeMryryryryryryryryryryekhdjwjwkaXXjwjwjwBIjwjwjwjwjwjwjwjwjwjwjwYIYIgjYIYIYIYIKXKXmPUgRRHRgYgYxCLbeLgYgYgYVDVDVDVDVDVDVDkPukukukudnEnEPVnEnEnEvQjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjA
 jAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjACijAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjALaLaMsLaLaLaLaMsLaLaLaLaLaMswCAMMsLalOlOBplOlOFfEtLQZDgusFYyezUlfFAtFkpMLQippvipipbneMQKYCSuXPWAvgvgVpOceMJcJcJcJcJcJcJcJcJcryBfmKtrIigygsZUpARzRzZUYnjwofofreLKktmSZtPcYIGZhuPiqXkkYIyEKXBtVlBDhfIeWUkpmRTzZRkpcIuJJbuJJbuJkikigcUjPhUjudnEnEnEnEnEnEvQjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjA
 jAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAFyrGrGrGrGrGrGrGrGrGrGrGrGrGrGrGrGrGvrvrMKvrvrvrvrMKvrUqLaLaLaMswCAMMsMsBpBpBplOlOMmBpLQOBngGcWxWxWxWxSgeetoiTFqFqhQROROAJROOSSuQwbZPNtluPbXeMJcJcJcJcJcJcJcJcJcrydjyIMCOFSwjFiWiWiWiWuRLZvNTOTOUXZzbygqfHrDYInrDeunjzqFYIyEKXvYwqWZCIBbkpHPKiTasVkpcIuJJbuJJbuJVDVDirlxgflxudnEnEnEnEnEnEvQjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjA
 jAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjALaLaMsLaLaLaLaMsLawsLaLaLaMswCAMwCMslOFftFtFtFEtHQtfdvdPjKNldvNldvNldvSoLQuXItDGItIteMsrriSuQwdJPQtluPEueMJcJcJcJcJcJcJcJcJcrydjfmMCOFZzZzZzZzZzZzpCvoUsGeGebCjUnVgqfHOaYIgFDeDeDCEZYIyEKXKXxWryrygYykoCmuiJzbJQgYauJbuJJbuJVDVDZkukukuknEnEnEnEnEnEnEvQjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjA
