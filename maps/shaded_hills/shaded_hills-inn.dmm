@@ -22,13 +22,13 @@
 /area/shaded_hills/general_store)
 "bW" = (
 /obj/structure/table/woodentable/ebony,
-/obj/item/chems/cooking_vessel/skillet,
-/obj/item/chems/glass/pottery/bowl,
-/obj/item/chems/glass/pottery/bowl,
-/obj/item/chems/glass/pottery/bowl,
-/obj/item/chems/glass/pottery/cup,
-/obj/item/chems/glass/pottery/cup,
-/obj/item/chems/glass/pottery/cup,
+/obj/item/chems/cooking_vessel/skillet/iron,
+/obj/item/chems/glass/handmade/bowl/wood,
+/obj/item/chems/glass/handmade/bowl/wood,
+/obj/item/chems/glass/handmade/bowl/wood,
+/obj/item/chems/glass/handmade/cup/wood,
+/obj/item/chems/glass/handmade/cup/wood,
+/obj/item/chems/glass/handmade/cup/wood,
 /turf/floor/wood/walnut,
 /area/shaded_hills/shrine)
 "cl" = (
@@ -37,7 +37,7 @@
 /area/shaded_hills/farmhouse)
 "cq" = (
 /obj/structure/table/woodentable/ebony,
-/obj/item/chems/glass/pottery/bowl,
+/obj/item/chems/glass/handmade/bowl/wood,
 /turf/floor/wood/walnut,
 /area/shaded_hills/inn)
 "cx" = (
@@ -97,15 +97,15 @@
 /area/shaded_hills/outside/shrine)
 "fh" = (
 /obj/structure/table/marble,
-/obj/item/chems/glass/pottery/cup,
-/obj/item/chems/glass/pottery/cup,
-/obj/item/chems/glass/pottery/cup,
-/obj/item/chems/glass/pottery/cup,
-/obj/item/chems/glass/pottery/cup,
-/obj/item/chems/glass/pottery/mug,
-/obj/item/chems/glass/pottery/mug,
-/obj/item/chems/glass/pottery/mug,
-/obj/item/chems/glass/pottery/mug,
+/obj/item/chems/glass/handmade/cup/wood,
+/obj/item/chems/glass/handmade/cup/wood,
+/obj/item/chems/glass/handmade/cup/wood,
+/obj/item/chems/glass/handmade/cup/wood,
+/obj/item/chems/glass/handmade/cup/wood,
+/obj/item/chems/glass/handmade/mug/wood,
+/obj/item/chems/glass/handmade/mug/wood,
+/obj/item/chems/glass/handmade/mug/wood,
+/obj/item/chems/glass/handmade/mug/wood,
 /turf/floor/natural/path/herringbone/basalt,
 /area/shaded_hills/inn)
 "ft" = (
@@ -123,9 +123,9 @@
 /area/shaded_hills/tannery)
 "fS" = (
 /obj/structure/table/woodentable/ebony,
-/obj/item/chems/glass/pottery/bottle/tall/wine,
-/obj/item/chems/glass/pottery/bottle/tall/wine,
-/obj/item/chems/glass/pottery/bottle/tall/wine,
+/obj/item/chems/glass/handmade/bottle/tall/wine,
+/obj/item/chems/glass/handmade/bottle/tall/wine,
+/obj/item/chems/glass/handmade/bottle/tall/wine,
 /obj/abstract/landmark/organize/horizontal,
 /turf/floor/natural/path/herringbone/basalt,
 /area/shaded_hills/inn)
@@ -179,7 +179,7 @@
 	dir = 1
 	},
 /turf/floor/wood/walnut,
-/area/shaded_hills/farmhouse)
+/area/shaded_hills/farmhouse/porch)
 "hE" = (
 /obj/structure/railing/mapped/wooden/walnut{
 	dir = 4
@@ -208,11 +208,11 @@
 /area/shaded_hills/inn/porch)
 "id" = (
 /obj/structure/table/woodentable/ebony,
-/obj/item/chems/glass/pottery/bottle/beer,
-/obj/item/chems/glass/pottery/bottle/beer,
-/obj/item/chems/glass/pottery/bottle/beer,
-/obj/item/chems/glass/pottery/bottle/beer,
-/obj/item/chems/glass/pottery/bottle/beer,
+/obj/item/chems/glass/handmade/bottle/beer,
+/obj/item/chems/glass/handmade/bottle/beer,
+/obj/item/chems/glass/handmade/bottle/beer,
+/obj/item/chems/glass/handmade/bottle/beer,
+/obj/item/chems/glass/handmade/bottle/beer,
 /obj/abstract/landmark/organize/horizontal,
 /turf/floor/natural/path/herringbone/basalt,
 /area/shaded_hills/inn)
@@ -327,7 +327,7 @@
 	},
 /obj/abstract/landmark/start/shaded_hills/farmer,
 /turf/floor/wood/walnut,
-/area/shaded_hills/farmhouse)
+/area/shaded_hills/farmhouse/porch)
 "me" = (
 /obj/structure/reagent_dispensers/barrel/ebony,
 /obj/item/seeds/extracted/potato,
@@ -346,7 +346,7 @@
 	dir = 4
 	},
 /turf/floor/wood/walnut,
-/area/shaded_hills/farmhouse)
+/area/shaded_hills/farmhouse/porch)
 "nn" = (
 /turf/wall/log/walnut,
 /area/shaded_hills/stable)
@@ -389,6 +389,7 @@
 "qe" = (
 /obj/structure/bed/simple/ebony,
 /obj/abstract/landmark/start/shaded_hills/shrine_attendant,
+/obj/item/bedsheet/furs,
 /turf/floor/wood/walnut,
 /area/shaded_hills/shrine)
 "qf" = (
@@ -421,11 +422,11 @@
 /area/shaded_hills/farmhouse)
 "rv" = (
 /obj/structure/table/woodentable/ebony,
-/obj/item/chems/glass/pottery/bottle,
-/obj/item/chems/glass/pottery/bottle/tall,
-/obj/item/chems/glass/pottery/bottle/wide,
+/obj/item/chems/glass/handmade/bottle,
+/obj/item/chems/glass/handmade/bottle/tall,
+/obj/item/chems/glass/handmade/bottle/wide,
 /obj/abstract/landmark/organize/horizontal,
-/obj/item/chems/glass/pottery/bottle/wide/whiskey,
+/obj/item/chems/glass/handmade/bottle/wide/whiskey,
 /turf/floor/natural/path/herringbone/basalt,
 /area/shaded_hills/inn)
 "ry" = (
@@ -460,11 +461,11 @@
 /area/shaded_hills/slaughterhouse)
 "tF" = (
 /obj/structure/table/marble,
-/obj/item/chems/glass/pottery/bowl,
-/obj/item/chems/glass/pottery/bowl,
-/obj/item/chems/glass/pottery/bowl,
-/obj/item/chems/glass/pottery/bowl,
-/obj/item/chems/glass/pottery/bowl,
+/obj/item/chems/glass/handmade/bowl/wood,
+/obj/item/chems/glass/handmade/bowl/wood,
+/obj/item/chems/glass/handmade/bowl/wood,
+/obj/item/chems/glass/handmade/bowl/wood,
+/obj/item/chems/glass/handmade/bowl/wood,
 /turf/floor/natural/path/herringbone/basalt,
 /area/shaded_hills/inn)
 "tS" = (
@@ -612,6 +613,9 @@
 	},
 /turf/floor/natural/grass,
 /area/shaded_hills/outside/shrine)
+"zQ" = (
+/turf/floor/wood/walnut,
+/area/shaded_hills/general_store/porch)
 "Ak" = (
 /turf/floor/natural/path/basalt,
 /area/shaded_hills/stable)
@@ -684,9 +688,16 @@
 /obj/item/bedsheet/yellowed,
 /turf/floor/wood/walnut,
 /area/shaded_hills/general_store)
+"BX" = (
+/obj/structure/wall_sconce/lantern,
+/turf/floor/wood/walnut,
+/area/shaded_hills/farmhouse/porch)
 "CR" = (
 /turf/floor/wood/walnut,
 /area/shaded_hills/shrine)
+"Dl" = (
+/turf/floor/wood/walnut,
+/area/shaded_hills/farmhouse/porch)
 "Dn" = (
 /obj/structure/reagent_dispensers/barrel/ebony/oil,
 /turf/floor/wood/walnut,
@@ -694,6 +705,7 @@
 "Dt" = (
 /obj/structure/bed/simple/ebony/cloth,
 /obj/abstract/landmark/start/shaded_hills/shrine_keeper,
+/obj/item/bedsheet/furs,
 /turf/floor/wood/walnut,
 /area/shaded_hills/shrine)
 "Ee" = (
@@ -766,7 +778,7 @@
 	dir = 8
 	},
 /turf/floor/wood/walnut,
-/area/shaded_hills/general_store)
+/area/shaded_hills/general_store/porch)
 "Gu" = (
 /obj/structure/fire_source/stove,
 /obj/item/stack/material/log/mapped/walnut/twenty,
@@ -845,7 +857,6 @@
 /area/shaded_hills/outside/downlands)
 "Je" = (
 /obj/structure/pit/closed/grave,
-/obj/structure/gravemarker/random,
 /turf/floor/natural/grass,
 /area/shaded_hills/outside/shrine)
 "Jo" = (
@@ -873,7 +884,7 @@
 /area/shaded_hills/inn)
 "JK" = (
 /obj/structure/table/woodentable_reinforced/mahogany,
-/obj/item/flame/candle,
+/obj/item/flame/candle/handmade,
 /turf/floor/carpet/red,
 /area/shaded_hills/shrine)
 "JM" = (
@@ -944,13 +955,13 @@
 /area/shaded_hills/slaughterhouse)
 "Ot" = (
 /obj/structure/table/woodentable/ebony,
-/obj/item/chems/cooking_vessel/pot,
+/obj/item/chems/cooking_vessel/pot/iron,
 /turf/floor/wood/walnut,
 /area/shaded_hills/shrine)
 "ON" = (
 /obj/structure/table/marble,
-/obj/item/chems/glass/pottery/jar,
-/obj/item/chems/glass/pottery/jar,
+/obj/item/chems/glass/handmade/jar,
+/obj/item/chems/glass/handmade/jar,
 /turf/floor/natural/path/herringbone/basalt,
 /area/shaded_hills/inn)
 "Pa" = (
@@ -1000,7 +1011,7 @@
 	dir = 4
 	},
 /turf/floor/wood/walnut,
-/area/shaded_hills/general_store)
+/area/shaded_hills/general_store/porch)
 "Rl" = (
 /turf/floor/natural/mud,
 /area/shaded_hills/outside/downlands)
@@ -1099,7 +1110,7 @@
 /area/shaded_hills/shrine)
 "UD" = (
 /obj/structure/table/woodentable/ebony,
-/obj/item/flame/candle,
+/obj/item/flame/candle/handmade,
 /turf/floor/wood/walnut,
 /area/shaded_hills/shrine)
 "US" = (
@@ -1132,7 +1143,7 @@
 	dir = 8
 	},
 /turf/floor/wood/walnut,
-/area/shaded_hills/farmhouse)
+/area/shaded_hills/farmhouse/porch)
 "VW" = (
 /obj/structure/table/marble,
 /obj/item/chems/glass/beaker/bowl,
@@ -1158,7 +1169,7 @@
 /area/shaded_hills/stable)
 "Wl" = (
 /obj/structure/table/woodentable_reinforced/ebony,
-/obj/item/chems/glass/pottery/cup,
+/obj/item/chems/glass/handmade/cup/wood,
 /turf/floor/wood/walnut,
 /area/shaded_hills/inn)
 "Wm" = (
@@ -1200,8 +1211,8 @@
 /area/shaded_hills/farmhouse)
 "WV" = (
 /obj/structure/table/marble,
-/obj/item/chems/cooking_vessel/pot,
-/obj/item/chems/cooking_vessel/skillet,
+/obj/item/chems/cooking_vessel/pot/iron,
+/obj/item/chems/cooking_vessel/skillet/iron,
 /turf/floor/natural/path/herringbone/basalt,
 /area/shaded_hills/inn)
 "WY" = (
@@ -8933,7 +8944,7 @@ TR
 EV
 TR
 TR
-uJ
+zQ
 eG
 uJ
 uJ
@@ -13492,8 +13503,8 @@ TR
 HI
 TR
 Ic
-qP
-gB
+Dl
+BX
 LN
 qP
 qP
@@ -13644,8 +13655,8 @@ TR
 HI
 EV
 EV
-qP
-qP
+Dl
+Dl
 WO
 qP
 qP
@@ -13796,7 +13807,7 @@ TR
 HI
 TR
 Ic
-qP
+Dl
 lL
 LN
 hJ
@@ -13948,7 +13959,7 @@ TR
 TR
 EV
 Ic
-qP
+Dl
 hc
 IQ
 HF
