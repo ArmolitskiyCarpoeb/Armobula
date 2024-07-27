@@ -1,4 +1,4 @@
-/datum/map/exodus
+/datum/map/vesta
 	// Unit test exemptions
 	apc_test_exempt_areas = list(
 		/area/space = NO_SCRUBBER|NO_VENT|NO_APC,
@@ -51,5 +51,5 @@
 		/area/exodus/engineering/atmos = 4,
 		/area/exodus/maintenance/incinerator = 2)
 
-/obj/abstract/map_data/exodus
-	height = 2
+/obj/abstract/map_data/vesta
+	height = 1

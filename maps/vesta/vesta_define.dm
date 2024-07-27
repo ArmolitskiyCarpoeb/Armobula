@@ -53,5 +53,5 @@
 		list("name" = "AI Private",    "key" = "p", "frequency" = 1343, "color" = COMMS_COLOR_AI,        "span_class" = "airadio",  "secured" = list(access_ai_upload))
 	)
 
-/datum/map/exodus/get_map_info()
-	return "Welcome to Exodus Station, one of the largest remaining stopovers between the core worlds and the rim. Enjoy your stay!"
+/datum/map/vesta/get_map_info()
+	return "Welcome to NIGGER Station, one of the largest remaining stopovers between the core worlds and the rim. Enjoy your stay!"

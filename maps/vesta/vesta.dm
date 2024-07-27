@@ -19,8 +19,6 @@
 	#include "../../mods/species/utility_frames/_utility_frames.dme"
 	#include "../../mods/species/bayliens/_bayliens.dme"
 
-	#include "../random_ruins/exoplanet_ruins/playablecolony/playablecolony.dm"
-
 	#include "../../mods/content/government/away_sites/icarus/icarus.dm"
 	#include "../../mods/content/corporate/away_sites/lar_maria/lar_maria.dm"
 
@@ -46,6 +44,16 @@
 	#include "jobs/science.dm"
 	#include "jobs/security.dm"
 //	#include "jobs/synthetics.dm"
+
+	#include "vesta_announcements.dm"
+	#include "vesta_cameras.dm"
+	#include "vesta_areas.dm"
+	#include "vesta_departments.dm"
+	#include "vesta_jobs.dm"
+	#include "vesta_overmap.dm"
+	#include "vesta_setup.dm"
+	#include "vesta_shuttles.dm"
+	#include "vesta_unit_testing.dm"
 
 	#include "outfits/_pda.dm"
 //	#include "outfits/cargo.dm"

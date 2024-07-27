@@ -5,14 +5,14 @@
 "ab" = (
 /obj/effect/paint/sun,
 /turf/wall/r_titanium,
-/obj/machinery/atmospherics/pipe/simple/visible/supply)
+/area/ministation/supply)
 "ac" = (
 /turf/floor/shuttle/yellow,
-/obj/machinery/atmospherics/pipe/simple/visible/supply)
+/area/ministation/supply)
 "ad" = (
 /obj/effect/shuttle_landmark/supply/start,
 /turf/floor/shuttle/yellow,
-/obj/machinery/atmospherics/pipe/simple/visible/supply)
+/area/ministation/supply)
 "ae" = (
 /obj/machinery/door/airlock/external/bolted{
 	id_tag = "supply_shuttle_hatch";
@@ -20,7 +20,7 @@
 	use_power = 1
 	},
 /turf/floor/plating,
-/obj/machinery/atmospherics/pipe/simple/visible/supply)
+/area/ministation/supply)
 "af" = (
 /obj/structure/shuttle/engine/heater,
 /obj/structure/window/borosilicate_reinforced{
@@ -28,12 +28,12 @@
 	dir = 1
 	},
 /turf/floor/shuttle/black,
-/obj/machinery/atmospherics/pipe/simple/visible/supply)
+/area/ministation/supply)
 "ag" = (
 /obj/structure/shuttle/engine/propulsion,
 /obj/effect/paint/sun,
 /turf/wall/r_titanium,
-/obj/machinery/atmospherics/pipe/simple/visible/supply)
+/area/ministation/supply)
 "aj" = (
 /obj/effect/paint/silver,
 /turf/wall/r_titanium,
@@ -394,7 +394,7 @@
 "AD" = (
 /obj/structure/window/borosilicate_reinforced,
 /turf/floor/bluegrid,
-/obj/machinery/atmospherics/pipe/simple/visible/supply)
+/area/ministation/supply)
 "AH" = (
 /obj/effect/paint/silver,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -416,14 +416,14 @@
 	name = "auto-pilot system"
 	},
 /turf/floor/bluegrid,
-/obj/machinery/atmospherics/pipe/simple/visible/supply)
+/area/ministation/supply)
 "KH" = (
 /obj/machinery/light/small/emergency{
 	icon_state = "bulb_map";
 	dir = 4
 	},
 /turf/floor/shuttle/yellow,
-/obj/machinery/atmospherics/pipe/simple/visible/supply)
+/area/ministation/supply)
 "Mu" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	dir = 8;
@@ -433,7 +433,7 @@
 	use_power = 1
 	},
 /turf/floor/shuttle/yellow,
-/obj/machinery/atmospherics/pipe/simple/visible/supply)
+/area/ministation/supply)
 "MW" = (
 /obj/machinery/atmospherics/pipe/manifold{
 	dir = 8

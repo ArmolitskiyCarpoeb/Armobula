@@ -1,4 +1,4 @@
-/obj/effect/overmap/visitable/ship/exodus
+/obj/effect/overmap/visitable/ship/vesta
 	name = "Exodus Station"
 	color = "#00ffff"
 	start_x = 4

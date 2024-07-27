@@ -108,7 +108,7 @@ ESCAPE_POD(4)
 
 /datum/shuttle/autodock/ferry/supply/cargo
 	name = "Supply Shuttle"
-	warmup_time = 30
+	warmup_time = 10
 	location = 1
 	dock_target = "supply_shuttle"
 	shuttle_area = /area/shuttle/supply_shuttle

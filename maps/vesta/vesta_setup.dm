@@ -1,13 +1,13 @@
-/datum/map/exodus/send_welcome()
-	var/obj/effect/overmap/visitable/ship/exodus = SSshuttle.ship_by_type(/obj/effect/overmap/visitable/ship/exodus)
+/datum/map/vesta/send_welcome()
+	var/obj/effect/overmap/visitable/ship/vesta = SSshuttle.ship_by_type(/obj/effect/overmap/visitable/ship/vesta)
 
 	var/welcome_text = "<center><font size = 3><b>[global.using_map.station_name]</b> Sensor Readings:</font><br>"
 	welcome_text += "Report generated on [stationdate2text()] at [stationtime2text()]</center><br /><br />"
 	welcome_text += "<hr>Current system:<br /><b>[global.using_map.system_name || "Unknown"]</b><br /><br>"
 
-	if(exodus) //If the overmap is disabled, it's possible for there to be no exodus.
+	if(vesta) //If the overmap is disabled, it's possible for there to be no vesta
 		var/list/space_things = list()
-		welcome_text += "Current Coordinates:<br /><b>[exodus.x]:[exodus.y]</b><br /><br>"
+		welcome_text += "Current Coordinates:<br /><b>[vesta.x]:[vesta.y]</b><br /><br>"
 		welcome_text += "Next system targeted for jump:<br /><b>[generate_system_name()]</b><br /><br>"
 		welcome_text += "Travel time to [company_name]:<br /><b>[rand(15,45)] days</b><br /><br>"
 		welcome_text += "Time since last port visit:<br /><b>[rand(60,180)] days</b><br /><hr>"
@@ -15,7 +15,7 @@
 
 		for(var/zlevel in global.overmap_sectors)
 			var/obj/effect/overmap/visitable/O = global.overmap_sectors[zlevel]
-			if(O.name == exodus.name)
+			if(O.name == vesta.name)
 				continue
 			if(istype(O, /obj/effect/overmap/visitable/ship/landable)) //Don't show shuttles
 				continue
@@ -26,8 +26,8 @@
 		var/list/distress_calls
 		for(var/obj/effect/overmap/visitable/O in space_things)
 			var/location_desc = " at present co-ordinates."
-			if(O.loc != exodus.loc)
-				var/bearing = round(90 - Atan2(O.x - exodus.x, O.y - exodus.y),5) //fucking triangles how do they work
+			if(O.loc != vesta.loc)
+				var/bearing = round(90 - Atan2(O.x - vesta.x, O.y - vesta.y),5) //fucking triangles how do they work
 				if(bearing < 0)
 					bearing += 360
 				location_desc = ", bearing [bearing]."
