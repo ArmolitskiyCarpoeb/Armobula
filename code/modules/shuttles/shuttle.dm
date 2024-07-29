@@ -101,6 +101,14 @@
 
 	. = ..()
 
+// Return false to abort a jump, before the 'warmup' phase.
+/datum/shuttle/proc/pre_warmup_checks()
+	return TRUE
+
+// Ditto, but for afterwards.
+/datum/shuttle/proc/post_warmup_checks()
+	return TRUE
+
 /datum/shuttle/proc/short_jump(var/obj/effect/shuttle_landmark/destination)
 	if(moving_status != SHUTTLE_IDLE) return
 

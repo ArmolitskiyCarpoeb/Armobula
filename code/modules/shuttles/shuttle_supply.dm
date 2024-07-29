@@ -1,7 +1,7 @@
 /datum/shuttle/autodock/ferry/supply
 	var/away_location = 1	//the location to hide at while pretending to be in-transit
-	var/late_chance = 80
-	var/max_late_time = (30 SECONDS)
+	var/late_chance = 90
+	var/max_late_time = (60 SECONDS)
 	flags = SHUTTLE_FLAGS_PROCESS|SHUTTLE_FLAGS_SUPPLY|SHUTTLE_FLAGS_NO_CODE
 	category = /datum/shuttle/autodock/ferry/supply
 	ceiling_type = /turf/floor/shuttle_ceiling

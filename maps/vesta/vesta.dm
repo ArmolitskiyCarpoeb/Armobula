@@ -53,7 +53,7 @@
 	#include "vesta_overmap.dm"
 	#include "vesta_setup.dm"
 	#include "vesta_shuttles.dm"
-	#include "vesta_unit_testing.dm"
+//	#include "vesta_unit_testing.dm"
 
 	#include "outfits/_pda.dm"
 //	#include "outfits/cargo.dm"
