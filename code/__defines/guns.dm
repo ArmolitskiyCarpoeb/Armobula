@@ -11,6 +11,7 @@
 #define CALIBER_SHOTGUN          "12g"
 #define CALIBER_CAPS             "caps"
 #define CALIBER_DART             "darts"
+#define CALIBER_STUNNER_DART     "stunner darts"
 
 #define CALIBER_UNUSABLE         "unusable"
 

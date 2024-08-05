@@ -282,7 +282,7 @@
 "Px" = (/obj/structure/table/reinforced,/turf/unsimulated/floor{icon_state = "white"},/area/space)
 "PE" = (/obj/machinery/door/airlock/external/bolted{id_tag = "centcom_escape_dock_north_outer"; name = "Escape Airlock"},/obj/machinery/button/access/exterior{id_tag = "centcom_escape_dock_north_airlock"; name = "exterior access button"; pixel_x = 4; pixel_y = -26},/turf/floor/plating,/area/centcom/holding)
 "PM" = (/obj/structure/table,/turf/unsimulated/floor{dir = 5; icon_state = "vault"},/area/space)
-"PY" = (/turf/wall/shuttle,/area/vesta/supply)
+"PY" = (/turf/wall/titanium,/area/vesta/supply)
 "Qa" = (/obj/machinery/door/blast/regular{id_tag = "thunderdomehea"; name = "Heavy Supply"},/turf/unsimulated/floor{dir = 5; icon_state = "vault"},/area/space)
 "Qb" = (/obj/structure/bed/chair{dir = 8},/turf/unsimulated/floor{icon_state = "steel"},/area/centcom)
 "Qd" = (/obj/structure/table/reinforced,/turf/unsimulated/floor{icon_state = "cult"; name = "plating"},/area/centcom/holding)

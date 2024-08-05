@@ -4,7 +4,7 @@
 	icon = 'icons/obj/guns/bolt_action.dmi'
 	icon_state = ICON_STATE_WORLD
 	w_class = ITEM_SIZE_HUGE
-	force = 5
+	force = 14
 	slot_flags = SLOT_BACK
 	origin_tech = @'{"combat":4,"materials":2}'
 	caliber = CALIBER_RIFLE

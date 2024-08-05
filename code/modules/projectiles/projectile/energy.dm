@@ -114,6 +114,18 @@
 	atom_damage_type = TOX
 	weaken = 5
 
+//stunner
+
+/obj/item/projectile/energy/stundart
+	name = "stundart"
+	icon_state = "dart"
+	damage = 4
+	atom_damage_type = TOX
+	weaken = 25
+	agony = 25
+	stutter = 3
+//
+
 /obj/item/projectile/energy/bolt
 	name = "bolt"
 	icon_state = "cbbolt"

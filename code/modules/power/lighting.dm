@@ -529,8 +529,8 @@
 	w_class = ITEM_SIZE_SMALL
 	name = "UV light tube"
 	desc = "Good for plants."
-	b_power = 2
-	b_range = 3
+	b_power = 3
+	b_range = 2
 	b_color = LIGHT_COLOR_VIOLET
 
 /obj/item/light/bulb
