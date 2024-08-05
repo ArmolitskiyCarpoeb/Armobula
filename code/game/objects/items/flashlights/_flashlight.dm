@@ -183,3 +183,18 @@
 			I.appearance_flags |= RESET_COLOR
 			overlay.overlays += I
 	. = ..()
+
+/obj/item/flashlight/green
+	name = "green light"
+	desc = "Good light to see through the darkness night."
+	light_wedge = LIGHT_OMNI
+	action_button_name = "Toggle Greenlight"
+	flashlight_range = 3
+	flashlight_power = 2
+	color = "#49f37c"
+	icon = 'icons/obj/lighting/greenlight.dmi'
+	icon_state = ICON_STATE_WORLD
+
+/obj/item/flashlight/green/Initialize()
+	. = ..()
+	light_color = color

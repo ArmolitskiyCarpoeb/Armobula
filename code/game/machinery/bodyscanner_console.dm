@@ -141,3 +141,19 @@
 	for(var/D in connected_displays)
 		remove_display(D)
 	unlink_scanner(connected)
+
+/obj/machinery/body_scanconsole/blue
+	icon_state = "scanner_terminal"
+
+/obj/machinery/body_scanconsole/blue/on_update_icon()
+	if(stat & (BROKEN | NOPOWER))
+		icon_state = "scanner_terminal-p"
+	else
+		icon_state = initial(icon_state)
+
+/obj/machinery/body_scanconsole/blue/FindScanner()
+	for(var/D in global.cardinal)
+		src.connected = locate(/obj/machinery/bodyscanner/blue, get_step(src, D))
+		if(src.connected)
+			break
+		events_repository.register(/decl/observ/destroyed, connected, src, PROC_REF(unlink_scanner))

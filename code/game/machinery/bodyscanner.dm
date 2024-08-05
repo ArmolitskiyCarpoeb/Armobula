@@ -129,3 +129,14 @@
 		occupant.dropInto(loc)
 		occupant = null
 	. = ..()
+
+/obj/machinery/bodyscanner/blue
+	icon_state = "blue_scanner_0"
+
+/obj/machinery/bodyscanner/blue/on_update_icon()
+	if(!occupant)
+		icon_state = "blue_scanner_0"
+	else if(stat & (BROKEN|NOPOWER))
+		icon_state = "blue_scanner_1"
+	else
+		icon_state = "blue_scanner_2"

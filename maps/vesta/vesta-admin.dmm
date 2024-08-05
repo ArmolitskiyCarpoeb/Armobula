@@ -1,7 +1,7 @@
 "ae" = (/obj/machinery/door/airlock/glass/security{name = "Holding Cell"},/turf/unsimulated/floor{icon_state = "steel"},/area/centcom/holding)
 "ai" = (/obj/effect/wingrille_spawn/reinforced/crescent,/turf/unsimulated/floor{icon_state = "plating"; name = "plating"},/area/space)
 "aq" = (/obj/effect/floor_decal/industrial/warning{dir = 1},/turf/unsimulated/floor{icon_state = "steel"},/area/centcom)
-"as" = (/obj/structure/table/woodentable{dir = 5},/obj/item/chems/food/bigbiteburger,/obj/machinery/camera/network/crescent{c_tag = "Crescent Bar Center"},/turf/unsimulated/floor{icon_state = "wood"},/area/centcom/holding)
+"as" = (/obj/structure/table/woodentable{dir = 5},/obj/machinery/camera/network/crescent{c_tag = "Crescent Bar Center"},/turf/unsimulated/floor{icon_state = "wood"},/area/centcom/holding)
 "aI" = (/turf/wall/titanium,/area/space)
 "aS" = (/obj/effect/floor_decal/industrial/outline/yellow,/obj/machinery/atmospherics/portables_connector,/obj/machinery/portable_atmospherics/canister/air/airlock,/turf/unsimulated/floor{icon_state = "steel"},/area/centcom/holding)
 "bv" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 4},/turf/unsimulated/floor{icon_state = "steel"},/area/centcom/holding)
@@ -12,7 +12,6 @@
 "bL" = (/obj/structure/cable/green{icon_state = "0-2"},/obj/structure/shuttle/engine/propulsion{dir = 1},/turf/floor,/area/ship/shuttle_arrival)
 "ce" = (/obj/machinery/conveyor{dir = 4; id_tag = "QMLoad"},/obj/machinery/door/airlock/external/bolted{id_tag = "supply_shuttle_hatch_dock"; name = "Shuttle Hatch"},/turf/floor/plating,/area/vesta/supply)
 "ck" = (/obj/machinery/recharger{pixel_y = 4},/obj/abstract/landmark{name = "tdome2"},/turf/unsimulated/floor{dir = 5; icon_state = "vault"},/area/space)
-"co" = (/obj/structure/table/woodentable{dir = 5},/obj/item/chems/food/poppypretzel,/turf/unsimulated/floor{icon_state = "wood"},/area/centcom/holding)
 "cz" = (/obj/effect/floor_decal/techfloor{dir = 8},/obj/effect/floor_decal/techfloor{dir = 4},/obj/structure/cable/green{icon_state = "1-2"},/turf/floor/tiled/steel_grid_2,/area/ship/shuttle_arrival)
 "cG" = (/obj/structure/shuttle/engine/propulsion{icon_state = "burst_r"},/turf/space,/area/space)
 "cJ" = (/turf/unsimulated/floor{icon_state = "bcircuit"},/area/space)
@@ -50,7 +49,6 @@
 "hi" = (/obj/effect/floor_decal/corner/green{dir = 8},/obj/effect/floor_decal/industrial/warning/corner{dir = 1},/turf/unsimulated/floor{icon_state = "steel"},/area/centcom)
 "ho" = (/obj/structure/disposalpipe/trunk,/obj/structure/disposaloutlet,/turf/unsimulated/floor{icon_state = "lino"},/area/space)
 "hq" = (/obj/machinery/bodyscanner{dir = 8},/turf/unsimulated/floor{icon_state = "white"},/area/centcom/holding)
-"hs" = (/obj/structure/table/woodentable{dir = 5},/obj/item/chems/food/amanita_pie,/turf/unsimulated/floor{icon_state = "wood"},/area/centcom/holding)
 "hv" = (/obj/effect/floor_decal/corner/green{dir = 4},/obj/effect/floor_decal/industrial/warning/corner{dir = 1},/turf/unsimulated/floor{icon_state = "steel"},/area/centcom/holding)
 "hx" = (/obj/machinery/atmospherics/pipe/simple/visible{dir = 5},/turf/unsimulated/floor{icon_state = "dark"},/area/space)
 "hy" = (/obj/item/stool/padded,/obj/effect/floor_decal/corner/red{dir = 6},/turf/unsimulated/floor{icon_state = "steel"},/area/centcom/holding)
@@ -61,8 +59,6 @@
 "iN" = (/obj/structure/shuttle/engine/heater,/turf/floor/plating,/area/vesta/supply)
 "iO" = (/turf/unsimulated/floor{dir = 5; icon_state = "vault"},/area/space)
 "iU" = (/obj/item/chems/spray/extinguisher,/turf/unsimulated/floor{icon_state = "lino"},/area/space)
-"iY" = (/obj/structure/table/woodentable{dir = 5},/obj/item/chems/food/tofukabob,/turf/unsimulated/floor{icon_state = "wood"},/area/centcom/holding)
-"jk" = (/obj/structure/table/woodentable{dir = 5},/obj/item/chems/food/stew,/turf/unsimulated/floor{icon_state = "wood"},/area/centcom/holding)
 "jT" = (/obj/machinery/atmospherics/pipe/simple/visible,/turf/unsimulated/floor{icon_state = "dark"},/area/space)
 "jX" = (/obj/structure/bed/chair/shuttle/black,/obj/structure/cable/green{icon_state = "1-2"},/turf/floor/tiled/monofloor3,/area/ship/shuttle_arrival)
 "ka" = (/obj/structure/shuttle/engine/propulsion{icon_state = "burst_l"},/turf/space,/area/space)
@@ -79,7 +75,6 @@
 "lA" = (/obj/structure/sign/department/redcross,/turf/unsimulated/wall,/area/centcom/holding)
 "lG" = (/turf/space,/turf/space,/area/space)
 "lI" = (/obj/structure/shuttle/engine/heater{dir = 1},/obj/structure/cable/green{icon_state = "4-8"},/obj/structure/cable/green{icon_state = "1-8"},/turf/floor,/area/ship/shuttle_arrival)
-"lL" = (/obj/structure/table/woodentable{dir = 5},/obj/item/chems/food/boiledrice,/turf/unsimulated/floor{icon_state = "wood"},/area/centcom/holding)
 "lW" = (/obj/item/radio/intercom{pixel_y = 20},/obj/structure/decoy{name = "A.L.I.C.E."},/turf/unsimulated/floor{icon_state = "steel"},/area/centcom)
 "mf" = (/obj/machinery/door/airlock/centcom{name = "Holding Cell"},/obj/machinery/door/blast/regular{id_tag = "crescent_checkpoint_access"; name = "Crescent Checkpoint"},/turf/unsimulated/floor{icon_state = "steel"},/area/centcom)
 "mk" = (/obj/structure/bed/chair,/turf/unsimulated/floor{icon_state = "lino"},/area/space)
@@ -104,7 +99,6 @@
 "pi" = (/obj/structure/cable/green{icon_state = "1-2"},/turf/floor/tiled/monofloor2,/area/ship/shuttle_arrival)
 "pk" = (/obj/item/wrench,/turf/unsimulated/floor{icon_state = "lino"},/area/space)
 "pq" = (/obj/structure/shuttle/engine/propulsion{dir = 1},/turf/space,/area/vesta/supply)
-"pt" = (/obj/structure/table/woodentable{dir = 5},/obj/item/chems/food/meatsteak,/turf/unsimulated/floor{icon_state = "wood"},/area/centcom/holding)
 "pD" = (/obj/machinery/light{dir = 4},/turf/floor/tiled/monofloor3,/area/vesta/supply)
 "pF" = (/obj/machinery/atmospherics/pipe/simple/visible{dir = 9},/turf/unsimulated/floor{icon_state = "dark"},/area/space)
 "pI" = (/obj/effect/floor_decal/corner/red{dir = 10},/turf/unsimulated/floor{dir = 5; icon_state = "vault"},/area/space)
@@ -126,7 +120,6 @@
 "rN" = (/obj/machinery/embedded_controller/radio/simple_docking_controller{dir = 8; id_tag = "supply_shuttle"; pixel_x = 25; tag_door = "supply_shuttle_hatch"},/turf/floor/tiled/monofloor3,/area/vesta/supply)
 "rQ" = (/obj/effect/shuttle_landmark/escape_pod/out/pod4,/turf/space,/area/space)
 "rV" = (/obj/structure/bed/chair,/obj/effect/floor_decal/industrial/warning/corner{dir = 4},/turf/unsimulated/floor{icon_state = "steel"},/area/centcom)
-"sm" = (/obj/structure/table/woodentable{dir = 5},/obj/item/chems/food/spesslaw,/turf/unsimulated/floor{icon_state = "wood"},/area/centcom/holding)
 "sv" = (/obj/machinery/door/airlock/centcom{name = "Maintenance Access"},/turf/unsimulated/floor{icon_state = "steel"},/area/centcom)
 "sz" = (/obj/machinery/airlock_sensor{id_tag = "centcom_escape_dock_north_sensor"; pixel_y = -25; dir = 1},/turf/floor/plating,/area/centcom/holding)
 "sE" = (/obj/machinery/teleport/station{dir = 4},/turf/unsimulated/floor{icon_state = "steel"},/area/centcom)
@@ -198,7 +191,6 @@
 "CL" = (/obj/machinery/power/apc{dir = 1; pixel_y = 21},/obj/machinery/power/terminal{dir = 4},/obj/structure/cable/green{icon_state = "0-2"},/obj/structure/cable/green,/turf/floor/tiled/monofloor3,/area/ship/shuttle_arrival)
 "CM" = (/obj/machinery/door/window/northleft{base_state = "right"; dir = 8; icon_state = "right"; name = "Arrivals Processing"},/turf/unsimulated/floor{icon_state = "steel"},/area/centcom/holding)
 "Dt" = (/obj/machinery/light/small{dir = 4},/turf/floor/tiled/monofloor3,/area/ship/shuttle_arrival)
-"Dz" = (/obj/structure/table/woodentable{dir = 5},/obj/item/chems/food/stuffing,/turf/unsimulated/floor{icon_state = "wood"},/area/centcom/holding)
 "DG" = (/obj/machinery/door/airlock/centcom{name = "General Access"},/obj/machinery/door/blast/regular{id_tag = "crescent_checkpoint_access"; name = "Crescent Checkpoint"},/turf/unsimulated/floor{icon_state = "steel"},/area/centcom)
 "DH" = (/turf/floor/tiled/monofloor3,/area/vesta/supply)
 "DO" = (/turf/unsimulated/floor{icon_state = "dark"},/area/space)
@@ -254,7 +246,6 @@
 "Ml" = (/obj/item/camera,/turf/unsimulated/floor{icon_state = "lino"},/area/space)
 "Mn" = (/obj/effect/floor_decal/corner/green{dir = 6},/turf/unsimulated/floor{dir = 5; icon_state = "vault"},/area/space)
 "Mw" = (/obj/effect/floor_decal/corner/green,/turf/unsimulated/floor{dir = 5; icon_state = "vault"},/area/space)
-"MB" = (/obj/structure/table/woodentable{dir = 5},/obj/item/chems/food/soylenviridians,/turf/unsimulated/floor{icon_state = "wood"},/area/centcom/holding)
 "MJ" = (/obj/structure/table,/obj/item/chems/drinks/bottle/small/beer,/obj/item/chems/drinks/bottle/small/beer,/obj/item/chems/drinks/bottle/small/beer,/obj/item/flame/fuelled/lighter/zippo/random,/obj/item/box/fancy/cigarettes,/turf/unsimulated/floor{icon_state = "lino"},/area/space)
 "MO" = (/obj/effect/floor_decal/corner/green/three_quarters,/turf/unsimulated/floor{icon_state = "steel"},/area/centcom)
 "MU" = (/obj/structure/table/woodentable{dir = 5},/obj/machinery/chemical_dispenser/bar_alc/full,/turf/unsimulated/floor{icon_state = "lino"},/area/centcom/holding)
@@ -262,7 +253,6 @@
 "MZ" = (/obj/machinery/camera/network/crescent{c_tag = "Crescent Arrivals North"; dir = 8},/obj/machinery/computer/modular/preset/security{dir = 8; icon_state = "console"},/turf/unsimulated/floor{icon_state = "steel"},/area/centcom/holding)
 "Nc" = (/obj/structure/table/reinforced,/obj/machinery/recharger{pixel_y = 4},/turf/unsimulated/floor{icon_state = "steel"},/area/centcom)
 "Ne" = (/obj/structure/window/reinforced/crescent{dir = 8},/obj/structure/window/reinforced/crescent,/turf/unsimulated/floor{icon_state = "steel"},/area/centcom)
-"Nj" = (/obj/structure/table/woodentable{dir = 5},/obj/item/chems/food/mushroomsoup,/turf/unsimulated/floor{icon_state = "wood"},/area/centcom/holding)
 "Ns" = (/obj/structure/disposalpipe/trunk{dir = 1},/obj/machinery/disposal,/turf/unsimulated/floor{icon_state = "lino"},/area/space)
 "NE" = (/obj/effect/floor_decal/industrial/warning{dir = 8},/obj/structure/extinguisher_cabinet{pixel_x = -7; pixel_y = 32},/obj/effect/floor_decal/techfloor{dir = 8},/turf/floor/tiled/steel_ridged,/area/ship/shuttle_arrival)
 "NY" = (/turf/unsimulated/floor{icon_state = "white"},/area/space)
@@ -297,9 +287,7 @@
 "Rq" = (/obj/structure/table/woodentable{dir = 5},/obj/item/book/manual/barman_recipes,/obj/item/chems/glass/rag,/turf/unsimulated/floor{icon_state = "lino"},/area/centcom/holding)
 "Rz" = (/obj/structure/shuttle/engine/propulsion,/turf/space,/area/vesta/supply)
 "RK" = (/obj/structure/bed/chair{dir = 8},/turf/unsimulated/floor{icon_state = "steel"},/area/centcom/holding)
-"RV" = (/obj/structure/table/woodentable{dir = 5},/obj/item/chems/food/candiedapple,/turf/unsimulated/floor{icon_state = "wood"},/area/centcom/holding)
 "Sq" = (/obj/machinery/door/airlock/external{autoset_access = 0; id_tag = "arrivals_shuttle"; locked = 1; name = "Ship Exterior"},/turf/floor,/area/ship/shuttle_arrival)
-"Su" = (/obj/structure/table,/obj/item/stack/medical/bruise_pack,/obj/item/stack/medical/bruise_pack,/obj/item/stack/medical/bruise_pack,/turf/unsimulated/floor{icon_state = "lino"},/area/space)
 "Sy" = (/obj/structure/closet/secure_closet/bar,/turf/unsimulated/floor{icon_state = "white"},/area/space)
 "SA" = (/obj/structure/sign/warning/nosmoking_2,/turf/unsimulated/wall,/area/centcom)
 "SC" = (/obj/machinery/teleport/hub,/turf/unsimulated/floor{icon_state = "steel"},/area/centcom)
@@ -337,7 +325,6 @@
 "Xw" = (/obj/machinery/computer/teleporter,/turf/unsimulated/floor{icon_state = "steel"},/area/centcom)
 "Xy" = (/obj/structure/bed/chair,/turf/unsimulated/floor{icon_state = "steel"},/area/centcom)
 "XH" = (/obj/structure/closet/emcloset,/turf/floor/tiled/monofloor2,/area/ship/shuttle_arrival)
-"XP" = (/obj/structure/table/woodentable{dir = 5},/obj/item/chems/food/beetsoup,/turf/unsimulated/floor{icon_state = "wood"},/area/centcom/holding)
 "XS" = (/obj/machinery/vending/cigarette,/obj/effect/floor_decal/corner/green{dir = 6},/turf/unsimulated/floor{icon_state = "steel"},/area/centcom/holding)
 "XZ" = (/obj/effect/shuttle_landmark/escape_pod/out/pod2,/turf/space,/area/space)
 "Yj" = (/turf/floor/tiled/steel_ridged,/area/centcom)
@@ -347,7 +334,6 @@
 "YI" = (/turf/unsimulated/wall,/area/centcom/holding)
 "YM" = (/obj/structure/shuttle/engine/propulsion{dir = 8},/turf/space,/area/vesta/supply)
 "YQ" = (/obj/structure/table/reinforced,/obj/structure/window/reinforced/crescent{dir = 8},/obj/structure/window/reinforced/crescent,/obj/machinery/computer/modular/preset/cardslot/command{dir = 1; icon_state = "console"},/turf/unsimulated/floor{icon_state = "steel"},/area/centcom/holding)
-"YZ" = (/obj/structure/table/woodentable{dir = 5},/obj/item/chems/food/bloodsoup,/turf/unsimulated/floor{icon_state = "wood"},/area/centcom/holding)
 "ZM" = (/obj/item/radio/intercom{dir = 8; pixel_x = 22},/obj/machinery/light{dir = 4},/obj/structure/bed/chair/shuttle/black{dir = 8},/obj/effect/floor_decal/techfloor{dir = 4},/obj/abstract/landmark/latejoin,/turf/floor/tiled/steel_ridged,/area/ship/shuttle_arrival)
 
 (1,1,1) = {"
@@ -392,11 +378,11 @@ sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMvRsMsMsM
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMvRsMsMsMsMvRsMYIyzmwtnykykykykRKmwrhykzpefaSmwTOTOfbfbfbfbfbfbfbfbfbfbfbfbfbsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMvRsMsMsMsMvRsMYIxWmwtnykykykykRKzkrhykuqbvnKmwTOsMfbfbfbfbfbfbfbfbfbfbfbfbfbsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMYIYIYIYIYIYIYIYIYIYIYIYIYIYIYIYIYIYIYIyzmwtnykykykykRKmwrhykzpBNKtmwTOTOfbfbfbfbfbfbfbfbfbfbfbfbfbsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMYITahsasUhkRTayqjkUhmwPvRqMUIbPkkRkRYImwmwozykykykykyktgykykzpznmwmwmwmwfbfbfbfbfbfbfbfbfbfbfbfbfbsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMYITalLXPUhkRTaDzMBUhmwPkPkPkPkPkkRkRMgyktgykykykykykyktgGdykJVQCtELegaUUfbfbfbfbfbfbfbfbfbfbfbfbfbsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMYITayqasUhkRTayqyqUhmwPvRqMUIbPkkRkRYImwmwozykykykykyktgykykzpznmwmwmwmwfbfbfbfbfbfbfbfbfbfbfbfbfbsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMYITayqyqUhkRTayqyqUhmwPkPkPkPkPkkRkRMgyktgykykykykykyktgGdykJVQCtELegaUUfbfbfbfbfbfbfbfbfbfbfbfbfbsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMYIkRkRkRkRuPkRkRkRkRYIzqPkVyPkPkkRkRMgyktgykykykykCjYIYIYImwmwYIYIYImwLEfbfbfbfbfbfbfbfbfbfbfbfbfbsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMYITaYZiYUhkRTacoyqUhmwpTzhzhGnGnkRkRYImwmwFoykBrykfiYIsMTOsMsMTOsMTOsMTOfbfbfbfbfbfbfbfbfbfbfbfbfbsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMYITasmRVUhkRTaNjptUhmwAwAwAwAwAwkRkRYIyzmwvpykykykfiYIsMsMsMsMsMsMsMsMTOfbfbfbfbfbfbfbfbfbfbfbfbfbsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMYITayqyqUhkRTayqyqUhmwpTzhzhGnGnkRkRYImwmwFoykBrykfiYIsMTOsMsMTOsMTOsMTOfbfbfbfbfbfbfbfbfbfbfbfbfbsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMYITayqyqUhkRTayqyqUhmwAwAwAwAwAwkRkRYIyzmwvpykykykfiYIsMsMsMsMsMsMsMsMTOfbfbfbfbfbfbfbfbfbfbfbfbfbsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMYIYIYIYIYIkRkRkRkRkRkRkRkRkRkRkRkRkRYIxWmwJUykykykdeYIsMsMsMsMsMsMsMsMTOfbfbfbfbfbfbfbfbfbfbfbfbfbsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMYIkRkRkRkRkRkRkRkRkRkRkRkRkRYIyzmwJUykykykXSYIsMsMsMsMsMsMsMsMTOfbfbfbfbfbfbfbfbfbfbfbfbfbsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMYIYIYIvRvRvRaiaioJaiaivRvRvRYIYIYIYIYIYIYIYIYITOTOTOTOTOTOTOTOTOsMsMsMfbfbfbfbfbfbfbsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
@@ -425,7 +411,7 @@ sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMvRXmFJiOvRGvGvGvGvGvvRPhPhPhPhPhPhQxthQxPh
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMvRvRvRiOvRvRvRvRvRvRvRWEWKWKWKWKWKiUYDWEWKWKWKWKrIWEvRvRvRvRvRvRvRiOvRvRvRsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMvRiOiOiOiOiOiOiOvRWEWEWEWEWEWEWEkzpkWEWEWEWENsWEvRiOiOiOiOiOiOiOvRsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMvRvRvRvRvRvRvRiOIwWEWEWEmkmkmkWEWEWEmkmkmkmkmkWEIwiOvRvRvRvRvRvRvRsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMvRvRvResesesqFulxgpfBUBUQiSulqxZBJKDvRvRvRsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMvRvRvResesesqFulxgpfBUBUQixZlqxZBJKDvRvRvRsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMvRvRvRvRvRvRvRvRvRvRvRvRvRvRvRvRvRsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM

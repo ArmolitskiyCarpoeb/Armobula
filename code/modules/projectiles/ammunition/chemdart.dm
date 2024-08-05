@@ -84,7 +84,7 @@
 /obj/item/projectile/stundart
 	name = "dart"
 	icon_state = "dart"
-	damage = 4
+	damage = 3
 	sharp = 1
 	embed = 1
 	life_span = 15 //shorter range

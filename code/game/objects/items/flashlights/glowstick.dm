@@ -9,7 +9,7 @@
 	produce_heat = 0
 	activation_sound = 'sound/effects/glowstick.ogg'
 	flashlight_range = 3
-	flashlight_power = 2
+	flashlight_power = 3
 	offset_on_overlay_x = 0
 
 /obj/item/flashlight/flare/glowstick/Initialize()
