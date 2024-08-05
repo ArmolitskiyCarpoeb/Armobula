@@ -2,7 +2,12 @@
 	name = SPECIES_HUMAN
 	name_plural = "Humans"
 	primitive_form = SPECIES_MONKEY
-	unarmed_attacks = list(/decl/natural_attack/stomp, /decl/natural_attack/kick, /decl/natural_attack/punch, /decl/natural_attack/bite)
+	unarmed_attacks = list(
+		/decl/natural_attack/stomp,
+		/decl/natural_attack/kick,
+		/decl/natural_attack/punch,
+		/decl/natural_attack/bite
+	)
 	description = "A medium-sized creature prone to great ambition. If you are reading this, you are probably a human."
 	hidden_from_codex = FALSE
 	spawn_flags = SPECIES_CAN_JOIN
@@ -13,6 +18,14 @@
 		/decl/bodytype/human,
 		/decl/bodytype/human/masculine,
 		/decl/bodytype/prosthetic/basic_human
+	)
+
+	available_accessory_categories = list(
+		SAC_HAIR,
+		SAC_FACIAL_HAIR,
+		SAC_EARS,
+		SAC_COSMETICS,
+		SAC_MARKINGS
 	)
 
 	exertion_effect_chance = 10

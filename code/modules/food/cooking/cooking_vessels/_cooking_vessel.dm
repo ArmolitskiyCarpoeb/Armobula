@@ -21,7 +21,7 @@
 		return ..()
 
 	// Fill or take from the vessel.
-	if(W.reagents && ATOM_IS_OPEN_CONTAINER(W) && !istype(W, /obj/item/chems/food))
+	if(W.reagents && ATOM_IS_OPEN_CONTAINER(W))
 		if(W.reagents.total_volume)
 			if(istype(W, /obj/item/chems))
 				var/obj/item/chems/vessel = W
@@ -31,6 +31,37 @@
 			return TRUE
 
 	return ..()
+
+// Boilerplate from /obj/item/chems/glass. TODO generalize to a lower level.
+/obj/item/chems/cooking_vessel/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
+	if(force && !(item_flags & ITEM_FLAG_NO_BLUDGEON) && user.a_intent == I_HURT)
+		return ..()
+	return FALSE
+
+/obj/item/chems/cooking_vessel/afterattack(var/obj/target, var/mob/user, var/proximity)
+	if(!ATOM_IS_OPEN_CONTAINER(src) || !proximity) //Is the container open & are they next to whatever they're clicking?
+		return FALSE //If not, do nothing.
+	if(target?.storage)
+		return TRUE
+	if(standard_dispenser_refill(user, target)) //Are they clicking a water tank/some dispenser?
+		return TRUE
+	if(standard_pour_into(user, target)) //Pouring into another beaker?
+		return TRUE
+	if(handle_eaten_by_mob(user, target) != EATEN_INVALID)
+		return TRUE
+	if(user.a_intent == I_HURT)
+		if(standard_splash_mob(user,target))
+			return TRUE
+		if(reagents && reagents.total_volume)
+			to_chat(user, SPAN_DANGER("You splash the contents of \the [src] onto \the [target]."))
+			reagents.splash(target, reagents.total_volume)
+			return TRUE
+	else if(reagents && reagents.total_volume)
+		to_chat(user, SPAN_NOTICE("You splash a small amount of the contents of \the [src] onto \the [target]."))
+		reagents.splash(target, min(reagents.total_volume, 5))
+		return TRUE
+	. = ..()
+// End boilerplate.
 
 /obj/item/chems/cooking_vessel/proc/get_cooking_contents_strings()
 
@@ -43,8 +74,8 @@
 		for(var/reagent_type in reagents.reagent_volumes)
 			var/decl/material/reagent = GET_DECL(reagent_type)
 			var/reagent_name = reagent.get_reagent_name(reagents)
-			if(!isnull(reagent.boiling_point) && temperature >= reagent.boiling_point)
-				. += "[reagents.reagent_volumes[reagent_type]]u of simmering [reagent_name]"
+			if(!isnull(reagent.boiling_point) && temperature >= reagent.boiling_point && reagent.soup_hot_desc)
+				. += "[reagents.reagent_volumes[reagent_type]]u of [reagent.soup_hot_desc] [reagent_name]"
 			else
 				. += "[reagents.reagent_volumes[reagent_type]]u of [reagent_name]"
 
