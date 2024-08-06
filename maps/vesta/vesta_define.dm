@@ -54,4 +54,4 @@
 	)
 
 /datum/map/vesta/get_map_info()
-	return "Welcome to NIGGER Station, one of the largest remaining stopovers between the core worlds and the rim. Enjoy your stay!"
+	return "Welcome to the Mining Station, one of the largest remaining stopovers between the core worlds and the rim. Enjoy your stay!"
