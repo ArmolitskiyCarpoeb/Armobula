@@ -26,7 +26,7 @@
 	var/datum/shuttle/autodock/ferry/arrivals/shuttle = SSshuttle.shuttles[shuttle_tag]
 	if(shuttle && shuttle.process_state == IDLE_STATE)
 		shuttle.Process()
-	return ..()
+	..()
 
 // This proc checks if anyone is on the shuttle.
 /datum/shuttle/autodock/ferry/arrivals/proc/check_for_passengers()
@@ -66,7 +66,7 @@
 					warmup_time = 0 // Gotta go fast.
 					launch()
 
-	return ..() // Do everything else
+	..() // Do everything else
 
 /*
 /datum/shuttle/autodock/ferry/arrivals/current_dock_target()
