@@ -91,7 +91,6 @@
 			to_chat(user, SPAN_NOTICE("\The [src] is empty."))
 
 /obj/item/chems/cooking_vessel/Process()
-	. = ..()
 	var/decl/recipe/recipe = select_recipe(cooking_category, src, temperature)
 	if(!recipe) // Too hot, too cold, ingredients changed.
 		//TODO fail last recipe
@@ -111,6 +110,10 @@
 /obj/item/chems/cooking_vessel/on_update_icon()
 	. = ..()
 	icon_state = get_world_inventory_state()
+	if(material.reflectiveness >= MAT_VALUE_SHINY && check_state_in_icon("[icon_state]-shine", icon))
+		var/mutable_appearance/shine = mutable_appearance(icon, "[icon_state]-shine", adjust_brightness(color, 20 + material.reflectiveness))
+		shine.alpha = material.reflectiveness * 3
+		add_overlay(shine)
 
 /obj/item/chems/cooking_vessel/Entered()
 	. = ..()
