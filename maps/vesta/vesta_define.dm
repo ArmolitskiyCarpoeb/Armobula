@@ -1,19 +1,22 @@
 /datum/map/vesta
-	name          = "VESTA"
-	full_name     = "VESTA Colony"
+	name          = "Outland"
+	full_name     = "Mining Colony 'Outland' "
 	path          = "vesta"
 
-	station_name  = "VESTA Colony"
-	station_short = "VESTA"
+	station_name  = "'Outland' Colony"
+	station_short = "Outland"
 	dock_name     = "NAS Crescent"
 	boss_name     = "Central Command"
 	boss_short    = "Centcomm"
-	company_name  = "NanoTrasen"
-	company_short = "NT"
-	system_name   = "Nyx"
+	company_name  = "Mons-Laden"
+	company_short = "ML"
+	system_name   = "Acheron"
 
 	overmap_ids = list(OVERMAP_ID_SPACE)
 	num_exoplanets = 1
+
+	survival_box_choices    = list()
+	passport_type           = null
 
 	lobby_screens = list(
 		'maps/vesta/lobby/vesta.png'
@@ -21,6 +24,12 @@
 
 	lobby_tracks = list(
 		/decl/music_track/tree
+	)
+
+	char_preview_bgstate_options = list(
+		"000",
+		"midgrey",
+		"FFF"
 	)
 
 	evac_controller_type = /datum/evacuation_controller/shuttle
@@ -54,4 +63,4 @@
 	)
 
 /datum/map/vesta/get_map_info()
-	return "Welcome to the Mining Station, one of the largest remaining stopovers between the core worlds and the rim. Enjoy your stay!"
+	return "На Чужбине смертью пахнет."

@@ -1,7 +1,7 @@
 #ifndef MODPACK_SHACKLES
 #define MODPACK_SHACKLES
 // BEGIN_INCLUDE
-#include "laws_pref.dm"
-#include "mind.dm"
-#include "shackle_lawsets.dm"
+//#include "laws_pref.dm"
+//#include "mind.dm"
+//#include "shackle_lawsets.dm"
 #endif

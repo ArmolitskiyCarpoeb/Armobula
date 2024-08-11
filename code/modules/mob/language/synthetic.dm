@@ -7,7 +7,7 @@
 	exclaim_verb = "whistles loudly"
 	colour = "mutant"
 	key = "6"
-	flags = LANG_FLAG_NO_STUTTER
+	flags = LANG_FLAG_NO_STUTTER | LANG_FLAG_RESTRICTED
 	syllables = list("beep","beep","beep","beep","beep","boop","boop","boop","bop","bop","dee","dee","doo","doo","hiss","hss","buzz","buzz","bzz","ksssh","keey","wurr","wahh","tzzz")
 	space_chance = 10
 	speech_sounds = list(

@@ -50,7 +50,7 @@
 	RETURN_TYPE(/decl/pronouns)
 	. = get_pronouns_by_gender(gender)
 
-var/global/list/byond_genders = list(MALE, FEMALE, NEUTER, PLURAL)
+var/global/list/byond_genders = list(MALE, FEMALE)
 /atom/proc/set_gender(var/new_gender = NEUTER, var/update_body = FALSE)
 	if(gender != new_gender)
 		if(new_gender in global.byond_genders)

@@ -775,7 +775,7 @@ About the new airlock wires panel:
 				to_chat(user, SPAN_WARNING("The airlock's bolts prevent it from being forced."))
 			else if(brace)
 				to_chat(user, SPAN_WARNING("The airlock's brace holds it firmly in place."))
-			else
+			else if(user.statcheck(user.stats[STAT_ST], 8,"Gah, I'm not strong enough to open the door. Maybe if I try again.", STAT_ST))//Gotta be strong to get that there door open.
 				if(density)
 					open(1)
 				else

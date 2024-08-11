@@ -5,6 +5,7 @@
 	key = "a"
 	shorthand = "A"
 	hidden_from_codex = TRUE
+	flags = LANG_FLAG_RESTRICTED
 
 /decl/language/animal/can_be_understood_by(var/mob/living/speaker, var/mob/living/listener)
 	if(!istype(listener) || listener.universal_understand || listener.universal_speak)

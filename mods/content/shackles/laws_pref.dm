@@ -10,10 +10,10 @@
 		custom_lawset.add_inherent_law(law)
 	return custom_lawset
 
-/datum/category_group/player_setup_category/law_pref
-	name = "Laws"
-	sort_order = 8
-	category_item_type = /datum/category_item/player_setup_item/law_pref
+//datum/category_group/player_setup_category/law_pref
+//	name = "Laws"
+//	sort_order = 8
+/	category_item_type = /datum/category_item/player_setup_item/law_pref
 
 /datum/category_item/player_setup_item/law_pref
 	name = "Laws"

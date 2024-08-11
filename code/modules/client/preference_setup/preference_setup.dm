@@ -25,29 +25,29 @@ var/global/const/CHARACTER_PREFERENCE_INPUT_TITLE = "Character Preference"
 	sort_order = 4
 	category_item_type = /datum/category_item/player_setup_item/occupation
 
-/datum/category_group/player_setup_category/record_preferences
-	name = "Records"
-	sort_order = 5
-	category_item_type = /datum/category_item/player_setup_item/records
+//datum/category_group/player_setup_category/record_preferences
+//	name = "Records"
+//	sort_order = 5
+//	category_item_type = /datum/category_item/player_setup_item/records
 
 /datum/category_group/player_setup_category/appearance_preferences
 	name = "Roles"
-	sort_order = 6
+	sort_order = 5
 	category_item_type = /datum/category_item/player_setup_item/antagonism
 
 /datum/category_group/player_setup_category/loadout_preferences
 	name = "Equipment"
-	sort_order = 7
+	sort_order = 6
 	category_item_type = /datum/category_item/player_setup_item/loadout
 
 /datum/category_group/player_setup_category/controls
 	name = "Controls"
-	sort_order = 8
+	sort_order = 7
 	category_item_type = /datum/category_item/player_setup_item/controls
 
 /datum/category_group/player_setup_category/global_preferences
 	name = "Global"
-	sort_order = 9
+	sort_order = 8
 	category_item_type = /datum/category_item/player_setup_item/player_global
 
 

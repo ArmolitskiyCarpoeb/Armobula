@@ -1,5 +1,5 @@
 /datum/job/vesta/assistant
-	title = "Recruit"
+	title = "Assistant"
 	total_positions = -1
 	spawn_positions = -1
 	supervisors = "absolutely everyone"
@@ -7,10 +7,15 @@
 	access = list()
 	minimal_access = list()
 	hud_icon = "hudassistant"
-	alt_titles = list("Technical Recruit","Medical Recruit","Research Recruit","Visitor")
+//	alt_titles = list("Engineer Assistant","Medical Intern","Security Cadet")
 	outfit_type = /decl/hierarchy/outfit/job/vesta_assistant
 	department_types = list(/decl/department/civilian)
 	event_categories = list(ASSIGNMENT_GARDENER)
+
+/datum/job/vesta/assistant/equip_job(var/mob/living/human/H, var/alt_title, var/datum/mil_branch/branch, var/datum/mil_rank/grade)
+	. = ..()
+	if(H)
+		H.newgeneratestats(9,14,9,13,9,15,10,16)
 
 /datum/job/vesta/assistant/get_access()
 	if(get_config_value(/decl/config/toggle/assistant_maint))

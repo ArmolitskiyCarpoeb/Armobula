@@ -16,7 +16,7 @@
 	accessory_category       = SAC_HAIR
 	accessory_flags          = HAIR_LOSS_VULNERABLE
 	grooming_flags           = GROOMABLE_BRUSH | GROOMABLE_COMB
-	accessory_metadata_types = list(SAM_COLOR, SAM_COLOR_INNER, SAM_GRADIENT)
+	accessory_metadata_types = list(SAM_COLOR)
 
 /decl/sprite_accessory/hair/get_grooming_descriptor(grooming_result, obj/item/organ/external/organ, obj/item/grooming/tool)
 	return grooming_result == GROOMING_RESULT_PARTIAL ? "scalp" : "hair"

@@ -1,9 +1,9 @@
 #ifndef CONTENT_PACK_MATCHMAKING
 #define CONTENT_PACK_MATCHMAKING
 // BEGIN_INCLUDE
-#include "matchmaker.dm"
-#include "matchmaking.dm"
-#include "relations.dm"
-#include "relations_types.dm"
+//#include "matchmaker.dm"
+//#include "matchmaking.dm"
+//#include "relations.dm"
+//#include "relations_types.dm"
 // END_INCLUDE
 #endif

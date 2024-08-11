@@ -1,4 +1,4 @@
-/datum/map/exodus
+/datum/map/vesta
 	emergency_shuttle_docked_message = "The Emergency Shuttle has docked with the station. You have approximately %ETD% to board the Emergency Shuttle."
 	emergency_shuttle_leaving_dock = "The Emergency Shuttle has left the station. Estimate %ETA% until the shuttle docks at %dock_name%."
 
@@ -18,7 +18,7 @@
 	electrical_storm_moderate_sound = null
 	electrical_storm_major_sound = null
 
-/datum/map/exodus/level_x_biohazard_sound(var/bio_level)
+/datum/map/vesta/level_x_biohazard_sound(var/bio_level)
 	switch(bio_level)
 		if(7)
 			return 'sound/AI/outbreak7.ogg'

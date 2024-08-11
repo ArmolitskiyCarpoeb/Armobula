@@ -111,12 +111,12 @@
 
 /turf/wall/shuttle
 	material = /decl/material/solid/metal/titanium
-	paint_color = COLOR_BEIGE
-	stripe_color = COLOR_SKY_BLUE
+	paint_color = null
+	stripe_color = null
 
 /turf/wall/shuttle/get_wall_icon()
-	return 'icons/turf/walls/solid.dmi'
+	return 'icons/turf/walls/shuttle.dmi'
 
 /turf/wall/shuttle/dark
-	paint_color = COLOR_GUNMETAL
-	stripe_color = COLOR_MAROON
+	paint_color = null
+	stripe_color = null

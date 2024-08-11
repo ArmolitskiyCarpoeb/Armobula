@@ -40,12 +40,3 @@
 
 /decl/sprite_accessory_metadata/gradient/validate_data(value)
 	return istext(value) && (value in selectable_states_to_labels)
-
-/decl/sprite_accessory_metadata/gradient/get_metadata_options_string(datum/preferences/pref, decl/sprite_accessory_category/accessory_category_decl, decl/sprite_accessory/accessory_decl, value)
-	if(!value || !validate(value))
-		value = default_value
-	return "<a href='byond://?src=\ref[pref];acc_cat_decl=\ref[accessory_category_decl];acc_decl=\ref[accessory_decl];acc_metadata=\ref[src]'>[selectable_states_to_labels[value]]</a>"
-
-/decl/sprite_accessory_metadata/gradient/get_new_value_for(mob/user, decl/sprite_accessory/accessory_decl, current_value)
-	var/choice = input(user, "Choose a [lowertext(name)] for your [accessory_decl.name]: ", CHARACTER_PREFERENCE_INPUT_TITLE, current_value) as null|anything in selectable_labels_to_states
-	return choice ? selectable_labels_to_states[choice] : null

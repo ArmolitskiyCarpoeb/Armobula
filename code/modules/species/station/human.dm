@@ -2,6 +2,10 @@
 	name = SPECIES_HUMAN
 	name_plural = "Humans"
 	primitive_form = SPECIES_MONKEY
+	unspeakable_langs = list(
+		/decl/language/animal,
+		/decl/language/machine
+	)
 	unarmed_attacks = list(
 		/decl/natural_attack/stomp,
 		/decl/natural_attack/kick,
@@ -16,8 +20,7 @@
 	// Add /decl/bodytype/prosthetic/basic_human to this list to allow full-body prosthetics.
 	available_bodytypes = list(
 		/decl/bodytype/human,
-		/decl/bodytype/human/masculine,
-		/decl/bodytype/prosthetic/basic_human
+		/decl/bodytype/human/masculine
 	)
 
 	exertion_effect_chance = 10

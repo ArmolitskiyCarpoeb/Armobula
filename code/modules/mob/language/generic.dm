@@ -25,5 +25,5 @@
 	signlang_verb = list("gestures")
 	colour = "say_quote"
 	key = "s"
-	flags = LANG_FLAG_SIGNLANG | LANG_FLAG_NO_STUTTER | LANG_FLAG_NONVERBAL
+	flags = LANG_FLAG_SIGNLANG | LANG_FLAG_NO_STUTTER | LANG_FLAG_NONVERBAL	| LANG_FLAG_RESTRICTED
 	shorthand = "HS"

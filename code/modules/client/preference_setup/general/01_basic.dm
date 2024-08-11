@@ -74,7 +74,7 @@
 	. += "<a href='byond://?src=\ref[src];always_random_name=1'>Always Random Name: [pref.be_random_name ? "Yes" : "No"]</a>"
 	. += "<hr>"
 
-	. += "<b>Bodytype:</b> "
+	. += "<b>Sex:</b> "
 	var/decl/species/S = get_species_by_key(pref.species)
 	for(var/decl/bodytype/B in S.available_bodytypes)
 		if(B.name == pref.bodytype)
@@ -82,20 +82,20 @@
 		else
 			. += "<a href='byond://?src=\ref[src];bodytype=\ref[B]'>[capitalize(B.pref_name)]</a>"
 
-	. += "<br><b>Pronouns:</b> "
-	for(var/decl/pronouns/pronouns in S.available_pronouns)
-		if(pronouns.name == pref.gender)
-			. += "<span class='linkOn'>[pronouns.pronoun_string]</span>"
-		else
-			. += "<a href='byond://?src=\ref[src];gender=\ref[pronouns]'>[pronouns.pronoun_string]</a>"
+//	. += "<br><b>Pronouns:</b> "
+//	for(var/decl/pronouns/pronouns in S.available_pronouns)
+//		if(pronouns.name == pref.gender)
+//			. += "<span class='linkOn'>[pronouns.pronoun_string]</span>"
+//		else
+//			. += "<a href='byond://?src=\ref[src];gender=\ref[pronouns]'>[pronouns.pronoun_string]</a>"
 
-	. += "<br><b>Spawnpoint</b>:"
-	var/decl/spawnpoint/spawnpoint = GET_DECL(pref.spawnpoint)
-	for(var/decl/spawnpoint/allowed_spawnpoint in global.using_map.allowed_latejoin_spawns)
-		if(spawnpoint == allowed_spawnpoint)
-			. += "<span class='linkOn'>[allowed_spawnpoint.name]</span>"
-		else
-			. += "<a href='byond://?src=\ref[src];spawnpoint=\ref[allowed_spawnpoint]'>[allowed_spawnpoint.name]</a>"
+//	. += "<br><b>Spawnpoint</b>:"
+//	var/decl/spawnpoint/spawnpoint = GET_DECL(pref.spawnpoint)
+//	for(var/decl/spawnpoint/allowed_spawnpoint in global.using_map.allowed_latejoin_spawns)
+//		if(spawnpoint == allowed_spawnpoint)
+//			. += "<span class='linkOn'>[allowed_spawnpoint.name]</span>"
+//		else
+//			. += "<a href='byond://?src=\ref[src];spawnpoint=\ref[allowed_spawnpoint]'>[allowed_spawnpoint.name]</a>"
 	. = jointext(.,null)
 
 /datum/category_item/player_setup_item/physical/basic/OnTopic(var/href,var/list/href_list, var/mob/user)

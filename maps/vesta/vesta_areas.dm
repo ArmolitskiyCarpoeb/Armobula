@@ -1108,3 +1108,6 @@
 
 /area/ship/arrivals_shuttle
 	name = "\improper Arrival Shuttle"
+
+/area/ship/escape
+	name = "\improper Escape Shuttle"
