@@ -852,9 +852,9 @@
 //Get fluffy numbers
 /mob/living/human/proc/get_blood_pressure()
 	if(status_flags & FAKEDEATH)
-		return "[FLOOR(120+rand(-5,5))*0.25]/[FLOOR(80+rand(-5,5)*0.25)]"
+		return "[floor(120+rand(-5,5))*0.25]/[floor(80+rand(-5,5)*0.25)]"
 	var/blood_result = get_blood_circulation()
-	return "[FLOOR((120+rand(-5,5))*(blood_result/100))]/[FLOOR((80+rand(-5,5))*(blood_result/100))]"
+	return "[floor((120+rand(-5,5))*(blood_result/100))]/[floor((80+rand(-5,5))*(blood_result/100))]"
 
 //Point at which you dun breathe no more. Separate from asystole crit, which is heart-related.
 /mob/living/human/nervous_system_failure()
@@ -1024,7 +1024,7 @@
 /mob/living/human/proc/post_setup(species_name, datum/mob_snapshot/supplied_appearance)
 	try_refresh_visible_overlays() //Do this exactly once per setup
 
-/mob/living/human/handle_flashed(var/obj/item/flash/flash, var/flash_strength)
+/mob/living/human/handle_flashed(var/flash_strength)
 	var/safety = eyecheck()
 	if(safety < FLASH_PROTECTION_MODERATE)
 		flash_strength = round(get_flash_mod() * flash_strength)

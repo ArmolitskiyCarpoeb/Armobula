@@ -1116,7 +1116,7 @@ default behaviour is:
 				A.alert_on_fall(src)
 
 /mob/living/proc/apply_fall_damage(var/turf/landing)
-	take_damage(rand(max(1, CEILING(mob_size * 0.33)), max(1, CEILING(mob_size * 0.66))) * get_fall_height())
+	take_damage(rand(max(1, ceil(mob_size * 0.33)), max(1, ceil(mob_size * 0.66))) * get_fall_height())
 
 /mob/living/proc/get_toxin_resistance()
 	var/decl/species/species = get_species()
@@ -1632,7 +1632,7 @@ default behaviour is:
 		return range * range - 0.333
 	return range
 
-/mob/living/handle_flashed(var/obj/item/flash/flash, var/flash_strength)
+/mob/living/handle_flashed(var/flash_strength)
 
 	var/safety = eyecheck()
 	if(safety >= FLASH_PROTECTION_MODERATE || flash_strength <= 0) // May be modified by human proc.
@@ -1799,4 +1799,26 @@ default behaviour is:
 			reset_offsets(anim_time = 2)
 			return FALSE
 
+	return TRUE
+
+/mob/living/proc/prepare_for_despawn()
+	//Update any existing objectives involving this mob.
+	for(var/datum/objective/objective in global.all_objectives)
+		// We don't want revs to get objectives that aren't for heads of staff. Letting
+		// them win or lose based on cryo is silly so we remove the objective.
+		if(objective.target == mind)
+			if(objective.owner?.current)
+				to_chat(objective.owner.current, SPAN_DANGER("You get the feeling your target, [real_name], is no longer within your reach..."))
+			qdel(objective)
+	//Handle job slot/tater cleanup.
+	if(mind)
+		if(mind.assigned_job)
+			mind.assigned_job.clear_slot()
+		if(mind.objectives.len)
+			mind.objectives = null
+			mind.assigned_special_role = null
+	// Delete them from datacore.
+	var/datum/computer_file/report/crew_record/record = get_crewmember_record(sanitize(real_name))
+	if(record)
+		qdel(record)
 	return TRUE

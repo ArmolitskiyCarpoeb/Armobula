@@ -113,6 +113,10 @@
 		to_chat(user, SPAN_WARNING("You can't attack while incapacitated."))
 		return TRUE
 
+	// AI driven mobs have a melee telegraph that needs to be handled here.
+	if(user.a_intent == I_HURT && !user.do_attack_windup_checking(src))
+		return TRUE
+
 	if(!ishuman(user))
 		attack_generic(user, rand(1,3), "punched")
 		return TRUE
@@ -231,7 +235,7 @@
 	// Should this all be in Touch()?
 		var/mob/living/human/H = user
 		if(istype(H))
-			if(H != src && check_shields(0, null, H, H.get_target_zone(), H.name))
+			if(H != src && check_shields(0, null, H, H.get_target_zone(), H))
 				H.do_attack_animation(src)
 				return TRUE
 
