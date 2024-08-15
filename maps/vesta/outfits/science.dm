@@ -1,4 +1,4 @@
-/decl/hierarchy/outfit/job/vesta/scientist
+/decl/outfit/job/vesta/scientist
 	l_ear = /obj/item/radio/headset/headset_sci
 	shoes = /obj/item/clothing/shoes/color/white
 	pda_type = /obj/item/modular_computer/pda/science
@@ -11,7 +11,7 @@
 	desc = "A card issued to science staff."
 	detail_color = COLOR_PALE_PURPLE_GRAY
 
-/decl/hierarchy/outfit/job/vesta/scientist/head
+/decl/outfit/job/vesta/scientist/head
 	name = "Tradeship - Job - Head Researcher"
 	l_ear = /obj/item/radio/headset/heads/rd
 	shoes = /obj/item/clothing/shoes/dress

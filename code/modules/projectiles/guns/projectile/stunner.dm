@@ -20,7 +20,6 @@
 	screen_shake = 0
 	space_recoil = 1
 	combustion = 0
-	silenced = 1
 
 	caliber = CALIBER_STUNNER_DART
 	handle_casings = CLEAR_CASINGS
@@ -36,14 +35,12 @@
 
 	ammo_indicator = FALSE
 
-/obj/item/gun/projectile/stunner/update_base_icon()
-	var/base_state = get_world_inventory_state()
-	..()
-	if(ammo_magazine)
-		icon_state = base_state
-	else
-		icon_state = "[base_state]-e"
+/obj/item/gun/projectile/pistol/update_base_icon_state()
+	. = ..()
+	if(!length(ammo_magazine?.stored_ammo))
+		var/empty_state = "[icon_state]-e"
+		if(check_state_in_icon(empty_state, icon))
+			icon_state = empty_state
 
 /obj/item/gun/projectile/stunner/handle_post_fire()
-	. = ..()
 	playsound(src,'sound/effects/rewind.ogg', 17, 0)

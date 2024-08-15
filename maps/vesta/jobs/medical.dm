@@ -37,7 +37,7 @@
 		access_virology,
 		access_cameras
 	)
-	outfit_type = /decl/hierarchy/outfit/job/vesta/doctor
+	outfit_type = /decl/outfit/job/vesta/doctor
 	minimal_player_age = 3
 	event_categories = list(ASSIGNMENT_MEDICAL)
 
@@ -49,7 +49,7 @@
 		/decl/department/command
 	)
 	supervisors = "the Captain and your own ethics"
-	outfit_type = /decl/hierarchy/outfit/job/vesta/doctor/head
+	outfit_type = /decl/outfit/job/vesta/doctor/head
 	alt_titles = list("Chief Medical Officer", "Head Surgeon")
 	total_positions = 1
 	spawn_positions = 1

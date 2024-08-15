@@ -8,7 +8,7 @@
 	minimal_access = list()
 	hud_icon = "hudassistant"
 //	alt_titles = list("Engineer Assistant","Medical Intern","Security Cadet")
-	outfit_type = /decl/hierarchy/outfit/job/vesta_assistant
+	outfit_type = /decl/outfit/job/vesta_assistant
 	department_types = list(/decl/department/civilian)
 	event_categories = list(ASSIGNMENT_GARDENER)
 
@@ -22,7 +22,7 @@
 		return list(access_maint_tunnels)
 	return list()
 
-/decl/hierarchy/outfit/job/vesta_assistant
+/decl/outfit/job/vesta_assistant
 	name = "Job - Vesta Assistant"
 
 /datum/job/vesta/bartender
@@ -31,7 +31,7 @@
 	supervisors = "the Lieutenant and the Captain"
 	total_positions = 2
 	spawn_positions = 1
-	outfit_type = /decl/hierarchy/outfit/job/vesta/bartender
+	outfit_type = /decl/outfit/job/vesta/bartender
 	department_types = list(/decl/department/service)
 	selection_color = "#3fbe4a"
 	economic_power = 5
@@ -62,7 +62,7 @@
 	supervisors = "the Lieutenant and the Captain"
 	total_positions = 3
 	spawn_positions = 1
-	outfit_type = /decl/hierarchy/outfit/job/vesta/cargo
+	outfit_type = /decl/outfit/job/vesta/cargo
 	department_types = list(/decl/department/service)
 	selection_color = "#8a7c00"
 	economic_power = 5
@@ -134,7 +134,7 @@
 		"Custodian",
 		"Sanitation Technician"
 	)
-	outfit_type = /decl/hierarchy/outfit/job/vesta/janitor
+	outfit_type = /decl/outfit/job/vesta/janitor
 	min_skill = list(
 		SKILL_HAULING  = SKILL_BASIC
 	)
@@ -154,7 +154,7 @@
 		"Curator",
 		"Archivist"
 	)
-	outfit_type = /decl/hierarchy/outfit/job/vesta/librarian
+	outfit_type = /decl/outfit/job/vesta/librarian
 	min_skill = list(
 		SKILL_LITERACY = SKILL_AVERAGE
 	)

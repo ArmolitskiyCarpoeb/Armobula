@@ -2,7 +2,7 @@
 	color = COLOR_DARK_RED
 	decals = list("stripe" = COLOR_RED_LIGHT)
 
-/decl/hierarchy/outfit/job/vesta/security
+/decl/outfit/job/vesta/security
 	l_ear = /obj/item/radio/headset/headset_sec
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud
 	gloves = /obj/item/clothing/gloves/thick
@@ -15,7 +15,7 @@
 	id_type = /obj/item/card/id/vesta/security
 	pda_type = /obj/item/modular_computer/pda/security
 
-/decl/hierarchy/outfit/job/vesta/security/head
+/decl/outfit/job/vesta/security/head
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud
 	l_ear = /obj/item/radio/headset/heads/hos
 	gloves = /obj/item/clothing/gloves/thick
@@ -28,11 +28,11 @@
 	id_type = /obj/item/card/id/vesta/security
 	pda_type = /obj/item/modular_computer/pda/security
 
-/decl/hierarchy/outfit/job/vesta/security/Initialize()
+/decl/outfit/job/vesta/security/Initialize()
 	. = ..()
 	BACKPACK_OVERRIDE_SECURITY
 
-/decl/hierarchy/outfit/job/vesta/security/head/Initialize()
+/decl/outfit/job/vesta/security/head/Initialize()
 	. = ..()
 	BACKPACK_OVERRIDE_SECURITY
 
@@ -44,7 +44,7 @@
 	default_hardware |= /obj/item/stock_parts/computer/scanner/reagent
 	. = ..()
 
-/decl/hierarchy/outfit/job/vesta/detective
+/decl/outfit/job/vesta/detective
 	name = "vesta - Job - Detective"
 	head = /obj/item/clothing/head/det
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud
@@ -59,7 +59,7 @@
 	backpack_contents = list(/obj/item/box/evidence = 1)
 	gloves = /obj/item/clothing/gloves/thick
 
-/decl/hierarchy/outfit/job/vesta/detective/Initialize()
+/decl/outfit/job/vesta/detective/Initialize()
 	. = ..()
 	backpack_overrides.Cut()
 

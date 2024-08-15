@@ -4,7 +4,7 @@
 	supervisors = "the Head of Security"
 	spawn_positions = 1
 	total_positions = 2
-	outfit_type = /decl/hierarchy/outfit/job/vesta/security
+	outfit_type = /decl/outfit/job/vesta/security
 	department_types = list(/decl/department/security)
 	selection_color = "#990000"
 	economic_power = 7
@@ -43,7 +43,7 @@
 	supervisors = "Justice... and the Trademaster"
 	spawn_positions = 1
 	total_positions = 1
-	outfit_type = /decl/hierarchy/outfit/job/vesta/detective
+	outfit_type = /decl/outfit/job/vesta/detective
 	department_types = list(/decl/department/security)
 	selection_color = "#630000"
 	economic_power = 7
@@ -81,7 +81,7 @@
 /datum/job/vesta/security/head
 	title = "Head of Security"
 	supervisors = "the Captain"
-	outfit_type = /decl/hierarchy/outfit/job/vesta/security/head
+	outfit_type = /decl/outfit/job/vesta/security/head
 	head_position = 1
 	department_types = list(
 		/decl/department/security,
