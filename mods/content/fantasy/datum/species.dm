@@ -8,8 +8,8 @@
 		/decl/bodytype/human,
 		/decl/bodytype/human/masculine
 	)
-	preview_outfit = /decl/hierarchy/outfit/job/generic/fantasy
-	base_external_prosthetics_model = null
+	preview_outfit = /decl/outfit/job/generic/fantasy
+	base_external_prosthetics_model = /decl/bodytype/prosthetic/wooden
 
 	available_cultural_info = list(
 		TAG_HOMEWORLD = list(
