@@ -378,25 +378,28 @@ About the new airlock wires panel:
 			if(AIRLOCK_CLOSED)
 				if(lights && locked)
 					lights_overlay = bolts_file
-					set_light(2, 0.8, COLOR_RED_LIGHT)
+					set_light(1, 0.9, COLOR_RED_LIGHT)
+					lights_overlay = emissive_overlay(bolts_file, "closed")
 
 			if(AIRLOCK_DENY)
 				if(lights)
 					lights_overlay = deny_file
-					set_light(2, 0.8, COLOR_RED_LIGHT)
+					set_light(1, 0.9, COLOR_RED_LIGHT)
+					lights_overlay = emissive_overlay(deny_file, "deny")
 
 			if(AIRLOCK_EMAG)
 				sparks_overlay = emag_file
+				sparks_overlay = emissive_overlay(emag_file, "deny")
 
 			if(AIRLOCK_CLOSING)
 				if(lights)
 					lights_overlay = lights_file
-					set_light(2, 0.8, COLOR_LIME)
+					set_light(1, 0.9, COLOR_LIME)
 
 			if(AIRLOCK_OPENING)
 				if(lights)
 					lights_overlay = lights_file
-					set_light(2, 0.8, COLOR_LIME)
+					set_light(1, 0.9, COLOR_LIME)
 
 		if(stat & BROKEN)
 			damage_overlay = sparks_broken_file
@@ -433,14 +436,17 @@ About the new airlock wires panel:
 	switch(animation)
 		if("opening")
 			set_airlock_overlays(AIRLOCK_OPENING)
+			overlays += emissive_overlay(lights_file, "opening")
 			flick("opening", src)//[stat ? "_stat":]
 			update_icon(AIRLOCK_OPEN)
 		if("closing")
 			set_airlock_overlays(AIRLOCK_CLOSING)
+			overlays += emissive_overlay(lights_file, "closing")
 			flick("closing", src)
 			update_icon(AIRLOCK_CLOSED)
 		if("deny")
 			set_airlock_overlays(AIRLOCK_DENY)
+//			overlays += emissive_overlay(deny_file, "deny")
 			if(density && arePowerSystemsOn())
 				flick("deny", src)
 				if(speaker)
@@ -448,6 +454,7 @@ About the new airlock wires panel:
 			update_icon(AIRLOCK_CLOSED)
 		if("emag")
 			set_airlock_overlays(AIRLOCK_EMAG)
+//			overlays += emissive_overlay(emag_file, "deny")
 			if(density && arePowerSystemsOn())
 				flick("deny", src)
 		else
@@ -771,11 +778,16 @@ About the new airlock wires panel:
 				take_damage(1)
 			if(arePowerSystemsOn())
 				to_chat(user, SPAN_WARNING("The airlock's motors resist your efforts to force it."))
+				if(user.newstatcheck(user.stats[STAT_ST], 18, 0, STAT_ST))
+					to_chat(user, SPAN_WARNING("You use all of your strength to open the door. It hurts!"))
+					if(do_after(user, 20, src))
+						user.take_damage(8, PAIN)
+						open(1)s
 			else if(locked)
 				to_chat(user, SPAN_WARNING("The airlock's bolts prevent it from being forced."))
 			else if(brace)
 				to_chat(user, SPAN_WARNING("The airlock's brace holds it firmly in place."))
-			else if(user.statcheck(user.stats[STAT_ST], 8,"Gah, I'm not strong enough to open the door. Maybe if I try again.", STAT_ST))//Gotta be strong to get that there door open.
+			else if(user.statcheck(user.stats[STAT_ST], 6,"Gah, I'm not strong enough to open the door. Maybe if I try again.", STAT_ST))//Gotta be strong to get that there door open.
 				if(density)
 					open(1)
 				else

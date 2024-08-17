@@ -40,7 +40,7 @@
 
 // Takes a stat *VALUE*.
 /mob/proc/statcheck(var/stat, var/requirement, var/message = null, var/type = null)//Requirement needs to be 1 through 20
-	var/roll = rand(5,20)// our "dice"
+	var/roll = rand(0,20)// our "dice"
 	//log_debug("Roll: [roll], Mood affect: (-)[mood_affect(1)], Ability modifier [stat_to_modifier(stat)]")
 	log_debug("[src] Rolled a [roll] against a DC [requirement] [type] check")
 //	roll -= mood_affect(1)// our mood
@@ -48,6 +48,15 @@
 	//learn_stats(type) We can't have nice things
 	if(roll >= requirement)//We met the DC requirement
 		//world << "Rolled and passed."
+		return 1
+	else
+		if(message)
+			to_chat(src, "<span class = 'warning'>[message]</span>")
+		return 0
+	return 1
+
+/mob/proc/newstatcheck(var/stat, var/requirement, var/message = null, var/type = null)//Requirement needs to be 1 through 20
+	if(stat >= requirement)
 		return 1
 	else
 		if(message)
