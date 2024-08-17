@@ -2,6 +2,7 @@
 	abstract_type = /decl/recipe/soup
 	reagent_mix = REAGENT_REPLACE
 	container_categories = list(RECIPE_CATEGORY_POT)
+	can_bulk_cook = TRUE
 	var/precursor_type
 
 /decl/recipe/soup/get_result_data(atom/container, list/used_ingredients)
@@ -121,6 +122,7 @@
 	)
 	result_quantity = 10
 	result = /decl/material/liquid/nutriment/soup/stew
+	complexity = 0 // Have to reset it because it inherits from soup.
 
 /decl/recipe/soup/simple/stew/mixed
 	display_name = "mixed stew"
