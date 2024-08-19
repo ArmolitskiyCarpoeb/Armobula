@@ -8,7 +8,7 @@
 	areaType = list(/area/vesta/security)
 
 //Comments are for my own sanity. PLEASE DONT REMOVE THEM AS IT WAS VERY HARD TO SORT ALL THIS
-//Do not remove dots after comments
+//Do not remove dots Souther comments
 
 /area/vesta
 	secure = TRUE
@@ -17,19 +17,19 @@
 //COMMAND.
 
 /area/vesta/bridge
-	name = "\improper Command"
+	name = "\improper Command Office"
 	icon_state = "bridge"
 	req_access = list(access_bridge)
 
 /area/vesta/bridge/meeting_room
-	name = "\improper Heads of Staff Meeting Room"
+	name = "\improper Conference room"
 	icon_state = "bridge"
 	sound_env = MEDIUM_SOFTFLOOR
 
 //CAPTAIN'S QUARTERS.
 
 /area/vesta/crew_quarters/captain
-	name = "\improper Command - General Manager's Office"
+	name = "\improper General Manager's Office"
 	icon_state = "captain"
 	sound_env = MEDIUM_SOFTFLOOR
 	req_access = list(access_captain)
@@ -66,14 +66,14 @@
 
 //SOLAR.
 
-/area/vesta/maintenance/auxsolarport
-	name = "Solar Maintenance - Port"
+/area/vesta/maintenance/auxsolarWest
+	name = "Solar Maintenance - West"
 	icon_state = "SolarcontrolP"
 	sound_env = SMALL_ENCLOSED
 	req_access = list(access_engine)
 
-/area/vesta/maintenance/auxsolarstarboard
-	name = "Solar Maintenance - Starboard"
+/area/vesta/maintenance/auxsolarEast
+	name = "Solar Maintenance - East"
 	icon_state = "SolarcontrolS"
 	sound_env = SMALL_ENCLOSED
 	req_access = list(access_engine)
@@ -84,38 +84,38 @@
 	has_gravity = FALSE
 	base_turf = /turf/space
 
-/area/vesta/solar/auxstarboard
-	name = "\improper Fore Starboard Solar Array"
+/area/vesta/solar/auxEast
+	name = "\improper North East Solar Array"
 	icon_state = "panelsA"
 
-/area/vesta/solar/port
-	name = "\improper Port Auxiliary Solar Array"
+/area/vesta/solar/West
+	name = "\improper West Auxiliary Solar Array"
 	icon_state = "panelsP"
 
-/area/vesta/solar/starboard
-	name = "\improper Starboard Auxiliary Solar Array"
+/area/vesta/solar/East
+	name = "\improper East Auxiliary Solar Array"
 	icon_state = "panelsS"
 
-/area/vesta/solar/auxport
-	name = "\improper Fore Port Solar Array"
+/area/vesta/solar/auxWest
+	name = "\improper North West Solar Array"
 	icon_state = "panelsA"
 
-/area/vesta/solar/fore
-	name = "\improper Fore Solar Array"
+/area/vesta/solar/North
+	name = "\improper North Solar Array"
 	icon_state = "yellow"
 
-/area/vesta/maintenance/foresolar
-	name = "\improper Solar Maintenance - Fore"
+/area/vesta/maintenance/Northsolar
+	name = "\improper Solar Maintenance - North"
 	icon_state = "SolarcontrolA"
 	sound_env = SMALL_ENCLOSED
 
-/area/vesta/maintenance/portsolar
-	name = "\improper Solar Maintenance - Aft Port"
+/area/vesta/maintenance/Westsolar
+	name = "\improper Solar Maintenance - South West"
 	icon_state = "SolarcontrolP"
 	sound_env = SMALL_ENCLOSED
 
-/area/vesta/maintenance/starboardsolar
-	name = "\improper Solar Maintenance - Aft Starboard"
+/area/vesta/maintenance/Eastsolar
+	name = "\improper Solar Maintenance - South East"
 	icon_state = "SolarcontrolS"
 	sound_env = SMALL_ENCLOSED
 
@@ -139,12 +139,12 @@
 	icon_state = "storage"
 
 /area/vesta/storage/emergency
-	name = "Starboard Emergency Storage"
+	name = "East Emergency Storage"
 	icon_state = "emergencystorage"
 	req_access = list(access_emergency_storage)
 
 /area/vesta/storage/emergency2
-	name = "Port Emergency Storage"
+	name = "West Emergency Storage"
 	icon_state = "emergencystorage"
 	req_access = list(access_emergency_storage)
 
@@ -255,22 +255,22 @@
 //Hallways
 
 /area/vesta/medical/medbay
-	name = "\improper Medbay Hallway - Port"
+	name = "\improper Medbay Hallway - West"
 	icon_state = "medbay"
 	ambience = list('sound/ambience/signal.ogg')
 
 /area/vesta/medical/medbay2
-	name = "\improper Medbay Hallway - Starboard"
+	name = "\improper Medbay Hallway - East"
 	icon_state = "medbay2"
 	ambience = list('sound/ambience/signal.ogg')
 
 /area/vesta/medical/medbay3
-	name = "\improper Medbay Hallway - Fore"
+	name = "\improper Medbay Hallway - North"
 	icon_state = "medbay3"
 	ambience = list('sound/ambience/signal.ogg')
 
 /area/vesta/medical/medbay4
-	name = "\improper Medbay Hallway - Aft"
+	name = "\improper Medbay Hallway - South"
 	icon_state = "medbay4"
 	ambience = list('sound/ambience/signal.ogg')
 
@@ -538,11 +538,11 @@
 
 //Misc
 
-/area/vesta/security/detectives_office
-	name = "\improper Security - Forensic Office"
-	icon_state = "detective"
-	sound_env = MEDIUM_SOFTFLOOR
-	req_access = list(access_forensics_lockers)
+///area/vesta/security/detectives_office
+//	name = "\improper Security - Forensic Office"
+//	icon_state = "detective"
+//	sound_env = MEDIUM_SOFTFLOOR
+//	req_access = list(access_Forensics_lockers)
 
 /area/vesta/security/nuke_storage
 	name = "\improper Vault"
@@ -840,31 +840,31 @@
 	icon_state = "maint_medbay"
 	req_access = list(list(access_medical, access_maint_tunnels))
 
-/area/vesta/maintenance/research_port
-	name = "\improper Research Maintenance - Port"
-	icon_state = "maint_research_port"
+/area/vesta/maintenance/research_West
+	name = "\improper Research Maintenance - West"
+	icon_state = "maint_research_West"
 
 /area/vesta/maintenance/research_shuttle
 	name = "\improper Research Shuttle Dock Maintenance"
 	icon_state = "maint_research_shuttle"
 
-/area/vesta/maintenance/research_starboard
-	name = "\improper Research Maintenance - Starboard"
-	icon_state = "maint_research_starboard"
+/area/vesta/maintenance/research_East
+	name = "\improper Research Maintenance - East"
+	icon_state = "maint_research_East"
 
-/area/vesta/maintenance/security_port
-	name = "\improper Security Maintenance - Port"
-	icon_state = "maint_security_port"
+/area/vesta/maintenance/security_West
+	name = "\improper Security Maintenance - West"
+	icon_state = "maint_security_West"
 
-/area/vesta/maintenance/security_starboard
-	name = "\improper Security Maintenance - Starboard"
-	icon_state = "maint_security_starboard"
+/area/vesta/maintenance/security_East
+	name = "\improper Security Maintenance - East"
+	icon_state = "maint_security_East"
 
 //MISC. MAINTENANCE.
 
 /area/vesta/maintenance/exterior
 	name = "\improper Exterior Reinforcements"
-	icon_state = "maint_security_starboard"
+	icon_state = "maint_security_East"
 	has_gravity = FALSE
 	turf_initializer = /decl/turf_initializer/maintenance/space
 	req_access = list(list(access_security, access_engine)) //whatever
@@ -907,21 +907,21 @@
 	turf_initializer = null
 	req_access = list(access_engine)
 
-/area/vesta/maintenance/sub/fore
-	name = "\improper Sublevel Maintenance - Fore"
-	icon_state = "sub_maint_fore"
+/area/vesta/maintenance/sub/North
+	name = "\improper Sublevel Maintenance - North"
+	icon_state = "sub_maint_North"
 
-/area/vesta/maintenance/sub/aft
-	name = "\improper Sublevel Maintenance - Aft"
-	icon_state = "sub_maint_aft"
+/area/vesta/maintenance/sub/South
+	name = "\improper Sublevel Maintenance - South"
+	icon_state = "sub_maint_South"
 
-/area/vesta/maintenance/sub/port
-	name = "\improper Sublevel Maintenance - Port"
-	icon_state = "sub_maint_port"
+/area/vesta/maintenance/sub/West
+	name = "\improper Sublevel Maintenance - West"
+	icon_state = "sub_maint_West"
 
-/area/vesta/maintenance/sub/starboard
-	name = "\improper Sublevel Maintenance - Starboard"
-	icon_state = "sub_maint_starboard"
+/area/vesta/maintenance/sub/East
+	name = "\improper Sublevel Maintenance - East"
+	icon_state = "sub_maint_East"
 
 /area/vesta/maintenance/sub/central
 	name = "\improper Sublevel Maintenance - Central"
@@ -984,20 +984,20 @@
 /area/vesta/hallway/primary
 	sound_env = LARGE_ENCLOSED
 
-/area/vesta/hallway/primary/fore
-	name = "\improper Fore Primary Hallway"
+/area/vesta/hallway/primary/North
+	name = "\improper North Primary Hallway"
 	icon_state = "hallF"
 
-/area/vesta/hallway/primary/starboard
-	name = "\improper Starboard Primary Hallway"
+/area/vesta/hallway/primary/East
+	name = "\improper East Primary Hallway"
 	icon_state = "hallS"
 
-/area/vesta/hallway/primary/aft
-	name = "\improper Aft Primary Hallway"
+/area/vesta/hallway/primary/South
+	name = "\improper South Primary Hallway"
 	icon_state = "hallA"
 
-/area/vesta/hallway/primary/port
-	name = "\improper Port Primary Hallway"
+/area/vesta/hallway/primary/West
+	name = "\improper West Primary Hallway"
 	icon_state = "hallP"
 
 /area/vesta/hallway/primary/central_one
@@ -1020,33 +1020,33 @@
 	name = "\improper Arrival Shuttle Hallway - Escape Pods"
 	icon_state = "entry_pods"
 
-/area/vesta/hallway/secondary/entry/fore
-	name = "\improper Arrival Shuttle Hallway - Fore"
+/area/vesta/hallway/secondary/entry/North
+	name = "\improper Arrival Shuttle Hallway - North"
 	icon_state = "entry_1"
 
-/area/vesta/hallway/secondary/entry/port
-	name = "\improper Arrival Shuttle Hallway - Port"
+/area/vesta/hallway/secondary/entry/West
+	name = "\improper Arrival Shuttle Hallway - West"
 	icon_state = "entry_2"
 
-/area/vesta/hallway/secondary/entry/starboard
-	name = "\improper Arrival Shuttle Hallway - Starboard"
+/area/vesta/hallway/secondary/entry/East
+	name = "\improper Arrival Shuttle Hallway - East"
 	icon_state = "entry_3"
 
-/area/vesta/hallway/secondary/entry/aft
-	name = "\improper Arrival Shuttle Hallway - Aft"
+/area/vesta/hallway/secondary/entry/South
+	name = "\improper Arrival Shuttle Hallway - South"
 	icon_state = "entry_4"
+/*
+//TELEWestER.
 
-//TELEPORTER.
-
-/area/vesta/teleporter
-	name = "\improper Teleporter"
-	icon_state = "teleporter"
-	req_access = list(access_teleporter)
+/area/vesta/teleWester
+	name = "\improper TeleWester"
+	icon_state = "teleWester"
+	req_access = list(access_teleWester)
 
 /area/vesta/gateway
 	name = "\improper Gateway"
-	icon_state = "teleporter"
-
+	icon_state = "teleWester"
+*/
 // Thunderdome
 
 /area/tdome

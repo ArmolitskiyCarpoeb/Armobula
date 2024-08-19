@@ -1,14 +1,13 @@
 /datum/job/vesta/security
 	title = "Security Officer"
-	alt_titles = list("Warden")
-	supervisors = "the Head of Security"
-	spawn_positions = 1
-	total_positions = 2
+	supervisors = "the Marshal and the corporation"
+	spawn_positions = 2
+	total_positions = 3
 	outfit_type = /decl/outfit/job/vesta/security
 	department_types = list(/decl/department/security)
 	selection_color = "#990000"
-	economic_power = 7
-	minimal_player_age = 7
+	economic_power = 6
+	minimal_player_age = 3
 	access = list(
 		access_security,
 		access_brig,
@@ -34,53 +33,17 @@
 		SKILL_COMBAT	= SKILL_MAX,
 		SKILL_WEAPONS	= SKILL_MAX
 	)
-	skill_points = 30
+	skill_points = 32
 	event_categories = list(ASSIGNMENT_SECURITY)
 
-/datum/job/vesta/detective
-	title = "Detective"
-	alt_titles = list("Inspector")
-	supervisors = "Justice... and the Trademaster"
-	spawn_positions = 1
-	total_positions = 1
-	outfit_type = /decl/outfit/job/vesta/detective
-	department_types = list(/decl/department/security)
-	selection_color = "#630000"
-	economic_power = 7
-	minimal_player_age = 3
-	access = list(
-		access_forensics_lockers,
-		access_brig,
-		access_security,
-		access_lawyer,
-		access_maint_tunnels,
-		access_cameras
-	)
-	minimal_access = list(
-		access_security,
-		access_brig,
-		access_lawyer,
-		access_forensics_lockers,
-		access_maint_tunnels,
-		access_cameras
-	)
-	min_skill = list(
-		SKILL_LITERACY	= SKILL_BASIC,
-		SKILL_COMPUTER	= SKILL_BASIC,
-		SKILL_COMBAT	= SKILL_BASIC,
-		SKILL_WEAPONS	= SKILL_BASIC,
-		SKILL_FORENSICS	= SKILL_ADEPT
-	)
-	max_skill = list(
-		SKILL_COMBAT	= SKILL_MAX,
-		SKILL_WEAPONS	= SKILL_MAX,
-		SKILL_FORENSICS	= SKILL_MAX
-	)
-	skill_points = 34
+/datum/job/vesta/security/equip_job(var/mob/living/human/H)
+	. = ..()
+	if(H)
+		H.newgeneratestats(11,18,10,15,8,15,11,18)
 
 /datum/job/vesta/security/head
-	title = "Head of Security"
-	supervisors = "the Captain"
+	title = "Marshal"
+	supervisors = "the Chief Manager and the corporation"
 	outfit_type = /decl/outfit/job/vesta/security/head
 	head_position = 1
 	department_types = list(
@@ -93,7 +56,7 @@
 	req_admin_notify = 1
 	minimal_player_age = 14
 	economic_power = 10
-	ideal_character_age = 50
+	ideal_character_age = 40
 	guestbanned = 1
 	not_random_selectable = 1
 	hud_icon = "hudhos"
@@ -144,4 +107,9 @@
 		SKILL_WEAPONS	= SKILL_MAX
 	)
 	skill_points = 40
-	alt_titles = list("Security Commander")
+//	alt_titles = list("Security Commander")
+
+/datum/job/vesta/head/equip_job(var/mob/living/human/H)
+	. = ..()
+	if(H)
+		H.newgeneratestats(8,18,8,16,10,15,8,18)

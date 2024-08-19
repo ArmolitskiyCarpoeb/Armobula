@@ -12,8 +12,13 @@
 	id_hud_icons = 'maps/exodus/hud.dmi'
 	allowed_jobs = list(
 		/datum/job/vesta/captain,
+		/datum/job/vesta/security/head,
+		/datum/job/vesta/security,
 		/datum/job/vesta/bartender,
-		/datum/job/vesta/janitor,
+		/datum/job/vesta/chef,
+		/datum/job/vesta/hydro,
 		/datum/job/vesta/engineer,
 		/datum/job/vesta/doctor,
+		/datum/job/vesta/cargo,
+		/datum/job/mining
 	)

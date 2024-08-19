@@ -1,16 +1,16 @@
 /datum/map/vesta
 	name          = "Outland"
-	full_name     = "Mining Colony 'Outland' "
+	full_name     = "Mining Station 'Outland'"
 	path          = "vesta"
 
-	station_name  = "'Outland' Colony"
+	station_name  = "MS 'Outland'"
 	station_short = "Outland"
 	dock_name     = "NAS Crescent"
 	boss_name     = "Central Command"
 	boss_short    = "Centcomm"
-	company_name  = "Mons-Laden"
-	company_short = "ML"
-	system_name   = "Acheron"
+	company_name  = "Mons-Laden Corporation"
+	company_short = "MLC"
+	system_name   = "Zeta-13"
 
 	overmap_ids = list(OVERMAP_ID_SPACE)
 	num_exoplanets = 1

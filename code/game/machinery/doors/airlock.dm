@@ -782,7 +782,7 @@ About the new airlock wires panel:
 					to_chat(user, SPAN_WARNING("You use all of your strength to open the door. It hurts!"))
 					if(do_after(user, 20, src))
 						user.take_damage(8, PAIN)
-						open(1)s
+						open(1)
 			else if(locked)
 				to_chat(user, SPAN_WARNING("The airlock's bolts prevent it from being forced."))
 			else if(brace)

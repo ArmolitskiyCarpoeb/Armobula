@@ -882,6 +882,7 @@ FIRE ALARM
 		if(!detecting)
 			add_overlay("fire1")
 			set_light(2, 0.25, COLOR_RED)
+/*
 		else if(isContactLevel(z))
 			var/decl/security_state/security_state = GET_DECL(global.using_map.security_state)
 			var/decl/security_level/sl = security_state.current_security_level
@@ -897,6 +898,7 @@ FIRE ALARM
 				var/image/alert2 = image(sl.icon, sl.alarm_appearance.alarm_icon_twotone)
 				alert2.color = sl.alarm_appearance.alarm_icon_twotone_color
 				add_overlay(alert2)
+*/
 		else
 			add_overlay("fire0")
 

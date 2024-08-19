@@ -64,3 +64,15 @@
 	hands = list(/obj/item/bible)
 	id_type = /obj/item/card/id/civilian
 	pda_type = /obj/item/modular_computer/pda/medical
+
+/decl/outfit/job/cargo/mining
+	name = "Job - Shaft miner"
+	uniform = /obj/item/clothing/jumpsuit/miner
+	id_type = /obj/item/card/id/cargo
+	pda_type = /obj/item/modular_computer/pda/science
+	backpack_contents = list(/obj/item/crowbar = 1, /obj/item/ore = 1)
+	outfit_flags = OUTFIT_HAS_BACKPACK | OUTFIT_EXTENDED_SURVIVAL | OUTFIT_HAS_VITALS_SENSOR
+
+/decl/outfit/job/cargo/mining/Initialize()
+	. = ..()
+	BACKPACK_OVERRIDE_ENGINEERING
