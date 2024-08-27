@@ -33,6 +33,20 @@
 	if(meat_name)
 		set_meat_name(meat_name)
 
+/obj/item/food/butchery/get_drying_state(var/obj/rack)
+	return "meat"
+
+/obj/item/food/butchery/get_drying_overlay(var/obj/rack)
+	var/image/overlay = ..()
+	if(fat_material)
+		if(istext(overlay))
+			overlay = image('icons/obj/drying_rack.dmi', overlay)
+		var/drying_state = "[get_drying_state(rack)]_fat"
+		if(check_state_in_icon(drying_state, 'icons/obj/drying_rack.dmi'))
+			var/decl/material/fat_material_data = GET_DECL(fat_material)
+			overlay.overlays += overlay_image('icons/obj/drying_rack.dmi', drying_state, fat_material_data.color, RESET_COLOR)
+	return overlay
+
 /obj/item/food/butchery/on_update_icon()
 	..()
 	underlays = null
@@ -95,7 +109,7 @@
 
 /obj/item/food/butchery/offal/examine(mob/user, distance)
 	. = ..()
-	if(distance <= 1 && user.skill_check(work_skill, SKILL_BASIC))
+	if(distance <= 1 && user.skill_check(work_skill, SKILL_BASIC) && !dry)
 		if(_cleaned && drying_wetness)
 			to_chat(user, "\The [src] can be hung on a drying rack to dry it in preparation for being twisted into thread.")
 		else if(!_cleaned)
@@ -104,7 +118,7 @@
 			to_chat(user, "\The [src] can be soaked in water to prepare it for drying.")
 
 /obj/item/food/butchery/offal/attackby(obj/item/W, mob/user)
-	if(IS_KNIFE(W) && !_cleaned)
+	if(IS_KNIFE(W) && !_cleaned && !dry)
 		if(W.do_tool_interaction(TOOL_KNIFE, user, src, 3 SECONDS, "scraping", "scraping", check_skill = work_skill, set_cooldown = TRUE) && !_cleaned)
 			_cleaned = TRUE
 			SetName("cleaned [name]")

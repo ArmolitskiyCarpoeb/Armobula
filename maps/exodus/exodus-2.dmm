@@ -1979,7 +1979,7 @@
 	name = "Security RC";
 	pixel_x = 32;
 	dir = 4;
-	
+
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 4
@@ -3262,7 +3262,7 @@
 	name = "Head of Security RC";
 	pixel_y = 32;
 	dir = 1;
-	
+
 	},
 /turf/floor/tiled/dark,
 /area/exodus/crew_quarters/heads/hos)
@@ -6756,7 +6756,7 @@
 	name = "Security RC";
 	pixel_x = 32;
 	dir = 4;
-	
+
 	},
 /turf/floor/lino,
 /area/exodus/security/detectives_office)
@@ -7169,7 +7169,7 @@
 	name = "Internal Affairs RC";
 	pixel_x = 32;
 	dir = 4;
-	
+
 	},
 /turf/floor/tiled/dark,
 /area/exodus/lawoffice)
@@ -9450,7 +9450,7 @@
 	department = "Crew Quarters";
 	pixel_y = 32;
 	dir = 1;
-	
+
 	},
 /turf/floor/tiled/white/monotile,
 /area/exodus/crew_quarters/sleep/cryo)
@@ -13245,7 +13245,7 @@
 	department = "EVA";
 	pixel_x = -32;
 	dir = 8;
-	
+
 	},
 /obj/machinery/light{
 	dir = 8
@@ -14008,7 +14008,7 @@
 	department = "Tool Storage";
 	pixel_y = 32;
 	dir = 1;
-	
+
 	},
 /obj/random/tech_supply,
 /obj/random/tech_supply,
@@ -14997,7 +14997,7 @@
 	department = "Security";
 	pixel_y = 32;
 	dir = 1;
-	
+
 	},
 /obj/machinery/light_switch{
 	pixel_x = 27;
@@ -15917,7 +15917,7 @@
 	department = "Chapel";
 	pixel_y = 32;
 	dir = 1;
-	
+
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/floor/lino,
@@ -17571,7 +17571,7 @@
 	name = "Bar RC";
 	pixel_y = 32;
 	dir = 1;
-	
+
 	},
 /obj/machinery/vending/boozeomat,
 /turf/floor/lino,
@@ -23737,7 +23737,7 @@
 	department = "Locker Room";
 	pixel_x = -32;
 	dir = 8;
-	
+
 	},
 /turf/floor/tiled/monotile,
 /area/exodus/crew_quarters/locker)
@@ -23929,7 +23929,7 @@
 	name = "Bridge RC";
 	pixel_y = -32;
 	dir = 2;
-	
+
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -26840,7 +26840,7 @@
 	name = "Kitchen RC";
 	pixel_y = -32;
 	dir = 2;
-	
+
 	},
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk{
@@ -27299,7 +27299,7 @@
 	department = "Cargo Bay";
 	pixel_y = 32;
 	dir = 1;
-	
+
 	},
 /obj/effect/floor_decal/corner/white{
 	dir = 4
@@ -28667,7 +28667,7 @@
 	department = "AI";
 	pixel_y = 32;
 	dir = 1;
-	
+
 	},
 /obj/structure/cable/cyan{
 	icon_state = "0-2"
@@ -29890,7 +29890,7 @@
 	name = "Bridge RC";
 	pixel_y = -32;
 	dir = 2;
-	
+
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -30592,7 +30592,7 @@
 	name = "Captain RC";
 	pixel_x = -32;
 	dir = 8;
-	
+
 	},
 /obj/structure/filing_cabinet,
 /turf/floor/wood/walnut,
@@ -30766,7 +30766,7 @@
 	name = "Robotics RC";
 	pixel_y = 32;
 	dir = 1;
-	
+
 	},
 /obj/machinery/light{
 	dir = 1
@@ -31690,7 +31690,7 @@
 	department = "Cargo Bay";
 	pixel_y = 32;
 	dir = 1;
-	
+
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/floor/tiled/steel_grid,
@@ -33142,12 +33142,12 @@
 /turf/floor/tiled/white,
 /area/exodus/medical/exam_room)
 "brY" = (
-/obj/item/cane,
-/obj/item/cane{
+/obj/item/cane/aluminium,
+/obj/item/cane/aluminium{
 	pixel_x = -3;
 	pixel_y = 2
 	},
-/obj/item/cane{
+/obj/item/cane/aluminium{
 	pixel_x = -6;
 	pixel_y = 4
 	},
@@ -35935,7 +35935,7 @@
 	name = "Science Requests Console";
 	pixel_y = 32;
 	dir = 1;
-	
+
 	},
 /obj/structure/table{
 	name = "plastic table frame"
@@ -36731,7 +36731,7 @@
 	department = "Cargo Bay";
 	pixel_x = -32;
 	dir = 8;
-	
+
 	},
 /obj/machinery/camera/network/civilian_west{
 	c_tag = "Cargo Office";
@@ -39328,7 +39328,7 @@
 	name = "Head of Personnel RC";
 	pixel_y = -32;
 	dir = 2;
-	
+
 	},
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - HoP's Office";
@@ -40434,7 +40434,7 @@
 	name = "Medbay RC";
 	pixel_y = 32;
 	dir = 1;
-	
+
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -40954,7 +40954,7 @@
 	department = "Cargo Bay";
 	pixel_y = 32;
 	dir = 1;
-	
+
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/floor/tiled/steel_grid,
@@ -41689,7 +41689,7 @@
 	department = "Cargo Bay";
 	pixel_x = -32;
 	dir = 8;
-	
+
 	},
 /turf/floor/tiled/steel_grid,
 /area/exodus/quartermaster/miningdock)
@@ -45005,7 +45005,7 @@
 	name = "Chief Medical Officer RC";
 	pixel_x = -32;
 	dir = 8;
-	
+
 	},
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medbay - CMO's Office";
@@ -45224,7 +45224,7 @@
 	name = "Science Requests Console";
 	pixel_x = 32;
 	dir = 4;
-	
+
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/floor/tiled/white,
@@ -45531,7 +45531,7 @@
 	department = "Janitorial";
 	pixel_y = -32;
 	dir = 2;
-	
+
 	},
 /obj/item/chems/spray/cleaner,
 /obj/structure/table/steel,
@@ -46531,7 +46531,7 @@
 	department = "Tech storage";
 	pixel_x = 32;
 	dir = 4;
-	
+
 	},
 /turf/floor/plating,
 /area/exodus/storage/tech)
@@ -48618,7 +48618,7 @@
 	name = "Chief Engineer RC";
 	pixel_y = 32;
 	dir = 1;
-	
+
 	},
 /obj/machinery/newscaster{
 	pixel_x = -28;
@@ -50719,7 +50719,7 @@
 	name = "Science Requests Console";
 	pixel_y = 32;
 	dir = 1;
-	
+
 	},
 /obj/machinery/camera/network/research{
 	c_tag = "Xenobiology North"
@@ -55259,7 +55259,7 @@
 	name = "Science Requests Console";
 	pixel_x = 32;
 	dir = 4;
-	
+
 	},
 /obj/effect/floor_decal/corner/purple{
 	dir = 8
@@ -56150,7 +56150,7 @@
 	name = "Engineering RC";
 	pixel_y = -32;
 	dir = 2;
-	
+
 	},
 /turf/floor/tiled/steel_grid,
 /area/exodus/engineering/foyer)
@@ -60022,7 +60022,7 @@
 	name = "Research Director RC";
 	pixel_x = 32;
 	dir = 4;
-	
+
 	},
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
@@ -60317,7 +60317,7 @@
 	name = "Virology Requests Console";
 	pixel_x = -32;
 	dir = 8;
-	
+
 	},
 /obj/structure/table/glass,
 /obj/effect/floor_decal/corner/lime{
@@ -60408,7 +60408,7 @@
 	name = "Engineering RC";
 	pixel_y = -32;
 	dir = 2;
-	
+
 	},
 /obj/structure/reagent_dispensers/watertank,
 /turf/floor/tiled/steel_grid,
@@ -64213,7 +64213,7 @@
 	department = "Arrival shuttle";
 	pixel_y = -32;
 	dir = 2;
-	
+
 	},
 /obj/effect/floor_decal/corner/white{
 	dir = 10

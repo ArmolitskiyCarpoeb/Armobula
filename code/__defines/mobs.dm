@@ -247,8 +247,9 @@
 #define SYNTH_HEAT_LEVEL_2 1000
 #define SYNTH_HEAT_LEVEL_3 2000
 
-#define CORPSE_CAN_REENTER 1
-#define CORPSE_CAN_REENTER_AND_RESPAWN 2
+#define CORPSE_CANNOT_REENTER          0
+#define CORPSE_CAN_REENTER             BITFLAG(0)
+#define CORPSE_CAN_RESPAWN             BITFLAG(1)
 
 #define SPECIES_HUMAN            "Human"
 #define SPECIES_MONKEY           "Monkey"
@@ -334,10 +335,11 @@ var/global/list/dexterity_levels = list(
 #define MOB_ICON_HAS_LIVING_STATE    BITFLAG(0)
 #define MOB_ICON_HAS_DEAD_STATE      BITFLAG(1)
 #define MOB_ICON_HAS_REST_STATE      BITFLAG(2)
-#define MOB_ICON_HAS_SLEEP_STATE     BITFLAG(3)
-#define MOB_ICON_HAS_GIB_STATE       BITFLAG(4)
-#define MOB_ICON_HAS_DUST_STATE      BITFLAG(5)
-#define MOB_ICON_HAS_PARALYZED_STATE BITFLAG(6)
+#define MOB_ICON_HAS_SITTING_STATE   BITFLAG(3)
+#define MOB_ICON_HAS_SLEEP_STATE     BITFLAG(4)
+#define MOB_ICON_HAS_GIB_STATE       BITFLAG(5)
+#define MOB_ICON_HAS_DUST_STATE      BITFLAG(6)
+#define MOB_ICON_HAS_PARALYZED_STATE BITFLAG(7)
 #define NEUTER_ANIMATE "animate singular neutral"
 
 // Equipment Overlays Indices //
@@ -412,3 +414,8 @@ var/global/list/dexterity_levels = list(
 
 // Used in death() to skip message broadcast.
 #define SKIP_DEATH_MESSAGE "no message"
+
+// Used in organ stance calc.
+#define LIMB_UNUSABLE 2
+#define LIMB_DAMAGED  1
+#define LIMB_IMPAIRED 0.5

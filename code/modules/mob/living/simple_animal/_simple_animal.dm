@@ -17,7 +17,7 @@
 		/decl/move_intent/run/animal
 	)
 
-	var/base_movement_delay = 4
+	var/base_movement_delay = 0 // Added to the delay expected from movement decls.
 	ai = /datum/mob_controller
 
 	var/can_have_rider = TRUE
@@ -138,6 +138,8 @@ var/global/list/simplemob_icon_bitflag_cache = list()
 			mob_icon_state_flags |= MOB_ICON_HAS_SLEEP_STATE
 		if(check_state_in_icon("world-resting", icon))
 			mob_icon_state_flags |= MOB_ICON_HAS_REST_STATE
+		if(check_state_in_icon("world-sitting", icon))
+			mob_icon_state_flags |= MOB_ICON_HAS_SITTING_STATE
 		if(check_state_in_icon("world-gib", icon))
 			mob_icon_state_flags |= MOB_ICON_HAS_GIB_STATE
 		if(check_state_in_icon("world-dust", icon))
@@ -146,10 +148,18 @@ var/global/list/simplemob_icon_bitflag_cache = list()
 			mob_icon_state_flags |= MOB_ICON_HAS_PARALYZED_STATE
 		global.simplemob_icon_bitflag_cache[type] = mob_icon_state_flags
 
+/mob/living/simple_animal/refresh_visible_overlays()
+	z_flags &= ~ZMM_MANGLE_PLANES
+	if(stat == CONSCIOUS)
+		var/image/I = get_eye_overlay()
+		if(I && glowing_eyes)
+			z_flags |= ZMM_MANGLE_PLANES
+		set_current_mob_overlay(HO_GLASSES_LAYER, I)
+	else
+		set_current_mob_overlay(HO_GLASSES_LAYER, null)
+	. = ..()
+
 /mob/living/simple_animal/on_update_icon()
-
-	..()
-
 	icon_state = ICON_STATE_WORLD
 	if(stat != DEAD && HAS_STATUS(src, STAT_PARA) && (mob_icon_state_flags & MOB_ICON_HAS_PARALYZED_STATE))
 		icon_state += "-paralyzed"
@@ -157,22 +167,18 @@ var/global/list/simplemob_icon_bitflag_cache = list()
 		icon_state += "-dead"
 	else if(stat == UNCONSCIOUS && (mob_icon_state_flags & MOB_ICON_HAS_SLEEP_STATE))
 		icon_state += "-sleeping"
-	else if(current_posture?.deliberate && (mob_icon_state_flags & MOB_ICON_HAS_REST_STATE))
+	else if(istype(current_posture, /decl/posture/sitting) && (mob_icon_state_flags & MOB_ICON_HAS_SITTING_STATE))
+		icon_state += "-sitting"
+	else if(current_posture?.prone && (mob_icon_state_flags & MOB_ICON_HAS_REST_STATE))
 		icon_state += "-resting"
-
-	z_flags &= ~ZMM_MANGLE_PLANES
-	if(stat == CONSCIOUS)
-		var/image/I = get_eye_overlay()
-		if(I)
-			if(glowing_eyes)
-				z_flags |= ZMM_MANGLE_PLANES
-			add_overlay(I)
+	..()
 
 /mob/living/simple_animal/get_eye_overlay()
 	var/eye_icon_state = "[icon_state]-eyes"
 	if(check_state_in_icon(eye_icon_state, icon))
 		var/image/I = (glowing_eyes ? emissive_overlay(icon, eye_icon_state) : image(icon, eye_icon_state))
 		I.appearance_flags = RESET_COLOR
+		I.color = get_eye_colour()
 		return I
 
 /mob/living/simple_animal/Destroy()
@@ -356,10 +362,6 @@ var/global/list/simplemob_icon_bitflag_cache = list()
 	message = sanitize(message)
 
 	..(message, null, verb)
-
-/mob/living/simple_animal/put_in_hands(var/obj/item/W) // No hands.
-	W.forceMove(get_turf(src))
-	return 1
 
 /mob/living/simple_animal/is_burnable()
 	return heat_damage_per_tick

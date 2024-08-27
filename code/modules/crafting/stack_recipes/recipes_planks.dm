@@ -29,11 +29,19 @@
 	available_to_map_tech_level = MAP_TECH_LEVEL_SPACE
 
 /decl/stack_recipe/planks/fishing_rod
-	result_type = /obj/item/fishing_rod
+	result_type            = /obj/item/fishing_rod
 
 /decl/stack_recipe/planks/stick
 	result_type            = /obj/item/stick
 	difficulty             = MAT_VALUE_EASY_DIY
+
+/decl/stack_recipe/planks/staff
+	result_type            = /obj/item/staff
+	difficulty             = MAT_VALUE_NORMAL_DIY
+
+/decl/stack_recipe/planks/cane
+	result_type            = /obj/item/cane
+	difficulty             = MAT_VALUE_NORMAL_DIY
 
 /decl/stack_recipe/planks/bucket
 	result_type            = /obj/item/chems/glass/bucket/wood
@@ -126,6 +134,9 @@
 
 /decl/stack_recipe/planks/furniture/compost_bin
 	result_type            = /obj/structure/reagent_dispensers/compost_bin
+
+/decl/stack_recipe/planks/furniture/filter_stand
+	result_type            = /obj/structure/filter_stand
 
 /decl/stack_recipe/planks/furniture/produce_bin
 	result_type            = /obj/structure/produce_bin
