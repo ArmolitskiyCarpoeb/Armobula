@@ -55,3 +55,27 @@
 		/obj/item/crowbar/cheap = 1,
 		/obj/item/tank/emergency/oxygen = 2
 	)
+
+/obj/structure/closet/walllocker/med
+	desc = "A wall mounted first-aid locker."
+	name = "First-aid wall locker"
+	icon = 'icons/obj/closets/bases/wall.dmi'
+	icon_state = "medical_wall_first_aid"
+	icon_closed = "medical_wall_first_aid"
+	icon_opened = "medical_wall_first_aid_open"
+	density = FALSE
+	anchored = TRUE
+	wall_mounted = 1
+	storage_types = CLOSET_STORAGE_ITEMS
+	setup = 0
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+//	directional_offset = @'{"NORTH":{"y":-32}, "SOUTH":{"y":32}, "EAST":{"x":-32}, "WEST":{"x":32}}'
+
+/obj/structure/closet/walllocker/med/WillContain()
+	return list(
+		/obj/item/pill_bottle/painkillers = 1,
+		/obj/item/stack/medical/bandage = 5,
+		/obj/item/stack/medical/splint = 1,
+		/obj/item/pill_bottle/stabilizer = 1,
+		/obj/item/stack/medical/ointment = 5
+	)

@@ -84,6 +84,11 @@
 	. = ..()
 	if(statpanel("Status"))
 
+		stat("Strength", "[stats[STAT_ST]]")
+		stat("Dexterity", "[stats[STAT_DX]]")
+		stat("Intellect", "[stats[STAT_IQ]]")
+		stat("Health", "[stats[STAT_HT]]")
+
 		var/obj/item/gps/G = get_active_held_item()
 		if(istype(G))
 			stat("Coordinates:", "[G.get_coordinates()]")
@@ -91,10 +96,10 @@
 		stat("Intent:", "[a_intent]")
 		stat("Move Mode:", "[move_intent.name]")
 
-		if(SSevac.evacuation_controller)
-			var/eta_status = SSevac.evacuation_controller.get_status_panel_eta()
-			if(eta_status)
-				stat(null, eta_status)
+//		if(SSevac.evacuation_controller)
+//			var/eta_status = SSevac.evacuation_controller.get_status_panel_eta()
+//			if(eta_status)
+//				stat(null, eta_status)
 
 		if (istype(internal))
 			if (!internal.air_contents)

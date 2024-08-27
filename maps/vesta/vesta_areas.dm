@@ -22,14 +22,14 @@
 	req_access = list(access_bridge)
 
 /area/vesta/bridge/meeting_room
-	name = "\improper Conference room"
+	name = "\improper General Manager's Office"
 	icon_state = "bridge"
 	sound_env = MEDIUM_SOFTFLOOR
 
 //CAPTAIN'S QUARTERS.
 
 /area/vesta/crew_quarters/captain
-	name = "\improper General Manager's Office"
+	name = "\improper General Manager's Private Room"
 	icon_state = "captain"
 	sound_env = MEDIUM_SOFTFLOOR
 	req_access = list(access_captain)
