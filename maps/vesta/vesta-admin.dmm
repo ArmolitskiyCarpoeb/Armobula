@@ -187,7 +187,7 @@
 "Uz" = (/obj/machinery/conveyor{dir = 8; id_tag = "QMLoad2"},/obj/effect/floor_decal/industrial/warning{dir = 8},/turf/floor/tiled/monofloor3,/area/vesta/supply)
 "UL" = (/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{id_tag = "centcom_escape_dock_north_airlock"; master_tag = "centcom_escape_dock"; pixel_y = 24; tag_airpump = "centcom_escape_dock_north_pump"; tag_chamber_sensor = "centcom_escape_dock_north_sensor"; tag_exterior_door = "centcom_escape_dock_north_outer"; tag_interior_door = "centcom_escape_dock_north_inner"},/turf/floor/plating,/area/centcom/holding)
 "Vo" = (/obj/effect/floor_decal/industrial/warning{dir = 8},/turf/floor/tiled/monofloor3,/area/vesta/supply)
-"Vz" = (/obj/structure/cable/green{icon_state = "1-2"},/obj/machinery/computer/shuttle_control/arrivals,/turf/floor/tiled/monofloor3,/area/ship/shuttle_arrival)
+"Vz" = (/obj/structure/cable/green{icon_state = "1-2"},/turf/floor/tiled/monofloor3,/area/ship/shuttle_arrival)
 "WA" = (/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "WJ" = (/obj/structure/cable/green{icon_state = "1-2"},/obj/structure/cable/green{icon_state = "0-4"},/obj/structure/cable/green{icon_state = "0-8"},/turf/wall/shuttle,/area/ship/shuttle_arrival)
 "Xg" = (/obj/structure/shuttle/engine/propulsion,/turf/space,/area/space)

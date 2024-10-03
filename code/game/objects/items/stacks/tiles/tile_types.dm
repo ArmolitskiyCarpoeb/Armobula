@@ -16,8 +16,7 @@
 	max_amount = 100
 	icon = 'icons/obj/tiles.dmi'
 	matter_multiplier = 0.2
-	force = 1
-	throwforce = 1
+	_base_attack_force = 3
 	throw_speed = 5
 	throw_range = 20
 	item_flags = 0
@@ -140,11 +139,11 @@
 /obj/item/stack/tile/floor
 	name = "steel floor tile"
 	singular_name = "steel floor tile"
-	desc = "Those could work as a pretty decent throwing weapon." //why?
+	desc = "Some square sections of flooring. They have a satisfying heft in the hand."
 	icon_state = "tile"
-	force = 6
+	_thrown_force_multiplier = 1 // floor tiles were always good throwing weapons for no apparent reason
+	_base_attack_force = 6
 	material = /decl/material/solid/metal/steel
-	throwforce = 15
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 
 /obj/item/stack/tile/sad_floor
