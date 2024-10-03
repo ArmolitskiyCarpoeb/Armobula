@@ -789,7 +789,10 @@ var/global/BSACooldown = 0
 	if (new_vis && !world.reachable)
 		message_admins("WARNING: The server will not show up on the hub because byond is detecting that a firewall is blocking incoming connections.")
 
-	send2adminirc("[key_name(src)]" + long_message)
+	var/full_message = "[key_name(src)]" + long_message
+	send2adminirc(full_message)
+	SSwebhooks.send(WEBHOOK_AHELP_SENT, list("name" = "Hub Visibility Toggled (Game ID: [game_id])", "body" = full_message))
+
 	log_and_message_admins(long_message)
 	SSstatistics.add_field_details("admin_verb","THUB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc
 
@@ -1494,3 +1497,34 @@ var/global/BSACooldown = 0
 
 	LAZYADD(global.adminfaxes, P)
 	faxreply = null
+
+/datum/admins/proc/addserverwhitelist(ckey as text)
+	set category = "Admin"
+	set name = "Add Ckey To Server Whitelist"
+	set desc = "Permanently adds the specified ckey to the server whitelist."
+
+	ckey = ckey(ckey)
+
+	if(!ckey)
+		to_chat(usr, SPAN_WARNING("Please specify a ckey to insert."))
+	else if(check_server_whitelist(ckey)) // This will also preload the server whitelist.
+		to_chat(usr, SPAN_WARNING("That ckey is already server whitelisted."))
+	else
+		global.server_whitelist |= ckey
+		save_server_whitelist()
+		log_and_message_admins("has added [ckey] to the server whitelist.", usr)
+
+/datum/admins/proc/removeserverwhitelist(ckey as text)
+	set category = "Admin"
+	set name = "Remove Ckey From Server Whitelist"
+	set desc = "Permanently removes the specified ckey from the server whitelist."
+
+	ckey = ckey(ckey)
+	if(!ckey)
+		to_chat(usr, SPAN_WARNING("Please specify a ckey to remove."))
+	else if(!check_server_whitelist(ckey)) // This will also preload the server whitelist.
+		to_chat(usr, SPAN_WARNING("That ckey is not server whitelisted."))
+	else
+		global.server_whitelist -= ckey
+		save_server_whitelist()
+		log_and_message_admins("has removed [ckey] from the server whitelist.", usr)

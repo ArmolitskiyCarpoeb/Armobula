@@ -191,7 +191,7 @@
 	expected_target_type = /obj/structure/door
 	interaction_flags = INTERACTION_NEEDS_PHYSICAL_INTERACTION | INTERACTION_NEEDS_TURF
 
-/decl/interaction_handler/knock_on_door/invoked(var/atom/target, var/mob/user)
+/decl/interaction_handler/knock_on_door/invoked(atom/target, mob/user, obj/item/prop)
 	if(!istype(target) || !target.density)
 		return FALSE
 	user.do_attack_animation(src)
@@ -224,6 +224,11 @@
 /obj/structure/door/sandstone
 	material = /decl/material/solid/stone/sandstone
 	color = /decl/material/solid/stone/sandstone::color
+
+/obj/structure/door/basalt
+	desc = "A door hewn of raw basalt, unthinkably heavy and smooth to the touch."
+	material = /decl/material/solid/stone/basalt
+	color = /decl/material/solid/stone/basalt::color
 
 /obj/structure/door/diamond
 	material = /decl/material/solid/gemstone/diamond

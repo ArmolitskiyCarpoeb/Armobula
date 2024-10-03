@@ -74,35 +74,19 @@
 	)
 	var/list/skin_overlays = list()
 
+#define SERPENTID_FLIGHT_PRESSURE_THRESHOLD 80
 /decl/species/serpentid/can_overcome_gravity(var/mob/living/human/H)
 	var/datum/gas_mixture/mixture = H.loc.return_air()
-
-	if(mixture)
-		var/pressure = mixture.return_pressure()
-		if(pressure > 50)
-			var/turf/below = GetBelow(H)
-			var/turf/T = H.loc
-			if(!T.CanZPass(H, DOWN) || !below.CanZPass(H, DOWN))
-				return TRUE
-
+	var/pressure = mixture?.return_pressure()
+	if(pressure >= SERPENTID_FLIGHT_PRESSURE_THRESHOLD)
+		return TRUE
 	return FALSE
+#undef SERPENTID_FLIGHT_PRESSURE_THRESHOLD
 
 /decl/species/serpentid/handle_environment_special(var/mob/living/human/H)
 	if(!H.on_fire && H.fire_stacks < 2)
 		H.fire_stacks += 0.2
 	return
-
-/decl/species/serpentid/can_fall(var/mob/living/human/H)
-	var/datum/gas_mixture/mixture = H.loc.return_air()
-	var/turf/T = GetBelow(H.loc)
-	for(var/obj/O in T)
-		if(istype(O, /obj/structure/stairs))
-			return TRUE
-	if(mixture)
-		var/pressure = mixture.return_pressure()
-		if(pressure > 80)
-			return FALSE
-	return TRUE
 
 /decl/species/serpentid/handle_fall_special(var/mob/living/human/H, var/turf/landing)
 
@@ -130,15 +114,12 @@
 	else
 		return 0
 
-/decl/species/serpentid/handle_movement_delay_special(var/mob/living/human/H)
+/decl/species/serpentid/handle_movement_delay_special(var/mob/living/human/victim)
 	var/tally = 0
-
-	H.remove_cloaking_source(src)
-
-	var/obj/item/organ/internal/B = H.get_organ(BP_BRAIN)
-	if(istype(B,/obj/item/organ/internal/brain/insectoid/serpentid))
-		var/obj/item/organ/internal/brain/insectoid/serpentid/N = B
-		tally += N.lowblood_tally * 2
+	victim.remove_cloaking_source(src)
+	var/obj/item/organ/internal/brain/insectoid/serpentid/bugbrain = victim.get_organ(BP_BRAIN, /obj/item/organ/internal/brain/insectoid/serpentid)
+	if(bugbrain)
+		tally += bugbrain.lowblood_tally * 2
 	return tally
 
 // todo: make this on bodytype

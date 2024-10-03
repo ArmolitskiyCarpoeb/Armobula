@@ -136,7 +136,7 @@
 	loaded_vial = null
 	if(user)
 		if (swap_mode != "swap") // if swapping vials, we will print a different message in another proc
-			to_chat(user, "You remove the vial from the [src].")
+			to_chat(user, "You remove the vial from \the [src].")
 	playsound(loc, 'sound/weapons/flipblade.ogg', 50, TRUE)
 	if(should_update_icon)
 		update_icon()
@@ -184,7 +184,7 @@
 /obj/item/chems/hypospray/autoinjector/Initialize()
 	. = ..()
 	if(label_text)
-		update_container_name()
+		update_name()
 
 /obj/item/chems/hypospray/autoinjector/populate_reagents()
 	SHOULD_CALL_PARENT(TRUE)

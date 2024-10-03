@@ -50,7 +50,7 @@
 	var/gas_transfer_coefficient = 1 // for leaking gas from turf to mask and vice-versa (for masks right now, but at some point, i'd like to include space helmets)
 	var/permeability_coefficient = 1 // for chemicals/diseases
 	var/siemens_coefficient = 1 // for electrical admittance/conductance (electrocution checks and shit)
-	var/slowdown_general = 0 // How much clothing is slowing you down. Negative values speeds you up. This is a genera##l slowdown, no matter equipment slot.
+	var/slowdown_general = 0 // How much clothing is slowing you down. Negative values speeds you up. This is a general slowdown, no matter equipment slot.
 	var/slowdown_per_slot // How much clothing is slowing you down. This is an associative list: item slot - slowdown
 	var/slowdown_accessory // How much an accessory will slow you down when attached to a worn article of clothing.
 	var/canremove = 1 //Mostly for Ninja code at this point but basically will not allow the item to be removed if set to 0. /N
@@ -109,6 +109,9 @@
 
 	var/base_name
 
+	/// Can this object leak into water sources?
+	var/watertight = FALSE
+
 /obj/item/get_color()
 	if(paint_color)
 		return paint_color
@@ -117,17 +120,20 @@
 	return initial(color)
 
 /obj/item/set_color(new_color)
+
 	if(new_color == COLOR_WHITE)
 		new_color = null
+
 	if(paint_color != new_color)
 		paint_color = new_color
+		. = TRUE
+
 	if(paint_color)
 		color = paint_color
 	else if(material && (material_alteration & MAT_FLAG_ALTERATION_COLOR))
 		color = material.color
 	else
 		color = new_color
-	return FALSE
 
 /obj/item/proc/can_contaminate()
 	return !(obj_flags & ITEM_FLAG_NO_CONTAMINATION)
@@ -570,8 +576,8 @@
 	return ..()
 
 /obj/item/attack_ghost(mob/user)
-	var/mob/observer/ghost/G = user
-	if(G.client?.holder || G.antagHUD)
+	var/mob/observer/ghost/pronouns = user
+	if(pronouns.client?.holder || pronouns.antagHUD)
 		storage?.show_to(user)
 
 /obj/item/proc/talk_into(mob/living/M, message, message_mode, var/verb = "says", var/decl/language/speaking = null)
@@ -756,9 +762,9 @@
 		return 0
 	if(!istype(attacker))
 		return 0
-	var/decl/pronouns/G = attacker.get_pronouns()
+	var/decl/pronouns/pronouns = attacker.get_pronouns()
 	attacker.apply_damage(force, atom_damage_type, attacker.get_active_held_item_slot(), used_weapon = src)
-	attacker.visible_message(SPAN_DANGER("\The [attacker] hurts [G.his] hand on \the [src]!"))
+	attacker.visible_message(SPAN_DANGER("\The [attacker] hurts [pronouns.his] hand on \the [src]!"))
 	playsound(target, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 	playsound(target, hitsound, 50, 1, -1)
 	return 1
@@ -1179,3 +1185,7 @@ modules/mob/living/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/proc/get_stance_support_value()
 	return 0
+
+/obj/item/is_watertight()
+	return watertight || ..()
+

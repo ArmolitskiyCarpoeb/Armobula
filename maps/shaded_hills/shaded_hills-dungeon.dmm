@@ -322,7 +322,7 @@
 /turf/floor/natural/path/running_bond/basalt,
 /area/shaded_hills/caves/dungeon/poi)
 "vO" = (
-/obj/structure/textiles/loom/ebony,
+/obj/structure/working/loom/ebony,
 /turf/floor/natural/path/running_bond/basalt,
 /area/shaded_hills/caves/dungeon/poi)
 "wa" = (
@@ -429,7 +429,7 @@
 /turf/floor/natural/path/herringbone/basalt,
 /area/shaded_hills/caves/dungeon/poi)
 "Ef" = (
-/obj/structure/reagent_dispensers/barrel,
+/obj/structure/reagent_dispensers/barrel/ebony,
 /turf/floor/natural/path/basalt,
 /area/shaded_hills/caves/dungeon/poi)
 "Eq" = (
@@ -447,7 +447,7 @@
 /turf/floor/natural/path/herringbone/basalt,
 /area/shaded_hills/caves/dungeon/poi)
 "Gr" = (
-/obj/structure/textiles/spinning_wheel/twisting_bench/ebony,
+/obj/structure/working/spinning_wheel/twisting_bench/ebony,
 /turf/floor/natural/path/running_bond/basalt,
 /area/shaded_hills/caves/dungeon/poi)
 "Gu" = (
@@ -525,7 +525,7 @@
 /turf/floor/natural/path/running_bond/basalt,
 /area/shaded_hills/caves/dungeon/poi)
 "Ky" = (
-/obj/structure/bookcase,
+/obj/structure/bookcase/ebony,
 /turf/floor/natural/path/running_bond/basalt,
 /area/shaded_hills/caves/dungeon/poi)
 "Kz" = (
@@ -663,7 +663,7 @@
 /turf/floor/natural/path/running_bond/basalt,
 /area/shaded_hills/caves/dungeon)
 "Zg" = (
-/obj/structure/textiles/spinning_wheel/ebony,
+/obj/structure/working/spinning_wheel/ebony,
 /turf/floor/natural/path/running_bond/basalt,
 /area/shaded_hills/caves/dungeon/poi)
 "Zp" = (

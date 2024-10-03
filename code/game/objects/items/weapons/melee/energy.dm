@@ -144,9 +144,9 @@
 /obj/item/energy_blade/attack_self(mob/user)
 	if(active)
 		if(user.has_genetic_condition(GENE_COND_CLUMSY) && prob(50))
-			var/decl/pronouns/G = user.get_pronouns()
+			var/decl/pronouns/pronouns = user.get_pronouns()
 			user.visible_message( \
-				SPAN_DANGER("\The [user] accidentally cuts [G.self] with \the [src]."), \
+				SPAN_DANGER("\The [user] accidentally cuts [pronouns.self] with \the [src]."), \
 				SPAN_DANGER("You accidentally cut yourself with \the [src]."))
 			if(isliving(user))
 				var/mob/living/M = user
@@ -166,7 +166,7 @@
 			add_overlay(emissive_overlay(icon, "[icon_state]-extended"))
 			z_flags |= ZMM_MANGLE_PLANES
 
-/obj/item/energy_blade/adjust_mob_overlay(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
+/obj/item/energy_blade/apply_additional_mob_overlays(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
 	if(overlay && active && check_state_in_icon("[overlay.icon_state]-extended", overlay.icon))
 		overlay.overlays += emissive_overlay(overlay.icon, "[overlay.icon_state]-extended")
 	. = ..()

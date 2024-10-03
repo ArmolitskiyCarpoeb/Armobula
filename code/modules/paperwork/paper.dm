@@ -290,8 +290,8 @@
 		if(istype(P, /obj/item/flame/fuelled/lighter/zippo))
 			class = "rose"
 
-		var/decl/pronouns/G = user.get_pronouns()
-		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like [G.he] [G.is] trying to burn it!</span>", \
+		var/decl/pronouns/pronouns = user.get_pronouns()
+		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like [pronouns.he] [pronouns.is] trying to burn it!</span>", \
 		"<span class='[class]'>You hold \the [P] up to \the [src], burning it slowly.</span>")
 
 		spawn(20)
@@ -619,7 +619,7 @@ var/global/datum/topic_state/default/paper_state/paper_topic_state = new
 	abstract_type = /decl/interaction_handler/scroll
 	expected_target_type = /obj/item/paper/scroll
 
-/decl/interaction_handler/scroll/invoked(atom/target, mob/user)
+/decl/interaction_handler/scroll/invoked(atom/target, mob/user, obj/item/prop)
 	var/obj/item/paper/scroll/scroll = target
 	// TODO: paper sound
 	scroll.furled = !scroll.furled

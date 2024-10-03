@@ -3,6 +3,7 @@
 	max_storage_space = 8
 	can_hold = list(
 		/obj/item/cash,
+		/obj/item/charge_stick,
 		/obj/item/card,
 		/obj/item/clothing/mask/smokable,
 		/obj/item/cosmetics,
@@ -49,7 +50,7 @@
 		if(W == wallet.front_stick)
 			wallet.front_stick = null
 
-/datum/storage/wallet/handle_item_insertion(mob/user, obj/item/W, prevent_warning, skip_update)
+/datum/storage/wallet/handle_item_insertion(mob/user, obj/item/W, prevent_warning, skip_update, click_params)
 	. = ..(W, prevent_warning)
 	if(. && istype(holder, /obj/item/wallet))
 		var/obj/item/wallet/wallet = holder

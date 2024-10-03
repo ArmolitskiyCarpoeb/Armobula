@@ -1,6 +1,10 @@
+/datum/action/item_action/organ/serpentid
+	button_icon = 'mods/species/serpentid/icons/actions.dmi'
+
 /obj/item/organ/internal/eyes/insectoid/serpentid
 	name = "compound eyes"
 	action_button_name = "Toggle Eye Shields"
+	default_action_type = /datum/action/item_action/organ/serpentid
 	var/eyes_shielded
 	var/override_flash_protection = FLASH_PROTECTION_VULNERABLE
 
@@ -17,7 +21,7 @@
 /obj/item/organ/internal/eyes/insectoid/serpentid/refresh_action_button()
 	. = ..()
 	if(.)
-		action.button_icon_state = "serpentid-shield-[eyes_shielded ? 1 : 0]"
+		action.button_icon_state = "shield-[eyes_shielded ? 1 : 0]"
 		action.button?.update_icon()
 
 /obj/item/organ/internal/eyes/insectoid/serpentid/attack_self(var/mob/user)
@@ -121,11 +125,12 @@
 	name = "thorax"
 	encased = "carapace"
 	action_button_name = "Perform Threat Display"
+	default_action_type = /datum/action/item_action/organ/serpentid
 
 /obj/item/organ/external/chest/insectoid/serpentid/refresh_action_button()
 	. = ..()
 	if(.)
-		action.button_icon_state = "serpentid-threat"
+		action.button_icon_state = "threat"
 		action.button?.update_icon()
 
 /obj/item/organ/external/chest/insectoid/serpentid/attack_self(var/mob/user)
@@ -142,9 +147,9 @@
 				if(message == "Cancel")
 					return
 				else if(message == "Yes")
-					var/decl/pronouns/G = get_pronouns()
+					var/decl/pronouns/pronouns = get_pronouns()
 					owner.visible_message(SPAN_WARNING("\The [owner]'s skin shifts to a deep red colour with dark chevrons running down in an almost hypnotic \
-						pattern. Standing tall, [G.he] strikes, sharp spikes aimed at those threatening [G.him], claws whooshing through the air past them."))
+						pattern. Standing tall, [pronouns.he] strikes, sharp spikes aimed at those threatening [pronouns.him], claws whooshing through the air past them."))
 				playsound(owner.loc, 'sound/effects/angrybug.ogg', 60, 0)
 				owner.skin_state = SKIN_THREAT
 				owner.update_skin()
@@ -174,12 +179,13 @@
 	icon_position = UNDER
 	encased = "carapace"
 	action_button_name = "Toggle Active Camo"
+	default_action_type = /datum/action/item_action/organ/serpentid
 	cavity_max_w_class = ITEM_SIZE_LARGE
 
 /obj/item/organ/external/groin/insectoid/serpentid/refresh_action_button()
 	. = ..()
 	if(.)
-		action.button_icon_state = "serpentid-cloak-[owner && owner.is_cloaked_by(species) ? 1 : 0]"
+		action.button_icon_state = "cloak-[owner && owner.is_cloaked_by(species) ? 1 : 0]"
 		action.button?.update_icon()
 
 /obj/item/organ/external/groin/insectoid/serpentid/attack_self(var/mob/user)

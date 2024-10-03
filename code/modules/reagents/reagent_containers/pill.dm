@@ -17,8 +17,13 @@
 	var/autolabel = TRUE  		// if set, will add label with the name of the first initial reagent
 	var/static/list/colorizable_icon_states = list("pill1", "pill2", "pill3", "pill4", "pill5") // if using an icon state from here, color will be derived from reagents
 
+// Pill subtype that does not use a reagent name.
 /obj/item/chems/pill/dispensed
 	autolabel = FALSE
+/obj/item/chems/pill/dispensed/update_name()
+	return
+/obj/item/chems/pill/dispensed/update_container_desc()
+	return
 
 /obj/item/chems/pill/Initialize()
 	. = ..()
@@ -26,7 +31,7 @@
 		icon_state = pick(colorizable_icon_states) //preset pills only use colour changing or unique icons
 	update_icon()
 	if(label_text)
-		update_container_name()
+		update_name()
 
 /obj/item/chems/pill/populate_reagents()
 	SHOULD_CALL_PARENT(TRUE)
@@ -247,10 +252,9 @@
 	desc = "Put in water to get space cleaner. Do not eat. Really."
 	icon_state = "pod21"
 	autolabel = FALSE
-	var/smell_clean_time = 10 MINUTES
 
 // Don't overwrite the custom name.
-/obj/item/chems/pill/detergent/update_container_name()
+/obj/item/chems/pill/detergent/update_name()
 	return
 
 /obj/item/chems/pill/detergent/populate_reagents()
@@ -264,14 +268,14 @@
 	autolabel = FALSE
 
 // Don't overwrite the custom names.
-/obj/item/chems/pill/pod/update_container_name()
+/obj/item/chems/pill/pod/update_name()
 	return
 
 /obj/item/chems/pill/pod/cream
 	name = "creamer pod"
 
 /obj/item/chems/pill/pod/cream/populate_reagents()
-	add_to_reagents(/decl/material/liquid/drink/milk, 5)
+	add_to_reagents(/decl/material/liquid/drink/milk/cream, 5, data = list("milk_donor" = "cow"))
 	. = ..()
 
 /obj/item/chems/pill/pod/cream_soy

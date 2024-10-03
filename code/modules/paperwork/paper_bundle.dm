@@ -179,9 +179,9 @@
 	if(!P.isflamesource() || user.incapacitated())
 		return
 	var/span_class = istype(P, /obj/item/flame/fuelled/lighter/zippo) ? "rose" : "warning"
-	var/decl/pronouns/G = user.get_pronouns()
+	var/decl/pronouns/pronouns = user.get_pronouns()
 	user.visible_message( \
-		"<span class='[span_class]'>\The [user] holds \the [P] up to \the [src]. It looks like [G.he] [G.is] trying to burn it!</span>", \
+		"<span class='[span_class]'>\The [user] holds \the [P] up to \the [src]. It looks like [pronouns.he] [pronouns.is] trying to burn it!</span>", \
 		"<span class='[span_class]'>You hold \the [P] up to \the [src], burning it slowly.</span>")
 	addtimer(CALLBACK(src, PROC_REF(burn_callback), P, user, span_class), 2 SECONDS)
 
@@ -516,8 +516,9 @@
 	name = "Rename Bundle"
 	expected_target_type = /obj/item/paper_bundle
 
-/decl/interaction_handler/rename/paper_bundle/invoked(obj/item/paper_bundle/target, mob/user)
-	target.rename()
+/decl/interaction_handler/rename/paper_bundle/invoked(atom/target, mob/user, obj/item/prop)
+	var/obj/item/paper_bundle/bundle = target
+	bundle.rename()
 
 ///////////////////////////////////////////////////////////////////////////
 // Interaction Break
@@ -526,9 +527,10 @@
 	name = "Unbundle"
 	expected_target_type = /obj/item/paper_bundle
 
-/decl/interaction_handler/unbundle/paper_bundle/invoked(obj/item/paper_bundle/target, mob/user)
+/decl/interaction_handler/unbundle/paper_bundle/invoked(atom/target, mob/user, obj/item/prop)
+	var/obj/item/paper_bundle/bundle = target
 	to_chat(user, SPAN_NOTICE("You loosen \the [target]."))
-	target.break_bundle(user)
+	bundle.break_bundle(user)
 
 #undef MAX_PHOTO_OVERLAYS
 #undef MAX_PAPER_UNDERLAYS

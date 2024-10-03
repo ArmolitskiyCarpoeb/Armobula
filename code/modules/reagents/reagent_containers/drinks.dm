@@ -13,6 +13,7 @@
 	randpixel = 6
 	volume = 50
 	abstract_type = /obj/item/chems/drinks
+	watertight = FALSE // /drinks uses the open container flag for this
 
 	var/filling_states   // List of percentages full that have icons
 	var/base_icon = null // Base icon name for fill states
@@ -83,9 +84,6 @@
 		if(percent <= k)
 			return k
 
-/obj/item/chems/drinks/get_base_name()
-	. = base_name
-
 /obj/item/chems/drinks/on_update_icon()
 	. = ..()
 	if(LAZYLEN(reagents?.reagent_volumes) && filling_states)
@@ -122,7 +120,7 @@
 	center_of_mass = @'{"x":16,"y":9}'
 
 /obj/item/chems/drinks/milk/populate_reagents()
-	add_to_reagents(/decl/material/liquid/drink/milk, reagents.maximum_volume)
+	add_to_reagents(/decl/material/liquid/drink/milk, reagents.maximum_volume, data = list("milk_donor" = "cow"))
 
 /obj/item/chems/drinks/soymilk
 	name = "soymilk carton"

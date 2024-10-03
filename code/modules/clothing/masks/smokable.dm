@@ -128,7 +128,7 @@
 			location.hotspot_expose(700, 5)
 		extinguish(no_message = TRUE)
 
-/obj/item/clothing/mask/smokable/proc/light(var/flavor_text = "[usr] lights the [name].")
+/obj/item/clothing/mask/smokable/proc/light(var/flavor_text = "[usr] lights \the [src].")
 	if(QDELETED(src))
 		return
 	if(!lit)
@@ -215,7 +215,7 @@
 /obj/item/clothing/mask/smokable/cigarette/populate_reagents()
 	add_to_reagents(/decl/material/solid/tobacco, 1)
 
-/obj/item/clothing/mask/smokable/cigarette/light(var/flavor_text = "[usr] lights the [name].")
+/obj/item/clothing/mask/smokable/cigarette/light(var/flavor_text = "[usr] lights \the [src].")
 	..()
 	if(is_processing)
 		set_scent_by_reagents(src)
@@ -373,10 +373,10 @@
 		if(blocked)
 			to_chat(target, SPAN_WARNING("\The [blocked] is in the way!"))
 			return TRUE
-		var/decl/pronouns/G = user.get_pronouns()
+		var/decl/pronouns/pronouns = user.get_pronouns()
 		var/puff_str = pick("drag","puff","pull")
 		user.visible_message(\
-			SPAN_NOTICE("\The [user] takes a [puff_str] on [G.his] [name]."), \
+			SPAN_NOTICE("\The [user] takes a [puff_str] on [pronouns.his] [name]."), \
 			SPAN_NOTICE("You take a [puff_str] on your [name]."))
 		smoke(12, TRUE)
 		add_trace_DNA(target)
@@ -517,7 +517,7 @@
 /obj/item/clothing/mask/smokable/pipe/isflamesource(atom/A)
 	. = FALSE
 
-/obj/item/clothing/mask/smokable/pipe/light(var/flavor_text = "[usr] lights the [name].")
+/obj/item/clothing/mask/smokable/pipe/light(var/flavor_text = "[usr] lights \the [src].")
 	if(!lit && smoketime)
 		if(submerged())
 			to_chat(usr, SPAN_WARNING("You cannot light \the [src] underwater."))

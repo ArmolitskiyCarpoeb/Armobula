@@ -75,11 +75,15 @@
 	skin_type     = null
 	skin_amount   = null
 
+/decl/butchery_data/animal/wolf
+	skin_material     = /decl/material/solid/organic/skin/fur/gray
+
 /decl/butchery_data/animal/rabbit
 	meat_name         = "rabbit"
 	skin_material     = /decl/material/solid/organic/skin/fur/white
 	gut_type          = /obj/item/food/butchery/offal/small
 	must_use_hook     = FALSE
+	butchery_offset   = list(-6, 0)
 
 /decl/butchery_data/animal/rabbit/brown
 	skin_material     = /decl/material/solid/organic/skin/fur/brown

@@ -29,14 +29,14 @@ avoid code duplication. This includes items that may sometimes act as a standard
 		add_fingerprint(user)
 	return A.attackby(src, user, click_params)
 
-/atom/proc/attackby(obj/item/W, mob/user, var/click_params)
+/atom/proc/attackby(obj/item/used_item, mob/user, var/click_params)
 	if(storage)
-		if(isrobot(user) && (W == user.get_active_held_item()))
+		if(isrobot(user) && (used_item == user.get_active_held_item()))
 			return //Robots can't store their modules.
-		if(!storage.can_be_inserted(W, user))
+		if(!storage.can_be_inserted(used_item, user))
 			return
-		W.add_fingerprint(user)
-		return storage.handle_item_insertion(user, W)
+		used_item.add_fingerprint(user)
+		return storage.handle_item_insertion(user, used_item, click_params = click_params)
 	return FALSE
 
 /atom/movable/attackby(obj/item/W, mob/user)
@@ -57,36 +57,42 @@ avoid code duplication. This includes items that may sometimes act as a standard
 /mob/living/attackby(obj/item/used_item, mob/user)
 	if(!ismob(user))
 		return TRUE
+
+	if(!QDELETED(used_item) && user.a_intent == I_HELP)
+		var/obj/item/organ/external/E = GET_EXTERNAL_ORGAN(src, user.get_target_zone())
+		if(length(E?.ailments))
+			for(var/datum/ailment/ailment in E.ailments)
+				if(ailment.treated_by_item(used_item))
+					ailment.was_treated_by_item(used_item, user, src)
+					return TRUE
+
 	if(user.a_intent != I_HURT)
 		if(can_operate(src, user) != OPERATE_DENY && used_item.do_surgery(src,user)) //Surgery
 			return TRUE
 		if(try_butcher_in_place(user, used_item))
 			return TRUE
+
+	if(istype(used_item, /obj/item/chems) && ATOM_IS_OPEN_CONTAINER(used_item) && has_extension(src, /datum/extension/milkable))
+		var/datum/extension/milkable/milkable = get_extension(src, /datum/extension/milkable)
+		if(milkable.handle_milked(used_item, user))
+			return TRUE
+
+	if(used_item.edge && has_extension(src, /datum/extension/shearable))
+		var/datum/extension/shearable/shearable = get_extension(src, /datum/extension/shearable)
+		if(shearable.handle_sheared(used_item, user))
+			return TRUE
+
 	var/oldhealth = current_health
 	. = used_item.use_on_mob(src, user)
 	if(used_item.get_attack_force(user) && istype(ai) && current_health < oldhealth)
 		ai.retaliate(user)
 
-/mob/living/human/attackby(obj/item/I, mob/user)
-
-	. = ..()
-	if(.)
-		if(user.a_intent != I_HELP)
-			return
-		var/obj/item/organ/external/E = GET_EXTERNAL_ORGAN(src, user.get_target_zone())
-		if(!E)
-			return
-		for(var/datum/ailment/ailment in E.ailments)
-			if(ailment.treated_by_item(I))
-				ailment.was_treated_by_item(I, user, src)
-				return
-
-	else if(user == src && user.get_target_zone() == BP_MOUTH && can_devour(I, silent = TRUE))
+	if(!. && user == src && user.get_target_zone() == BP_MOUTH && can_devour(used_item, silent = TRUE))
 		var/obj/item/blocked = src.check_mouth_coverage()
 		if(blocked)
 			to_chat(user, SPAN_WARNING("\The [blocked] is in the way!"))
 		else
-			devour(I)
+			devour(used_item)
 		return TRUE
 
 

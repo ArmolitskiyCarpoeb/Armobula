@@ -329,7 +329,7 @@
 	film.use()
 	captureimage(target, user, flag)
 	playsound(loc, pick('sound/items/polaroid1.ogg', 'sound/items/polaroid2.ogg'), 75, 1, -3)
-	to_chat(user, SPAN_NOTICE("[film.get_remaining()] photos left."))
+	to_chat(user, SPAN_NOTICE("[film.get_remaining()] photo\s left."))
 	return TRUE
 
 /obj/item/camera/examine(mob/user)
@@ -399,5 +399,6 @@
 	icon_state           = "radial_eject"
 	expected_target_type = /obj/item/camera
 
-/decl/interaction_handler/camera_eject_film/invoked(var/obj/item/camera/target, mob/user)
-	return target.eject_film(user)
+/decl/interaction_handler/camera_eject_film/invoked(atom/target, mob/user, obj/item/prop)
+	var/obj/item/camera/camera = target
+	camera.eject_film(user)

@@ -66,8 +66,8 @@
 
 	if(faction_restricted)
 		var/has_correct_faction = FALSE
-		for(var/token in ALL_CULTURAL_TAGS)
-			if(pref.cultural_info[token] in faction_restricted)
+		for(var/cat_type in global.using_map.get_background_categories())
+			if(pref.background_info[cat_type] in faction_restricted)
 				has_correct_faction = TRUE
 				break
 		if(!has_correct_faction)
@@ -419,7 +419,7 @@
 	var/list/gear_tweaks = list()
 	/// Whether or not this equipment should replace pre-existing equipment.
 	var/replace_equipped = TRUE
-	/// List of types of cultural datums that will allow this loadout option.
+	/// List of types of background datums that will allow this loadout option.
 	var/list/faction_restricted
 	/// Species name to check the whitelist for.
 	var/whitelisted
@@ -447,6 +447,10 @@
 		description = initial(O.desc)
 	if(loadout_flags & GEAR_HAS_COLOR_SELECTION)
 		gear_tweaks += gear_tweak_free_color_choice()
+		if(ispath(path, /obj/item/clothing))
+			var/obj/item/clothing/clothes = path
+			if(!isnull(clothes::markings_state_modifier))
+				gear_tweaks += gear_tweak_free_markings_color_choice()
 	if(loadout_flags & GEAR_HAS_TYPE_SELECTION)
 		gear_tweaks += new /datum/gear_tweak/path/type(path)
 	if(loadout_flags & GEAR_HAS_SUBTYPE_SELECTION)
@@ -493,13 +497,27 @@
 	src.location = location
 	src.material = material
 
-/decl/loadout_option/proc/spawn_item(user, location, metadata, obj/item/existing_item)
+/datum/gear_data/proc/can_replace_existing(obj/item/candidate)
+	return istype(candidate, path)
+
+/decl/loadout_option/proc/spawn_item(mob/user, location, metadata)
 	var/datum/gear_data/gd = new(path, location)
 	for(var/datum/gear_tweak/gt in gear_tweaks)
 		gt.tweak_gear_data(islist(metadata) && metadata["[gt]"], gd)
 	var/obj/item/item
-	if(isitem(existing_item))
-		item = existing_item
+	if(apply_to_existing_if_possible) // This was moved here from an argument so that geartweaks will affect the path used for checking.
+		for(var/obj/item/candidate in user.get_equipped_items(include_carried = TRUE))
+			if(gd.can_replace_existing(candidate))
+				item = candidate
+				break
+			if(candidate.storage)
+				for(var/obj/item/child_candidate in candidate.storage.get_contents())
+					if(gd.can_replace_existing(child_candidate))
+						item = child_candidate
+						break
+				if(item)
+					break
+	if(isitem(item))
 		if(gd.material)
 			item.set_material(gd.material)
 	else
@@ -560,14 +578,7 @@
 /decl/loadout_option/proc/spawn_and_validate_item(mob/living/human/H, metadata)
 	PRIVATE_PROC(TRUE)
 
-	var/obj/item/item
-	if(apply_to_existing_if_possible)
-		for(var/obj/item/candidate in H.get_equipped_items(include_carried = TRUE))
-			if(can_replace_existing(candidate))
-				item = candidate
-				break
-
-	item = spawn_item(H, H, metadata, item)
+	var/obj/item/item = spawn_item(H, H, metadata)
 
 	if(QDELETED(item))
 		return

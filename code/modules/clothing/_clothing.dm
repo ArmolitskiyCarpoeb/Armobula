@@ -83,10 +83,10 @@
 
 /obj/item/clothing/proc/setup_equip_flags()
 	if(!isnull(bodytype_equip_flags))
-		if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
-			bodytype_equip_flags |= BODY_FLAG_QUADRUPED
+		if(bodytype_equip_flags & BODY_EQUIP_FLAG_EXCLUDE)
+			bodytype_equip_flags |= BODY_EQUIP_FLAG_QUADRUPED
 		else
-			bodytype_equip_flags &= ~BODY_FLAG_QUADRUPED
+			bodytype_equip_flags &= ~BODY_EQUIP_FLAG_QUADRUPED
 
 /obj/item/clothing/can_contaminate()
 	return TRUE
@@ -167,29 +167,36 @@
 		if(check_state_in_icon(new_state, overlay.icon))
 			overlay.icon_state = new_state
 
-	// Apply any marking overlays that we have defined.
-	if(markings_state_modifier && markings_color)
-		new_state = JOINTEXT(list(overlay.icon_state, markings_state_modifier))
-		if(check_state_in_icon(new_state, overlay.icon))
-			overlay.overlays += mutable_appearance(overlay.icon, new_state, markings_color)
-
-	// Apply a bloodied effect if the mob has been besmirched.
-	// Don't do this for inhands as the overlay is generally not slot based.
-	// TODO: make this slot based and masked to the onmob overlay?
-	if(!(slot in user_mob?.get_held_item_slots()) && blood_DNA && blood_overlay_type)
-		var/mob_blood_overlay = user_mob?.get_bodytype()?.get_blood_overlays(user_mob)
-		if(mob_blood_overlay)
-			var/image/bloodsies = overlay_image(mob_blood_overlay, blood_overlay_type, blood_color, RESET_COLOR)
-			bloodsies.appearance_flags |= NO_CLIENT_COLOR
-			overlay.overlays += bloodsies
-
 	// We apply accessory overlays after calling parent so accessories are not offset twice.
 	overlay = ..()
 	if(overlay && length(accessories))
 		for(var/obj/item/clothing/accessory in accessories)
 			if(accessory.should_overlay())
 				overlay.overlays += accessory.get_mob_overlay(user_mob, slot, bodypart)
+
 	return overlay
+
+/obj/item/clothing/apply_additional_mob_overlays(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
+
+	if(overlay)
+
+		// Apply any marking overlays that we have defined.
+		if(markings_state_modifier && markings_color)
+			var/new_state = JOINTEXT(list(overlay.icon_state, markings_state_modifier))
+			if(check_state_in_icon(new_state, overlay.icon))
+				overlay.overlays += mutable_appearance(overlay.icon, new_state, markings_color)
+
+		// Apply a bloodied effect if the mob has been besmirched.
+		// Don't do this for inhands as the overlay is generally not slot based.
+		// TODO: make this slot based and masked to the onmob overlay?
+		if(!(slot in user_mob?.get_held_item_slots()) && blood_DNA && blood_overlay_type)
+			var/mob_blood_overlay = user_mob?.get_bodytype()?.get_blood_overlays(user_mob)
+			if(mob_blood_overlay)
+				var/image/bloodsies = overlay_image(mob_blood_overlay, blood_overlay_type, blood_color, RESET_COLOR)
+				bloodsies.appearance_flags |= NO_CLIENT_COLOR
+				overlay.overlays += bloodsies
+
+	. = ..()
 
 /obj/item/clothing/set_dir(ndir)
 	// Avoid rendering the profile or back sides of the mob overlay we used when accessories are rendered.
@@ -251,7 +258,7 @@
 	var/decl/bodytype/root_bodytype = user?.get_bodytype()
 	if(!root_bodytype || isnull(bodytype_equip_flags) || (slot in user.get_held_item_slots()))
 		return
-	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+	if(bodytype_equip_flags & BODY_EQUIP_FLAG_EXCLUDE)
 		. = !(bodytype_equip_flags & root_bodytype.bodytype_flag)
 	else
 		. = (bodytype_equip_flags & root_bodytype.bodytype_flag)
@@ -430,7 +437,7 @@
 	name = "Set Sensors Level"
 	expected_target_type = /obj/item/clothing
 
-/decl/interaction_handler/clothing_set_sensors/invoked(var/atom/target, var/mob/user)
+/decl/interaction_handler/clothing_set_sensors/invoked(atom/target, mob/user, obj/item/prop)
 	var/obj/item/clothing/U = target
 	U.set_sensors(user)
 
