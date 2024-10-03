@@ -89,9 +89,9 @@
 		stat("Intellect", "[stats[STAT_IQ]]")
 		stat("Health", "[stats[STAT_HT]]")
 
-		var/obj/item/gps/G = get_active_held_item()
-		if(istype(G))
-			stat("Coordinates:", "[G.get_coordinates()]")
+		var/obj/item/gps/pronouns = get_active_held_item()
+		if(istype(pronouns))
+			stat("Coordinates:", "[pronouns.get_coordinates()]")
 
 		stat("Intent:", "[a_intent]")
 		stat("Move Mode:", "[move_intent.name]")
@@ -363,7 +363,7 @@
 		if(incapacitated())
 			to_chat(src, SPAN_WARNING("You cannot do that right now."))
 			return
-		var/decl/pronouns/G = get_pronouns()
+		var/decl/pronouns/pronouns = get_pronouns()
 		visible_message(SPAN_DANGER("\The [src] starts sticking a finger down [G.his] own throat. It looks like [G.he] [G.is] trying to throw up!"))
 		if(!do_after(src, 30))
 			return
@@ -838,7 +838,7 @@
 		if(!nervous_system_failure() && active_breaths)
 			visible_message(SPAN_NOTICE("\The [src] jerks and gasps for breath!"))
 		else
-			var/decl/pronouns/G = get_pronouns()
+			var/decl/pronouns/pronouns = get_pronouns()
 			visible_message(SPAN_NOTICE("\The [src] twitches a bit as [G.his] [heart.name] restarts!"))
 
 		shock_stage = min(shock_stage, 100) // 120 is the point at which the heart stops.
