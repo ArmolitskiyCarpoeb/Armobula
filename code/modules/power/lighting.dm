@@ -501,10 +501,10 @@
 	matter = list(/decl/material/solid/metal/aluminium = MATTER_AMOUNT_REINFORCEMENT)
 
 	b_range = 6
-	b_power = 1.0
+	b_power = 1.9
 	b_color = LIGHT_COLOR_NEW_BLUE
 	lighting_modes = list(
-		LIGHTMODE_EMERGENCY = list(l_range = 5, l_power = 1.5, l_color = LIGHT_COLOR_EMERGENCY),
+		LIGHTMODE_EMERGENCY = list(l_range = 5, l_power = 2.4, l_color = LIGHT_COLOR_EMERGENCY),
 	)
 	sound_on = 'sound/machines/lightson.ogg'
 
@@ -516,7 +516,7 @@
 	w_class = ITEM_SIZE_SMALL
 	name = "large light tube"
 	b_power = 2
-	b_range = 6
+	b_range = 7
 
 /obj/item/light/tube/large/party/Initialize() //Randomly colored light tubes. Mostly for testing, but maybe someone will find a use for them.
 	. = ..()
@@ -527,7 +527,7 @@
 	name = "UV light tube"
 	desc = "Good for plants."
 	b_power = 3
-	b_range = 2
+	b_range = 3
 	b_color = LIGHT_COLOR_VIOLET
 
 /obj/item/light/bulb
@@ -538,7 +538,7 @@
 	item_state = "contvapour"
 	broken_chance = 3
 	b_range = 5
-	b_power = 1.5
+	b_power = 1.8
 	material = /decl/material/solid/glass
 	b_color = LIGHT_COLOR_NEW_YELLOW
 	lighting_modes = list(
@@ -551,7 +551,7 @@
 
 /obj/item/light/bulb/red/readylight
 	lighting_modes = list(
-		LIGHTMODE_READY = list(l_range = 5, l_power = 1, l_color = LIGHT_COLOR_GREEN),
+		LIGHTMODE_READY = list(l_range = 5, l_power = 1.4, l_color = LIGHT_COLOR_GREEN),
 	)
 
 /obj/item/light/throw_impact(atom/hit_atom)

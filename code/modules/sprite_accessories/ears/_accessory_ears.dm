@@ -1,4 +1,4 @@
-/decl/sprite_accessory_category/ears
+decl/sprite_accessory_category/ears
 	name                 = "Ears"
 	base_accessory_type  = /decl/sprite_accessory/ears
 	default_accessory    = /decl/sprite_accessory/ears/none

@@ -1,10 +1,10 @@
 /decl/outfit/job/vesta/cargo
 	l_ear = /obj/item/radio/headset/headset_cargo
 	name = "Job - Cargo technician"
-	uniform = /obj/item/clothing/jumpsuit/cargotech
+	uniform = /obj/item/clothing/jumpsuit/cargotech_new
 	id_type = /obj/item/card/id/vesta/cargo
-//	pda_type = /obj/item/modular_computer/pda/cargo
-	backpack_contents = list(/obj/item/crowbar = 1, /obj/item/ore = 1)
+	pda_type = /obj/item/modular_computer/pda/cargo
+	backpack_contents = list(/obj/item/crowbar = 1)
 	outfit_flags = OUTFIT_HAS_BACKPACK | OUTFIT_EXTENDED_SURVIVAL | OUTFIT_HAS_VITALS_SENSOR
 
 /decl/outfit/job/vesta/cargo/Initialize()

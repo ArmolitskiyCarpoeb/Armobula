@@ -366,6 +366,11 @@
 /datum/shuttle/proc/has_arrive_time()
 	return (moving_status == SHUTTLE_INTRANSIT)
 
+/datum/shuttle/proc/message_passengers(var/message)
+	for(var/area/A in shuttle_area)
+		for(var/mob/M in A)
+			M.show_message(message, 2)
+
 /datum/shuttle/proc/find_children()
 	. = list()
 	for(var/shuttle_name in SSshuttle.shuttles)

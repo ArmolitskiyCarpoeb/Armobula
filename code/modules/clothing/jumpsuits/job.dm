@@ -35,6 +35,11 @@
 	icon = 'icons/clothing/jumpsuits/jumpsuit_cargo.dmi'
 	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_ARMS
 
+/obj/item/clothing/jumpsuit/cargotech_new
+	name = "cargo technician's jumpsuit"
+	desc = "Working hard and moving heavy crates..."
+	icon = 'icons/clothing/jumpsuits/jumpsuit_cargo_new.dmi'
+
 /obj/item/clothing/jumpsuit/chaplain
 	desc = "It's a black jumpsuit, often worn by religious folk."
 	name = "chaplain's jumpsuit"

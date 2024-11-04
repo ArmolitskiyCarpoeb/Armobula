@@ -43,7 +43,7 @@
 	base_turf = /turf/floor/plating
 
 // arrival
-
+/*
 /obj/machinery/computer/shuttle_control/ferry/arrival
 	name = "arrival shuttle control console"
 	shuttle_tag = "Arrival Shuttle"
@@ -68,7 +68,7 @@
 /obj/effect/shuttle_landmark/arrival/station
 	landmark_tag = "nav_arrival_shuttle_station"
 	docking_controller = "arrival"
-
+*/
 // arrival TRUE
 
 /datum/shuttle/autodock/ferry/arrivals/vesta

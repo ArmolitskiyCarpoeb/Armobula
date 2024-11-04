@@ -11,7 +11,7 @@
 
 /obj/item/clothing/jumpsuit/get_assumed_clothing_state_modifiers()
 	var/static/list/expected_state_modifiers = list(
-		GET_DECL(/decl/clothing_state_modifier/rolled_down),
+//		GET_DECL(/decl/clothing_state_modifier/rolled_down),
 		GET_DECL(/decl/clothing_state_modifier/rolled_sleeves)
 	)
 	return expected_state_modifiers

@@ -5,9 +5,8 @@
 "bI" = (/obj/abstract/level_data_spawner/admin_level{name = "Centcomm"},/turf/space,/area/space)
 "bJ" = (/obj/effect/catwalk_plated/white,/obj/machinery/door/airlock/external{autoset_access = 0; id_tag = "arrivals_shuttle"; locked = 1; name = "Ship Exterior"},/turf/floor,/area/ship/shuttle_arrival)
 "bL" = (/obj/structure/cable/green{icon_state = "0-2"},/obj/structure/shuttle/engine/propulsion{dir = 1},/turf/floor,/area/ship/shuttle_arrival)
-"ce" = (/obj/machinery/conveyor{dir = 4; id_tag = "QMLoad"},/obj/machinery/door/airlock/external/bolted{id_tag = "supply_shuttle_hatch_dock"; name = "Shuttle Hatch"},/turf/floor/plating,/area/vesta/supply)
+"ce" = (/obj/machinery/conveyor{dir = 4; id_tag = "QMLoad"},/obj/machinery/door/airlock/external/bolted{id_tag = "supply_shuttle_hatch"; name = "Shuttle Hatch"},/turf/floor/plating,/area/vesta/supply)
 "ck" = (/obj/structure/shuttle/engine/heater{dir = 8},/turf/floor/airless,/area/shuttle/escape_shuttle)
-"cz" = (/obj/effect/floor_decal/techfloor{dir = 8},/obj/effect/floor_decal/techfloor{dir = 4},/obj/structure/cable/green{icon_state = "1-2"},/turf/floor/tiled/steel_grid_2,/area/ship/shuttle_arrival)
 "cG" = (/obj/structure/shuttle/engine/propulsion{icon_state = "burst_r"},/turf/space,/area/space)
 "cI" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 10},/turf/floor/plating,/area/centcom/holding)
 "da" = (/obj/machinery/portable_atmospherics/canister/air/airlock,/obj/machinery/atmospherics/portables_connector{dir = 4},/turf/floor/plating,/area/centcom/holding)
@@ -25,7 +24,7 @@
 "fp" = (/obj/effect/floor_decal/techfloor{dir = 1},/obj/effect/floor_decal/industrial/warning{dir = 1},/turf/floor/tiled/monofloor3,/area/shuttle/escape_shuttle)
 "fq" = (/obj/structure/shuttle/engine/propulsion{dir = 4},/turf/space,/area/vesta/supply)
 "fC" = (/obj/structure/shuttle/engine/propulsion,/turf/floor,/area/ship/shuttle_arrival)
-"fI" = (/obj/effect/floor_decal/techfloor{dir = 8},/obj/effect/floor_decal/techfloor{dir = 4},/obj/structure/cable/green{icon_state = "1-2"},/obj/effect/shuttle_landmark/vesta/arrivals_offsite,/turf/floor/tiled/steel_grid_2,/area/ship/shuttle_arrival)
+"fI" = (/obj/structure/cable/green{icon_state = "1-2"},/obj/effect/shuttle_landmark/vesta/arrivals_offsite,/turf/floor/tiled/steel_ridged,/area/ship/shuttle_arrival)
 "fM" = (/obj/structure/window/reinforced/crescent{dir = 4},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "gf" = (/obj/structure/window/reinforced/crescent{dir = 8},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "gm" = (/obj/effect/floor_decal/techfloor{dir = 1},/obj/structure/extinguisher_cabinet{pixel_x = -7; pixel_y = 32},/turf/floor/tiled/monofloor3,/area/shuttle/escape_shuttle)
@@ -57,7 +56,7 @@
 "oc" = (/obj/machinery/door/airlock/centcom{name = "Teleporter Bay"},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "oj" = (/obj/effect/floor_decal/corner/green,/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "ov" = (/obj/structure/shuttle/engine/heater{dir = 1},/turf/floor/plating,/area/vesta/supply)
-"pd" = (/obj/effect/floor_decal/techfloor{dir = 8},/turf/floor/tiled/steel_ridged,/area/ship/shuttle_arrival)
+"pd" = (/obj/effect/floor_decal/techfloor{dir = 8},/turf/floor/tiled/monofloor2,/area/ship/shuttle_arrival)
 "pi" = (/obj/structure/cable/green{icon_state = "1-2"},/turf/floor/tiled/monofloor2,/area/ship/shuttle_arrival)
 "pq" = (/obj/structure/shuttle/engine/propulsion{dir = 1},/turf/space,/area/vesta/supply)
 "py" = (/obj/machinery/alarm{dir = 4; pixel_x = -22},/turf/floor/tiled/monofloor3,/area/shuttle/escape_shuttle)
@@ -68,7 +67,7 @@
 "qv" = (/turf/floor/tiled/monofloor,/area/shuttle/escape_shuttle)
 "qJ" = (/obj/structure/handrail{dir = 8},/obj/item/radio/intercom{dir = 8; pixel_x = 22},/turf/floor/tiled/monofloor3,/area/shuttle/escape_shuttle)
 "qT" = (/obj/effect/catwalk_plated/white,/obj/machinery/door/airlock/glass/command,/turf/floor/plating,/area/shuttle/escape_shuttle)
-"qY" = (/obj/machinery/light{dir = 4},/obj/structure/bed/chair/shuttle/black{dir = 8},/obj/effect/floor_decal/techfloor{dir = 4},/obj/abstract/landmark/latejoin,/turf/floor/tiled/steel_ridged,/area/ship/shuttle_arrival)
+"qY" = (/obj/machinery/light{dir = 4},/obj/structure/bed/chair/shuttle/black{dir = 8},/obj/effect/floor_decal/techfloor{dir = 4},/obj/abstract/landmark/latejoin,/turf/floor/tiled/monofloor2,/area/ship/shuttle_arrival)
 "rb" = (/obj/structure/shuttle/engine/propulsion{icon_state = "burst_l"; dir = 8},/turf/space,/area/shuttle/escape_shuttle)
 "rh" = (/obj/structure/window/reinforced/full,/turf/floor/plating,/area/shuttle/escape_shuttle)
 "rB" = (/obj/machinery/computer/robotics{dir = 4},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
@@ -96,7 +95,7 @@
 "vR" = (/turf/unsimulated/wall,/area/space)
 "wc" = (/obj/effect/floor_decal/industrial/warning,/turf/floor/tiled/sad_floor/green_2,/area/shuttle/escape_shuttle)
 "wr" = (/obj/structure/bed/chair/shuttle/black,/obj/machinery/light{dir = 1},/turf/floor/tiled/sad_floor/red_2,/area/shuttle/escape_shuttle)
-"wU" = (/obj/structure/bed/chair/shuttle/black{dir = 4},/obj/effect/floor_decal/techfloor{dir = 8},/obj/abstract/landmark/latejoin,/turf/floor/tiled/steel_ridged,/area/ship/shuttle_arrival)
+"wU" = (/obj/structure/bed/chair/shuttle/black{dir = 4},/obj/effect/floor_decal/techfloor{dir = 8},/obj/abstract/landmark/latejoin,/turf/floor/tiled/monofloor2,/area/ship/shuttle_arrival)
 "xC" = (/obj/machinery/door/airlock/external/bolted{id_tag = "centcom_escape_dock_north_outer"; name = "Escape Airlock"},/turf/floor/plating,/area/centcom/holding)
 "xF" = (/turf/floor/tiled/monofloor3,/area/shuttle/escape_shuttle)
 "yf" = (/obj/effect/floor_decal/corner/green{dir = 1},/obj/effect/floor_decal/industrial/warning/corner{dir = 8},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
@@ -119,7 +118,7 @@
 "Dt" = (/obj/machinery/light/small{dir = 4},/turf/floor/tiled/monofloor3,/area/ship/shuttle_arrival)
 "DH" = (/turf/floor/tiled/monofloor3,/area/vesta/supply)
 "Eo" = (/obj/structure/bed/chair,/obj/effect/floor_decal/industrial/warning/corner{dir = 1},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
-"EX" = (/obj/effect/floor_decal/industrial/warning{dir = 4},/obj/effect/floor_decal/techfloor{dir = 4},/obj/machinery/embedded_controller/radio/simple_docking_controller{dir = 1; id_tag = "arrivals_shuttle"; pixel_x = 1; pixel_y = -27; tag_door = "arrivals_shuttle"},/turf/floor/tiled/steel_ridged,/area/ship/shuttle_arrival)
+"EX" = (/obj/effect/floor_decal/industrial/warning{dir = 4},/obj/effect/floor_decal/techfloor{dir = 4},/obj/machinery/embedded_controller/radio/simple_docking_controller{dir = 1; id_tag = "arrivals_shuttle"; pixel_x = 1; pixel_y = -27; tag_door = "arrivals_shuttle"},/turf/floor/tiled/monofloor2,/area/ship/shuttle_arrival)
 "Fa" = (/obj/structure/shuttle/engine/heater,/obj/structure/cable/green{icon_state = "4-8"},/obj/structure/cable/green{icon_state = "2-4"},/turf/floor,/area/ship/shuttle_arrival)
 "Fs" = (/obj/machinery/light{dir = 8},/turf/floor/tiled/steel_ridged,/area/space)
 "FI" = (/obj/machinery/door/airlock/external/bolted{id_tag = "supply_shuttle_hatch"; name = "Shuttle Hatch"},/turf/floor/plating,/area/vesta/supply)
@@ -131,7 +130,7 @@
 "Hy" = (/obj/structure/shuttle/engine/propulsion/burst/right,/turf/floor,/area/ship/shuttle_arrival)
 "HM" = (/obj/structure/shuttle/engine/propulsion{icon_state = "burst_r"; dir = 1},/turf/space,/area/shuttle/escape_shuttle)
 "HX" = (/obj/effect/floor_decal/corner/green{dir = 5},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
-"IW" = (/obj/structure/bed/chair/shuttle/black{dir = 4},/obj/effect/floor_decal/techfloor{dir = 8},/obj/machinery/alarm{dir = 4; pixel_x = -22},/obj/abstract/landmark/latejoin,/turf/floor/tiled/steel_ridged,/area/ship/shuttle_arrival)
+"IW" = (/obj/structure/bed/chair/shuttle/black{dir = 4},/obj/effect/floor_decal/techfloor{dir = 8},/obj/machinery/alarm{dir = 4; pixel_x = -22},/obj/abstract/landmark/latejoin,/turf/floor/tiled/monofloor2,/area/ship/shuttle_arrival)
 "Jy" = (/obj/structure/bed/chair/shuttle/black{dir = 8},/obj/machinery/embedded_controller/radio/simple_docking_controller{dir = 1; id_tag = "escape_shuttle"; pixel_y = -25; tag_door = "escape_shuttle_hatch"},/turf/floor/tiled/monofloor3,/area/shuttle/escape_shuttle)
 "JN" = (/obj/structure/cable/green{icon_state = "1-2"},/obj/structure/cable/green{icon_state = "1-8"},/obj/structure/cable/green{icon_state = "1-4"},/obj/structure/cable/green{icon_state = "1-2"},/turf/floor,/area/ship/shuttle_arrival)
 "JV" = (/obj/machinery/atmospherics/pipe/simple/hidden,/obj/machinery/door/airlock/external/bolted{id_tag = "centcom_escape_dock_south_inner"; name = "Escape Airlock"},/turf/floor/plating,/area/centcom/holding)
@@ -151,7 +150,7 @@
 "MZ" = (/turf/unsimulated/dark_filler,/area/space)
 "Nc" = (/obj/structure/table/reinforced,/obj/machinery/recharger{pixel_y = 4},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "Ne" = (/obj/structure/window/reinforced/crescent{dir = 8},/obj/structure/window/reinforced/crescent,/turf/unsimulated/floor{icon_state = "steel"},/area/space)
-"NE" = (/obj/structure/extinguisher_cabinet{pixel_x = -7; pixel_y = 32},/obj/effect/floor_decal/techfloor{dir = 8},/turf/floor/tiled/steel_ridged,/area/ship/shuttle_arrival)
+"NE" = (/obj/structure/extinguisher_cabinet{pixel_x = -7; pixel_y = 32},/obj/effect/floor_decal/techfloor{dir = 8},/turf/floor/tiled/monofloor2,/area/ship/shuttle_arrival)
 "NN" = (/turf/floor/tiled/steel_ridged,/area/vesta/supply)
 "Oc" = (/obj/structure/cable/green{icon_state = "1-2"},/obj/machinery/door/airlock/hatch/maintenance/bolted,/turf/floor/tiled/monofloor2,/area/ship/shuttle_arrival)
 "Od" = (/obj/structure/table/steel_reinforced,/turf/floor/tiled/monofloor2,/area/shuttle/escape_shuttle)
@@ -167,11 +166,11 @@
 "PY" = (/turf/wall/shuttle,/area/vesta/supply)
 "Qb" = (/obj/structure/bed/chair{dir = 8},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "Qj" = (/obj/structure/bed/chair/shuttle/black{dir = 1},/obj/effect/floor_decal/industrial/warning{dir = 4},/turf/floor/tiled/sad_floor/yellow_2,/area/shuttle/escape_shuttle)
-"Qn" = (/obj/structure/bed/chair/shuttle/black{dir = 8},/obj/effect/floor_decal/techfloor{dir = 4},/obj/abstract/landmark/latejoin,/turf/floor/tiled/steel_ridged,/area/ship/shuttle_arrival)
+"Qn" = (/obj/structure/bed/chair/shuttle/black{dir = 8},/obj/effect/floor_decal/techfloor{dir = 4},/obj/abstract/landmark/latejoin,/turf/floor/tiled/monofloor2,/area/ship/shuttle_arrival)
 "Qo" = (/obj/structure/bed/roller,/obj/effect/floor_decal/techfloor,/turf/floor/tiled/monofloor3,/area/shuttle/escape_shuttle)
-"Qp" = (/obj/machinery/sleeper{dir = 4},/obj/effect/floor_decal/techfloor,/turf/floor/tiled/monofloor3,/area/shuttle/escape_shuttle)
+"Qp" = (/obj/effect/floor_decal/techfloor,/obj/machinery/cryopod,/turf/floor/tiled/monofloor3,/area/shuttle/escape_shuttle)
 "QB" = (/obj/machinery/embedded_controller/radio/docking_port_multi{child_names_txt = "Airlock One;Airlock Two"; child_tags_txt = "centcom_escape_dock_north_airlock;centcom_escape_dock_south_airlock"; dir = 1; id_tag = "centcom_escape_dock"; pixel_y = -25},/turf/floor/plating,/area/centcom/holding)
-"Rm" = (/obj/effect/floor_decal/techfloor{dir = 4},/obj/effect/floor_decal/techfloor{dir = 8},/obj/structure/cable/green{icon_state = "1-2"},/turf/floor/tiled/steel_grid_2,/area/ship/shuttle_arrival)
+"Rm" = (/obj/structure/cable/green{icon_state = "1-2"},/turf/floor/tiled/steel_ridged,/area/ship/shuttle_arrival)
 "Rz" = (/obj/structure/shuttle/engine/propulsion,/turf/space,/area/vesta/supply)
 "RK" = (/obj/effect/floor_decal/techfloor,/turf/floor/tiled/monofloor3,/area/shuttle/escape_shuttle)
 "SC" = (/obj/machinery/teleport/hub,/turf/unsimulated/floor{icon_state = "steel"},/area/space)
@@ -179,7 +178,7 @@
 "ST" = (/obj/structure/bed/chair{dir = 4},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "Tg" = (/obj/structure/table/reinforced,/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "Th" = (/obj/machinery/oxygen_pump,/turf/wall/shuttle,/area/ship/shuttle_arrival)
-"Tm" = (/obj/effect/floor_decal/industrial/warning{dir = 4},/obj/effect/floor_decal/techfloor{dir = 4},/turf/floor/tiled/steel_ridged,/area/ship/shuttle_arrival)
+"Tm" = (/obj/effect/floor_decal/industrial/warning{dir = 4},/obj/effect/floor_decal/techfloor{dir = 4},/turf/floor/tiled/monofloor2,/area/ship/shuttle_arrival)
 "TJ" = (/obj/machinery/button/blast_door{id_tag = "crescent_checkpoint_access"; name = "Crescent Checkpoint Access"; pixel_x = -6; pixel_y = -24},/obj/machinery/button/blast_door{id_tag = "crescent_thunderdome"; name = "Thunderdome Access"; pixel_x = 6; pixel_y = -24},/obj/machinery/button/blast_door{id_tag = "crescent_vip_shuttle"; name = "VIP Shuttle Access"; pixel_x = 6; pixel_y = -34},/obj/machinery/button/blast_door{id_tag = "CREED"; name = "Spec Ops Ready Room"; pixel_x = -6; pixel_y = -34},/obj/machinery/turretid{pixel_x = 28; pixel_y = -28; req_access = list("ACCESS_CENT_GENERAL")},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "TL" = (/obj/structure/shuttle/engine/heater{dir = 4},/turf/floor/airless,/area/shuttle/escape_shuttle)
 "TO" = (/obj/structure/lattice,/turf/space,/area/space)
@@ -187,7 +186,7 @@
 "Uz" = (/obj/machinery/conveyor{dir = 8; id_tag = "QMLoad2"},/obj/effect/floor_decal/industrial/warning{dir = 8},/turf/floor/tiled/monofloor3,/area/vesta/supply)
 "UL" = (/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{id_tag = "centcom_escape_dock_north_airlock"; master_tag = "centcom_escape_dock"; pixel_y = 24; tag_airpump = "centcom_escape_dock_north_pump"; tag_chamber_sensor = "centcom_escape_dock_north_sensor"; tag_exterior_door = "centcom_escape_dock_north_outer"; tag_interior_door = "centcom_escape_dock_north_inner"},/turf/floor/plating,/area/centcom/holding)
 "Vo" = (/obj/effect/floor_decal/industrial/warning{dir = 8},/turf/floor/tiled/monofloor3,/area/vesta/supply)
-"Vz" = (/obj/structure/cable/green{icon_state = "1-2"},/turf/floor/tiled/monofloor3,/area/ship/shuttle_arrival)
+"Vz" = (/obj/structure/cable/green{icon_state = "1-2"},/obj/machinery/computer/shuttle_control/arrivals,/turf/floor/tiled/monofloor3,/area/ship/shuttle_arrival)
 "WA" = (/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "WJ" = (/obj/structure/cable/green{icon_state = "1-2"},/obj/structure/cable/green{icon_state = "0-4"},/obj/structure/cable/green{icon_state = "0-8"},/turf/wall/shuttle,/area/ship/shuttle_arrival)
 "Xg" = (/obj/structure/shuttle/engine/propulsion,/turf/space,/area/space)
@@ -201,7 +200,7 @@
 "YY" = (/obj/effect/floor_decal/industrial/warning{dir = 10},/turf/floor/tiled/sad_floor/green_2,/area/shuttle/escape_shuttle)
 "Zn" = (/obj/machinery/computer/shuttle_control/emergency,/turf/floor/plating,/area/shuttle/escape_shuttle)
 "Zt" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 6},/turf/floor/plating,/area/centcom/holding)
-"ZM" = (/obj/item/radio/intercom{dir = 8; pixel_x = 22},/obj/machinery/light{dir = 4},/obj/structure/bed/chair/shuttle/black{dir = 8},/obj/effect/floor_decal/techfloor{dir = 4},/obj/abstract/landmark/latejoin,/turf/floor/tiled/steel_ridged,/area/ship/shuttle_arrival)
+"ZM" = (/obj/item/radio/intercom{dir = 8; pixel_x = 22},/obj/machinery/light{dir = 4},/obj/structure/bed/chair/shuttle/black{dir = 8},/obj/effect/floor_decal/techfloor{dir = 4},/obj/abstract/landmark/latejoin,/turf/floor/tiled/monofloor2,/area/ship/shuttle_arrival)
 "ZV" = (/obj/effect/catwalk_plated/white,/turf/floor/plating,/area/shuttle/escape_shuttle)
 
 (1,1,1) = {"
@@ -299,10 +298,10 @@ sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSCbCbKOCbCbSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSCbXHCLvbCbSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSCbCbdGThCbSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSCbNEpiTmbJSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSCbwUpiqYCbSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSCbNERmTmbJSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSCbwURmqYCbSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSCbwUfIQnCbSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSCbIWczQnCbSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSCbIWRmQnCbSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSCbwURmZMCbSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSCbpdRmEXbJSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSCbCbOcCbCbSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM

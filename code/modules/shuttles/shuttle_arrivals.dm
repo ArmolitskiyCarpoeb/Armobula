@@ -4,7 +4,7 @@
 
 	name = "Arrivals"
 	location = 1
-	warmup_time = 25 // Warmup takes 5 seconds, so 30 total.
+	warmup_time = 30 // Warmup takes 5 seconds, so 30 total.
 //	var/always_process = TRUE
 	var/launch_delay = 3
 
@@ -17,7 +17,7 @@
 // For debugging.
 /obj/machinery/computer/shuttle_control/arrivals
 	name = "shuttle control console"
-//	req_access = list(access_cent_general)
+	req_access = list(access_cent_general)
 	shuttle_tag = "Arrivals"
 
 // Unlike most shuttles, the arrivals shuttle is completely automated, so we need to put some additional code here.
@@ -49,13 +49,14 @@
 			if(check_for_passengers()) // No point arriving with an empty shuttle.
 				warmup_time = initial(warmup_time)
 				launch()
-			for(var/turf/T in get_area_turfs(shuttle_area))
-				var/mob/M = locate(/mob) in T
-				to_chat(M, "Arriving at [using_map.station_name] in thirty seconds...")
+				playsound('sound/misc/notice2.ogg', 75, 1)
+				message_passengers("<span class='notice'>Arriving at [using_map.station_name] in thirty seconds...</span>")
 				spawn(10 SECONDS)
-					to_chat(M, "Arriving at [using_map.station_name] in twenty seconds.")
+					playsound('sound/misc/notice2.ogg', 75, 1)
+					message_passengers("<span class='warning'>Arriving at [using_map.station_name] in twenty seconds.</span>")
 					spawn(10 SECONDS)
-						to_chat(M, "Arriving at [using_map.station_name] in ten seconds.  Please buckle up.")
+						playsound('sound/misc/notice2.ogg', 75, 1)
+						message_passengers("<span class='danger'>Arriving at [using_map.station_name] in ten seconds.  Please buckle up.</span>")
 
 		else // We are at the station.
 			if(!check_for_passengers()) // Don't leave with anyone.

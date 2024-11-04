@@ -151,6 +151,10 @@
 	else
 		icon_state = initial(icon_state)
 
+/obj/machinery/body_scanconsole/blue/Initialize()
+	. = ..()
+	FindScanner()
+
 /obj/machinery/body_scanconsole/blue/FindScanner()
 	for(var/D in global.cardinal)
 		src.connected = locate(/obj/machinery/bodyscanner/blue, get_step(src, D))

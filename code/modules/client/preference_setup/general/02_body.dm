@@ -70,14 +70,14 @@
 			LAZYINITLIST(pref.sprite_accessories[accessory_cat.type])
 			pref.sprite_accessories[accessory_cat.type][style_decl.type] = list(SAM_COLOR = (R.read("facial_hair_colour") || COLOR_BLACK))
 
-	var/list/load_markings = R.read("body_markings")
-	if(length(load_markings))
-		accessory_cat = GET_DECL(SAC_MARKINGS)
-		for(var/accessory in load_markings)
-			style_decl = decls_repository.get_decl_by_id_or_var(accessory, accessory_cat.base_accessory_type)
-			if(style_decl)
-				LAZYINITLIST(pref.sprite_accessories[accessory_cat.type])
-				pref.sprite_accessories[accessory_cat.type][style_decl.type] = list(SAM_COLOR = (load_markings[accessory] || COLOR_BLACK))
+//	var/list/load_markings = R.read("body_markings")
+//	if(length(load_markings))
+//		accessory_cat = GET_DECL(SAC_MARKINGS)
+//		for(var/accessory in load_markings)
+//			style_decl = decls_repository.get_decl_by_id_or_var(accessory, accessory_cat.base_accessory_type)
+//			if(style_decl)
+//				LAZYINITLIST(pref.sprite_accessories[accessory_cat.type])
+//				pref.sprite_accessories[accessory_cat.type][style_decl.type] = list(SAM_COLOR = (load_markings[accessory] || COLOR_BLACK))
 
 	if(!pref.bgstate || !(pref.bgstate in global.using_map.char_preview_bgstate_options))
 		pref.bgstate = global.using_map.char_preview_bgstate_options[1]

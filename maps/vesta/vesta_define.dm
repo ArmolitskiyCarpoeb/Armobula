@@ -5,11 +5,11 @@
 
 	station_name  = "MS 'Outland'"
 	station_short = "Outland"
-	dock_name     = "NAS Crescent"
+	dock_name     = "OS 'Fatherland'"
 	boss_name     = "Central Command"
 	boss_short    = "Centcomm"
 	company_name  = "Mons-Laden Corporation"
-	company_short = "MLC"
+	company_short = "ML"
 	system_name   = "Zeta-13"
 
 	overmap_ids = list(OVERMAP_ID_SPACE)
@@ -63,4 +63,4 @@
 	)
 
 /datum/map/vesta/get_map_info()
-	return "На Чужбине смертью пахнет."
+	return "МОЯ ЖОПА ГОРИИИТ!!!"
