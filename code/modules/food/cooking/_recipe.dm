@@ -1,3 +1,8 @@
+// Order is important as it is used as a key to the used_ingredients list.
+#define RECIPE_COMPONENT_ITEMS 1
+#define RECIPE_COMPONENT_FRUIT 2
+#define RECIPE_COMPONENT_CHEMS 3
+
 var/global/list/_cooking_recipe_cache = list()
 /proc/select_recipe(category, atom/container, cooking_temperature)
 
@@ -37,8 +42,8 @@ var/global/list/_cooking_recipe_cache = list()
 	var/display_name              // Descriptive name of the recipe, should be unique to avoid codex pages being unsearchable. If not set, codex uses initial name of product.
 	var/list/reagents             // example: = list(/decl/material/liquid/drink/juice/berry = 5) // do not list same reagent twice
 	var/list/items                // example: = list(/obj/item/crowbar, /obj/item/welder, /obj/item/screwdriver = 2) // place /foo/bar before /foo
-	var/list/fruit                // example: = list("fruit" = 3)
-	var/cooking_time = 10 SECONDS                // Cooking time in deciseconds.
+	var/list/fruit                // example: = list("potato" = 1, "tomato chopped" = 3)
+	var/cooking_time = 10 SECONDS // Cooking time in deciseconds.
 
 	/// What categories can this recipe be cooked by? Null for any.
 	var/list/container_categories
@@ -189,13 +194,14 @@ var/global/list/_cooking_recipe_cache = list()
 		if(contained_atoms)
 			contained_atoms -= produced
 			for(var/obj/O in contained_atoms)
-				O.reagents.trans_to_obj(produced, O.reagents.total_volume)
+				if(O.reagents)
+					O.reagents.trans_to_obj(produced, O.reagents.total_volume)
 				qdel(O)
 		return produced
 
 	if(ispath(result, /decl/material))
 		var/created_volume = result_quantity
-		for(var/obj/item/ingredient in (used_ingredients["items"]|used_ingredients["fruits"]))
+		for(var/obj/item/ingredient in (used_ingredients[RECIPE_COMPONENT_ITEMS]|used_ingredients[RECIPE_COMPONENT_FRUIT]))
 			if(!ingredient.reagents?.total_volume)
 				continue
 			for(var/reagent_type in ingredient.reagents.reagent_volumes)
@@ -211,11 +217,11 @@ var/global/list/_cooking_recipe_cache = list()
 	return new result(container)
 
 /// Return a data list to pass to a reagent creation proc. Allows for overriding/mutation based on ingredients.
-/// Actually place or create the result of the recipe. Returns the produced item, or the container for reagents.
 /decl/recipe/proc/get_result_data(atom/container, list/used_ingredients)
 	return result_data
 
 // food-related
+/// Actually place or create the result of the recipe. Returns the produced item(s), or null if only reagents were produced.
 /decl/recipe/proc/produce_result(obj/container)
 
 	/*
@@ -228,9 +234,9 @@ var/global/list/_cooking_recipe_cache = list()
 	// We collected the used ingredients before removing them in case
 	// the result proc needs to check the list for procedural products.
 	var/list/used_ingredients = list(
-		"items"    = list(),
-		"fruit"    = list(),
-		"reagents" = list()
+		RECIPE_COMPONENT_ITEMS = list(),
+		RECIPE_COMPONENT_FRUIT = list(),
+		RECIPE_COMPONENT_CHEMS = list()
 	)
 
 	// Find items we need.
@@ -251,13 +257,14 @@ var/global/list/_cooking_recipe_cache = list()
 						container_contents -= stack
 					else
 						used = stack.split(amount_to_take)
-					used_ingredients["items"] += used
+					used_ingredients[RECIPE_COMPONENT_ITEMS] += used
 					needed_amount -= used.amount
 				continue
 			for(var/item_count in 1 to max(1, items[item_type]))
 				var/obj/item/item = locate(item_type) in container_contents
-				container_contents -= item
-				used_ingredients["items"] += item
+				if(item)
+					container_contents -= item
+					used_ingredients[RECIPE_COMPONENT_ITEMS] += item
 
 	// Find fruits that we need.
 	if(LAZYLEN(fruit))
@@ -268,12 +275,12 @@ var/global/list/_cooking_recipe_cache = list()
 				//We found a thing we need
 				container_contents -= food
 				checklist[check_grown_tag]--
-				used_ingredients["fruits"] += food
+				used_ingredients[RECIPE_COMPONENT_FRUIT] += food
 
 	// And lastly deduct necessary quantities of reagents.
 	if(LAZYLEN(reagents))
 		for(var/reagent_type in reagents)
-			used_ingredients["reagents"][reagent_type] += reagents[reagent_type]
+			used_ingredients[RECIPE_COMPONENT_CHEMS][reagent_type] += reagents[reagent_type]
 
 	/*
 	Now we've removed all the ingredients that were used and we have the buffer containing the total of
@@ -298,22 +305,22 @@ var/global/list/_cooking_recipe_cache = list()
 	// Collect all our ingredient reagents in a buffer.
 	// If we aren't using a buffer, just discard the reagents.
 	var/datum/reagents/buffer = (reagent_mix != REAGENT_REPLACE) ? new(INFINITY, global.temp_reagents_holder) : null
-	for(var/atom/item as anything in used_ingredients["items"])
+	for(var/atom/item as anything in used_ingredients[RECIPE_COMPONENT_ITEMS])
 		if(item.reagents)
 			if(buffer)
 				item.reagents.trans_to_holder(buffer, item.reagents.total_volume)
 			else
 				item.reagents.clear_reagents()
 		item.physically_destroyed()
-	for(var/atom/fruit as anything in used_ingredients["fruits"])
+	for(var/atom/fruit as anything in used_ingredients[RECIPE_COMPONENT_FRUIT])
 		if(fruit.reagents)
 			if(buffer)
 				fruit.reagents.trans_to_holder(buffer, fruit.reagents.total_volume)
 			else
 				fruit.reagents.clear_reagents()
 		fruit.physically_destroyed()
-	for(var/reagent_type in used_ingredients["reagents"])
-		var/reagent_amount = used_ingredients["reagents"][reagent_type]
+	for(var/reagent_type in used_ingredients[RECIPE_COMPONENT_CHEMS])
+		var/reagent_amount = used_ingredients[RECIPE_COMPONENT_CHEMS][reagent_type]
 		if(buffer)
 			container.reagents.trans_type_to_holder(buffer, reagent_type, reagent_amount)
 		else

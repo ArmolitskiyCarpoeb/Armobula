@@ -958,7 +958,7 @@
 /turf/floor/airless,
 /area/lost_supply_base/common)
 "cO" = (
-/obj/structure/closet/crate/freezer/rations,
+/obj/structure/closet/crate/plastic/rations,
 /turf/floor/airless,
 /area/lost_supply_base)
 "cP" = (
@@ -1982,7 +1982,7 @@
 /turf/unsimulated/mask,
 /area/mine/unexplored)
 "gu" = (
-/turf/floor/natural/barren,
+/turf/floor,
 /area/mine/explored)
 "ib" = (
 /obj/structure/hygiene/sink{

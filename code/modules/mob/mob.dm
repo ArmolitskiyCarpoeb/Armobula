@@ -118,7 +118,7 @@
 	var/turf/T = get_turf(src)
 	var/list/mobs = list()
 	var/list/objs = list()
-	get_mobs_and_objs_in_view_fast(T, range, mobs, objs, check_ghosts)
+	get_listeners_in_range(T, range, mobs, objs, check_ghosts)
 
 	for(var/o in objs)
 		var/obj/O = o
@@ -158,7 +158,7 @@
 	var/turf/T = get_turf(src)
 	var/list/mobs = list()
 	var/list/objs = list()
-	get_mobs_and_objs_in_view_fast(T, hearing_distance, mobs, objs, check_ghosts)
+	get_listeners_in_range(T, hearing_distance, mobs, objs, check_ghosts)
 
 	for(var/m in mobs)
 		var/mob/M = m
@@ -874,7 +874,8 @@
 		if(!canface() || current_posture.prone || restrained())
 			facing_dir = null
 		else if(buckled)
-			if(buckled.obj_flags & OBJ_FLAG_ROTATABLE)
+			var/obj/buckled_obj = buckled
+			if(!isobj(buckled) || (buckled_obj.obj_flags & OBJ_FLAG_ROTATABLE))
 				buckled.set_dir(facing_dir)
 				return ..(facing_dir)
 			else
@@ -1263,6 +1264,11 @@
 /mob/proc/toggle_internals(var/mob/living/user)
 	return
 
+/mob/proc/set_target_zone(new_zone)
+	if(zone_sel)
+		return zone_sel?.set_selected_zone(new_zone)
+	return FALSE
+
 /mob/proc/get_target_zone()
 	return zone_sel?.selecting || BP_CHEST
 
@@ -1392,4 +1398,3 @@
 
 /mob/proc/can_twohand_item(obj/item/item)
 	return FALSE
-

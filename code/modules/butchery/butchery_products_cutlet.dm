@@ -1,7 +1,7 @@
 /obj/item/food/butchery/cutlet
 	name                = "cutlet"
 	desc                = "A tasty meat slice."
-	icon                = 'icons/obj/items/butchery/cutlet.dmi'
+	icon                = 'icons/obj/food/butchery/cutlet.dmi'
 	bitesize            = 2
 	nutriment_amt       = 1
 	center_of_mass      = @'{"x":17,"y":20}'
@@ -22,3 +22,7 @@
 	dried_type                     = /obj/item/food/jerky/cutlet
 	nutriment_amt                  = 2
 	material_alteration            = MAT_FLAG_ALTERATION_COLOR
+
+/obj/item/food/butchery/cutlet/raw/beef
+	meat_name                      = "beef"
+	desc                           = "A thin piece of raw beef."

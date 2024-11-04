@@ -18366,7 +18366,6 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/mob/living/bot/farmbot/premade,
 /turf/floor/tiled/dark,
 /area/exodus/hydroponics)
 "aMH" = (
@@ -19131,7 +19130,7 @@
 /area/exodus/library)
 "aOg" = (
 /obj/structure/table/woodentable,
-/obj/item/food/chips,
+/obj/item/food/junk/chips,
 /obj/random/single{
 	name = "randomly spawned cola";
 	spawn_object = /obj/item/chems/drinks/cans/cola
@@ -47839,8 +47838,8 @@
 /area/exodus/crew_quarters/heads/chief)
 "bVr" = (
 /obj/structure/table,
-/obj/item/box/monkeycubes,
-/obj/item/food/monkeycube/wrapped,
+/obj/item/box/animal_cubes/monkeys,
+/obj/item/food/animal_cube/wrapped/monkey,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/tiled/white,
 /area/exodus/research/xenobiology/xenoflora)
@@ -50246,7 +50245,7 @@
 /area/exodus/engineering/break_room)
 "cak" = (
 /obj/structure/table/woodentable,
-/obj/item/food/chips,
+/obj/item/food/junk/chips,
 /turf/floor/carpet,
 /area/exodus/engineering/break_room)
 "cal" = (
@@ -59715,12 +59714,12 @@
 /area/exodus/solar/starboard)
 "cvq" = (
 /obj/structure/table,
-/obj/item/box/monkeycubes,
-/obj/item/box/monkeycubes,
-/obj/item/box/monkeycubes,
-/obj/item/box/monkeycubes,
-/obj/item/box/monkeycubes,
-/obj/item/food/monkeycube/wrapped,
+/obj/item/box/animal_cubes/monkeys,
+/obj/item/box/animal_cubes/monkeys,
+/obj/item/box/animal_cubes/monkeys,
+/obj/item/box/animal_cubes/monkeys,
+/obj/item/box/animal_cubes/monkeys,
+/obj/item/food/animal_cube/wrapped/monkey,
 /turf/floor/tiled/white,
 /area/exodus/research/xenobiology)
 "cvt" = (
@@ -60035,10 +60034,10 @@
 /area/exodus/engineering/storage)
 "cwQ" = (
 /obj/structure/table,
-/obj/item/box/monkeycubes,
-/obj/item/box/monkeycubes,
-/obj/item/box/monkeycubes,
-/obj/item/box/monkeycubes,
+/obj/item/box/animal_cubes/monkeys,
+/obj/item/box/animal_cubes/monkeys,
+/obj/item/box/animal_cubes/monkeys,
+/obj/item/box/animal_cubes/monkeys,
 /turf/floor/tiled/white,
 /area/exodus/medical/virology)
 "cwR" = (

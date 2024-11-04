@@ -41,27 +41,27 @@
 
 /decl/recipe/baked/amanita_pie
 	reagents = list(/decl/material/liquid/amatoxin = 5)
-	items = list(/obj/item/food/sliceable/flatdough)
+	items = list(/obj/item/food/piecrust)
 	result = /obj/item/food/amanita_pie
 
 /decl/recipe/baked/pumpkinpie
 	fruit = list("pumpkin" = 1)
 	reagents = list(/decl/material/liquid/nutriment/sugar = 5)
-	items = list(/obj/item/food/sliceable/flatdough)
+	items = list(/obj/item/food/piecrust)
 	reagent_mix = REAGENT_REPLACE // no raw flour
 	result = /obj/item/food/sliceable/pumpkinpie
 
 /decl/recipe/baked/bananapie
 	fruit = list("banana" = 1)
 	reagents = list(/decl/material/liquid/nutriment/sugar = 5)
-	items = list(/obj/item/food/sliceable/flatdough)
+	items = list(/obj/item/food/piecrust)
 	result = /obj/item/food/bananapie
 
 /decl/recipe/baked/cherrypie
 	fruit = list("cherries" = 1)
 	reagents = list(/decl/material/liquid/nutriment/sugar = 10)
 	items = list(
-		/obj/item/food/sliceable/flatdough,
+		/obj/item/food/piecrust,
 	)
 	result = /obj/item/food/cherrypie
 
@@ -101,7 +101,7 @@
 /decl/recipe/baked/xenomeatbread
 	items = list(
 		/obj/item/food/dough = 2,
-		/obj/item/food/xenomeat = 2,
+		/obj/item/food/butchery/meat/xeno = 2,
 		/obj/item/food/dairy/cheese/wedge = 2,
 	)
 	result = /obj/item/food/sliceable/xenomeatbread
@@ -145,7 +145,7 @@
 /decl/recipe/baked/fortunecookie
 	reagents = list(/decl/material/liquid/nutriment/sugar = 5)
 	items = list(
-		/obj/item/food/doughslice,
+		/obj/item/food/unleaveneddoughslice,
 		/obj/item/paper,
 	)
 	result = /obj/item/food/fortunecookie
@@ -153,10 +153,11 @@
 /decl/recipe/baked/fortunecookie/produce_result(obj/container)
 	var/obj/item/paper/paper = locate() in container
 	paper.forceMove(null) //prevent deletion
-	var/obj/item/food/fortunecookie/being_cooked = ..(container)
-	paper.forceMove(being_cooked)
-	being_cooked.trash = paper //so the paper is left behind as trash without special-snowflake(TM Nodrak) code ~carn
-	return being_cooked
+	var/list/obj/item/food/fortunecookie/results = ..(container)
+	for(var/obj/item/food/fortunecookie/being_cooked in results)
+		paper.forceMove(being_cooked)
+		being_cooked.trash = paper //so the paper is left behind as trash without special-snowflake(TM Nodrak) code ~carn
+	return results
 
 /decl/recipe/baked/fortunecookie/check_items(var/obj/container)
 	. = ..()
@@ -192,7 +193,7 @@
 	fruit = list("banana" = 1)
 	reagents = list(/decl/material/solid/sodiumchloride = 1, /decl/material/solid/blackpepper = 1, /decl/material/liquid/nutriment/flour = 10)
 	items = list(
-		/obj/item/food/monkeycube
+		/obj/item/food/animal_cube/monkey
 	)
 	result = /obj/item/food/monkeysdelight
 
@@ -206,10 +207,9 @@
 /decl/recipe/baked/bread
 	display_name = "loaf of bread"
 	items = list(
-		/obj/item/food/dough = 2,
-		/obj/item/food/egg
+		/obj/item/food/dough = 2
 	)
-	reagent_mix = REAGENT_REPLACE // no raw egg/flour
+	reagent_mix = REAGENT_REPLACE // no raw dough
 	result = /obj/item/food/sliceable/bread
 
 /decl/recipe/baked/jelliedtoast
@@ -241,14 +241,14 @@
 
 /decl/recipe/baked/appletart
 	fruit = list("goldapple" = 1)
-	items = list(/obj/item/food/sliceable/flatdough)
+	items = list(/obj/item/food/piecrust)
 	reagent_mix = REAGENT_REPLACE // no raw flour
 	result = /obj/item/food/appletart
 
 /decl/recipe/baked/cracker
 	reagents = list(/decl/material/solid/sodiumchloride = 1)
 	items = list(
-		/obj/item/food/doughslice
+		/obj/item/food/unleaveneddoughslice
 	)
 	result = /obj/item/food/cracker
 
@@ -262,13 +262,13 @@
 /decl/recipe/baked/bun
 	display_name = "plain bun"
 	items = list(
-		/obj/item/food/dough
+		/obj/item/food/doughslice
 	)
 	result = /obj/item/food/bun
 
 /decl/recipe/baked/flatbread
 	items = list(
-		/obj/item/food/sliceable/flatdough
+		/obj/item/food/sliceable/unleaveneddough
 	)
 	result = /obj/item/food/flatbread
 

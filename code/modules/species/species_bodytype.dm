@@ -163,8 +163,10 @@ var/global/list/bodytypes_by_category = list()
 		BP_EYES =     /obj/item/organ/internal/eyes
 	)
 
-	var/vision_organ              // If set, this organ is required for vision.
-	var/breathing_organ           // If set, this organ is required for breathing.
+	/// If set, an organ with this tag is required for vision.
+	var/vision_organ
+	/// If set, an organ with this tag is required for breathing
+	var/breathing_organ
 
 	var/list/override_organ_types // Used for species that only need to change one or two entries in has_organ.
 
@@ -595,7 +597,7 @@ var/global/list/bodytypes_by_category = list()
 				qdel(O)
 
 	//Create missing limbs
-	var/datum/mob_snapshot/supplied_data = H.get_mob_snapshot(force = TRUE)
+	var/datum/mob_snapshot/supplied_data = H.get_mob_snapshot()
 	supplied_data.root_bodytype = src // This may not have been set on the target mob torso yet.
 
 	for(var/limb_type in has_limbs)
@@ -722,7 +724,7 @@ var/global/list/bodytypes_by_category = list()
 			qdel(innard)
 
 	// Install any necessary new organs.
-	var/datum/mob_snapshot/supplied_data = limb.owner.get_mob_snapshot(force = TRUE)
+	var/datum/mob_snapshot/supplied_data = limb.owner.get_mob_snapshot()
 	supplied_data.root_bodytype = src
 	for(var/organ_tag in replacing_organs)
 		var/organ_type = replacing_organs[organ_tag]

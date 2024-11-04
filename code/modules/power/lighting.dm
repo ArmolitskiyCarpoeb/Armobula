@@ -468,7 +468,7 @@
 
 /obj/item/light
 	icon = 'icons/obj/lighting.dmi'
-	w_class = ITEM_SIZE_TINY
+	w_class = ITEM_SIZE_SMALL
 	material = /decl/material/solid/metal/steel
 	atom_flags = ATOM_FLAG_CAN_BE_PAINTED
 	obj_flags = OBJ_FLAG_HOLLOW

@@ -1,6 +1,6 @@
 /decl/material/liquid/crystal_agent/do_material_check(var/mob/living/M)
 	var/decl/special_role/wizard/wizards = GET_DECL(/decl/special_role/wizard)
-	. = (M.get_ability_handler(/datum/ability_handler/psionics) || (M.mind && wizards.is_antagonist(M.mind))) ? MAT_NULLGLASS : ..()
+	. = (M.get_ability_handler(/datum/ability_handler/psionics) || (M.mind && wizards.is_antagonist(M.mind))) ? /decl/material/nullglass : ..()
 
 /decl/material/liquid/glowsap/gleam/affect_overdose(mob/living/M, total_dose)
 	..()
@@ -18,7 +18,7 @@
 #ifdef GAMEMODE_PACK_CULT
 /decl/chemical_reaction/synthesis/nullglass/get_alternate_reaction_indicator(var/datum/reagents/holder)
 	var/list/blood_data = REAGENT_DATA(holder, /decl/material/liquid/blood)
-	var/weakref/donor_ref = LAZYACCESS(blood_data, "donor")
+	var/weakref/donor_ref = LAZYACCESS(blood_data, DATA_BLOOD_DONOR)
 	var/mob/living/donor = donor_ref?.resolve()
 	var/decl/special_role/wizard/wizards = GET_DECL(/decl/special_role/wizard)
 	. = (istype(donor) && (!!donor.get_ability_handler(/datum/ability_handler/psionics) || (donor.mind && wizards.is_antagonist(donor.mind))))

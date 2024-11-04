@@ -23,6 +23,7 @@
 	START_PROCESSING(SSprocessing, src)
 
 /datum/extension/milkable/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
 	QDEL_NULL(udder)
 	return ..()
 
@@ -47,7 +48,7 @@
 
 /datum/extension/milkable/proc/get_milk_data()
 	var/static/list/milk_data = list(
-		"milk_donor" = "cow"
+		DATA_MILK_DONOR = "cow"
 	)
 	return milk_data.Copy()
 
@@ -129,10 +130,10 @@
 
 /datum/extension/milkable/goat/get_milk_data()
 	var/static/list/milk_data = list(
-		"milk_donor"   = "goat",
-		"milk_name"    = "goat",
-		"cheese_name"  = "feta",
-		"cheese_color" = "#f3f2be",
-		"mask_name"    = "goat's milk",
+		DATA_MILK_DONOR   = "goat",
+		DATA_MILK_NAME    = "goat",
+		DATA_CHEESE_NAME  = "feta",
+		DATA_CHEESE_COLOR = "#f3f2be",
+		DATA_MASK_NAME    = "goat's milk",
 	)
 	return milk_data.Copy()

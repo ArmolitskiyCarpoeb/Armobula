@@ -24,13 +24,13 @@
 			fuel_ports += fuel_port_in_area
 
 /datum/shuttle/autodock/overmap/fuel_check()
-	if(!src.try_consume_fuel()) //insufficient fuel
-		for(var/area/A in shuttle_area)
-			for(var/mob/living/M in A)
-				M.show_message(SPAN_WARNING("You hear the shuttle engines sputter... perhaps it doesn't have enough fuel?"), AUDIBLE_MESSAGE,
+	if(!try_consume_fuel()) //insufficient fuel
+		for(var/mob/hearer in global.living_mob_list_ + global.ghost_mob_list)
+			if(is_type_in_list(get_area(hearer), shuttle_area))
+				hearer.show_message(SPAN_WARNING("You hear the shuttle engines sputter... perhaps it doesn't have enough fuel?"), AUDIBLE_MESSAGE,
 				SPAN_WARNING("The shuttle shakes but fails to take off."), VISIBLE_MESSAGE)
-				return 0 //failure!
-	return 1 //sucess, continue with launch
+		return FALSE //failure
+	return TRUE //sucess, continue with launch
 
 /datum/shuttle/autodock/overmap/proc/can_go()
 	if(!next_location)
@@ -113,3 +113,10 @@
 		else //this tank doesn't have enough to launch shuttle by itself, so remove all its fuel, then continue loop
 			fuel_to_consume -= fuel_available
 			FT.remove_air_by_flag(XGM_GAS_FUEL, fuel_available)
+
+// When we rotate, rotate our overmap landmark's fore_dir too, so meteors come from the right direction.
+/datum/shuttle/autodock/overmap/shuttle_moved(obj/effect/shuttle_landmark/destination, list/turf_translation, angle = 0)
+	..()
+	var/obj/effect/overmap/visitable/ship/landable/our_ship = SSshuttle.ship_by_shuttle(name)
+	if(our_ship && angle != 0)
+		our_ship.fore_dir = turn(our_ship.fore_dir, angle)

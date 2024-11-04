@@ -389,7 +389,7 @@ default behaviour is:
 		switch_from_dead_to_living_mob_list()
 		timeofdeath = 0
 
-	stat = CONSCIOUS
+	set_stat(CONSCIOUS)
 	update_icon()
 
 	BITSET(hud_updateflag, HEALTH_HUD)
@@ -1836,6 +1836,7 @@ default behaviour is:
 			reset_offsets(anim_time = 2)
 			return FALSE
 
+	ai?.update_target_zone()
 	reset_offsets(anim_time = 2)
 	return TRUE
 

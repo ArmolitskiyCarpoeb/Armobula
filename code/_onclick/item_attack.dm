@@ -32,9 +32,9 @@ avoid code duplication. This includes items that may sometimes act as a standard
 /atom/proc/attackby(obj/item/used_item, mob/user, var/click_params)
 	if(storage)
 		if(isrobot(user) && (used_item == user.get_active_held_item()))
-			return //Robots can't store their modules.
+			return FALSE //Robots can't store their modules.
 		if(!storage.can_be_inserted(used_item, user))
-			return
+			return FALSE
 		used_item.add_fingerprint(user)
 		return storage.handle_item_insertion(user, used_item, click_params = click_params)
 	return FALSE
@@ -94,7 +94,6 @@ avoid code duplication. This includes items that may sometimes act as a standard
 		else
 			devour(used_item)
 		return TRUE
-
 
 // Proximity_flag is 1 if this afterattack was called on something adjacent, in your square, or on your person.
 // Click parameters is the params string from byond Click() code, see that documentation.

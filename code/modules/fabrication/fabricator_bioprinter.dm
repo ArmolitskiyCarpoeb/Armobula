@@ -41,10 +41,10 @@
 		if(REAGENT_VOLUME(S.reagents, /decl/material/liquid/blood))
 			var/sample = REAGENT_DATA(S.reagents, /decl/material/liquid/blood)
 			if(islist(sample))
-				var/weakref/R = sample["donor"]
+				var/weakref/R = sample[DATA_BLOOD_DONOR]
 				var/mob/living/human/H = R.resolve()
 				if(H && istype(H) && H.species)
-					loaded_dna = H.get_mob_snapshot()
+					loaded_dna = H.get_mob_snapshot(check_dna = TRUE)
 					if(loaded_dna)
 						to_chat(user, SPAN_INFO("You inject the blood sample into \the [src]."))
 						S.remove_any_reagents(BIOPRINTER_BLOOD_SAMPLE_SIZE)
