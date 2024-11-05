@@ -36,7 +36,7 @@
 
 /obj/machinery/media/jukebox/Initialize()
 	. = ..()
-	tracks = setup_music_tracks(tracks)
+	tracks = setup_jukebox_music_tracks(tracks)
 	queue_icon_update()
 	sound_id = "[/obj/machinery/media/jukebox]_[sequential_id(/obj/machinery/media/jukebox)]"
 
@@ -62,12 +62,16 @@
 		else
 			icon_state = "[state_base]-nopower"
 		return
-	icon_state = state_base
+//	icon_state = state_base
+	overlays += emissive_overlay(icon, "[state_base]")
+	set_light(1, 0.25)
 	if(playing)
 		if(emagged)
-			overlays += "[state_base]-emagged"
+			overlays += emissive_overlay(icon,"[state_base]-emagged")
+			set_light(1, 0.25)
 		else
-			overlays += "[state_base]-running"
+			overlays += emissive_overlay(icon, "[state_base]-running")
+			set_light(1, 0.25)
 
 /obj/machinery/media/jukebox/CanUseTopic(user, state)
 	if(!anchored)

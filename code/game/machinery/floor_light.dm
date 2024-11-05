@@ -18,9 +18,9 @@ var/global/list/floor_light_cache = list()
 	required_interaction_dexterity = DEXTERITY_SIMPLE_MACHINES
 
 	var/damaged
-	var/default_light_power = 0.75
-	var/default_light_range = 2
-	var/default_light_color = "#ffffff"
+	var/default_light_power = 0.95
+	var/default_light_range = 1
+	var/default_light_color = "#B3ECEC"
 
 /obj/machinery/floor_light/prebuilt
 	anchored = TRUE

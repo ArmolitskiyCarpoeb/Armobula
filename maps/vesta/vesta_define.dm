@@ -10,7 +10,7 @@
 	boss_short    = "Centcomm"
 	company_name  = "Mons-Laden Corporation"
 	company_short = "ML"
-	system_name   = "Zeta-13"
+	system_name   = "Zeta-12"
 
 	overmap_ids = list(OVERMAP_ID_SPACE)
 	num_exoplanets = 1
@@ -27,9 +27,7 @@
 	)
 
 	char_preview_bgstate_options = list(
-		"000",
-		"midgrey",
-		"FFF"
+		"reinforced"
 	)
 
 	evac_controller_type = /datum/evacuation_controller/shuttle

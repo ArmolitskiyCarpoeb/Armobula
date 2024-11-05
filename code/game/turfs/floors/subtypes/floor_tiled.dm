@@ -57,17 +57,17 @@
 /turf/floor/tiled/monofloor2
 	name = "floor"
 	icon_state = "monofloor2"
-	initial_flooring = /decl/flooring/tiling/new_tile/monofloor2
+	_flooring = /decl/flooring/tiling/new_tile/monofloor2
 
 /turf/floor/tiled/monofloor3
 	name = "floor"
 	icon_state = "monofloor3"
-	initial_flooring = /decl/flooring/tiling/new_tile/monofloor3
+	_flooring = /decl/flooring/tiling/new_tile/monofloor3
 
 /turf/floor/tiled/doted_floor
 	name = "floor"
 	icon_state = "doted_floor"
-	initial_flooring = /decl/flooring/tiling/new_tile/doted_floor
+	_flooring = /decl/flooring/tiling/new_tile/doted_floor
 
 /turf/floor/tiled/techfloor
 	name = "floor"
@@ -105,12 +105,12 @@
 /turf/floor/tiled/old_tile2
 	name = "floor"
 	icon_state = "tile_full"
-	initial_flooring = /decl/flooring/tiling/new_tile2
+	_flooring = /decl/flooring/tiling/new_tile2
 
 // /turf/floor/tiled/old_cargo2
 //	name = "floor"
 //	icon_state = "cargo_one_full"
-//	initial_flooring = /decl/flooring/tiling/new_tile2/cargo_one2
+//	_flooring = /decl/flooring/tiling/new_tile2/cargo_one2
 
 //
 
@@ -137,130 +137,131 @@
 /turf/floor/tiled/steel_grid_2
 	name = "steel floor"
 	icon_state = "steel_grid"
-	initial_flooring = /decl/flooring/tiling/new_tile/steel_grid_2
+	_flooring = /decl/flooring/tiling/new_tile/steel_grid_2
 
 /turf/floor/tiled/sad_floor
 	name = "steel floor"
 	icon_state = "sad_floor"
-	initial_flooring = /decl/flooring/tiling/new_tile/sad_floor
+	_flooring = /decl/flooring/tiling/new_tile/sad_floor
+	color = null
 
 /turf/floor/tiled/sad_floor_mono
 	name = "steel floor"
 	icon_state = "sad_floor_mono"
-	initial_flooring = /decl/flooring/tiling/new_tile/sad_floor_mono
+	_flooring = /decl/flooring/tiling/new_tile/sad_floor_mono
 
 /turf/floor/tiled/sad_floor_ridged
 	name = "steel floor"
 	icon_state = "sad_floor_ridged"
-	initial_flooring = /decl/flooring/tiling/new_tile/sad_floor_ridged
+	_flooring = /decl/flooring/tiling/new_tile/sad_floor_ridged
 
 // SAD FLOORS COLORED
 
 /turf/floor/tiled/sad_floor/red_1
 	name = "steel floor"
 	icon_state = "sad_floor_red_1"
-	initial_flooring = /decl/flooring/tiling/new_tile/sad_floor_red_1
+	_flooring = /decl/flooring/tiling/new_tile/sad_floor_red_1
 
 /turf/floor/tiled/sad_floor/red_2
 	name = "steel floor"
 	icon_state = "sad_floor_red_2"
-	initial_flooring = /decl/flooring/tiling/new_tile/sad_floor_red_2
+	_flooring = /decl/flooring/tiling/new_tile/sad_floor_red_2
 
 
 /turf/floor/tiled/sad_floor/green_1
 	name = "steel floor"
 	icon_state = "sad_floor_green_1"
-	initial_flooring = /decl/flooring/tiling/new_tile/sad_floor_green_1
+	_flooring = /decl/flooring/tiling/new_tile/sad_floor_green_1
 
 /turf/floor/tiled/sad_floor/green_2
 	name = "steel floor"
 	icon_state = "sad_floor_green_2"
-	initial_flooring = /decl/flooring/tiling/new_tile/sad_floor_green_2
+	_flooring = /decl/flooring/tiling/new_tile/sad_floor_green_2
 
 
 /turf/floor/tiled/sad_floor/blue_1
 	name = "steel floor"
 	icon_state = "sad_floor_blue_1"
-	initial_flooring = /decl/flooring/tiling/new_tile/sad_floor_blue_1
+	_flooring = /decl/flooring/tiling/new_tile/sad_floor_blue_1
 
 /turf/floor/tiled/sad_floor/blue_2
 	name = "steel floor"
 	icon_state = "sad_floor_blue_2"
-	initial_flooring = /decl/flooring/tiling/new_tile/sad_floor_blue_2
+	_flooring = /decl/flooring/tiling/new_tile/sad_floor_blue_2
 
 
 /turf/floor/tiled/sad_floor/pink_1
 	name = "steel floor"
 	icon_state = "sad_floor_pink_1"
-	initial_flooring = /decl/flooring/tiling/new_tile/sad_floor_pink_1
+	_flooring = /decl/flooring/tiling/new_tile/sad_floor_pink_1
 
 /turf/floor/tiled/sad_floor/pink_2
 	name = "steel floor"
 	icon_state = "sad_floor_pink_2"
-	initial_flooring = /decl/flooring/tiling/new_tile/sad_floor_pink_2
+	_flooring = /decl/flooring/tiling/new_tile/sad_floor_pink_2
 
 
 /turf/floor/tiled/sad_floor/purple_1
 	name = "steel floor"
 	icon_state = "sad_floor_purple_1"
-	initial_flooring = /decl/flooring/tiling/new_tile/sad_floor_purple_1
+	_flooring = /decl/flooring/tiling/new_tile/sad_floor_purple_1
 
 /turf/floor/tiled/sad_floor/purple_2
 	name = "steel floor"
 	icon_state = "sad_floor_purple_2"
-	initial_flooring = /decl/flooring/tiling/new_tile/sad_floor_purple_2
+	_flooring = /decl/flooring/tiling/new_tile/sad_floor_purple_2
 
 
 /turf/floor/tiled/sad_floor/orange_1
 	name = "steel floor"
 	icon_state = "sad_floor_orange_1"
-	initial_flooring = /decl/flooring/tiling/new_tile/sad_floor_orange_1
+	_flooring = /decl/flooring/tiling/new_tile/sad_floor_orange_1
 
 /turf/floor/tiled/sad_floor/orange_2
 	name = "steel floor"
 	icon_state = "sad_floor_orange_2"
-	initial_flooring = /decl/flooring/tiling/new_tile/sad_floor_orange_2
+	_flooring = /decl/flooring/tiling/new_tile/sad_floor_orange_2
 
 
 /turf/floor/tiled/sad_floor/biege_1
 	name = "steel floor"
 	icon_state = "sad_floor_biege_1"
-	initial_flooring = /decl/flooring/tiling/new_tile/sad_floor_biege_1
+	_flooring = /decl/flooring/tiling/new_tile/sad_floor_biege_1
 
 /turf/floor/tiled/sad_floor/biege_2
 	name = "steel floor"
 	icon_state = "sad_floor_biege_2"
-	initial_flooring = /decl/flooring/tiling/new_tile/sad_floor_biege_2
+	_flooring = /decl/flooring/tiling/new_tile/sad_floor_biege_2
 
 
 /turf/floor/tiled/sad_floor/yellow_1
 	name = "steel floor"
 	icon_state = "sad_floor_yellow_1"
-	initial_flooring = /decl/flooring/tiling/new_tile/sad_floor_yellow_1
+	_flooring = /decl/flooring/tiling/new_tile/sad_floor_yellow_1
 
 /turf/floor/tiled/sad_floor/yellow_2
 	name = "steel floor"
 	icon_state = "sad_floor_yellow_2"
-	initial_flooring = /decl/flooring/tiling/new_tile/sad_floor_yellow_2
+	_flooring = /decl/flooring/tiling/new_tile/sad_floor_yellow_2
 // SAD FLOORS COLORED
 
 
 /turf/floor/tiled/old_tile_green_1
 	name = "floor"
 	icon_state = "tile_full_green_1"
-	initial_flooring = /decl/flooring/tiling/new_tile_green_1
+	_flooring = /decl/flooring/tiling/new_tile_green_1
 
 /turf/floor/tiled/old_tile_green_2
 	name = "floor"
 	icon_state = "tile_full_green_2"
-	initial_flooring = /decl/flooring/tiling/new_tile_green_2
+	_flooring = /decl/flooring/tiling/new_tile_green_2
 
 /turf/floor/tiled/old_tile_lime_1
 	name = "floor"
 	icon_state = "tile_full_lime_1"
-	initial_flooring = /decl/flooring/tiling/new_tile_lime_1
+	_flooring = /decl/flooring/tiling/new_tile_lime_1
 
 /turf/floor/tiled/old_tile_lime_2
 	name = "floor"
 	icon_state = "tile_full_lime_2"
-	initial_flooring = /decl/flooring/tiling/new_tile_lime_2
+	_flooring = /decl/flooring/tiling/new_tile_lime_2

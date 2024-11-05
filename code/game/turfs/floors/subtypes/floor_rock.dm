@@ -15,3 +15,8 @@
 /turf/floor/rock/basalt
 	color          = /decl/material/solid/stone/basalt::color
 	floor_material = /decl/material/solid/stone/basalt
+
+/turf/floor/rock/cave //must be "#565656"
+	name           = "cave floor"
+	floor_material = /decl/material/solid/stone/granite
+	color          = /decl/material/solid/stone/granite::color

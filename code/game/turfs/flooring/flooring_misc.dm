@@ -57,7 +57,6 @@
 	render_trenches    = FALSE
 	force_material     = /decl/material/solid/stone/ceramic
 	constructed        = TRUE
-	gender             = NEUTER
 
 /decl/flooring/woven
 	name               = "woven floor"
@@ -71,7 +70,6 @@
 	color              = COLOR_BEIGE
 	force_material     = /decl/material/solid/organic/plantmatter/grass/dry
 	constructed        = TRUE
-	gender             = NEUTER
 
 /decl/flooring/straw
 	name               = "straw floor"
@@ -86,4 +84,3 @@
 	color              = COLOR_WHEAT
 	force_material     = /decl/material/solid/organic/plantmatter/grass/dry
 	constructed        = TRUE
-	gender             = NEUTER

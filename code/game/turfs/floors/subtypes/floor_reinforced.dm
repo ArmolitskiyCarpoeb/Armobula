@@ -40,8 +40,8 @@
 /turf/floor/reinforced/ramp
 	name = "foot ramp"
 	icon_state = "ramptop"
-	initial_flooring = /decl/flooring/reinforced/ramp
+	_flooring = /decl/flooring/reinforced/ramp
 
 /turf/floor/reinforced/ramp/bottom
 	icon_state = "rampbot"
-	initial_flooring = /decl/flooring/reinforced/ramp/bottom
+	_flooring = /decl/flooring/reinforced/ramp/bottom

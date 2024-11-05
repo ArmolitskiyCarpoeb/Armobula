@@ -46,7 +46,6 @@
 	icon_base       = "space"
 	has_base_range  = 25
 	holographic     = TRUE
-	gender          = NEUTER
 
 /decl/flooring/melted_sand
 	name            = "molten silica"

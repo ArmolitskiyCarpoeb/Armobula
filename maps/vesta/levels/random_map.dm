@@ -1,6 +1,6 @@
 /datum/random_map/automata/cave_system/acheron
 	descriptor          = "Acheron caves"
-	floor_type          = /turf/floor/natural/rock/basalt
+	floor_type          = /turf/floor/rock/cave
 	wall_type           = /turf/wall/natural/basalt
 	sparse_mineral_turf = /turf/wall/natural/random/basalt
 	rich_mineral_turf   = /turf/wall/natural/random/high_chance/basalt

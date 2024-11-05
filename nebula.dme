@@ -549,6 +549,7 @@
 #include "code\datums\music_tracks\fantasy.dm"
 #include "code\datums\music_tracks\floating.dm"
 #include "code\datums\music_tracks\human.dm"
+#include "code\datums\music_tracks\jukebox.dm"
 #include "code\datums\music_tracks\lasers.dm"
 #include "code\datums\music_tracks\lysendraa.dm"
 #include "code\datums\music_tracks\marhaba.dm"

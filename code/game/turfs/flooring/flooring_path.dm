@@ -31,10 +31,9 @@
 	name           = "stone path"
 	desc           = "A rustic stone path, laid out in a running bond pattern."
 	icon_base      = "runningbond"
-	gender         = NEUTER
 
 /decl/flooring/path/herringbone
 	name           = "stone path"
 	desc           = "A rustic stone path, laid out in a herringbone pattern."
 	icon_base      = "herringbone"
-	gender         = NEUTER
+

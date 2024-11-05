@@ -1,14 +1,19 @@
 /decl/flooring/tiling
-	name = "floor"
-	desc = "A solid, heavy set of flooring plates."
-	icon = 'icons/turf/flooring/tiles.dmi'
-	icon_base = "tiled"
+	name               = "floor"
+	desc               = "A solid, heavy set of flooring plates."
+	icon               = 'icons/turf/flooring/tiles.dmi'
+	icon_base          = "tiled"
+	descriptor         = "tiles"
 	color = null
 	damage_temperature = T0C+1400
-	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK | TURF_CAN_BURN
-	build_type = /obj/item/stack/tile/floor
-	can_paint = 1
-	footstep_type = /decl/footsteps/tiles
+	flooring_flags     = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK | TURF_CAN_BURN
+	build_type         = /obj/item/stack/tile/floor
+	can_paint          = 1
+	footstep_type      = /decl/footsteps/tiles
+	force_material     = /decl/material/solid/metal/steel
+	wall_smooth        = SMOOTH_ALL
+	space_smooth       = SMOOTH_ALL
+	constructed        = TRUE
 
 /decl/flooring/tiling/mono
 	icon_base = "monotile"
@@ -48,7 +53,7 @@
 	desc = "Don't slip."
 	icon_base = "freezer"
 	color = null
-	flags = TURF_REMOVE_CROWBAR
+	flooring_flags = TURF_REMOVE_CROWBAR
 	build_type = /obj/item/stack/tile/floor_freezer
 
 /decl/flooring/tiling/tech
@@ -142,66 +147,83 @@
 /decl/flooring/tiling/new_tile/sad_floor_red_1
 	icon_base = "sad_floor_red_1"
 	build_type = /obj/item/stack/tile/sad_floor_red_1
+	color = null
 
 /decl/flooring/tiling/new_tile/sad_floor_red_2
 	icon_base = "sad_floor_red_2"
 	build_type = /obj/item/stack/tile/sad_floor_red_2
+	color = null
 
 /decl/flooring/tiling/new_tile/sad_floor_green_1
 	icon_base = "sad_floor_green_1"
 	build_type = /obj/item/stack/tile/sad_floor_green_1
+	color = null
 
 /decl/flooring/tiling/new_tile/sad_floor_green_2
 	icon_base = "sad_floor_green_2"
 	build_type = /obj/item/stack/tile/sad_floor_green_2
+	color = null
 
 /decl/flooring/tiling/new_tile/sad_floor_blue_1
 	icon_base = "sad_floor_blue_1"
 	build_type = /obj/item/stack/tile/sad_floor_blue_1
+	color = null
 
 /decl/flooring/tiling/new_tile/sad_floor_blue_2
 	icon_base = "sad_floor_blue_2"
 	build_type = /obj/item/stack/tile/sad_floor_blue_2
+	color = null
 
 /decl/flooring/tiling/new_tile/sad_floor_pink_1
 	icon_base = "sad_floor_pink_1"
 	build_type = /obj/item/stack/tile/sad_floor_pink_1
+	color = null
 
 /decl/flooring/tiling/new_tile/sad_floor_pink_2
 	icon_base = "sad_floor_pink_2"
 	build_type = /obj/item/stack/tile/sad_floor_pink_2
+	color = null
 
 /decl/flooring/tiling/new_tile/sad_floor_purple_1
 	icon_base = "sad_floor_purple_1"
 	build_type = /obj/item/stack/tile/sad_floor_purple_1
+	color = null
 
 /decl/flooring/tiling/new_tile/sad_floor_purple_2
 	icon_base = "sad_floor_purple_2"
 	build_type = /obj/item/stack/tile/sad_floor_purple_2
+	color = null
 
 /decl/flooring/tiling/new_tile/sad_floor_orange_1
 	icon_base = "sad_floor_orange_1"
 	build_type = /obj/item/stack/tile/sad_floor_orange_1
+	color = null
 
 /decl/flooring/tiling/new_tile/sad_floor_orange_2
 	icon_base = "sad_floor_orange_2"
 	build_type = /obj/item/stack/tile/sad_floor_orange_2
+	color = null
 
 /decl/flooring/tiling/new_tile/sad_floor_biege_1
 	icon_base = "sad_floor_biege_1"
 	build_type = /obj/item/stack/tile/sad_floor_biege_1
+	color = null
 
 /decl/flooring/tiling/new_tile/sad_floor_biege_2
 	icon_base = "sad_floor_biege_2"
 	build_type = /obj/item/stack/tile/sad_floor_biege_2
+	color = null
 
 /decl/flooring/tiling/new_tile/sad_floor_yellow_1
 	icon_base = "sad_floor_yellow_1"
 	build_type = /obj/item/stack/tile/sad_floor_yellow_1
+	color = null
 
 /decl/flooring/tiling/new_tile/sad_floor_yellow_2
 	icon_base = "sad_floor_yellow_2"
 	build_type = /obj/item/stack/tile/sad_floor_yellow_2
+	color = null
+
 // SAD FLOORS COLORED
 
 /decl/flooring/tiling/new_tile_green_1

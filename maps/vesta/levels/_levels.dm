@@ -12,7 +12,7 @@
 		/datum/random_map/automata/cave_system/acheron,
 		/datum/random_map/noise/ore/rich
 	)
-	base_turf = /turf/floor/natural/rock/basalt
+	base_turf = /turf/floor/rock/cave
 	exterior_atmosphere = list(
 		/decl/material/gas/oxygen =   MOLES_O2STANDARD,
 		/decl/material/gas/nitrogen = MOLES_N2STANDARD
