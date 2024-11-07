@@ -23,7 +23,7 @@
 	)
 
 	lobby_tracks = list(
-		/decl/music_track/tree
+		/decl/music_track/df_theme
 	)
 
 	char_preview_bgstate_options = list(

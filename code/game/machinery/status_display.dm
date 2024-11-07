@@ -60,6 +60,8 @@
 	. = ..()
 	if(radio_controller)
 		radio_controller.add_object(src, frequency)
+	if(!overlays)
+		overlays += emissive_overlay(icon, "outline")
 
 // timed process
 /obj/machinery/status_display/Process()
@@ -138,6 +140,7 @@
 			return 1
 		if(STATUS_DISPLAY_IMAGE)
 			set_picture(picture_state)
+			set_light(5, 0.5, COLOR_WHITE)
 			return 1
 	return 0
 
@@ -170,7 +173,7 @@
 	var/decl/security_state/security_state = GET_DECL(global.using_map.security_state)
 	var/decl/security_level/sl = security_state.current_security_level
 
-	set_light(sl.light_range, sl.light_power, sl.light_color_status_display)
+	set_light(5, 0.5, COLOR_WHITE)
 
 	if(sl.alarm_appearance.display_icon)
 		var/image/alert1 = image(sl.icon, sl.alarm_appearance.display_icon)
@@ -193,7 +196,6 @@
 		picture_state = state
 		picture = image('icons/obj/status_display.dmi', icon_state=picture_state)
 	overlays |= picture
-	set_light(2, 0.5, COLOR_WHITE)
 
 /obj/machinery/status_display/proc/update_display(line1, line2)
 	line1 = uppertext(line1)
@@ -201,7 +203,7 @@
 	var/new_text = {"<div style="font-size:[FONT_SIZE];color:[FONT_COLOR];font:'[FONT_STYLE]';text-align:center;" valign="top">[line1]<br>[line2]</div>"}
 	if(maptext != new_text)
 		maptext = new_text
-	set_light(2, 0.5, COLOR_WHITE)
+	set_light(5, 0.5, COLOR_WHITE)
 
 /obj/machinery/status_display/proc/get_shuttle_timer()
 	var/timeleft = SSevac.evacuation_controller ? SSevac.evacuation_controller.get_eta() : 0
@@ -226,7 +228,7 @@
 		overlays.Cut()
 	if(maptext)
 		maptext = ""
-	set_light(0)
+	set_light(0, 0)
 
 /obj/machinery/status_display/receive_signal(datum/signal/signal)
 	switch(signal.data["command"])

@@ -20,7 +20,7 @@
 	interact_sound_volume = 20
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	computer_type = /datum/extension/assembly/modular_computer/pda
-	color = COLOR_GRAY80
+	color = COLOR_WHITE
 	dark_screen_state = "blank_screen"
 	var/owner_name = null
 	var/label_assignment = null
@@ -31,6 +31,7 @@
 	if(istype(H) && H.get_equipped_item(slot_wear_id_str) == src)
 		H.update_equipment_overlay(slot_wear_id_str)
 
+/*
 /obj/item/modular_computer/pda/update_name()
 	if(owner_name || label_assignment)
 		var/used_name = owner_name || "Unknown"
@@ -43,7 +44,7 @@
 	owner_name = _owner_name
 	label_assignment = _label_assignment
 	update_name()
-
+*/
 // PDA box
 /obj/item/box/PDAs
 	name = "box of spare PDAs"

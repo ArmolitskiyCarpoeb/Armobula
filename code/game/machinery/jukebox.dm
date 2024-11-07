@@ -64,14 +64,14 @@
 		return
 //	icon_state = state_base
 	overlays += emissive_overlay(icon, "[state_base]")
-	set_light(1, 0.25)
+	set_light(1, 0.75)
 	if(playing)
 		if(emagged)
 			overlays += emissive_overlay(icon,"[state_base]-emagged")
-			set_light(1, 0.25)
+			set_light(1, 0.75)
 		else
 			overlays += emissive_overlay(icon, "[state_base]-running")
-			set_light(1, 0.25)
+			set_light(1, 0.75)
 
 /obj/machinery/media/jukebox/CanUseTopic(user, state)
 	if(!anchored)

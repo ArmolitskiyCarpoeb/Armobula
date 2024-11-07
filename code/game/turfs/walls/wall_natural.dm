@@ -1,5 +1,6 @@
 /turf/wall/natural
-	icon_state         = "natural"
+	icon = 'icons/turf/walls/natural.dmi'
+	icon_state         = "rock"
 	desc               = "A rough natural wall."
 	turf_flags         = TURF_FLAG_BACKGROUND | TURF_IS_HOLOMAP_OBSTACLE
 	girder_material    = null

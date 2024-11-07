@@ -93,7 +93,7 @@
 		set_light(0)
 		return
 	if(!program.memory["processing"])
-		screen_state = "screen_standby"
+		screen_state = emissive_overlay(icon_state, "screen_standby")
 		indicator_state |= INDICATOR_FLAG_DONE
 		set_light(l_range = 2, l_power = 0.5, l_color = "#3eac5c")
 	else
@@ -108,20 +108,20 @@
 
 	if(istype(airlock_program) && airlock_program.memory["processing"])
 		if(airlock_program.memory["pump_status"] == "siphon")
-			screen_state = "screen_drain"
+			screen_state = emissive_overlay(icon_state, "screen_drain")
 			set_light(l_range = 2, l_power = 0.5, l_color = "#bf3133")
 		else
-			screen_state = "screen_fill"
+			screen_state = emissive_overlay(icon_state, "screen_fill")
 			set_light(l_range = 2, l_power = 0.5, l_color = "#4073e7")
 
 	if(screen_state)
-		add_overlay(screen_state)
+		overlays += emissive_overlay(screen_state)
 	if(indicator_state & INDICATOR_FLAG_DONE)
-		add_overlay("indicator_done")
+		overlays += emissive_overlay("indicator_done")
 	if(indicator_state & INDICATOR_FLAG_ACTIVE)
-		add_overlay("indicator_active")
+		overlays += emissive_overlay("indicator_active")
 	if(indicator_state & INDICATOR_FLAG_FORCED)
-		add_overlay("indicator_forced")
+		overlays += emissive_overlay("indicator_forced")
 
 #define AIRLOCK_CONTROL_RANGE 22
 

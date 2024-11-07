@@ -125,7 +125,7 @@
 	initial_card = null
 
 /obj/machinery/keycard_auth/proc/broadcast_request()
-	icon_state = "auth_on"
+	overlays += emissive_overlay(icon_state, "auth_on")
 	for(var/obj/machinery/keycard_auth/KA in SSmachines.machinery)
 		if(KA == src)
 			continue
@@ -149,7 +149,7 @@
 	initial_card = weakref(ID)
 	busy = 1
 	active = 1
-	icon_state = "auth_on"
+	overlays += emissive_overlay(icon_state, "auth_on")
 
 	sleep(confirm_delay)
 

@@ -43,18 +43,43 @@
 	anchored = TRUE
 	wall_mounted = 1
 	storage_types = CLOSET_STORAGE_ITEMS
-	setup = 0
+//	setup = CLOSET_HAS_LOCK
+//	locked = TRUE
+//	req_access = list(access_captain)
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 //	directional_offset = @'{"NORTH":{"y":-32}, "SOUTH":{"y":32}, "EAST":{"x":-32}, "WEST":{"x":32}}'
 
 /obj/structure/closet/walllocker/oxy/WillContain()
 	return list(
 		/obj/item/flashlight/flare/glowstick = 2,
-		/obj/item/mre = 1,
 		/obj/item/clothing/mask/gas/radical = 2,
 		/obj/item/crowbar/cheap = 1,
 		/obj/item/tank/emergency/oxygen = 2
 	)
+
+/obj/structure/closet/walllocker/oxy/Initialize()
+	. = ..()
+	verbs -= /obj/structure/closet/verb/verb_toggleopen
+
+/obj/structure/closet/walllocker/oxy/attack_hand(mob/user)
+	var/decl/security_state/security_state = GET_DECL(global.using_map.security_state)
+	if(!opened & security_state.current_security_level_is_lower_than(security_state.high_security_level))
+		to_chat(usr, "<span class='danger'>Locked until emergency situation</span>")
+		return FALSE
+	else
+		return ..()
+
+/*
+/obj/structure/closet/walllocker/oxy/togglelock(mob/user as mob)
+	var/decl/security_state/security_state = GET_DECL(global.using_map.security_state)
+	if(!opened & security_state.current_security_level_is_lower_than(security_state.high_security_level))
+		to_chat(usr, "<span class='danger'>Locked until emergency situation</span>")
+		return FALSE
+	if(opened)
+		return
+	else
+		return ..()
+*/
 
 /obj/structure/closet/walllocker/med
 	desc = "A wall mounted first-aid locker."

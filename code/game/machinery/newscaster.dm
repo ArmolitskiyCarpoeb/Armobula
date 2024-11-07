@@ -111,7 +111,7 @@ var/global/list/allCasters = list() //Global list that will contain reference to
 	name = "newscaster"
 	desc = "A standard newsfeed handler. All the news you absolutely have no use for, in one place!"
 	icon = 'icons/obj/terminals.dmi'
-	icon_state = "newscaster_normal"
+	icon_state = "newscaster_off"
 	//var/list/datum/feed_channel/channel_list = list() //This list will contain the names of the feed channels. Each name will refer to a data region where the messages of the feed channels are stored.
 	//OBSOLETE: We're now using a global news network
 	var/screen = 0                  //Or maybe I'll make it into a list within a list afterwards... whichever I prefer, go fuck yourselves :3
@@ -183,16 +183,16 @@ var/global/list/allCasters = list() //Global list that will contain reference to
 	src.overlays.Cut() //reset overlays
 
 	if(news_network.wanted_issue) //wanted icon state, there can be no overlays on it as it's a priority message
-		icon_state = "newscaster_wanted"
+		src.overlays += emissive_overlay(icon_state, "newscaster_wanted")
 		return
 
 	if(alert) //new message alert overlay
-		src.overlays += "newscaster_alert"
+		src.overlays += emissive_overlay(icon_state, "newscaster_alert")
 
 	if(hitstaken > 0) //Cosmetic damage overlay
 		src.overlays += image(src.icon, "crack[hitstaken]")
 
-	icon_state = "newscaster_normal"
+	src.overlays += emissive_overlay(icon_state, "newscaster_normal")
 	return
 
 /obj/machinery/newscaster/interface_interact(mob/user)

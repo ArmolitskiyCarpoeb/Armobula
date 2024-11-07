@@ -134,7 +134,6 @@
 		/datum/computer_file/program/digitalwarrant,
 		/datum/computer_file/program/camera_monitor,
 		/datum/computer_file/program/records,
-		/datum/computer_file/program/forceauthorization,
 		/datum/computer_file/program/wordprocessor
 	)
 
@@ -168,7 +167,6 @@
 		/datum/computer_file/program/email_client,
 		/datum/computer_file/program/alarm_monitor,
 		/datum/computer_file/program/comm,
-		/datum/computer_file/program/aidiag,
 		/datum/computer_file/program/records,
 		/datum/computer_file/program/wordprocessor
 	)
@@ -176,8 +174,7 @@
 /obj/machinery/computer/modular/preset/full/merc
 	default_software = list(
 		/datum/computer_file/program/camera_monitor/hacked,
-		/datum/computer_file/program/alarm_monitor,
-		/datum/computer_file/program/aidiag
+		/datum/computer_file/program/alarm_monitor
 	)
 
 /obj/machinery/computer/modular/preset/full/merc/Initialize()

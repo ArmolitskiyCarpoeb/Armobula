@@ -1,6 +1,5 @@
 var/global/list/jukebox_music_tracks = list(
-	"Beyond" = /decl/music_track/ambispace,
-	"Clouds Of Fire" = /decl/music_track/clouds_of_fire
+	"Space Oddity" = /decl/music_track/space_oddity
 )
 
 /proc/setup_jukebox_music_tracks(var/list/tracks)

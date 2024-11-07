@@ -63,10 +63,12 @@
 
 /obj/item/radio/intercom/on_update_icon()
 	. = ..()
+	if(on)
+		overlays += emissive_overlay(icon_state, "intercom-o")
 	if(!on)
-		icon_state = "intercom-p"
+		overlays += emissive_overlay(icon_state, "intercom-p")
 	else
-		icon_state = "intercom_[broadcasting][listening]"
+		overlays += emissive_overlay(icon_state, "intercom_[broadcasting][listening]")
 
 /obj/item/radio/intercom/toggle_broadcast()
 	..()

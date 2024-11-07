@@ -225,7 +225,7 @@
 	if(OUTFIT_ADJUSTMENT_SKIP_ID_PDA & equip_adjustments)
 		return
 	var/obj/item/modular_computer/pda/pda = new pda_type(H)
-	pda.set_owner_rank_job(H.real_name, label_assignment)
+//	pda.set_owner_rank_job(H.real_name, label_assignment)
 	if(H.equip_to_slot_or_store_or_drop(pda, pda_slot))
 		return pda
 

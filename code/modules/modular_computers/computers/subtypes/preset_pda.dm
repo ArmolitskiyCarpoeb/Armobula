@@ -23,90 +23,62 @@
 	return ..()
 
 /obj/item/modular_computer/pda/mercenary
-	color = COLOR_DARK_RED
-	decals = list(
-		"stripe" = COLOR_RED,
-	)
+	color = COLOR_WHITE
 
 /obj/item/modular_computer/pda/ert
-	color = COLOR_OFF_WHITE
-	decals = list(
-		"stripe" = COLOR_DARK_BLUE_GRAY,
-		"stripe2" = COLOR_GOLD
-	)
+	color = COLOR_WHITE
 
 /obj/item/modular_computer/pda/heads
-	color = COLOR_NAVY_BLUE
+	color = COLOR_WHITE
 
 /obj/item/modular_computer/pda/heads/install_default_programs()
 	default_programs |= /datum/computer_file/program/reports
 	. = ..()
 
 /obj/item/modular_computer/pda/heads/hop
-	decals = list(
-		"stripe" = COLOR_GOLD,
-		"stripe2" = COLOR_TEAL
-	)
+	color = COLOR_WHITE
 
 /obj/item/modular_computer/pda/heads/hop/install_default_hardware()
 	default_hardware |= /obj/item/stock_parts/computer/scanner/paper
 	. = ..()
 
 /obj/item/modular_computer/pda/heads/ce
-	decals = list(
-		"stripe" = COLOR_GOLD,
-		"stripe2" = COLOR_COPPER
-	)
+	color = COLOR_WHITE
 
 /obj/item/modular_computer/pda/heads/ce/install_default_hardware()
 	default_hardware |= /obj/item/stock_parts/computer/scanner/atmos
 	. = ..()
 
 /obj/item/modular_computer/pda/heads/captain
-	decals = list(
-		"stripe" = COLOR_GOLD,
-		"stripe2" = COLOR_DARK_BLUE_GRAY
-	)
+	color = COLOR_WHITE
 
 /obj/item/modular_computer/pda/heads/captain/install_default_hardware()
 	default_hardware |= /obj/item/stock_parts/computer/scanner/paper
 	. = ..()
 
 /obj/item/modular_computer/pda/science
-	color = COLOR_OFF_WHITE
-	decals = list(
-		"stripe2" = COLOR_BOTTLE_GREEN
-	)
+	color = COLOR_WHITE
 
 /obj/item/modular_computer/pda/science/install_default_hardware()
 	default_hardware |= /obj/item/stock_parts/computer/scanner/reagent
 	. = ..()
 
 /obj/item/modular_computer/pda/engineering
-	color = COLOR_COPPER
-	decals = list(
-		"stripe" = COLOR_GOLD
-	)
+	color = COLOR_WHITE
 
 /obj/item/modular_computer/pda/engineering/install_default_hardware()
 	default_hardware |= /obj/item/stock_parts/computer/scanner/atmos
 	. = ..()
 
 /obj/item/modular_computer/pda/medical
-	color = COLOR_OFF_WHITE
-	decals = list(
-		"stripe" = COLOR_SKY_BLUE
-	)
+	color = COLOR_WHITE
 
 /obj/item/modular_computer/pda/medical/install_default_hardware()
 	default_hardware |= /obj/item/stock_parts/computer/scanner/medical
 	. = ..()
 
 /obj/item/modular_computer/pda/cargo
-	color = COLOR_COPPER
-	decals = list(
-		"stripe" = COLOR_BEASTY_BROWN
-	)
+	color = COLOR_WHITE
 
 /obj/item/modular_computer/pda/cargo/install_default_programs()
 	default_programs |= /datum/computer_file/program/reports

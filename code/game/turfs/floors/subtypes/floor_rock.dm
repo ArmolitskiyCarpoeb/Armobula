@@ -19,4 +19,4 @@
 /turf/floor/rock/cave //must be "#565656"
 	name           = "cave floor"
 	floor_material = /decl/material/solid/stone/granite
-	color          = /decl/material/solid/stone/granite::color
+//	color          = "#2a272b" //"#565656" COLOR DOESNT MATTER

@@ -31,7 +31,7 @@
 /turf/wall/natural/update_wall_icon()
 
 	var/material_icon_base = get_wall_icon()
-	var/base_color = material.color
+//	var/base_color = material.color
 	var/shine = 0
 
 	if(material.reflectiveness > 0)
@@ -66,7 +66,7 @@
 		else if(has_right_neighbor)
 			state = "ramp-blend-right"
 		var/image/I = image(material_icon_base, state, dir = ramp_slope_direction)
-		I.color = base_color
+//		I.color = base_color
 		I.appearance_flags |= RESET_COLOR
 		add_overlay(I)
 		if(shine)
@@ -75,7 +75,7 @@
 			I.alpha = shine
 			add_overlay(I)
 	else
-		new_icon       = get_combined_wall_icon(wall_connections, null, material_icon_base, base_color, shine_value = shine)
+		new_icon       = get_combined_wall_icon(wall_connections, null, material_icon_base, shine_value = shine)
 		new_icon_state = ""
 		new_color      = null
 
@@ -94,3 +94,20 @@
 		add_overlay(excav_overlay)
 	if(archaeo_overlay)
 		add_overlay(archaeo_overlay)
+	for(var/direction in global.cardinal)
+		var/turf/turf_to_check = get_step(src,direction)
+		if(istype(turf_to_check, /turf/space) || istype(turf_to_check, /turf/floor) || istype(turf_to_check, /turf/open))
+			var/image/rock_side = image('icons/turf/walls/natural.dmi', "rock_side", dir = turn(direction, 180))
+			switch(direction)
+				if(NORTH)
+					rock_side.pixel_y += world.icon_size
+				if(SOUTH)
+					rock_side.pixel_y -= world.icon_size
+				if(EAST)
+					rock_side.pixel_x += world.icon_size
+				if(WEST)
+					rock_side.pixel_x -= world.icon_size
+			add_overlay(rock_side)
+
+//		var/decl/material/use_material = target.get_material()
+//		target.color = use_material?.color

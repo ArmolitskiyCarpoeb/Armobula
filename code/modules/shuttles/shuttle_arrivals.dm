@@ -49,13 +49,13 @@
 			if(check_for_passengers()) // No point arriving with an empty shuttle.
 				warmup_time = initial(warmup_time)
 				launch()
-				playsound('sound/misc/notice2.ogg', 75, 1)
+				playsound(shuttle_area, 'sound/misc/notice2.ogg', 75, 1)
 				message_passengers("<span class='notice'>Arriving at [using_map.station_name] in thirty seconds...</span>")
 				spawn(10 SECONDS)
-					playsound('sound/misc/notice2.ogg', 75, 1)
+					playsound(shuttle_area, 'sound/misc/notice2.ogg', 75, 1)
 					message_passengers("<span class='warning'>Arriving at [using_map.station_name] in twenty seconds.</span>")
 					spawn(10 SECONDS)
-						playsound('sound/misc/notice2.ogg', 75, 1)
+						playsound(shuttle_area, 'sound/misc/notice2.ogg', 75, 1)
 						message_passengers("<span class='danger'>Arriving at [using_map.station_name] in ten seconds.  Please buckle up.</span>")
 
 		else // We are at the station.

@@ -46,7 +46,7 @@
 /obj/machinery/alarm
 	name = BASE_ALARM_NAME
 	icon = 'icons/obj/monitors.dmi'
-	icon_state = "alarm0"
+	icon_state = "alarmp"
 	anchored = TRUE
 	idle_power_usage = 80
 	active_power_usage = 1000 //For heating/cooling rooms. 1000 joules equates to about 1 degree every 2 seconds for a single tile of air.
@@ -342,13 +342,13 @@
 	var/new_color = null
 	switch(icon_level)
 		if (0)
-			icon_state = "alarm0"
+			overlays += emissive_overlay(icon_state, "alarm0")
 			new_color = COLOR_LIME
 		if (1)
-			icon_state = "alarm2" //yes, alarm2 is yellow alarm
+			overlays += emissive_overlay(icon_state, "alarm2") //yes, alarm2 is yellow alarm
 			new_color = COLOR_SUN
 		if (2)
-			icon_state = "alarm1"
+			overlays += emissive_overlay(icon_state, "alarm1")
 			new_color = COLOR_RED_LIGHT
 
 	set_light(2, 0.25, new_color)
@@ -880,8 +880,8 @@ FIRE ALARM
 		set_light(0)
 	else
 		if(!detecting)
-			add_overlay("fire1")
-			set_light(2, 0.25, COLOR_RED)
+			overlays += emissive_overlay(icon_state, "fire1")
+			set_light(1, 0.25, COLOR_RED)
 /*
 		else if(isContactLevel(z))
 			var/decl/security_state/security_state = GET_DECL(global.using_map.security_state)
@@ -900,7 +900,8 @@ FIRE ALARM
 				add_overlay(alert2)
 */
 		else
-			add_overlay("fire0")
+			overlays += emissive_overlay(icon_state, "fire0")
+			set_light(1, 0.25, COLOR_GREEN)
 
 /obj/machinery/firealarm/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(detecting && exposed_temperature > T0C+200)

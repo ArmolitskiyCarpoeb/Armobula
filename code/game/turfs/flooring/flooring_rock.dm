@@ -4,7 +4,7 @@
 	icon            = 'icons/turf/flooring/rock.dmi'
 	icon_base       = "rock"
 	has_base_range  = null
-	color           = null
+	color           = "#3b3a35"
 	icon_edge_layer = FLOOR_EDGE_VOLCANIC
 
 /decl/flooring/rock/update_turf_strings(turf/floor/target)

@@ -64,3 +64,20 @@
 	material = /decl/material/solid/stone/basalt
 	color = COLOR_DARK_GRAY
 	floor_type = /turf/floor/rock/basalt
+
+/turf/wall/natural/random/high_chance/cave
+	material = /decl/material/solid/stone/granite
+	color = null
+	floor_type = /turf/floor/rock/cave
+
+//new
+
+/turf/wall/natural/cave
+	material = /decl/material/solid/stone/granite
+	color = "#dedede"
+	floor_type = /turf/floor/rock/cave
+
+/turf/wall/natural/random/cave
+	material = /decl/material/solid/stone/granite
+	color = "#dedede"
+	floor_type = /turf/floor/rock/cave

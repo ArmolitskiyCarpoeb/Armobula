@@ -500,8 +500,8 @@
 	material = /decl/material/solid/glass
 	matter = list(/decl/material/solid/metal/aluminium = MATTER_AMOUNT_REINFORCEMENT)
 
-	b_range = 6
-	b_power = 1.9
+	b_range = 5
+	b_power = 2.0
 	b_color = LIGHT_COLOR_NEW_BLUE
 	lighting_modes = list(
 		LIGHTMODE_EMERGENCY = list(l_range = 5, l_power = 2.4, l_color = LIGHT_COLOR_EMERGENCY),
@@ -537,8 +537,8 @@
 	base_state = "lbulb"
 	item_state = "contvapour"
 	broken_chance = 3
-	b_range = 5
-	b_power = 1.8
+	b_range = 4
+	b_power = 3.5
 	material = /decl/material/solid/glass
 	b_color = LIGHT_COLOR_NEW_YELLOW
 	lighting_modes = list(
