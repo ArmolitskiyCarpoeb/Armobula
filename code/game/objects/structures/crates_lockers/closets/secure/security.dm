@@ -11,19 +11,10 @@
 	return list(
 		new/datum/atom_creator/weighted(list(/obj/item/backpack/captain, /obj/item/backpack/satchel/cap)),
 		new/datum/atom_creator/simple(/obj/item/backpack/dufflebag/captain, 50),
-		/obj/item/clothing/shirt/tunic/captain,
-		/obj/item/clothing/suit/jacket/captain,
 		/obj/item/clothing/head/caphat/cap,
 		/obj/item/clothing/jumpsuit/captain,
-		/obj/item/clothing/head/helmet,
 		/obj/item/clothing/shoes/color/brown,
-		/obj/item/radio/headset/heads/captain,
-		/obj/item/clothing/gloves/captain,
-		/obj/item/gun/energy/gun,
-		/obj/item/telebaton,
-		/obj/item/clothing/dress/cap,
-		/obj/item/clothing/head/caphat/formal,
-		/obj/item/clothing/jumpsuit/captainformal,
+		/obj/item/radio/headset/heads/captain
 	)
 
 /obj/structure/closet/secure_closet/hop
@@ -125,7 +116,6 @@
 		/obj/item/belt/holster/security,
 		/obj/item/chems/spray/pepper,
 		/obj/item/baton/loaded,
-		/obj/item/gun/energy/gun,
 		/obj/item/box/holobadge,
 		/obj/item/holowarrant
 	)
@@ -154,8 +144,7 @@
 		/obj/item/stack/tape_roll/barricade_tape/police,
 		/obj/item/hailer,
 		/obj/item/clothing/webbing/vest/black,
-		/obj/item/gun/energy/taser,
-		/obj/item/holowarrant,
+		/obj/item/holowarrant
 	)
 
 /obj/structure/closet/secure_closet/detective

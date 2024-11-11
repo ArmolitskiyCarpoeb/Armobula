@@ -13,10 +13,12 @@
 	system_name   = "Zeta-12"
 
 	overmap_ids = list(OVERMAP_ID_SPACE)
-	num_exoplanets = 1
+	num_exoplanets = 0
 
 	survival_box_choices    = list()
 	passport_type           = null
+
+	allowed_latejoin_spawns = list()
 
 	lobby_screens = list(
 		'maps/vesta/lobby/vesta.png'
@@ -30,14 +32,17 @@
 		"reinforced"
 	)
 
+	/decl/backpack_outfit/messanger_bag
+		is_default = TRUE
+
 	evac_controller_type = /datum/evacuation_controller/shuttle
 
 //  For /datum/evacuation_controller/shuttle
 
-	shuttle_docked_message = "The public ferry to %dock_name% has docked with the station. It will depart in approximately %ETD%"
-	shuttle_leaving_dock   = "The public ferry has left the station. Estimate %ETA% until the ferry docks at %dock_name%."
-	shuttle_called_message = "A public ferry to %dock_name% has been scheduled. It will arrive in approximately %ETA%"
-	shuttle_recall_message = "The scheduled ferry has been cancelled."
+	shuttle_docked_message = "The public shuttle to %dock_name% has docked with the station. It will depart in approximately %ETD%"
+	shuttle_leaving_dock   = "The public shuttle has left the station. Estimate %ETA% until the shuttle docks at %dock_name%."
+	shuttle_called_message = "A public shuttle to %dock_name% has been scheduled. It will arrive in approximately %ETA%"
+	shuttle_recall_message = "The scheduled shuttle has been cancelled."
 
 //  For /datum/evacuation_controller/starship
 
@@ -59,6 +64,7 @@
 		list("name" = "Exploration",   "key" = "x", "frequency" = 1361, "color" = COMMS_COLOR_EXPLORER , "span_class" = "EXPradio", "secured" = list(access_eva)),
 		list("name" = "AI Private",    "key" = "p", "frequency" = 1343, "color" = COMMS_COLOR_AI,        "span_class" = "airadio",  "secured" = list(access_ai_upload))
 	)
-
+/*
 /datum/map/vesta/get_map_info()
 	return "МОЯ ЖОПА ГОРИИИТ!!!"
+*/

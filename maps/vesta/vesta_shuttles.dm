@@ -77,6 +77,7 @@
 	shuttle_area = /area/ship/shuttle_arrival
 	waypoint_offsite = "arrivals_offsite"
 	waypoint_station = "arrivals_station"
+	landmark_transition = "arrivals_transit"
 	dock_target = "arrivals_shuttle"
 	ceiling_type = /turf/floor/reinforced
 
@@ -85,6 +86,7 @@
 	landmark_tag = "arrivals_offsite"
 //	base_area = /area/space
 	base_turf = /turf/space
+	docking_controller = "centcom_arrival_dock"
 
 /obj/effect/shuttle_landmark/vesta/arrivals_station
 	name = "Arrivals Pad"
@@ -92,3 +94,7 @@
 	docking_controller = "arrivals_dock"
 	base_area = /area/ship/arrivals_shuttle
 	base_turf = /turf/floor/plating
+
+/obj/effect/shuttle_landmark/vesta/arrivals_transit
+	landmark_tag = "arrivals_transit"
+	base_turf = /turf/space

@@ -1,4 +1,4 @@
-//obj/item/gun/projectile/pistol
+/obj/item/gun/projectile/pistol
 	name = "pistol"
 	icon = 'icons/obj/guns/pistol.dmi'
 	load_method = MAGAZINE

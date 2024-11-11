@@ -33,7 +33,7 @@
 	if(url)
 		to_chat(listener, url)
 
-	to_chat(listener, "<span class='good'>License: <a href='[license.url]'>[license.name]</a></span>")
+//	to_chat(listener, "<span class='good'>License: <a href='[license.url]'>[license.name]</a></span>")
 	sound_to(listener, sound(song, repeat = 1, wait = 0, volume = volume, channel = sound_channels.lobby_channel))
 
 // No VV editing anything about music tracks

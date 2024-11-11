@@ -38,6 +38,14 @@
 	#include "outfits/science.dm"
 	#include "outfits/security.dm"
 
+	#include "submaps/_submaps.dm"
+	#include "submaps/caves/_caves.dm"
+	#include "submaps/caves/bunker/bunker.dm"
+
+	#include "levels/_levels.dm"
+	#include "levels/random_map.dm"
+	#include "levels/strata.dm"
+
 	#include "vesta.dmm"
 	#include "vesta-admin.dmm"
 	#include "vesta-transit.dmm"

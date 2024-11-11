@@ -119,7 +119,7 @@
 
 // Map definitions.
 /obj/item/stack/material/ore/uranium
-	material = /decl/material/solid/pitchblende
+	material = /decl/material/solid/uraninite
 /obj/item/stack/material/ore/iron
 	material = /decl/material/solid/hematite
 /obj/item/stack/material/ore/coal

@@ -56,6 +56,25 @@
 		/decl/material/solid/slag    = 0.10,
 	)
 
+/decl/material/solid/stone/granite/god
+	name                   = "granite"
+	uid                    = "solid_granite"
+	lore_text              = "A coarse-grained igneous rock formed by magma containing sillicon and alkali metal oxides."
+	color                  = "#615f5f" //"#615f5f"
+//	exoplanet_rarity_plant = MAT_RARITY_MUNDANE
+//	exoplanet_rarity_gas   = MAT_RARITY_MUNDANE
+	hardness               = MAT_VALUE_VERY_HARD + 999
+	melting_point          = T0C + 9999
+	brute_armor            = 100
+	burn_armor			   = 100
+	explosion_resistance   = 100
+	integrity              = 9999 //granite is very strong
+	dissolves_into         = list(
+		/decl/material/solid/silicon = 0.75,
+		/decl/material/solid/bauxite = 0.15,
+		/decl/material/solid/slag    = 0.10,
+	)
+
 /decl/material/solid/stone/pottery
 	name = "fired clay"
 	uid = "solid_pottery"

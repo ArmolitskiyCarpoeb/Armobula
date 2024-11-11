@@ -65,7 +65,7 @@
 		/decl/material/solid/sand                  = TRUE,
 		/decl/material/solid/clay                  = TRUE,
 		/decl/material/solid/graphite              = TRUE,
-		/decl/material/solid/pitchblende           = TRUE,
+		/decl/material/solid/uraninite           = TRUE,
 		/decl/material/solid/hematite              = TRUE,
 		/decl/material/solid/quartz                = TRUE,
 		/decl/material/solid/pyrite                = TRUE,

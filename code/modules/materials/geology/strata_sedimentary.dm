@@ -3,7 +3,7 @@
 	base_materials = list(/decl/material/solid/stone/sandstone)
 	default_strata_candidate = TRUE
 	ores_rich = list(
-		/decl/material/solid/pitchblende,
+		/decl/material/solid/uraninite,
 		/decl/material/solid/pyrite,
 		/decl/material/solid/sperrylite,
 		/decl/material/solid/cinnabar,

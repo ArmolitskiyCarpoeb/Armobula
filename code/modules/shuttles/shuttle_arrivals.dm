@@ -6,7 +6,8 @@
 	location = 1
 	warmup_time = 30 // Warmup takes 5 seconds, so 30 total.
 //	var/always_process = TRUE
-	var/launch_delay = 3
+	var/launch_delay = 5
+	move_time = 15
 
 	// Maps must implement their own subtype for their arrivals shuttle, and define at least:
 	// shuttle_area
@@ -49,22 +50,28 @@
 			if(check_for_passengers()) // No point arriving with an empty shuttle.
 				warmup_time = initial(warmup_time)
 				launch()
-				playsound(shuttle_area, 'sound/misc/notice2.ogg', 75, 1)
-				message_passengers("<span class='notice'>Arriving at [using_map.station_name] in thirty seconds...</span>")
+				playsound(current_location, 'sound/misc/notice2.ogg', 85, 1)
+				message_passengers("<span class='notice'>Launching to [using_map.station_name] in thirty seconds...</span>")
 				spawn(10 SECONDS)
-					playsound(shuttle_area, 'sound/misc/notice2.ogg', 75, 1)
-					message_passengers("<span class='warning'>Arriving at [using_map.station_name] in twenty seconds.</span>")
+					playsound(current_location, 'sound/misc/notice2.ogg', 85, 1)
+					message_passengers("<span class='warning'>Launching to [using_map.station_name] in twenty seconds.</span>")
 					spawn(10 SECONDS)
-						playsound(shuttle_area, 'sound/misc/notice2.ogg', 75, 1)
-						message_passengers("<span class='danger'>Arriving at [using_map.station_name] in ten seconds.  Please buckle up.</span>")
+						playsound(current_location, 'sound/misc/notice2.ogg', 75, 1)
+						message_passengers("<span class='danger'>Launching to [using_map.station_name] in ten seconds.  Please buckle up.</span>")
+
+//		if(landmark_transit)
+//			launch()
+//			message_passengers("<span class='notice'>Arriving at [using_map.station_name] in thirty seconds...</span>")
 
 		else // We are at the station.
+			playsound(current_location, 'sound/misc/notice2.ogg', 85, 1)
+			message_passengers("<span class='notice'>Welcome to [using_map.station_name]!</span>")
 			if(!check_for_passengers()) // Don't leave with anyone.
 				if(launch_delay) // Give some time to get on the docks so people don't get trapped inbetween the dock airlocks.
 					launch_delay--
 				else
 					launch_delay = initial(launch_delay)
-					warmup_time = 0 // Gotta go fast.
+					warmup_time = 4 // Gotta go fast.
 					launch()
 
 	..() // Do everything else

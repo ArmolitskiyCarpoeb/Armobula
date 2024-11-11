@@ -1,10 +1,10 @@
-/decl/material/solid/pitchblende
-	name = "pitchblende"
-	uid = "solid_pitchblende"
+/decl/material/solid/uraninite
+	name = "uraninite"
+	uid = "solid_uraninite"
 	color = "#917d1a"
 	ore_result_amount = 1
 	ore_spread_chance = 10
-	ore_name = "pitchblende"
+	ore_name = "uraninite"
 	ore_scan_icon = "mineral_uncommon"
 	stack_origin_tech = @'{"materials":5}'
 	xarch_source_mineral = /decl/material/solid/phosphorus

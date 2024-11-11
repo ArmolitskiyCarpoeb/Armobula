@@ -431,8 +431,8 @@
 	icon = 'icons/obj/lighting_nav.dmi'
 	icon_state = "nav10"
 	base_state = "nav1"
-	light_type = /obj/item/light/tube/large
-	accepts_light_type = /obj/item/light/tube/large
+	light_type = /obj/item/light/bulb/red
+	accepts_light_type = /obj/item/light/bulb/red
 	on = TRUE
 	var/delay = 1
 	base_type = /obj/machinery/light/navigation
@@ -504,7 +504,7 @@
 	b_power = 2.0
 	b_color = LIGHT_COLOR_NEW_BLUE
 	lighting_modes = list(
-		LIGHTMODE_EMERGENCY = list(l_range = 5, l_power = 2.4, l_color = LIGHT_COLOR_EMERGENCY),
+		LIGHTMODE_EMERGENCY = list(l_range = 5, l_power = 3, l_color = LIGHT_COLOR_EMERGENCY),
 	)
 	sound_on = 'sound/machines/lightson.ogg'
 
@@ -537,12 +537,12 @@
 	base_state = "lbulb"
 	item_state = "contvapour"
 	broken_chance = 3
-	b_range = 4
-	b_power = 3.5
+	b_range = 5
+	b_power = 2
 	material = /decl/material/solid/glass
 	b_color = LIGHT_COLOR_NEW_YELLOW
 	lighting_modes = list(
-		LIGHTMODE_EMERGENCY = list(l_range = 4, l_power = 2, l_color = LIGHT_COLOR_EMERGENCY),
+		LIGHTMODE_EMERGENCY = list(l_range = 5, l_power = 3, l_color = LIGHT_COLOR_EMERGENCY),
 	)
 
 /obj/item/light/bulb/red
@@ -551,7 +551,7 @@
 
 /obj/item/light/bulb/red/readylight
 	lighting_modes = list(
-		LIGHTMODE_READY = list(l_range = 5, l_power = 1.4, l_color = LIGHT_COLOR_GREEN),
+		LIGHTMODE_READY = list(l_range = 5, l_power = 2, l_color = LIGHT_COLOR_GREEN),
 	)
 
 /obj/item/light/throw_impact(atom/hit_atom)

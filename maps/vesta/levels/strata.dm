@@ -16,6 +16,5 @@
 		/decl/material/solid/densegraphite,
 		/decl/material/solid/galena,
 		/decl/material/solid/bauxite,
-		/decl/material/solid/pitchblende,
-		/decl/material/solid/gemstone/diamond
+		/decl/material/solid/uraninite
 	)

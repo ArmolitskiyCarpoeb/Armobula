@@ -51,7 +51,7 @@
 /decl/outfit/job/vesta/assistant
 	l_ear = /obj/item/radio/headset
 	name = "Job - Assistant"
-	uniform = /obj/item/clothing/jumpsuit/cargotech
+	uniform = /obj/item/clothing/jumpsuit/assistant
 	id_type = /obj/item/card/id/vesta
 //	pda_type = /obj/item/modular_computer/pda/cargo
 //	backpack_contents = list(/obj/item/crowbar = 1)
@@ -76,7 +76,7 @@
 
 /decl/outfit/job/cargo/mining
 	name = "Job - Shaft miner"
-	uniform = /obj/item/clothing/jumpsuit/miner
+	uniform = /obj/item/clothing/jumpsuit/cargotech_new
 	id_type = /obj/item/card/id/vesta/cargo
 //	pda_type = /obj/item/modular_computer/pda/science
 	backpack_contents = list(/obj/item/crowbar = 1, /obj/item/ore = 1)

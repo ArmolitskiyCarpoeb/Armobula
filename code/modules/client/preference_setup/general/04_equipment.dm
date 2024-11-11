@@ -122,10 +122,10 @@
 					. += " <a href='byond://?src=\ref[src];underwear=[UWC.name];tweak=\ref[gt]'>[gt.get_contents(get_underwear_metadata(UWC.name, gt))]</a>"
 
 			. += "<br>"
-	. += "<b>Backpack type:</b> <a href='byond://?src=\ref[src];change_backpack=1'><b>[pref.backpack.name]</b></a>"
-	for(var/datum/backpack_tweak/bt in pref.backpack.tweaks)
-		. += " <a href='byond://?src=\ref[src];backpack=[pref.backpack.name];tweak=\ref[bt]'>[bt.get_ui_content(get_backpack_metadata(pref.backpack, bt))]</a>"
-	. += "<br>"
+//	. += "<b>Backpack type:</b> <a href='byond://?src=\ref[src];change_backpack=1'><b>[pref.backpack.name]</b></a>"
+//	for(var/datum/backpack_tweak/bt in pref.backpack.tweaks)
+//		. += " <a href='byond://?src=\ref[src];backpack=[pref.backpack.name];tweak=\ref[bt]'>[bt.get_ui_content(get_backpack_metadata(pref.backpack, bt))]</a>"
+//	. += "<br>"
 
 	if(length(global.using_map.survival_box_choices) > 1)
 		. += "<b>Survival box type:</b> <a href='byond://?src=\ref[src];change_survival_box=1'><b>[pref.survival_box_choice]</b></a><br>"
@@ -133,9 +133,9 @@
 	if(global.using_map.passport_type)
 		. += "<b>Passport:</b> <a href='byond://?src=\ref[src];toggle_passport=1'><b>[pref.give_passport ? "Yes" : "No"]</b></a><br>"
 
-//	if(length(global.using_map.starting_cash_choices) > 1)
-//		. += "<br><b>Personal finances:</b><br><a href='byond://?src=\ref[src];change_cash_choice=1'>[pref.starting_cash_choice]</a><br>"
-//	return jointext(.,null)
+	if(length(global.using_map.starting_cash_choices) > 1)
+		. += "<br><b>Personal finances:</b><br><a href='byond://?src=\ref[src];change_cash_choice=1'>[pref.starting_cash_choice]</a><br>"
+	return jointext(.,null)
 
 /datum/category_item/player_setup_item/physical/equipment/proc/get_underwear_metadata(var/underwear_category, var/datum/gear_tweak/gt)
 	var/metadata = pref.all_underwear_metadata[underwear_category]
@@ -178,11 +178,11 @@
 		if(selected_underwear && CanUseTopic(user))
 			pref.all_underwear[UWC.name] = selected_underwear.name
 		return TOPIC_REFRESH_UPDATE_PREVIEW
-//
-//	else if(href_list["toggle_passport"])
-//		pref.give_passport = !pref.give_passport
-//		return TOPIC_REFRESH
-//
+
+	else if(href_list["toggle_passport"])
+		pref.give_passport = !pref.give_passport
+		return TOPIC_REFRESH
+
 	else if(href_list["change_survival_box"] && length(global.using_map.survival_box_choices))
 		var/list/display_choices = list() // for some reason, to get this to work, we have to flip the list
 		for(var/key in global.using_map.survival_box_choices)
@@ -220,14 +220,14 @@
 		if(new_metadata)
 			set_backpack_metadata(bo, bt, new_metadata)
 			return TOPIC_REFRESH_UPDATE_PREVIEW
-//
-//	else if(href_list["change_cash_choice"])
-//		var/list/display_choices = list()
-//		for(var/key in global.using_map.starting_cash_choices)
-///		var/chosen_cash = input(user, "Select a personal finance alternative.", "Personal Finances", pref.starting_cash_choice) as null|anything in display_choices
-//		if(!chosen_cash)
-//			return TOPIC_NOACTION
-//		pref.starting_cash_choice = chosen_cash
-//		return TOPIC_REFRESH
-//
+
+	else if(href_list["change_cash_choice"])
+		var/list/display_choices = list()
+		for(var/key in global.using_map.starting_cash_choices)
+		var/chosen_cash = input(user, "Select a personal finance alternative.", "Personal Finances", pref.starting_cash_choice) as null|anything in display_choices
+		if(!chosen_cash)
+			return TOPIC_NOACTION
+		pref.starting_cash_choice = chosen_cash
+		return TOPIC_REFRESH
+
 	return ..()

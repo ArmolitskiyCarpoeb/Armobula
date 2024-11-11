@@ -29,7 +29,7 @@
 //CAPTAIN'S QUARTERS.
 
 /area/vesta/crew_quarters/captain
-	name = "\improper General Manager's Private Room"
+	name = "\improper Chief Manager's Private Room"
 	icon_state = "captain"
 	sound_env = MEDIUM_SOFTFLOOR
 	req_access = list(access_captain)
@@ -208,6 +208,11 @@
 	icon_state = "engineering_break"
 	sound_env = MEDIUM_SOFTFLOOR
 
+/area/vesta/engineering/dorms
+	name = "\improper Engineering Dorms"
+	icon_state = "engineering_break"
+	sound_env = MEDIUM_SOFTFLOOR
+
 /area/vesta/engineering/drone_fabrication
 	name = "\improper Engineering Drone Fabrication"
 	icon_state = "drone_fab"
@@ -253,6 +258,11 @@
 	ambience = list('sound/ambience/signal.ogg')
 
 //Hallways
+
+/area/vesta/medical/medbay_main
+	name = "\improper Medbay"
+	icon_state = "medbay"
+	ambience = list('sound/ambience/signal.ogg')
 
 /area/vesta/medical/medbay
 	name = "\improper Medbay Hallway - West"
@@ -375,74 +385,6 @@
 	name = "\improper Virology Access"
 	req_access = list() // This is like the lobby, needs low access to allow passing through in a different direction.
 
-//Unused
-
-/area/vesta/medical/genetics
-	name = "\improper Genetics Lab"
-	icon_state = "genetics"
-
-/area/vesta/medical/genetics/cloning
-	name = "\improper Cloning Lab"
-	icon_state = "cloning"
-
-//RESEARCH.
-
-/area/vesta/research
-	name = "\improper Research and Development"
-	icon_state = "research"
-	req_access = list(access_research)
-	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
-
-//Labs
-
-/area/vesta/research/lab
-	name = "\improper Research Lab"
-	icon_state = "toxlab"
-
-/area/vesta/research/misc_lab
-	name = "\improper Miscellaneous Research"
-	icon_state = "toxmisc"
-
-/area/vesta/research/storage
-	name = "\improper Toxins Storage"
-	icon_state = "toxstorage"
-	req_access = list(access_tox)
-
-/area/vesta/research/mixing
-	name = "\improper Toxins Mixing Room"
-	icon_state = "toxmix"
-	req_access = list(access_tox)
-
-/area/vesta/research/test_area
-	name = "\improper Toxins Test Area"
-	icon_state = "toxtest"
-	req_access = list(access_tox)
-
-/area/vesta/research/xenobiology
-	name = "\improper Xenobiology Lab"
-	icon_state = "xeno_lab"
-	req_access = list(access_xenobiology, access_research)
-
-/area/vesta/research/xenobiology/xenoflora
-	name = "\improper Xenoflora Lab"
-	icon_state = "xeno_f_lab"
-
-/area/vesta/research/xenobiology/xenoflora_storage
-	name = "\improper Xenoflora Storage"
-	icon_state = "xeno_f_store"
-
-//Robotics
-
-/area/vesta/research/robotics
-	name = "\improper Robotics Lab"
-	icon_state = "robotics"
-	req_access = list(access_robotics)
-
-/area/vesta/research/chargebay
-	name = "\improper Mech Bay"
-	icon_state = "mechbay"
-	req_access = list(access_robotics)
-
 //Misc
 
 /area/vesta/research/docking
@@ -469,12 +411,20 @@
 
 //Main
 
+/area/vesta/security/dorm
+	name = "\improper Security Dorms"
+	icon_state = "security"
+
 /area/vesta/security/main
 	name = "\improper Security Office"
 	icon_state = "security"
 
 /area/vesta/security/meeting
 	name = "\improper Security Meeting Room"
+	icon_state = "security"
+
+/area/vesta/security/preparation_room
+	name = "\improper Security Preparation Room"
 	icon_state = "security"
 
 /area/vesta/security/checkpoint2
@@ -566,10 +516,25 @@
 	req_access = list(access_cargo)
 	holomap_color = HOLOMAP_AREACOLOR_CARGO
 
+/area/vesta/quartermaster/cargo_main
+	name = "\improper Cargo Main"
+	icon_state = "quart"
+	req_access = list(list(access_cargo, access_mining))
+
 /area/vesta/quartermaster/office
 	name = "\improper Supply Office"
 	icon_state = "quartoffice"
 	req_access = list(list(access_cargo, access_mining))
+
+/area/vesta/quartermaster/cargo_dorm
+	name = "\improper Cargo Dorms"
+	icon_state = "quartoffice"
+	req_access = list(access_cargo)
+
+/area/vesta/quartermaster/cargo_waste
+	name = "\improper Cargo Waste"
+	icon_state = "quartoffice"
+	req_access = list(access_cargo)
 
 /area/vesta/quartermaster/storage
 	name = "\improper Warehouse"
@@ -578,6 +543,16 @@
 
 /area/vesta/quartermaster/miningdock
 	name = "\improper Cargo Mining Dock"
+	icon_state = "mining"
+	req_access = list(access_mining)
+
+/area/vesta/quartermaster/mining_refinery
+	name = "\improper Cargo Mining Refinery"
+	icon_state = "mining"
+	req_access = list(access_mining)
+
+/area/vesta/quartermaster/mining_dorm
+	name = "\improper Cargo Miners Dorm"
 	icon_state = "mining"
 	req_access = list(access_mining)
 
@@ -604,6 +579,11 @@
 
 /area/vesta/crew_quarters/sleep/bedrooms
 	name = "\improper Dormitory Bedroom One"
+	icon_state = "Sleep"
+	sound_env = SMALL_SOFTFLOOR
+
+/area/vesta/crew_quarters/sleep/bedrooms2
+	name = "\improper Dormitory Bedroom Two"
 	icon_state = "Sleep"
 	sound_env = SMALL_SOFTFLOOR
 
@@ -668,6 +648,9 @@
 	icon_state = "garden"
 	req_access = list()
 
+/area/vesta/disposal_room
+	name = "\improper Waste Disposal"
+
 /area/vesta/chapel
 	area_flags = AREA_FLAG_HOLY
 
@@ -688,50 +671,6 @@
 	icon_state = "chapeloffice"
 	req_access = list(access_chapel_office)
 
-/area/vesta/lawoffice
-	name = "\improper Internal Affairs"
-	icon_state = "law"
-	req_access = list(access_lawyer)
-
-//AI.
-
-/area/vesta/ai_monitored
-	name = "AI Monitored Area"
-
-/area/vesta/ai_monitored/storage/eva
-	name = "\improper EVA Storage"
-	icon_state = "eva"
-	req_access = list(access_eva)
-
-/area/vesta/turret_protected
-	req_access = list(access_ai_upload)
-
-/area/vesta/turret_protected/ai
-	name = "\improper AI Chamber"
-	icon_state = "ai_chamber"
-	ambience = list('sound/ambience/ambimalf.ogg')
-
-/area/vesta/turret_protected/ai_cyborg_station
-	name = "\improper Cyborg Station"
-	icon_state = "ai_cyborg"
-	sound_env = SMALL_ENCLOSED
-
-/area/vesta/turret_protected/ai_upload
-	name = "\improper AI Upload Chamber"
-	icon_state = "ai_upload"
-	ambience = list('sound/ambience/ambimalf.ogg')
-
-/area/vesta/turret_protected/ai_upload_foyer
-	name = "\improper AI Upload Access"
-	icon_state = "ai_foyer"
-	ambience = list('sound/ambience/ambimalf.ogg')
-	sound_env = SMALL_ENCLOSED
-
-/area/vesta/turret_protected/ai_server_room
-	name = "Messaging Server Room"
-	icon_state = "ai_server"
-	sound_env = SMALL_ENCLOSED
-	req_access = list(access_tcomsat)
 
 //SHUTTLE.
 
@@ -860,6 +799,10 @@
 	name = "\improper Security Maintenance - East"
 	icon_state = "maint_security_East"
 
+/area/vesta/maintenance/security
+	name = "\improper Security Maintenance"
+	icon_state = "maint_security"
+
 //MISC. MAINTENANCE.
 
 /area/vesta/maintenance/exterior
@@ -984,19 +927,19 @@
 /area/vesta/hallway/primary
 	sound_env = LARGE_ENCLOSED
 
-/area/vesta/hallway/primary/North
+/area/vesta/hallway/primary/north
 	name = "\improper North Primary Hallway"
 	icon_state = "hallF"
 
-/area/vesta/hallway/primary/East
+/area/vesta/hallway/primary/east
 	name = "\improper East Primary Hallway"
 	icon_state = "hallS"
 
-/area/vesta/hallway/primary/South
+/area/vesta/hallway/primary/south
 	name = "\improper South Primary Hallway"
 	icon_state = "hallA"
 
-/area/vesta/hallway/primary/West
+/area/vesta/hallway/primary/west
 	name = "\improper West Primary Hallway"
 	icon_state = "hallP"
 
@@ -1082,6 +1025,12 @@
 
 /area/centcom/holding
 	name = "\improper Holding Facility"
+
+/area/centcom/arrivals
+	name = "\improper Centcomm Arrivals"
+
+/area/centcom/evacuation_dock
+	name = "\improper Centcomm Evacuation Shuttle Docks"
 
 ///area/shuttle/supply_shuttle
 //	name = "Supply Shuttle"

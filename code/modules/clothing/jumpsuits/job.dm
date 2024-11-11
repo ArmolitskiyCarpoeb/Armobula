@@ -19,9 +19,15 @@
 		ARMOR_BIO = ARMOR_BIO_SMALL
 	)
 
+
+/obj/item/clothing/jumpsuit/assistant
+	name = "assistant's jumpsuit"
+	desc = "It's specially designed to prevent back injuries caused by assistanting."
+	icon = 'icons/clothing/jumpsuits/jumpsuit_assistant.dmi'
+
 /obj/item/clothing/jumpsuit/captain //Alright, technically not a 'civilian' but its better then giving a .dm file for a single define.
-	desc = "It's a blue jumpsuit with some gold markings denoting the rank of \"Captain\"."
-	name = "captain's jumpsuit"
+	desc = "It's a white jumpsuit with some gold markings denoting the rank of \"Chief Manager\"."
+	name = "chief's jumpsuit"
 	icon = 'icons/clothing/jumpsuits/jumpsuit_captain.dmi'
 
 /obj/item/clothing/jumpsuit/cargo
@@ -36,8 +42,8 @@
 	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_ARMS
 
 /obj/item/clothing/jumpsuit/cargotech_new
-	name = "cargo technician's jumpsuit"
-	desc = "Working hard and moving heavy crates..."
+	name = "cargo jumpsuit"
+	desc = "For working hard."
 	icon = 'icons/clothing/jumpsuits/jumpsuit_cargo_new.dmi'
 
 /obj/item/clothing/jumpsuit/chaplain
