@@ -1,7 +1,7 @@
 /turf/wall/log
 	icon_state = "log"
-	material = /decl/material/solid/organic/wood
-	color = /decl/material/solid/organic/wood::color
+	material = /decl/material/solid/organic/wood/oak
+	color = /decl/material/solid/organic/wood/oak::color
 	girder_material = null
 	floor_type = /turf/floor/dirt
 	min_dismantle_amount = 3
@@ -37,8 +37,10 @@
 /turf/wall/log/##material_name/shutter { \
 	shutter_state = FALSE; \
 	icon_state = "log_shutter"; \
+}; \
+/turf/wall/log/##material_name/shutter/open { \
+	shutter_state = TRUE; \
 }
-
 LOG_WALL_SUBTYPE(fungal)
 LOG_WALL_SUBTYPE(ebony)
 LOG_WALL_SUBTYPE(walnut)

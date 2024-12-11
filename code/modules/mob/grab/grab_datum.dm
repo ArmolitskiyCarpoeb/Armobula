@@ -120,19 +120,16 @@
 		return FALSE
 
 	grab.is_currently_resolving_hit = TRUE
-	switch(grab.assailant.a_intent)
-		if(I_HELP)
-			if(on_hit_help(grab, A, P))
-				. = help_action || TRUE
-		if(I_DISARM)
-			if(on_hit_disarm(grab, A, P))
-				. = disarm_action || TRUE
-		if(I_GRAB)
-			if(on_hit_grab(grab, A, P))
-				. = grab_action || TRUE
-		if(I_HURT)
-			if(on_hit_harm(grab, A, P))
-				. = harm_action || TRUE
+
+	var/intent_flags = grab.assailant.get_intent().intent_flags
+	if((intent_flags & I_FLAG_HELP) && on_hit_help(grab, A, P))
+		. = help_action || TRUE
+	if(!. && (intent_flags & I_FLAG_DISARM) && on_hit_disarm(grab, A, P))
+		. = disarm_action || TRUE
+	if(!. && (intent_flags & I_FLAG_GRAB) && on_hit_grab(grab, A, P))
+		. = grab_action || TRUE
+	if(!. && (intent_flags & I_FLAG_HARM) && on_hit_harm(grab, A, P))
+		. = harm_action || TRUE
 
 	if(!QDELETED(grab))
 		grab.is_currently_resolving_hit = FALSE
@@ -218,9 +215,10 @@
 /decl/grab/proc/enter_as_up(var/obj/item/grab/grab)
 
 /decl/grab/proc/item_attack(var/obj/item/grab/grab, var/obj/item)
+	return FALSE
 
 /decl/grab/proc/resolve_item_attack(var/obj/item/grab/grab, var/mob/living/human/user, var/obj/item/I, var/target_zone)
-	return 0
+	return FALSE
 
 /decl/grab/proc/handle_resist(var/obj/item/grab/grab)
 	var/mob/living/affecting = grab.get_affecting_mob()

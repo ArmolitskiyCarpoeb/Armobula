@@ -73,7 +73,7 @@
 		else
 			visible_message(SPAN_NOTICE("\The [assailant] has grabbed [pronouns.self]!"))
 
-	if(affecting_mob && assailant?.a_intent == I_HURT)
+	if(affecting_mob && assailant?.check_intent(I_FLAG_HARM))
 		upgrade(TRUE)
 
 /obj/item/grab/mob_can_unequip(mob/user, slot, disable_warning = FALSE, dropping = FALSE)
@@ -94,11 +94,10 @@
 	current_grab.process(src)
 
 /obj/item/grab/attack_self(mob/user)
-	switch(assailant.a_intent)
-		if(I_HELP)
-			downgrade()
-		else
-			upgrade()
+	if(assailant.check_intent(I_FLAG_HELP))
+		downgrade()
+	else
+		upgrade()
 
 /obj/item/grab/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
 	if(affecting == target)
@@ -279,7 +278,8 @@
 
 /obj/item/grab/attackby(obj/W, mob/user)
 	if(user == assailant)
-		current_grab.item_attack(src, W)
+		return current_grab.item_attack(src, W)
+	return FALSE
 
 /obj/item/grab/proc/assailant_reverse_facing()
 	return current_grab.reverse_facing

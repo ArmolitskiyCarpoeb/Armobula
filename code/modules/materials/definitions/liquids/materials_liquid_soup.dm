@@ -47,10 +47,11 @@
 		var/list/name_ingredients = ingredients.Copy()
 		if(length(name_ingredients) > 3)
 			name_ingredients.Cut(4)
-		if(allergen_flags & ALLERGEN_DAIRY) // TODO: check ALLEGEN_CHEESE for cheese-based soups
-			LAZYSET(., DATA_MASK_NAME, "[english_list(name_ingredients)] cream [mask_name_suffix]")
-		else
-			LAZYSET(., DATA_MASK_NAME, "[english_list(name_ingredients)] [mask_name_suffix]")
+		if(isnull(.[DATA_MASK_NAME]) || .[DATA_MASK_NAME] != newdata?[DATA_MASK_NAME]) // preserve custom name if both have it
+			if(allergen_flags & ALLERGEN_DAIRY) // TODO: check ALLEGEN_CHEESE for cheese-based soups
+				LAZYSET(., DATA_MASK_NAME, "[english_list(name_ingredients)] cream [mask_name_suffix]")
+			else
+				LAZYSET(., DATA_MASK_NAME, "[english_list(name_ingredients)] [mask_name_suffix]")
 	else
 		LAZYREMOVE(., DATA_MASK_NAME)
 
@@ -83,6 +84,7 @@
 /decl/material/liquid/nutriment/soup/simple
 	name                 = "soup"
 	liquid_name          = "soup"
+	codex_name           = "simple soup"
 	solid_name           = "powdered soup"
 	uid                  = "liquid_soup_simple"
 	mask_name_suffix     = "soup"
@@ -103,7 +105,7 @@
 	nutriment_factor     = 10
 	glass_name           = "stew"
 	reagent_overlay_base = "reagent_base_chunky"
-	opacity              = 1
+	opacity              = 1.0
 
 /decl/material/liquid/nutriment/soup/chili
 	name                 = "chili"
@@ -115,7 +117,7 @@
 	glass_name           = "chili"
 	nutriment_factor     = 10
 	reagent_overlay_base = "reagent_base_chunky"
-	opacity              = 1
+	opacity              = 1.0
 
 /decl/material/liquid/nutriment/soup/curry
 	name                 = "curry"
@@ -126,4 +128,16 @@
 	reagent_overlay      = "soup_dumplings"
 	glass_name           = "curry"
 	nutriment_factor     = 10
-	opacity              = 1
+	opacity              = 1.0
+
+/decl/material/liquid/nutriment/soup/noodle
+	name                 = "noodle soup"
+	liquid_name          = "noodle soup"
+	solid_name           = "noodles"
+	uid                  = "liquid_soup_noodles"
+	mask_name_suffix     = "noodle soup"
+	reagent_overlay      = "soup_chunks" // todo: maybe differentiate meat vs veggie noodle soup
+	glass_name           = "noodle soup"
+	nutriment_factor     = 10
+	color                = COLOR_POLISHED_BRASS
+	opacity              = 0.7

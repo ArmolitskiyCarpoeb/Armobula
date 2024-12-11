@@ -16,6 +16,10 @@
 	icon_state = "monotiledark"
 	_flooring = /decl/flooring/tiling/mono/dark
 
+/turf/floor/tiled/dark/monotile/telecomms
+	name = "telecomms dark floor" // TODO: force name overriding flooring?
+	temperature = 263
+
 /turf/floor/tiled/dark/airless
 	initial_gas = null
 
@@ -43,6 +47,10 @@
 	name = "tiles"
 	icon_state = "freezer"
 	_flooring = /decl/flooring/tiling/freezer
+
+/turf/floor/tiled/freezer/kitchen
+	name = "kitchen freezer floor" // TODO: force override of flooring name
+	temperature = 263
 
 /turf/floor/tiled/techmaint
 	name = "floor"
@@ -281,3 +289,12 @@
 	icon_state = "tile_full_lime_2"
 	_flooring = /decl/flooring/tiling/new_tile_lime_2
 	paint_color = null
+
+/turf/floor/tiled/airless/broken
+	_floor_broken = TRUE
+
+/turf/floor/tiled/airless/broken/Initialize()
+	. = ..()
+	var/setting_broken = _floor_broken
+	_floor_broken = null
+	set_floor_broken(setting_broken)

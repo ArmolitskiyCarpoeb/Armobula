@@ -204,6 +204,16 @@
 	result_type            = /obj/structure/reagent_dispensers/barrel
 	difficulty             = MAT_VALUE_HARD_DIY
 
+/decl/stack_recipe/planks/furniture/barrel/cask
+	result_type            = /obj/structure/reagent_dispensers/barrel/cask
+
+/decl/stack_recipe/planks/furniture/barrel/cask_rack
+	result_type            = /obj/structure/cask_rack
+
+/decl/stack_recipe/planks/furniture/barrel/large_cask_rack
+	name                   = "cask rack, large"
+	result_type            = /obj/structure/cask_rack/large
+
 /decl/stack_recipe/planks/furniture/table_frame
 	result_type            = /obj/structure/table/frame
 	category               = "furniture"
@@ -212,3 +222,8 @@
 /decl/stack_recipe/planks/furniture/gravemarker
 	result_type            = /obj/item/gravemarker
 	difficulty             = MAT_VALUE_NORMAL_DIY
+
+/decl/stack_recipe/planks/furniture/divider
+	result_type            = /obj/structure/divider
+	difficulty             = MAT_VALUE_HARD_DIY
+

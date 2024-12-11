@@ -62,14 +62,14 @@
 	update_icon()
 
 /obj/machinery/holomap/attack_hand(var/mob/user)
-	if(user.a_intent == I_HURT)
+	if(user.check_intent(I_FLAG_HARM))
 		return ..()
 	if(watching_mob && (watching_mob != user))
 		to_chat(user, SPAN_WARNING("Someone else is currently watching the holomap."))
-		return
+		return TRUE
 	if(user.loc != loc)
 		to_chat(user, SPAN_WARNING("You need to stand in front of \the [src]."))
-		return
+		return TRUE
 	startWatching(user)
 	return TRUE
 

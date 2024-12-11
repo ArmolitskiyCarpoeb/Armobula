@@ -83,7 +83,7 @@
 /turf/wall/wood
 	color = COLOR_BROWN
 	icon_state = "wood"
-	material = /decl/material/solid/organic/wood
+	material = /decl/material/solid/organic/wood/oak
 
 /turf/wall/walnut
 	color = COLOR_BROWN_ORANGE
@@ -96,7 +96,7 @@
 	material = /decl/material/solid/metal/alienalloy
 
 /turf/wall/raidershuttle/attackby()
-	return
+	return TRUE
 
 //Alien metal walls
 /turf/wall/alium

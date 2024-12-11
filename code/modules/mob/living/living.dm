@@ -62,7 +62,7 @@ default behaviour is:
 		if(mob_bump_flag & context_flags)
 			return 1
 		else
-			return ((a_intent == I_HELP && swapped.a_intent == I_HELP) && swapped.can_move_mob(src, swapping, 1))
+			return ((check_intent(I_FLAG_HELP) && swapped.check_intent(I_FLAG_HELP)) && swapped.can_move_mob(src, swapping, 1))
 
 /mob/living/canface()
 	if(stat)
@@ -107,7 +107,7 @@ default behaviour is:
 			if(src.restrained())
 				now_pushing = 0
 				return
-			if(tmob.a_intent != I_HELP)
+			if(!tmob.check_intent(I_FLAG_HELP))
 				for(var/obj/item/shield/riot/shield in tmob.get_held_items())
 					if(prob(99))
 						now_pushing = 0
@@ -176,7 +176,7 @@ default behaviour is:
 	if(tmob.buckled || buckled || tmob.anchored)
 		return 0
 	//BubbleWrap: people in handcuffs are always switched around as if they were on 'help' intent to prevent a person being pulled from being seperated from their puller
-	if(!(tmob.mob_always_swap || (tmob.a_intent == I_HELP || tmob.restrained()) && (a_intent == I_HELP || src.restrained())))
+	if(!(tmob.mob_always_swap || (tmob.check_intent(I_FLAG_HELP) || tmob.restrained()) && (check_intent(I_FLAG_HELP) || src.restrained())))
 		return 0
 	if(!tmob.MayMove(src) || incapacitated())
 		return 0
@@ -1486,7 +1486,7 @@ default behaviour is:
 
 /mob/living/proc/can_direct_mount(var/mob/user)
 	if((user.faction == faction || !faction) && can_buckle && istype(user) && !user.incapacitated() && user == buckled_mob)
-		if(client && a_intent != I_HELP)
+		if(client && !check_intent(I_FLAG_HELP))
 			return FALSE // do not Ratatouille your colleagues
 		// TODO: Piloting skillcheck for hands-free moving? Stupid but amusing
 		for(var/obj/item/grab/reins in user.get_held_items())
@@ -1521,12 +1521,12 @@ default behaviour is:
 			if(grab.get_affecting_mob() == src && !istype(grab.current_grab, /decl/grab/simple/control))
 				qdel(grab)
 	if(istype(ai))
-		ai.retaliate(M)
+		ai.on_buckled(M)
 
 /mob/living/try_make_grab(mob/living/user, defer_hand = FALSE)
 	. = ..()
 	if(istype(ai))
-		ai.retaliate(user)
+		ai.on_grabbed(user)
 
 /mob/living/can_buckle_mob(var/mob/living/dropping)
 	. = ..() && stat == CONSCIOUS && !buckled && dropping.mob_size <= mob_size
@@ -1934,3 +1934,5 @@ default behaviour is:
 		else
 			to_chat(user, SPAN_WARNING("\The [src] cannot currently be milked."))
 
+/mob/living/proc/get_age()
+	. = LAZYACCESS(appearance_descriptors, "age") || 30

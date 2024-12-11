@@ -3,7 +3,7 @@
 	desc = "A standard 16\" checkerboard. Well used." //Goddamn imperial system.
 	icon = 'icons/obj/pieces.dmi'
 	icon_state = "board"
-	material = /decl/material/solid/organic/wood
+	material = /decl/material/solid/organic/wood/oak
 
 	var/num = 0
 	var/board_icons = list()
@@ -24,8 +24,9 @@
 	return TRUE
 
 /obj/item/board/attackby(obj/item/I, mob/user)
-	if(!addPiece(I,user))
-		..()
+	if(addPiece(I,user))
+		return TRUE
+	return ..()
 
 /obj/item/board/proc/addPiece(obj/item/I, mob/user, var/tile = 0)
 	if(I.w_class != ITEM_SIZE_TINY) //only small stuff

@@ -207,17 +207,19 @@ var/global/const/DRINK_ICON_NOISY = "noise"
 
 /obj/item/chems/drinks/glass2/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/utensil/spoon))
-		if(user.a_intent == I_HURT)
+		if(user.check_intent(I_FLAG_HARM))
 			user.visible_message("<span class='warning'>[user] bashes \the [src] with a spoon, shattering it to pieces! What a rube.</span>")
 			playsound(src, "shatter", 30, 1)
 			if(reagents)
 				user.visible_message("<span class='notice'>The contents of \the [src] splash all over [user]!</span>")
 				reagents.splash(user, reagents.total_volume)
 			qdel(src)
-			return
+			return TRUE
 		user.visible_message("<span class='notice'>[user] gently strikes \the [src] with a spoon, calling the room to attention.</span>")
 		playsound(src, "sound/items/wineglass.ogg", 65, 1)
-	else return ..()
+		return TRUE
+	else
+		return ..()
 
 /obj/item/chems/drinks/glass2/ProcessAtomTemperature()
 	var/old_temp = temperature

@@ -112,7 +112,7 @@
 		var/mob/living/human/H = target
 		affecting = GET_EXTERNAL_ORGAN(H, hit_zone)
 	var/abuser =  user ? "" : "by [user]"
-	if(user && user.a_intent == I_HURT)
+	if(user && user.check_intent(I_FLAG_HARM))
 		. = ..()
 		if(.)
 			return
@@ -172,7 +172,7 @@
 	return 0
 
 /obj/item/baton/robot/attackby(obj/item/W, mob/user)
-	return
+	return FALSE
 
 /obj/item/baton/robot/setup_power_supply(loaded_cell_type, accepted_cell_type, power_supply_extension_type, charge_value)
 	SHOULD_CALL_PARENT(FALSE)

@@ -89,7 +89,7 @@
 
 /obj/structure/grille/attack_hand(mob/user)
 
-	if(user.a_intent != I_HURT)
+	if(!user.check_intent(I_FLAG_HARM))
 		return ..()
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -191,7 +191,7 @@
 	if(istype(W,/obj/item/stack/material))
 		var/obj/item/stack/material/ST = W
 		if(ST.material.opacity > 0.7)
-			return 0
+			return FALSE
 
 		var/dir_to_set = 5
 		if(!is_on_frame())
@@ -201,7 +201,7 @@
 				dir_to_set = get_dir(loc, user)
 				if(dir_to_set & (dir_to_set - 1)) //Only works for cardinal direcitons, diagonals aren't supposed to work like this.
 					to_chat(user, "<span class='notice'>You can't reach.</span>")
-					return
+					return TRUE
 		place_window(user, loc, dir_to_set, ST)
 		return TRUE
 

@@ -91,8 +91,9 @@
 			user.visible_message("<span class='warning'>[user] bashes [src] with [W]!</span>")
 			playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
 			cooldown = world.time
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/item/shield/riot/metal
 	name = "plasteel combat shield"
@@ -123,7 +124,7 @@
 	w_class = ITEM_SIZE_HUGE
 	origin_tech = @'{"materials":1}'
 	material = /decl/material/solid/metal/steel
-	matter = list(/decl/material/solid/organic/wood = MATTER_AMOUNT_REINFORCEMENT)
+	matter = list(/decl/material/solid/organic/wood/oak = MATTER_AMOUNT_REINFORCEMENT)
 	attack_verb = list("shoved", "bashed")
 	_base_attack_force = 8
 	max_health = 250

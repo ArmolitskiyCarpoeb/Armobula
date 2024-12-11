@@ -112,7 +112,7 @@
 	if(IS_PEN(P))
 		if(!CanPhysicallyInteractWith(user, src))
 			to_chat(user, SPAN_WARNING("You can't interact with this!"))
-			return
+			return TRUE
 		scribble = sanitize(input(user, "What would you like to write on the back? (Leave empty to erase)", "Photo Writing", scribble), MAX_DESC_LEN)
 		return TRUE
 	return ..()
@@ -128,10 +128,10 @@
 
 /obj/item/photo/interact(mob/user)
 	send_rsc(user, img, "tmp_photo_[id].png")
+	// todo: remove -ms-interpolation-mode once 516 is required
 	var/photo_html = {"
 		<html><head><title>[name]</title></head>
 		<body style='overflow:hidden;margin:0;text-align:center'>
-		// todo: remove -ms-interpolation-mode once 516 is required
 		<img src='tmp_photo_[id].png' width='[64*photo_size]' style='-ms-interpolation-mode:nearest-neighbor;image-rendering:pixelated;' />
 		[scribble ? "<br>Written on the back:<br><i>[scribble]</i>" : ""]
 		</body></html>
@@ -269,10 +269,10 @@
 					user.put_in_active_hand(film)
 					film = I
 					return TRUE
-				return
+				return TRUE
 			//Unskilled losers have to remove it first
 			to_chat(user, SPAN_NOTICE("[src] already has some film in it! Remove it first!"))
-			return
+			return TRUE
 		else
 			if(user.do_skilled(1 SECONDS, SKILL_DEVICES, src))
 				if(user.get_skill_value(SKILL_DEVICES) >= SKILL_EXPERT)
@@ -286,7 +286,7 @@
 				user.try_unequip(I, src)
 				film = I
 				return TRUE
-			return
+			return TRUE
 	return ..()
 
 /obj/item/camera/proc/get_mobs(turf/the_turf)

@@ -161,7 +161,7 @@
 		add_fingerprint(user)
 		wrench_floor_bolts(user, 0, W)
 		power_change()
-		return
+		return TRUE
 	return ..()
 
 /obj/machinery/media/jukebox/emag_act(var/remaining_charges, var/mob/user)

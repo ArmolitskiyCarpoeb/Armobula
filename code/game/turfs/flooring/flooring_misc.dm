@@ -16,7 +16,7 @@
 	icon               = 'icons/turf/flooring/crystal.dmi'
 	icon_base          = "crystal"
 	build_type         = null
-	flooring_flags     = TURF_ACID_IMMUNE | TURF_CAN_BREAK | TURF_REMOVE_CROWBAR
+	flooring_flags     = TURF_ACID_IMMUNE | TURF_REMOVE_CROWBAR
 	color              = "#00ffe1"
 	force_material     = /decl/material/solid/gemstone/crystal
 	constructed        = TRUE
@@ -74,8 +74,8 @@
 /decl/flooring/straw
 	name               = "straw floor"
 	desc               = "A thick layer of straw, suitable for livestock."
-	icon               = 'icons/turf/flooring/wildgrass.dmi' // temporary, replace with better icon at some point
-	icon_base          = "wildgrass"
+	icon               = 'icons/turf/flooring/straw.dmi'
+	icon_base          = "straw"
 	has_base_range     = null
 	icon_edge_layer    = FLOOR_EDGE_GRASS_WILD
 	damage_temperature = T0C+80

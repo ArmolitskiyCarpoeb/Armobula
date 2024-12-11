@@ -4,7 +4,7 @@
 	icon = 'icons/obj/items/weapon/swords/cult.dmi'
 	material_alteration = MAT_FLAG_ALTERATION_COLOR | MAT_FLAG_ALTERATION_NAME
 
-// separated into a proc so that deity can modify it
+// separated into a proc so that subtypes can modify it
 /obj/item/sword/cultblade/proc/can_use_safely(mob/living/user)
 	return iscultist(user)
 

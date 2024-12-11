@@ -8,12 +8,14 @@
 	density = TRUE
 	var/static/list/amount_of_underwear_by_id_card
 
-/obj/structure/undies_wardrobe/attackby(var/obj/item/underwear/underwear, var/mob/user)
-	if(istype(underwear))
+/obj/structure/undies_wardrobe/attackby(var/obj/item/item, var/mob/user)
+	if(istype(item, /obj/item/underwear))
+		var/obj/item/underwear/underwear = item
 		if(!user.try_unequip(underwear))
-			return
+			return TRUE
 		qdel(underwear)
-		user.visible_message("<span class='notice'>\The [user] inserts \their [underwear.name] into \the [src].</span>", "<span class='notice'>You insert your [underwear.name] into \the [src].</span>")
+		var/decl/pronouns/user_pronouns = user.get_pronouns()
+		user.visible_message("<span class='notice'>\The [user] inserts [user_pronouns.his] [underwear.name] into \the [src].</span>", "<span class='notice'>You insert your [underwear.name] into \the [src].</span>")
 
 		var/id = user.GetIdCard()
 		var/message
@@ -30,9 +32,9 @@
 			events_repository.register(/decl/observ/destroyed, id, src, TYPE_PROC_REF(/obj/structure/undies_wardrobe, remove_id_card))
 		else
 			remove_id_card(id)
-
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/structure/undies_wardrobe/proc/remove_id_card(var/id_card)
 	LAZYREMOVE(amount_of_underwear_by_id_card, id_card)
@@ -76,7 +78,7 @@
 		var/datum/category_group/underwear/UWC = global.underwear.categories_by_name[href_list["select_underwear"]]
 		if(!UWC)
 			return
-		var/datum/category_item/underwear/UWI = input("Select your desired underwear:", "Choose underwear") as null|anything in exlude_none(UWC.items)
+		var/datum/category_item/underwear/UWI = input("Select your desired underwear:", "Choose underwear") as null|anything in exclude_none(UWC.items)
 		if(!UWI)
 			return
 
@@ -111,7 +113,7 @@
 	if(.)
 		interact(H)
 
-/obj/structure/undies_wardrobe/proc/exlude_none(var/list/L)
+/obj/structure/undies_wardrobe/proc/exclude_none(var/list/L)
 	. = L.Copy()
 	for(var/e in .)
 		var/datum/category_item/underwear/UWI = e

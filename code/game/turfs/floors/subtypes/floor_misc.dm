@@ -4,10 +4,6 @@
 	icon_state = "lino"
 	_flooring = /decl/flooring/linoleum
 
-/turf/floor/airless
-	name = "airless plating"
-	initial_gas = null
-	temperature = TCMB
 
 /turf/floor/crystal
 	name = "crystal floor"
@@ -49,10 +45,46 @@
 
 /turf/floor/straw
 	name = "loose straw"
-	icon = 'icons/turf/flooring/wildgrass.dmi'
-	icon_state = "wildgrass"
+	icon = 'icons/turf/flooring/straw.dmi'
+	icon_state = "straw"
 	color = COLOR_WHEAT
 	_flooring = /decl/flooring/straw
 
 // Defining this here as a dummy mapping shorthand so mappers can search for 'plating'.
 /turf/floor/plating
+	_base_flooring = /decl/flooring/plating // Setting here so overrides on /turf/floor do not impact explicitly typed plating turfs.
+
+/turf/floor/plating/broken
+	_floor_broken = TRUE
+
+/turf/floor/plating/broken/Initialize(ml, floortype)
+	. = ..()
+	var/setting_broken = _floor_broken
+	_floor_broken = null
+	set_floor_broken(setting_broken)
+
+/turf/floor/plating/airless
+	name = "airless plating"
+	initial_gas = null
+	temperature = TCMB
+
+/turf/floor/plating/airless/broken
+	_floor_broken = TRUE
+
+/turf/floor/plating/airless/broken/Initialize(ml, floortype)
+	. = ..()
+	var/setting_broken = _floor_broken
+	_floor_broken = null
+	set_floor_broken(setting_broken)
+
+/turf/floor/plating/broken/one
+	_floor_broken = "broken1"
+
+/turf/floor/plating/broken/two
+	_floor_broken = "broken2"
+
+/turf/floor/plating/broken/three
+	_floor_broken = "broken3"
+
+/turf/floor/plating/broken/four
+	_floor_broken = "broken4"

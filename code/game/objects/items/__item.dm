@@ -6,6 +6,9 @@
 	abstract_type = /obj/item
 	temperature_sensitive = TRUE
 
+	/// Set to prefix name with this string ('woven' for 'woven basket' etc)
+	var/name_prefix
+
 	/// Set to false to skip state checking and never draw an icon on the mob (except when held)
 	var/draw_on_mob_when_equipped = TRUE
 
@@ -93,7 +96,7 @@
 	var/replaced_in_loadout = TRUE
 
 	var/paint_color
-	var/paint_verb = "painted"
+	var/paint_verb
 
 	/// What dexterity is required to attack with this item?
 	var/needs_attack_dexterity = DEXTERITY_WIELD_ITEM
@@ -123,20 +126,21 @@
 	return initial(color)
 
 /obj/item/set_color(new_color)
-
 	if(new_color == COLOR_WHITE)
 		new_color = null
-
 	if(paint_color != new_color)
 		paint_color = new_color
 		. = TRUE
+		refresh_color()
 
+/obj/item/refresh_color()
 	if(paint_color)
 		color = paint_color
 	else if(material && (material_alteration & MAT_FLAG_ALTERATION_COLOR))
 		color = material.color
 	else
-		color = new_color
+		color = null
+
 
 /obj/item/proc/can_contaminate()
 	return !(obj_flags & ITEM_FLAG_NO_CONTAMINATION)
@@ -167,6 +171,7 @@
 		material_key = material
 	if(material_key)
 		set_material(material_key)
+	paint_verb ||= "painted" // fallback for the case of no material
 
 	. = ..()
 
@@ -289,7 +294,8 @@
 		desc_comp += "[desc_damage]"
 
 	if(paint_color)
-		desc_comp += "\The [src] has been <font color='[paint_color]'>[paint_verb]</font>."
+		var/decl/pronouns/obj_pronouns = get_pronouns() // so we can do 'have' for plural objects like sheets
+		desc_comp += "\The [src] [obj_pronouns.has] been <font color='[paint_color]'>[paint_verb]</font>."
 
 	var/added_header = FALSE
 	if(user?.get_preference_value(/datum/client_preference/inquisitive_examine) == PREF_ON)
@@ -452,7 +458,7 @@
 	return . || TRUE
 
 /obj/item/attack_self(mob/user)
-	if(user.a_intent == I_HURT && istype(material))
+	if(user.check_intent(I_FLAG_HARM) && istype(material))
 		var/list/results = squash_item(skip_qdel = TRUE)
 		if(results && user.try_unequip(src, user.loc))
 			user.visible_message(SPAN_DANGER("\The [user] squashes \the [src] into a lump."))
@@ -963,6 +969,11 @@ modules/mob/living/human/life.dm if you die, you will be zoomed out.
 	if(citem.item_state)
 		set_icon_state(citem.item_state)
 
+/obj/item/clothing/inherit_custom_item_data(var/datum/custom_item/citem)
+	. = ..()
+	base_clothing_icon  = icon
+	base_clothing_state = icon_state
+
 /obj/item/proc/is_special_cutting_tool(var/high_power)
 	return FALSE
 
@@ -1035,7 +1046,7 @@ modules/mob/living/human/life.dm if you die, you will be zoomed out.
 		LAZYADD(., slot_belt_str)
 
 // Updates the icons of the mob wearing the clothing item, if any.
-/obj/item/proc/update_clothing_icon()
+/obj/item/proc/update_clothing_icon(do_update_icon = TRUE)
 	var/mob/wearer = loc
 	if(!istype(wearer))
 		return FALSE
@@ -1044,7 +1055,8 @@ modules/mob/living/human/life.dm if you die, you will be zoomed out.
 		return FALSE
 	for(var/slot in equip_slots)
 		wearer.update_equipment_overlay(slot, FALSE)
-	wearer.update_icon()
+	if(do_update_icon)
+		wearer.update_icon()
 	return TRUE
 
 /obj/item/proc/reconsider_client_screen_presence(var/client/client, var/slot)
@@ -1193,7 +1205,11 @@ modules/mob/living/human/life.dm if you die, you will be zoomed out.
 	return watertight || ..()
 
 // TODO: merge beakers etc down into this proc.
-/obj/item/proc/get_reagents_overlay()
+/// @params:
+/// - state_prefix as text: if non-null, this string is prepended to the reagent overlay state, typically world/inventory/etc
+/// @returns:
+/// - reagent_overlay as /image|null - the overlay image representing the reagents in this object
+/obj/item/proc/get_reagents_overlay(state_prefix)
 	if(reagents?.total_volume <= 0)
 		return
 	var/decl/material/primary_reagent = reagents.get_primary_reagent_decl()
@@ -1204,11 +1220,17 @@ modules/mob/living/human/life.dm if you die, you will be zoomed out.
 		reagents_state = primary_reagent.reagent_overlay_base
 	else
 		reagents_state = "reagent_base"
+	if(state_prefix)
+		reagents_state = "[state_prefix]_[reagents_state]" // prepend world, inventory, or slot
 	if(!reagents_state || !check_state_in_icon(reagents_state, icon))
 		return
 	var/image/reagent_overlay = overlay_image(icon, reagents_state, reagents.get_color(), RESET_COLOR | RESET_ALPHA)
 	for(var/reagent_type in reagents.reagent_volumes)
 		var/decl/material/reagent = GET_DECL(reagent_type)
-		if(reagent.reagent_overlay && check_state_in_icon(reagent.reagent_overlay, icon))
-			reagent_overlay.overlays += overlay_image(icon, reagent.reagent_overlay, reagent.get_reagent_color(), RESET_COLOR | RESET_ALPHA)
+		if(!reagent.reagent_overlay)
+			continue
+		var/modified_reagent_overlay = state_prefix ? "[state_prefix]_[reagent.reagent_overlay]" : reagent.reagent_overlay
+		if(!check_state_in_icon(modified_reagent_overlay, icon))
+			continue
+		reagent_overlay.overlays += overlay_image(icon, modified_reagent_overlay, reagent.get_reagent_overlay_color(reagents), RESET_COLOR | RESET_ALPHA)
 	return reagent_overlay

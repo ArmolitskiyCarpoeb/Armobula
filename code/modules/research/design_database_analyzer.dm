@@ -81,17 +81,17 @@
 
 /obj/machinery/destructive_analyzer/attackby(var/obj/item/O, var/mob/user)
 
-	if(IS_MULTITOOL(O) && user.a_intent != I_HURT)
+	if(IS_MULTITOOL(O) && !user.check_intent(I_FLAG_HARM))
 		var/datum/extension/local_network_member/fabnet = get_extension(src, /datum/extension/local_network_member)
 		fabnet.get_new_tag(user)
 		return TRUE
 
-	if(isrobot(user))
-		return
 	if(busy)
 		to_chat(user, SPAN_WARNING("\The [src] is busy right now."))
 		return TRUE
 	if(component_attackby(O, user))
+		return TRUE
+	if(isrobot(user))
 		return TRUE
 	if(loaded_item)
 		to_chat(user, SPAN_WARNING("There is something already loaded into \the [src]."))
@@ -109,13 +109,14 @@
 		to_chat(user, SPAN_WARNING("You cannot deconstruct this item."))
 		return TRUE
 
-	if(user.try_unequip(O, src))
-		busy = TRUE
-		loaded_item = O
-		to_chat(user, SPAN_NOTICE("You add \the [O] to \the [src]."))
-		flick("d_analyzer_la", src)
-		addtimer(CALLBACK(src, PROC_REF(refresh_busy)), 1 SECOND)
+	if(!user.try_unequip(O, src))
 		return TRUE
+	busy = TRUE
+	loaded_item = O
+	to_chat(user, SPAN_NOTICE("You add \the [O] to \the [src]."))
+	flick("d_analyzer_la", src)
+	addtimer(CALLBACK(src, PROC_REF(refresh_busy)), 1 SECOND)
+	return TRUE
 
 /obj/machinery/destructive_analyzer/proc/refresh_busy()
 	if(busy)

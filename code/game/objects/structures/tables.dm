@@ -168,7 +168,7 @@
 
 /obj/structure/table/attackby(obj/item/W, mob/user, click_params)
 
-	if(user.a_intent == I_HURT && W.is_special_cutting_tool())
+	if(user.check_intent(I_FLAG_HARM) && W.is_special_cutting_tool())
 		spark_at(src.loc, amount=5)
 		playsound(src.loc, 'sound/weapons/blade1.ogg', 50, 1)
 		user.visible_message(SPAN_DANGER("\The [src] was sliced apart by \the [user]!"))
@@ -202,7 +202,7 @@
 			return TRUE
 
 	if(istype(W, /obj/item/deck)) //playing cards
-		if(user.a_intent == I_GRAB)
+		if(user.check_intent(I_FLAG_GRAB))
 			var/obj/item/deck/D = W
 			if(!length(D.cards))
 				to_chat(user, "There are no cards in the deck.")
@@ -270,11 +270,11 @@
 
 /obj/structure/table/update_material_name(override_name)
 	if(reinf_material)
-		name = "[reinf_material.solid_name] table"
+		SetName("[reinf_material.adjective_name] table")
 	else if(material)
-		name = "[material.solid_name] table frame"
+		SetName("[material.adjective_name] table frame")
 	else
-		name = "table frame"
+		SetName("table frame")
 
 /obj/structure/table/update_material_desc(override_desc)
 	desc = initial(desc)
@@ -295,6 +295,9 @@
 	color = "#ffffff"
 	alpha = 255
 	..()
+
+	if(!handle_generic_blending)
+		return
 
 	icon_state = "blank"
 	if(!is_flipped)
@@ -547,6 +550,8 @@
 		L.Add(turn(src.dir,90))
 	for(var/new_dir in L)
 		var/obj/structure/table/T = locate() in get_step(src.loc,new_dir)
+		if(L == src) // multitile objeeeects!
+			continue
 		if(blend_with(T) && T.is_flipped && T.dir == dir && !T.unflipping_check(new_dir))
 			return FALSE
 	return TRUE
@@ -712,63 +717,261 @@
 	reinf_material = /decl/material/solid/organic/wood/holographic
 
 //wood wood wood
-/obj/structure/table/woodentable
+/obj/structure/table/wood
 	icon_state = "solid_preview"
 	color = WOOD_COLOR_GENERIC
-	material = /decl/material/solid/organic/wood
-	reinf_material = /decl/material/solid/organic/wood
+	material = /decl/material/solid/organic/wood/oak
+	reinf_material = /decl/material/solid/organic/wood/oak
 	parts_type = /obj/item/stack/material/plank
 
-/obj/structure/table/woodentable/mahogany
+/obj/structure/table/wood/mahogany
 	color = WOOD_COLOR_RICH
 	material =       /decl/material/solid/organic/wood/mahogany
 	reinf_material = /decl/material/solid/organic/wood/mahogany
 
-/obj/structure/table/woodentable/maple
+/obj/structure/table/wood/maple
 	color = WOOD_COLOR_PALE
 	material =       /decl/material/solid/organic/wood/maple
 	reinf_material = /decl/material/solid/organic/wood/maple
 
-/obj/structure/table/woodentable/ebony
+/obj/structure/table/wood/ebony
 	color = WOOD_COLOR_BLACK
 	material =       /decl/material/solid/organic/wood/ebony
 	reinf_material = /decl/material/solid/organic/wood/ebony
 
-/obj/structure/table/woodentable/walnut
+/obj/structure/table/wood/walnut
 	color = WOOD_COLOR_CHOCOLATE
 	material =       /decl/material/solid/organic/wood/walnut
 	reinf_material = /decl/material/solid/organic/wood/walnut
 
-/obj/structure/table/woodentable_reinforced
+/obj/structure/table/wood/reinforced
 	icon_state = "reinf_preview"
 	color = WOOD_COLOR_GENERIC
-	material =                  /decl/material/solid/organic/wood
-	reinf_material =            /decl/material/solid/organic/wood
-	additional_reinf_material = /decl/material/solid/organic/wood
+	material =                  /decl/material/solid/organic/wood/oak
+	reinf_material =            /decl/material/solid/organic/wood/oak
+	additional_reinf_material = /decl/material/solid/organic/wood/oak
 
-/obj/structure/table/woodentable_reinforced/walnut
+/obj/structure/table/wood/reinforced/walnut
 	color = WOOD_COLOR_CHOCOLATE
 	material =                  /decl/material/solid/organic/wood/walnut
 	reinf_material =            /decl/material/solid/organic/wood/walnut
 	additional_reinf_material = /decl/material/solid/organic/wood/walnut
 
-/obj/structure/table/woodentable_reinforced/walnut/maple
+/obj/structure/table/wood/reinforced/walnut/maple
 	additional_reinf_material = /decl/material/solid/organic/wood/maple
 
-/obj/structure/table/woodentable_reinforced/mahogany
+/obj/structure/table/wood/reinforced/mahogany
 	color = WOOD_COLOR_RICH
 	material =                  /decl/material/solid/organic/wood/mahogany
 	reinf_material =            /decl/material/solid/organic/wood/mahogany
 	additional_reinf_material = /decl/material/solid/organic/wood/mahogany
 
-/obj/structure/table/woodentable_reinforced/mahogany/walnut
+/obj/structure/table/wood/reinforced/mahogany/walnut
 	additional_reinf_material = /decl/material/solid/organic/wood/walnut
 
-/obj/structure/table/woodentable_reinforced/ebony
+/obj/structure/table/wood/reinforced/ebony
 	color = WOOD_COLOR_BLACK
 	material =                  /decl/material/solid/organic/wood/ebony
 	reinf_material =            /decl/material/solid/organic/wood/ebony
 	additional_reinf_material = /decl/material/solid/organic/wood/ebony
 
-/obj/structure/table/woodentable_reinforced/ebony/walnut
+/obj/structure/table/wood/reinforced/ebony/walnut
 	additional_reinf_material = /decl/material/solid/organic/wood/walnut
+
+// Wood laminate tables; chipboard basically.
+// Smooth texture like plastic etc for a less rustic vibe on spacer maps.
+/obj/structure/table/laminate
+	icon_state = "solid_preview"
+	color = WOOD_COLOR_GENERIC
+	material = /decl/material/solid/organic/wood/chipboard
+	reinf_material = /decl/material/solid/organic/wood/chipboard
+
+/obj/structure/table/laminate/mahogany
+	color = WOOD_COLOR_RICH
+	material =       /decl/material/solid/organic/wood/chipboard/mahogany
+	reinf_material = /decl/material/solid/organic/wood/chipboard/mahogany
+
+/obj/structure/table/laminate/maple
+	color = WOOD_COLOR_PALE
+	material =       /decl/material/solid/organic/wood/chipboard/maple
+	reinf_material = /decl/material/solid/organic/wood/chipboard/maple
+
+/obj/structure/table/laminate/ebony
+	color = WOOD_COLOR_BLACK
+	material =       /decl/material/solid/organic/wood/chipboard/ebony
+	reinf_material = /decl/material/solid/organic/wood/chipboard/ebony
+
+/obj/structure/table/laminate/walnut
+	color = WOOD_COLOR_CHOCOLATE
+	material =       /decl/material/solid/organic/wood/chipboard/walnut
+	reinf_material = /decl/material/solid/organic/wood/chipboard/walnut
+
+/obj/structure/table/laminate/reinforced
+	icon_state = "reinf_preview"
+	color = WOOD_COLOR_GENERIC
+	material =                  /decl/material/solid/organic/wood/chipboard
+	reinf_material =            /decl/material/solid/organic/wood/chipboard
+	additional_reinf_material = /decl/material/solid/organic/wood/chipboard
+
+/obj/structure/table/laminate/reinforced/walnut
+	color = WOOD_COLOR_CHOCOLATE
+	material =                  /decl/material/solid/organic/wood/chipboard/walnut
+	reinf_material =            /decl/material/solid/organic/wood/chipboard/walnut
+	additional_reinf_material = /decl/material/solid/organic/wood/chipboard/walnut
+
+/obj/structure/table/laminate/reinforced/walnut/maple
+	additional_reinf_material = /decl/material/solid/organic/wood/chipboard/maple
+
+/obj/structure/table/laminate/reinforced/mahogany
+	color = WOOD_COLOR_RICH
+	material =                  /decl/material/solid/organic/wood/chipboard/mahogany
+	reinf_material =            /decl/material/solid/organic/wood/chipboard/mahogany
+	additional_reinf_material = /decl/material/solid/organic/wood/chipboard/mahogany
+
+/obj/structure/table/laminate/reinforced/mahogany/walnut
+	additional_reinf_material = /decl/material/solid/organic/wood/chipboard/walnut
+
+/obj/structure/table/laminate/reinforced/ebony
+	color = WOOD_COLOR_BLACK
+	material =                  /decl/material/solid/organic/wood/chipboard/ebony
+	reinf_material =            /decl/material/solid/organic/wood/chipboard/ebony
+	additional_reinf_material = /decl/material/solid/organic/wood/chipboard/ebony
+
+/obj/structure/table/laminate/reinforced/ebony/walnut
+	additional_reinf_material = /decl/material/solid/organic/wood/chipboard/walnut
+
+// A table that doesn't smooth, intended for bedside tables or otherwise standalone tables.
+// TODO: make table legs use material and tabletop use reinf_material
+// theoretically, this could also be made to use the normal table icon system, unlike desks?
+/obj/structure/table/end
+	name = "end table"
+	icon = 'icons/obj/structures/endtable.dmi'
+	icon_state = "end_table_1"
+	handle_generic_blending = FALSE
+	color = /decl/material/solid/organic/wood/walnut::color
+	material = /decl/material/solid/organic/wood/walnut
+	reinf_material = /decl/material/solid/organic/wood/walnut
+	material_alteration = MAT_FLAG_ALTERATION_ALL
+	can_flip = FALSE
+
+/obj/structure/table/end/alt
+	icon_state = "end_table_2"
+
+/obj/structure/table/end/alt/ebony
+	color = /decl/material/solid/organic/wood/ebony::color
+	material = /decl/material/solid/organic/wood/ebony
+	reinf_material = /decl/material/solid/organic/wood/ebony
+
+/obj/structure/table/end/Initialize()
+	. = ..()
+	// we don't do frames or anything, just skip right to decon
+	tool_interaction_flags |= TOOL_INTERACTION_DECONSTRUCT
+
+/obj/structure/table/end/reinforce_table(obj/item/stack/material/S, mob/user)
+	return FALSE
+
+/obj/structure/table/end/finish_table(obj/item/stack/material/S, mob/user)
+	return FALSE
+
+/obj/structure/table/end/handle_default_screwdriver_attackby(mob/user, obj/item/screwdriver)
+	return FALSE
+
+/obj/structure/table/end/update_material_name(override_name)
+	SetName("[reinf_material.adjective_name] end table")
+
+/obj/structure/table/desk
+	name = "desk"
+	icon_state = "desk_left"
+	icon = 'icons/obj/structures/desk_large.dmi'
+	handle_generic_blending = FALSE
+	color = /decl/material/solid/organic/wood/walnut::color
+	material = /decl/material/solid/organic/wood/walnut
+	reinf_material = /decl/material/solid/organic/wood/walnut
+	storage = /datum/storage/structure/desk
+	bound_width = 64
+	material_alteration = MAT_FLAG_ALTERATION_ALL
+	can_flip = FALSE
+	top_surface_noun = "desktop"
+	/// The pixel height at which point clicks start registering for the tabletop and not the drawers.
+	var/tabletop_height = 9
+
+/obj/structure/table/desk/Initialize()
+	. = ..()
+	// we don't do frames or anything, just skip right to decon
+	tool_interaction_flags |= TOOL_INTERACTION_DECONSTRUCT
+
+/obj/structure/table/desk/right
+	icon_state = "desk_right"
+
+/obj/structure/table/desk/ebony
+	color = /decl/material/solid/organic/wood/ebony::color
+	material = /decl/material/solid/organic/wood/ebony
+	reinf_material = /decl/material/solid/organic/wood/ebony
+
+/obj/structure/table/desk/ebony/right
+	icon_state = "desk_right"
+
+/obj/structure/table/desk/update_material_name(override_name)
+	SetName("[reinf_material.adjective_name] desk")
+
+/obj/structure/table/desk/reinforce_table(obj/item/stack/material/S, mob/user)
+	return FALSE
+
+/obj/structure/table/desk/finish_table(obj/item/stack/material/S, mob/user)
+	return FALSE
+
+/obj/structure/table/desk/handle_default_screwdriver_attackby(mob/user, obj/item/screwdriver)
+	return FALSE
+
+/obj/structure/table/desk/on_update_icon()
+	. = ..()
+	if(storage)
+		if(storage.opened)
+			icon_state = "[initial(icon_state)]_open"
+		else
+			icon_state = initial(icon_state)
+
+/datum/storage/structure/desk
+	use_sound = null
+	open_sound = 'sound/foley/drawer-open.ogg'
+	close_sound = 'sound/foley/drawer-close.ogg'
+	max_storage_space = DEFAULT_BOX_STORAGE * 2 // two drawers!
+
+/datum/storage/structure/desk/can_be_inserted(obj/item/prop, mob/user, stop_messages = 0, click_params = null)
+	var/list/params = params2list(click_params)
+	var/obj/structure/table/desk/desk = holder
+	if(LAZYLEN(params) && text2num(params["icon-y"]) > desk.tabletop_height)
+		return FALSE // don't insert when clicking the tabletop
+	return ..()
+
+/datum/storage/structure/desk/play_open_sound()
+	. = ..()
+	flick("[initial(holder.icon_state)]_opening", holder)
+
+/datum/storage/structure/desk/play_close_sound()
+	. = ..()
+	flick("[initial(holder.icon_state)]_closing", holder)
+
+/obj/structure/table/desk/storage_inserted()
+	if(storage && !storage.opened)
+		playsound(src, 'sound/foley/drawer-oneshot.ogg', 50, FALSE, -5)
+		flick("[initial(icon_state)]_oneoff", src)
+
+/obj/structure/table/desk/dresser
+	icon = 'icons/obj/structures/dresser.dmi'
+	icon_state = "dresser"
+	bound_width = 32
+	top_surface_noun = "surface"
+	tabletop_height = 15
+	mob_offset = 18
+
+/obj/structure/table/desk/dresser/update_material_name(override_name)
+	SetName("[reinf_material.adjective_name] dresser")
+
+/obj/structure/table/desk/dresser/ebony
+	color = /decl/material/solid/organic/wood/ebony::color
+	material = /decl/material/solid/organic/wood/ebony
+	reinf_material = /decl/material/solid/organic/wood/ebony
+
+/datum/storage/structure/desk/dresser
+	max_storage_space = DEFAULT_BOX_STORAGE * 3 // THREE drawers!

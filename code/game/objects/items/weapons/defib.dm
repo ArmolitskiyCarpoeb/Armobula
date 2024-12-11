@@ -68,19 +68,22 @@
 	toggle_paddles()
 	return TRUE
 
+// TODO: This should really use the cell extension
 /obj/item/defibrillator/attackby(obj/item/W, mob/user, params)
 	if(W == paddles)
 		reattach_paddles(user)
+		return TRUE
 	else if(istype(W, /obj/item/cell))
 		if(bcell)
-			to_chat(user, "<span class='notice'>\the [src] already has a cell.</span>")
+			to_chat(user, "<span class='notice'>\The [src] already has a cell.</span>")
 		else
 			if(!user.try_unequip(W))
-				return
+				return TRUE
 			W.forceMove(src)
 			bcell = W
 			to_chat(user, "<span class='notice'>You install a cell in \the [src].</span>")
 			update_icon()
+		return TRUE
 
 	else if(IS_SCREWDRIVER(W))
 		if(bcell)
@@ -89,6 +92,8 @@
 			bcell = null
 			to_chat(user, "<span class='notice'>You remove the cell from \the [src].</span>")
 			update_icon()
+			return TRUE
+		return FALSE
 	else
 		return ..()
 
@@ -190,6 +195,7 @@
 	max_health = ITEM_HEALTH_NO_DAMAGE
 	_base_attack_force = 2
 	can_be_twohanded = TRUE
+	minimum_size_to_twohand = MOB_SIZE_SMALL
 
 	var/safety = 1 //if you can zap people with the paddles on harm mode
 	var/combat = 0 //If it can be used to revive people wearing thick clothing (e.g. spacesuits)
@@ -277,7 +283,7 @@
 	return 0
 
 /obj/item/shockpaddles/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
-	if(!ishuman(target) || user.a_intent == I_HURT)
+	if(!ishuman(target) || user.check_intent(I_FLAG_HARM))
 		return ..() //Do a regular attack. Harm intent shocking happens as a hit effect
 	var/mob/living/human/H = target
 	if(can_use(user, H))

@@ -18,7 +18,7 @@
 
 /obj/structure/fountain/attack_hand(var/mob/user)
 
-	if(user.a_intent == I_HURT)
+	if(user.check_intent(I_FLAG_HARM))
 		return ..()
 
 	if(used)
@@ -33,7 +33,7 @@
 	var/datum/appearance_descriptor/age/age = my_bodytype && LAZYACCESS(my_bodytype.appearance_descriptors, "age")
 	if(H.isSynthetic() || !my_bodytype || !age)
 		to_chat(H, SPAN_WARNING("A feeling of foreboding stills your hand. The fountain is not for your kind."))
-		return
+		return TRUE
 
 	if(alert("As you reach out to touch the fountain, a feeling of doubt overcomes you. Steel yourself and proceed?",,"Yes", "No") == "Yes")
 		visible_message("\The [H] touches \the [src].")
@@ -106,7 +106,7 @@
 	add_to_reagents(/decl/material/liquid/water, reagents.maximum_volume) //Don't give free water when building one
 
 /obj/structure/fountain/mundane/attack_hand(mob/user)
-	if(user.a_intent == I_HURT)
+	if(user.check_intent(I_FLAG_HARM))
 		return ..()
 	return TRUE
 

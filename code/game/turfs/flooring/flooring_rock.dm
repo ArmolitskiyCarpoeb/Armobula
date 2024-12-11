@@ -6,6 +6,8 @@
 	has_base_range  = null
 	color           = "#3b3a35"
 	icon_edge_layer = FLOOR_EDGE_VOLCANIC
+	gender          = NEUTER
+	footstep_type   = /decl/footsteps/plating
 
 /decl/flooring/rock/update_turf_strings(turf/floor/target)
 	var/decl/material/material = target?.get_material()

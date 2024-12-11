@@ -59,7 +59,7 @@
 	var/atom/food = find_edible_atom(view(1, body.loc))
 	if(istype(food))
 		body.stop_automove()
-		body.a_intent = I_HELP
+		body.set_intent(I_FLAG_HELP)
 		body.ClickOn(food)
 	else if(!LAZYLEN(body.grabbed_by))
 		food = find_edible_atom(oview(5, body.loc))
@@ -103,7 +103,7 @@
 	see_in_dark = 6
 	max_health = 50
 	butchery_data = /decl/butchery_data/animal/ruminant/cow
-
+	// When cows can accept food items: /obj/item/food/hay
 	var/static/list/responses = list(
 		"looks at you imploringly",
 		"looks at you pleadingly",
@@ -245,19 +245,19 @@ var/global/chicken_count = 0
 		global.chicken_count -= 1
 
 /mob/living/simple_animal/fowl/chicken/attackby(var/obj/item/O, var/mob/user)
-	if(istype(O, /obj/item/food)) //feedin' dem chickens
-		var/obj/item/food/G = O
-		if(findtext(G.get_grown_tag(), "wheat")) // includes chopped, crushed, dried etc.
-			if(!stat && eggsleft < 4)
-				user.visible_message(SPAN_NOTICE("[user] feeds \the [O] to \the [src]! It clucks happily."), SPAN_NOTICE("You feed \the [O] to \the [src]! It clucks happily."), SPAN_NOTICE("You hear clucking."))
-				qdel(O)
-				eggsleft += rand(1, 2)
-			else
-				to_chat(user, SPAN_NOTICE("\The [src] doesn't seem hungry!"))
+	if(istype(O, /obj/item/food))
+		return ..()
+	var/obj/item/food/G = O //feedin' dem chickens
+	if(findtext(G.get_grown_tag(), "wheat")) // includes chopped, crushed, dried etc.
+		if(!stat && eggsleft < 4)
+			user.visible_message(SPAN_NOTICE("[user] feeds \the [O] to \the [src]! It clucks happily."), SPAN_NOTICE("You feed \the [O] to \the [src]! It clucks happily."), SPAN_NOTICE("You hear clucking."))
+			qdel(O)
+			eggsleft += rand(1, 2)
 		else
-			to_chat(user, "\The [src] doesn't seem interested in that.")
+			to_chat(user, SPAN_NOTICE("\The [src] doesn't seem hungry!"))
 	else
-		..()
+		to_chat(user, "\The [src] doesn't seem interested in that.")
+	return TRUE
 
 /mob/living/simple_animal/fowl/chicken/handle_living_non_stasis_processes()
 	if((. = ..()) && prob(1) && eggsleft > 0)

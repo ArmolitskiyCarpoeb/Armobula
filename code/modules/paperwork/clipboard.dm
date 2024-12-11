@@ -9,7 +9,7 @@
 	throw_range             = 10
 	slot_flags              = SLOT_LOWER_BODY
 	material_alteration     = MAT_FLAG_ALTERATION_COLOR
-	material                = /decl/material/solid/organic/wood
+	material                = /decl/material/solid/organic/wood/oak
 	drop_sound              = 'sound/foley/tooldrop5.ogg'
 	pickup_sound            = 'sound/foley/paperpickup2.ogg'
 
@@ -70,7 +70,7 @@
 	var/obj/item/top_paper = top_paper()
 	if(istype(W, /obj/item/paper) || istype(W, /obj/item/photo))
 		if(!user.try_unequip(W, src))
-			return
+			return TRUE
 		push_paper(W)
 		to_chat(user, SPAN_NOTICE("You clip the [W] onto \the [src]."))
 		return TRUE

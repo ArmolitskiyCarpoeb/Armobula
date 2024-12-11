@@ -250,7 +250,7 @@ var/global/list/closets = list()
 
 /obj/structure/closet/attackby(obj/item/used_item, mob/user)
 
-	if(user.a_intent == I_HURT && used_item.get_attack_force(user))
+	if(user.check_intent(I_FLAG_HARM) && used_item.get_attack_force(user))
 		return ..()
 
 	if(!opened && (istype(used_item, /obj/item/stack/material) || IS_WRENCH(used_item)) )
@@ -319,7 +319,7 @@ var/global/list/closets = list()
 		if(!WT.weld(0,user))
 			if(WT.isOn())
 				to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
-			return
+			return TRUE
 		welded = !welded
 		update_icon()
 		user.visible_message(SPAN_WARNING("\The [src] has been [welded?"welded shut":"unwelded"] by \the [user]."), blind_message = "You hear welding.", range = 3)

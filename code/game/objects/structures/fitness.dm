@@ -20,7 +20,7 @@
 		to_chat(H, SPAN_WARNING("You [synth ? "need more energy" : "are too tired"] to use the punching bag. Go [synth ? "recharge" : "eat something"]."))
 		return TRUE
 
-	if(H.a_intent == I_HURT)
+	if(H.check_intent(I_FLAG_HARM))
 		H.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		flick("[icon_state]_hit", src)
 		playsound(src.loc, 'sound/effects/woodhit.ogg', 25, 1, -1)
@@ -47,6 +47,8 @@
 		playsound(src.loc, 'sound/items/Deconstruct.ogg', 75, 1)
 		weight = (weight % max_weight) + 1
 		to_chat(user, "You set the machine's weight level to [weight].")
+		return TRUE
+	return ..()
 
 /obj/structure/fitness/weightlifter/attack_hand(mob/user)
 	if(!ishuman(user))

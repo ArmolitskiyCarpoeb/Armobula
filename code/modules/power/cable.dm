@@ -157,6 +157,7 @@ By design, d1 is the smallest direction and d2 is the highest
 //   - Multitool : get the power currently passing through the cable
 //
 
+// TODO: take a closer look at cable attackby, make it call parent?
 /obj/structure/cable/attackby(obj/item/W, mob/user)
 	if(IS_WIRECUTTER(W))
 		cut_wire(W, user)
@@ -165,7 +166,7 @@ By design, d1 is the smallest direction and d2 is the highest
 		var/obj/item/stack/cable_coil/coil = W
 		if (coil.get_amount() < 1)
 			to_chat(user, "You don't have enough cable to lay down.")
-			return
+			return TRUE
 		coil.cable_join(src, user)
 
 	else if(IS_MULTITOOL(W))
@@ -198,6 +199,7 @@ By design, d1 is the smallest direction and d2 is the highest
 			visible_message(SPAN_WARNING("[user] stops cutting before any damage is done."))
 
 	src.add_fingerprint(user)
+	return TRUE
 
 /obj/structure/cable/proc/cut_wire(obj/item/W, mob/user)
 	var/turf/T = get_turf(src)
@@ -553,7 +555,7 @@ By design, d1 is the smallest direction and d2 is the highest
 //you can use wires to heal robotics
 /obj/item/stack/cable_coil/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
 	var/obj/item/organ/external/affecting = istype(target) && GET_EXTERNAL_ORGAN(target, user?.get_target_zone())
-	if(affecting && user.a_intent == I_HELP)
+	if(affecting && user.check_intent(I_FLAG_HELP))
 		if(!affecting.is_robotic())
 			to_chat(user, SPAN_WARNING("\The [target]'s [affecting.name] is not robotic. \The [src] cannot repair it."))
 		else if(BP_IS_BRITTLE(affecting))
