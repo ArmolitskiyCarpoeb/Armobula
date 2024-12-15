@@ -12,7 +12,6 @@
 	color              = /decl/material/solid/organic/wood/oak::color
 	force_material     = /decl/material/solid/organic/wood/oak
 	constructed        = TRUE
-	gender             = NEUTER
 	broken_states      = list(
 		"broken0",
 		"broken1",
@@ -22,7 +21,7 @@
 		"broken5",
 		"broken6"
 	)
-
+/*
 /decl/flooring/wood/mahogany
 	color = /decl/material/solid/organic/wood/mahogany::color
 	build_type = /obj/item/stack/tile/mahogany
@@ -46,20 +45,20 @@
 /decl/flooring/wood/yew
 	color = /decl/material/solid/organic/wood/yew::color
 	build_type = /obj/item/stack/tile/yew
+*/
 
 /decl/flooring/wood2
 	name = "wooden floor"
 	desc = "Polished wood planks."
 	icon = 'icons/turf/flooring/wood.dmi'
-	icon_base = "wood2"
+	icon_base = "wood_new"
 	damage_temperature = T0C+200
 	descriptor = "planks"
 	build_type = /obj/item/stack/tile/wood
-	flooring_flags = TURF_CAN_BREAK | TURF_IS_FRAGILE | TURF_REMOVE_SCREWDRIVER
+	flooring_flags = TURF_IS_FRAGILE | TURF_REMOVE_SCREWDRIVER
 	footstep_type = /decl/footsteps/wood
 	color = WOOD_COLOR_GENERIC
 
-	gender             = NEUTER
 	broken_states      = list(
 		"broken0",
 		"broken1",
@@ -114,7 +113,6 @@
 	color              = /decl/material/solid/organic/wood/chipboard::color
 	force_material     = /decl/material/solid/organic/wood/chipboard
 	constructed        = TRUE
-	gender             = NEUTER
 	broken_states      = list(
 		"broken0",
 		"broken1",

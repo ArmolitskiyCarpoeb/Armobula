@@ -58,7 +58,7 @@
 /turf/floor/wood2
 	name = "wooden floor"
 	icon = 'icons/turf/flooring/wood.dmi'
-	icon_state = "wood2"
+	icon_state = "wood_new"
 	color = WOOD_COLOR_GENERIC
 	_flooring = /decl/flooring/wood2
 

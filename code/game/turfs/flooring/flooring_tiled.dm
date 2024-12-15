@@ -14,7 +14,6 @@
 	space_smooth       = SMOOTH_ALL
 	constructed        = TRUE
 
-	gender             = NEUTER
 	burned_states  = list(
 		"burned0",
 		"burned1"

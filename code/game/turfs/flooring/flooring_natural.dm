@@ -6,7 +6,6 @@
 	icon_edge_layer = FLOOR_EDGE_SEAFLOOR
 	turf_flags      = TURF_FLAG_BACKGROUND | TURF_IS_HOLOMAP_PATH | TURF_FLAG_ABSORB_LIQUID
 	force_material  = /decl/material/solid/sand
-	gender          = NEUTER
 	footstep_type   = /decl/footsteps/sand
 
 /decl/flooring/shrouded

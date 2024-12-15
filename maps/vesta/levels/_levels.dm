@@ -10,7 +10,7 @@
 	strata = /decl/strata/acheron
 	level_generators = list(
 		/datum/random_map/automata/cave_system/acheron,
-		/datum/random_map/noise/ore/rich
+		/datum/random_map/noise/ore/rich,
 	)
 	base_turf = /turf/floor/rock/cave
 	exterior_atmosphere = list(
@@ -73,7 +73,9 @@
 	strata = /decl/strata/acheron
 	level_generators = list(
 		/datum/random_map/automata/cave_system/acheron,
-		/datum/random_map/noise/ore/rich
+		/datum/random_map/noise/ore/rich,
+		/datum/random_map/noise/forage/acheron/caves,
+		/datum/random_map/noise/acheron/caves
 	)
 	base_turf = /turf/floor/rock/cave
 	exterior_atmosphere = list(

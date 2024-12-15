@@ -13,7 +13,6 @@
 	force_material = /decl/material/solid/metal/steel
 	constructed    = TRUE
 
-	gender         = NEUTER
 	burned_states  = list(
 		"burned0",
 		"burned1"
@@ -57,7 +56,6 @@
 	flooring_flags = TURF_ACID_IMMUNE | TURF_REMOVE_CROWBAR
 	can_paint      = 1
 	can_engrave    = FALSE
-	gender         = NEUTER
 
 /decl/flooring/reinforced/shuttle/blue
 	icon_base = "floor"
@@ -86,7 +84,7 @@
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_base = "ramptop"
 	build_type = null
-	flooring_flags = TURF_ACID_IMMUNE | TURF_CAN_BREAK
+	flooring_flags = TURF_ACID_IMMUNE
 	can_paint = 1
 	footstep_type = /decl/footsteps/plating
 
