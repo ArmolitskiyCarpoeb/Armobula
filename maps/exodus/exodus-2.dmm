@@ -200,7 +200,7 @@
 /turf/floor/tiled/steel_grid,
 /area/exodus/security/range)
 "aaD" = (
-/obj/structure/target_stake,
+/obj/structure/target_stake/steel,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/floor/tiled/steel_grid,
 /area/exodus/security/range)
@@ -344,11 +344,11 @@
 /area/exodus/security/range)
 "aaV" = (
 /obj/structure/closet/crate,
-/obj/item/target,
-/obj/item/target,
-/obj/item/target,
-/obj/item/target,
-/obj/item/target,
+/obj/item/training_dummy,
+/obj/item/training_dummy,
+/obj/item/training_dummy,
+/obj/item/training_dummy,
+/obj/item/training_dummy,
 /obj/machinery/light,
 /turf/floor/tiled/steel_grid,
 /area/exodus/security/range)

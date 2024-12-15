@@ -3345,7 +3345,7 @@
 /turf/floor/plating,
 /area/ministation/maint/l3nw)
 "qj" = (
-/obj/structure/target_stake,
+/obj/structure/target_stake/steel,
 /obj/item/toy/figure/clown,
 /turf/floor/reinforced/airless,
 /area/space)

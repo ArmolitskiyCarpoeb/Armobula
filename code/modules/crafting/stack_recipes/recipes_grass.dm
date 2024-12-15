@@ -41,3 +41,6 @@
 		/obj/item/stack/material/bundle,
 		/obj/item/stack/material/thread
 	)
+
+/decl/stack_recipe/woven/dummy
+	result_type = /obj/item/training_dummy/straw

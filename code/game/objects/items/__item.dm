@@ -173,6 +173,16 @@
 		set_material(material_key)
 	paint_verb ||= "painted" // fallback for the case of no material
 
+	// This is a bit gross, but it makes writing rings and necklaces much easier.
+	// If the decorations list is already populated at this point, we assume it's
+	// prebaked decorations. Only things handled appropriately at the moment are gems.
+	if(length(decorations))
+		for(var/decoration_type in decorations)
+			decorations -= decoration_type
+			if(ispath(decoration_type, /obj/item/gemstone))
+				decorations[GET_DECL(/decl/item_decoration/setting)] = list("object" = new decoration_type(src))
+			else
+				PRINT_STACK_TRACE("Item [type] tried to initialize with an unsupported initial decoration type ('[decoration_type]')")
 	. = ..()
 
 	setup_sprite_sheets()
@@ -199,6 +209,9 @@
 			update_icon()
 
 /obj/item/Destroy()
+
+	// May contain object references.
+	LAZYCLEARLIST(decorations)
 
 	if(LAZYLEN(_item_effects))
 		_item_effects = null
@@ -583,11 +596,6 @@
 			return cell_loaded.try_load(user, used_item)
 
 	return ..()
-
-/obj/item/attack_ghost(mob/user)
-	var/mob/observer/ghost/pronouns = user
-	if(pronouns.client?.holder || pronouns.antagHUD)
-		storage?.show_to(user)
 
 /obj/item/proc/talk_into(mob/living/M, message, message_mode, var/verb = "says", var/decl/language/speaking = null)
 	return

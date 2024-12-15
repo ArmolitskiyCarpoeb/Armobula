@@ -203,7 +203,7 @@
 
 /decl/loadout_option/fantasy/neck/prayer_beads
 	name = "prayer beads"
-	path = /obj/item/clothing/neck/necklace/prayer_beads
+	path = /obj/item/clothing/neck/prayer_beads
 	available_materials = list(
 		/decl/material/solid/organic/bone,
 		/decl/material/solid/stone/marble,

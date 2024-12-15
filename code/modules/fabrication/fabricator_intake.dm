@@ -115,10 +115,10 @@
 		if(istype(O, /obj/item/disk/design_disk))
 			var/obj/item/disk/design_disk/disk = O
 			if(!disk.blueprint)
-				to_chat(usr, SPAN_WARNING("\The [O] is blank."))
+				to_chat(user, SPAN_WARNING("\The [O] is blank."))
 				return TRUE
 			if(disk.blueprint in installed_designs)
-				to_chat(usr, SPAN_WARNING("\The [src] is already loaded with the blueprint stored on \the [O]."))
+				to_chat(user, SPAN_WARNING("\The [src] is already loaded with the blueprint stored on \the [O]."))
 				return TRUE
 			installed_designs += disk.blueprint
 			design_cache |= disk.blueprint

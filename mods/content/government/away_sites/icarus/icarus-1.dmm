@@ -1931,7 +1931,7 @@
 /turf/floor/plating,
 /area/icarus/vessel)
 "go" = (
-/obj/structure/target_stake,
+/obj/structure/target_stake/steel,
 /turf/floor/plating,
 /area/icarus/vessel)
 "gp" = (

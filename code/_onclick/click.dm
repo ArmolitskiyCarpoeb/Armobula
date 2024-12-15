@@ -108,7 +108,7 @@
 	if(holding == A) // Handle attack_self
 		holding.attack_self(src)
 		trigger_aiming(TARGET_CAN_CLICK)
-		usr.update_inhand_overlays(FALSE)
+		update_inhand_overlays(FALSE)
 		return 1
 
 	//Atoms on your person

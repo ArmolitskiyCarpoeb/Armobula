@@ -456,9 +456,6 @@
 
 /obj/item/backpack/crafted/backpack
 	name = "backpack"
+	name_prefix = "handmade"
 	desc = "A rather rough handmade backpack."
 	icon = 'icons/obj/items/storage/backpack/backpack_crafted.dmi'
-
-/obj/item/backpack/crafted/backpack/update_name()
-	. = ..()
-	SetName("handmade [name]")

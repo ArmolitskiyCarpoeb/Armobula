@@ -7240,7 +7240,7 @@
 /turf/floor/tiled/white,
 /area/ministation/medical)
 "Ft" = (
-/obj/structure/target_stake,
+/obj/structure/target_stake/steel,
 /turf/floor/tiled,
 /area/ministation/security)
 "Fy" = (
@@ -8356,18 +8356,18 @@
 /area/ministation/medical)
 "Me" = (
 /obj/structure/rack,
-/obj/item/target,
-/obj/item/target/alien,
-/obj/item/target/syndicate,
+/obj/item/training_dummy,
+/obj/item/training_dummy/alien,
+/obj/item/training_dummy/syndicate,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/item/target/syndicate,
-/obj/item/target/syndicate,
-/obj/item/target/syndicate,
-/obj/item/target/alien,
-/obj/item/target/alien,
-/obj/item/target/alien,
+/obj/item/training_dummy/syndicate,
+/obj/item/training_dummy/syndicate,
+/obj/item/training_dummy/syndicate,
+/obj/item/training_dummy/alien,
+/obj/item/training_dummy/alien,
+/obj/item/training_dummy/alien,
 /turf/floor/tiled,
 /area/ministation/security)
 "Mp" = (

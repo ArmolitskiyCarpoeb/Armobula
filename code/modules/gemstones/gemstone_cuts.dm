@@ -23,10 +23,11 @@
 			. += "missing world state from '[icon]'"
 		if(!check_state_in_icon(ICON_STATE_INV, icon))
 			. += "missing inventory state from '[icon]'"
-		var/check_state = "[ICON_STATE_WORLD]-set"
+		var/decl/item_decoration/gem_set = GET_DECL(/decl/item_decoration/setting)
+		var/check_state = "[ICON_STATE_WORLD]-[gem_set.icon_state_modifier]"
 		if(!check_state_in_icon(check_state, icon))
 			. += "missing state '[check_state]' from '[icon]'"
-		check_state = "[ICON_STATE_INV]-set"
+		check_state = "[ICON_STATE_INV]-[gem_set.icon_state_modifier]"
 		if(!check_state_in_icon(check_state, icon))
 			. += "missing state '[check_state]' from '[icon]'"
 	else

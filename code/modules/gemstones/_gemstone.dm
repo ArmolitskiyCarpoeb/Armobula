@@ -87,3 +87,41 @@ var/global/list/_available_gemstone_cuts
 	name = "round-cut diamond"
 	cut  = /decl/gemstone_cut/round
 	icon = 'icons/obj/items/gemstones/round.dmi'
+
+
+// Material subtypes.
+/obj/item/gemstone/baguette/topaz
+	material = /decl/material/solid/gemstone/topaz
+
+/obj/item/gemstone/baguette/sapphire
+	material = /decl/material/solid/gemstone/sapphire
+
+/obj/item/gemstone/baguette/ruby
+	material = /decl/material/solid/gemstone/ruby
+
+/obj/item/gemstone/hexagon/topaz
+	material = /decl/material/solid/gemstone/topaz
+
+/obj/item/gemstone/hexagon/sapphire
+	material = /decl/material/solid/gemstone/sapphire
+
+/obj/item/gemstone/hexagon/ruby
+	material = /decl/material/solid/gemstone/ruby
+
+/obj/item/gemstone/octagon/topaz
+	material = /decl/material/solid/gemstone/topaz
+
+/obj/item/gemstone/octagon/sapphire
+	material = /decl/material/solid/gemstone/sapphire
+
+/obj/item/gemstone/octagon/ruby
+	material = /decl/material/solid/gemstone/ruby
+
+/obj/item/gemstone/round/topaz
+	material = /decl/material/solid/gemstone/topaz
+
+/obj/item/gemstone/round/sapphire
+	material = /decl/material/solid/gemstone/sapphire
+
+/obj/item/gemstone/round/ruby
+	material = /decl/material/solid/gemstone/ruby
