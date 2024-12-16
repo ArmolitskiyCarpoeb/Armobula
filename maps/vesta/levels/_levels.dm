@@ -11,15 +11,16 @@
 	level_generators = list(
 		/datum/random_map/automata/cave_system/acheron,
 		/datum/random_map/noise/ore/rich,
+		/datum/random_map/noise/acheron/caves
 	)
 	base_turf = /turf/floor/rock/cave
-	exterior_atmosphere = list(
-		/decl/material/gas/oxygen =   MOLES_O2STANDARD,
-		/decl/material/gas/nitrogen = MOLES_N2STANDARD
-	)
+//	exterior_atmosphere = list(
+//		/decl/material/gas/oxygen =   MOLES_O2STANDARD,
+//		/decl/material/gas/nitrogen = MOLES_N2STANDARD
+//	)
 //	daycycle_type = /datum/daycycle/shaded_hills
 //	daycycle_id = "daycycle_shaded_hills"
-	template_edge_padding = 0
+	template_edge_padding = 1
 	var/submap_budget   = 0
 	var/submap_category = null
 	var/submap_area
@@ -62,7 +63,7 @@
 	name = "Vesta - Caves"
 	level_id = "vesta_caves"
 	use_global_exterior_ambience = FALSE
-	base_area = null
+//	base_area = null
 	abstract_type = /datum/level_data/player_level/vesta
 //	connected_levels = list(
 //		"vesta_caves" = WEST,
@@ -70,7 +71,7 @@
 //		"vesta_caves" = NORTH,
 //		"vesta_caves" = SOUTH
 //	)
-	strata = /decl/strata/acheron
+//	strata = /decl/strata/acheron
 	level_generators = list(
 		/datum/random_map/automata/cave_system/acheron,
 		/datum/random_map/noise/ore/rich,
