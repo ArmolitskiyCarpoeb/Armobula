@@ -13,16 +13,19 @@
 
 /datum/random_map/noise/acheron/caves
 	descriptor           = "CAVES"
+	target_turf_type = /turf/floor/rock/cave
 
 /datum/random_map/noise/acheron/caves/get_appropriate_path(var/value)
 	value = noise2value(value)
-	if(value <= 3)
+	if(value <= 2)
 		return /turf/floor/mud/water/deep
-	if(value <= 5)
+	if(value <= 3)
 		return /turf/floor/mud/water
-	if(value <= 7)
-		return /turf/floor/mud
-	return /turf/floor/grass
+	if(value <= 4)
+		return /turf/floor/grass/wild
+	if(value <= 5)
+		return /turf/floor/grass
+	return /turf/floor/rock/cave
 
 /datum/random_map/noise/forage/acheron
 	abstract_type = /datum/random_map/noise/forage/acheron
