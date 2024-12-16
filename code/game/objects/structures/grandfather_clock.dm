@@ -1,13 +1,14 @@
 // TODO: buildable with artifice?
 // TODO: looping 2 second tick tock sound, somehow aligned with pendulum (may not be possible in DM)
 /obj/structure/grandfather_clock
-	name           = "grandfather clock"
-	desc           = "A tall, stately timepiece."
-	icon           = 'icons/obj/structures/grandfather_clock.dmi'
-	icon_state     = ICON_STATE_WORLD
-	density        = TRUE
-	material       = /decl/material/solid/organic/wood/mahogany
-	var/face_color = "#f0edc7"
+	name                = "grandfather clock"
+	desc                = "A tall, stately timepiece."
+	icon                = 'icons/obj/structures/grandfather_clock.dmi'
+	icon_state          = ICON_STATE_WORLD
+	density             = TRUE
+	material            = /decl/material/solid/organic/wood/mahogany
+	material_alteration = MAT_FLAG_ALTERATION_ALL
+	var/face_color      = "#f0edc7"
 	var/last_time
 	var/decl/material/clockwork_mat = /decl/material/solid/metal/brass
 
