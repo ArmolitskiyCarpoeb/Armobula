@@ -175,12 +175,15 @@
 
 	// This is a bit gross, but it makes writing rings and necklaces much easier.
 	// If the decorations list is already populated at this point, we assume it's
-	// prebaked decorations. Only things handled appropriately at the moment are gems.
+	// prebaked decorations.
+	// Only things handled appropriately at the moment are gems and material inlays.
 	if(length(decorations))
 		for(var/decoration_type in decorations)
 			decorations -= decoration_type
 			if(ispath(decoration_type, /obj/item/gemstone))
 				decorations[GET_DECL(/decl/item_decoration/setting)] = list("object" = new decoration_type(src))
+			else if(ispath(decoration_type, /decl/material))
+				decorations[GET_DECL(/decl/item_decoration/inset)]   = list("material" = GET_DECL(decoration_type))
 			else
 				PRINT_STACK_TRACE("Item [type] tried to initialize with an unsupported initial decoration type ('[decoration_type]')")
 	. = ..()
