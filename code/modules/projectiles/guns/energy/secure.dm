@@ -34,11 +34,9 @@
 
 /obj/item/gun/energy/laser/secure
 	name = "laser carbine"
-	desc = "A G40E carbine, designed to kill with concentrated energy blasts. Fitted with an ML1019 chip to make sure killcount is tracked appropriately."
+	desc = "A G40E carbine, designed to kill with concentrated energy blasts. Fitted with an NT1019 chip to make sure killcount is tracked appropriately."
 	req_access = list(list(access_brig, access_bridge))
-	authorized_modes = list(ALWAYS_AUTHORIZED, AUTHORIZED)
-/*
+
 /obj/item/gun/energy/laser/secure/on_update_icon()
 	. = ..()
 	add_overlay(mutable_appearance(icon, "[icon_state]_stripe", COLOR_BLUE_GRAY))
-*/

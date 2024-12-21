@@ -8,8 +8,8 @@
 	organ_tag = BP_EYES
 	parent_organ = BP_HEAD
 	surface_accessible = TRUE
-	relative_size = 3
-	max_damage = 25
+	relative_size = 5
+	max_damage = 45
 	z_flags = ZMM_MANGLE_PLANES
 
 	var/eye_colour = COLOR_BLACK
