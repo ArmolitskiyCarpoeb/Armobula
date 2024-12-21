@@ -312,8 +312,8 @@ default behaviour is:
 	BITSET(hud_updateflag, HEALTH_HUD)
 	BITSET(hud_updateflag, STATUS_HUD)
 	BITSET(hud_updateflag, LIFE_HUD)
-	ExtinguishMob()
-	fire_stacks = 0
+	extinguish_fire()
+	set_fire_intensity(0)
 	var/obj/item/cuffs = get_equipped_item(slot_handcuffed_str)
 	if (cuffs)
 		try_unequip(cuffs, get_turf(src))
@@ -551,8 +551,8 @@ default behaviour is:
 			spawn() escape_buckle()
 		return TRUE
 	//drop && roll
-	else if(on_fire)
-		fire_stacks = max(0, fire_stacks-1.2)
+	else if(is_on_fire())
+		set_fire_intensity(max(0, get_fire_intensity()-1.2))
 		SET_STATUS_MAX(src, STAT_WEAK, 3)
 		spin(32,2)
 		var/decl/pronouns/pronouns = get_pronouns()
@@ -561,12 +561,12 @@ default behaviour is:
 			SPAN_NOTICE("You stop, drop, and roll!")
 		)
 		sleep(3 SECONDS)
-		if(fire_stacks <= 0)
+		if(get_fire_intensity() <= 0)
 			visible_message(
 				SPAN_NOTICE("\The [src] successfully extinguishes [pronouns.him][pronouns.self]!"),
 				SPAN_NOTICE("You extinguish yourself.")
 			)
-			ExtinguishMob()
+			extinguish_fire()
 		return TRUE
 
 	//Breaking out of a structure?
@@ -1079,17 +1079,19 @@ default behaviour is:
 			ADJ_STATUS(src, STAT_STUN, -3)
 			ADJ_STATUS(src, STAT_WEAK, -3)
 
-		if(fire_stacks >= target.fire_stacks + 3)
-			target.fire_stacks += 1
-			fire_stacks -= 1
-		else if(target.fire_stacks >= fire_stacks + 3)
-			fire_stacks += 1
-			target.fire_stacks -= 1
+		var/fire_level        = get_fire_intensity()
+		var/target_fire_level = target.get_fire_intensity()
+		if(fire_level >= target_fire_level + 3)
+			target.adjust_fire_intensity(1)
+			adjust_fire_intensity(-1)
+		else if(target_fire_level >= fire_level + 3)
+			adjust_fire_intensity(1)
+			target.adjust_fire_intensity(-1)
 
-		if(on_fire && !target.on_fire)
-			target.IgniteMob()
-		else if(!on_fire && target.on_fire)
-			IgniteMob()
+		if(is_on_fire() && !target.is_on_fire())
+			target.ignite_fire()
+		else if(!is_on_fire() && target.is_on_fire())
+			ignite_fire()
 
 /mob/living/proc/jump_layer_shift()
 	jumping = TRUE

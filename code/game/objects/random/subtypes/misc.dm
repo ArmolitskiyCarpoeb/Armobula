@@ -164,7 +164,7 @@
 		/obj/effect/decal/cleanable/ash,
 		/obj/effect/decal/cleanable/generic,
 		/obj/effect/decal/cleanable/flour,
-		/obj/effect/decal/cleanable/dirt,
+		/obj/effect/decal/cleanable/dirt/visible,
 		/obj/item/remains/robot
 	)
 	return spawnable_choices
@@ -210,8 +210,8 @@
 		/obj/item/stack/material/plank/mapped/wood/fifty,
 		/obj/item/stack/material/cardstock/mapped/cardboard/fifty,
 		/obj/item/stack/material/sheet/reinforced/mapped/plasteel/fifty,
-		/obj/item/stack/material/rods/ten,
-		/obj/item/stack/material/rods/fifty
+		/obj/item/stack/material/rods/mapped/steel/ten,
+		/obj/item/stack/material/rods/mapped/steel/fifty
 	)
 	return spawnable_choices
 

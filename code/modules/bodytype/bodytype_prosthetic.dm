@@ -1,19 +1,20 @@
 /decl/bodytype/prosthetic
-	abstract_type = /decl/bodytype/prosthetic
-	icon_base = 'icons/mob/human_races/cyberlimbs/robotic.dmi'
-	desc = "A generic unbranded robotic prosthesis."
-	limb_tech = @'{"engineering":1,"materials":1,"magnets":1}'
-	modifier_string = "robotic"
-	is_robotic = TRUE
-	body_flags = BODY_FLAG_NO_DNA | BODY_FLAG_NO_DEFIB | BODY_FLAG_NO_STASIS | BODY_FLAG_NO_PAIN | BODY_FLAG_NO_EAT
-	organ_material = /decl/material/solid/metal/steel
-	appearance_flags = HAS_EYE_COLOR
-	eye_flash_mod = 1
-	eye_darksight_range = 2
-	associated_gender = null
+	abstract_type        = /decl/bodytype/prosthetic
+	icon_base            = 'icons/mob/human_races/cyberlimbs/robotic.dmi'
+	surgery_overlay_icon = null
+	desc                 = "A generic unbranded robotic prosthesis."
+	limb_tech            = @'{"engineering":1,"materials":1,"magnets":1}'
+	modifier_string      = "robotic"
+	is_robotic           = TRUE
+	body_flags           = BODY_FLAG_NO_DNA | BODY_FLAG_NO_DEFIB | BODY_FLAG_NO_STASIS | BODY_FLAG_NO_PAIN | BODY_FLAG_NO_EAT
+	organ_material       = /decl/material/solid/metal/steel
+	appearance_flags     = HAS_EYE_COLOR
+	eye_flash_mod        = 1
+	eye_darksight_range  = 2
+	associated_gender    = null
 	edible_reagent = null
 	emote_sounds = list(
-		"whistle" = list('sound/voice/emotes/longwhistle_robot.ogg'),
+		"whistle"  = list('sound/voice/emotes/longwhistle_robot.ogg'),
 		"qwhistle" = list('sound/voice/emotes/shortwhistle_robot.ogg'),
 		"swhistle" = list('sound/voice/emotes/summon_whistle_robot.ogg'),
 		"wwhistle" = list('sound/voice/emotes/wolfwhistle_robot.ogg')
@@ -38,17 +39,20 @@
 		BP_EYES  = /obj/item/organ/internal/eyes,
 		BP_CELL  = /obj/item/organ/internal/cell
 	)
-	cold_level_1 = SYNTH_COLD_LEVEL_1
-	cold_level_2 = SYNTH_COLD_LEVEL_2
-	cold_level_3 = SYNTH_COLD_LEVEL_3
-	heat_level_1 = SYNTH_HEAT_LEVEL_1
-	heat_level_2 = SYNTH_HEAT_LEVEL_2
-	heat_level_3 = SYNTH_HEAT_LEVEL_3
+
 	cold_discomfort_strings = null
-	heat_discomfort_level = 373.15
+	cold_level_1            = SYNTH_COLD_LEVEL_1
+	cold_level_2            = SYNTH_COLD_LEVEL_2
+	cold_level_3            = SYNTH_COLD_LEVEL_3
+
+	heat_level_1            = SYNTH_HEAT_LEVEL_1
+	heat_level_2            = SYNTH_HEAT_LEVEL_2
+	heat_level_3            = SYNTH_HEAT_LEVEL_3
+	heat_discomfort_level   = 373.15
 	heat_discomfort_strings = list(
 		"You are dangerously close to overheating!"
 	)
+
 	/// Determines which bodyparts can use this limb.
 	var/list/applies_to_part
 	/// Prosthetics of this type are not available in chargen unless the map has the required tech level.

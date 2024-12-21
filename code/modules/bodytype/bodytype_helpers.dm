@@ -5,9 +5,7 @@
 	return "Standing"
 
 /decl/bodytype/proc/get_icon_cache_uid(var/mob/H)
-	if(!icon_cache_uid)
-		icon_cache_uid = "[sequential_id(/decl/bodytype)]"
-	return icon_cache_uid
+	return uid
 
 /decl/bodytype/proc/get_bandages_icon(var/mob/living/human/H)
 	return bandages_icon
@@ -85,3 +83,6 @@
 
 /decl/bodytype/proc/adjust_status(mob/living/target, condition, amount)
 	return amount
+
+/decl/bodytype/proc/get_surgery_overlay_icon(var/mob/living/user)
+	return surgery_overlay_icon

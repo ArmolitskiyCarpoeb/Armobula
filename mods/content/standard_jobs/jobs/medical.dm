@@ -124,7 +124,6 @@
 		/datum/computer_file/program/camera_monitor
 	)
 	skill_points = 22
-	title = "Paramedic"
 	event_categories = list(ASSIGNMENT_MEDICAL)
 
 /datum/job/chemist
@@ -200,12 +199,14 @@
 	)
 	give_psionic_implant_on_join = FALSE
 
+#ifdef MODPACK_PSIONICS
 /datum/job/counselor/equip_job(var/mob/living/human/H)
 	if(H.mind.role_alt_title == "Counselor")
 		psi_faculties = list("[PSI_REDACTION]" = PSI_RANK_OPERANT)
 	if(H.mind.role_alt_title == "Mentalist")
 		psi_faculties = list("[PSI_COERCION]" = PSI_RANK_OPERANT)
 	return ..()
+#endif
 
 // Department-flavor IDs
 /obj/item/card/id/medical

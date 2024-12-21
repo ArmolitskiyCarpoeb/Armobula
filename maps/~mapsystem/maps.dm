@@ -527,3 +527,6 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 
 /datum/map/proc/finalize_map_generation()
 	return
+
+/datum/map/proc/get_available_submap_archetypes()
+	return decls_repository.get_decls_of_subtype_unassociated(/decl/submap_archetype)

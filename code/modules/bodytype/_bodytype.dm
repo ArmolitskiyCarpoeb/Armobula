@@ -4,70 +4,91 @@ var/global/list/bodytypes_by_category = list()
 	decl_flags = DECL_FLAG_MANDATORY_UID
 	abstract_type = /decl/bodytype
 	/// Name used in general.
-	var/name = "default"
+	var/name                 = "default"
 	/// Name used in preference bodytype selection. Defaults to name.
 	var/pref_name
 	/// Seen when examining a prosthetic limb, if non-null.
 	var/desc
+	/// The base 'standard' icon set for this bodytype's organs.
 	var/icon_base
+	/// A variant on icon_base for used when a limb has the mutated status.
 	var/icon_deformed
+	/// An icon used to draw from for cosmetic sprite accessories.
 	var/cosmetics_icon
+	/// A set of overlays to draw from when a limb has been bandaged. TODO: merge with bandage markings.
 	var/bandages_icon
-	var/bodytype_flag = BODY_EQUIP_FLAG_HUMANOID
-	var/bodytype_category = BODYTYPE_OTHER
-	var/limb_icon_intensity = 1.5
+	/// A flag used on clothing to determine if this bodytype can wear a given clothing item.
+	var/bodytype_flag        = BODY_EQUIP_FLAG_HUMANOID
+	/// A general label for bodytypes.
+	var/bodytype_category    = BODYTYPE_OTHER
+	/// A general intensity value applied to limbs during apply_limb_colouration().
+	var/limb_icon_intensity
+	/// A set of states to use when rendering blood over the top of worn clothing. TODO: move this to item icons.
 	var/blood_overlays
-	var/vulnerable_location = BP_GROIN //organ tag that can be kicked for increased pain, previously `sexybits_location`.
-	var/limb_blend = ICON_ADD
-	var/damage_overlays = 'icons/mob/human_races/species/default_damage_overlays.dmi'
-	var/husk_icon =       'icons/mob/human_races/species/default_husk.dmi'
-	var/skeletal_icon =   'icons/mob/human_races/species/human/skeleton.dmi'
-	var/icon_template =   'icons/mob/human_races/species/template.dmi' // Used for mob icon generation for non-32x32 species.
-	var/ignited_icon =    'icons/mob/OnFire.dmi'
+	/// An organ tag that can be kicked for increased pain, previously `sexybits_location`.
+	var/vulnerable_location  = BP_GROIN
+	/// What blend mode should be used when drawing this limb icon?
+	var/limb_blend           = ICON_ADD
+	/// A set of base icons used to generate damaged states for brute/burn injuries to limbs.
+	var/damage_overlays      = 'icons/mob/human_races/species/default_damage_overlays.dmi'
+	/// An overlay applied when a mob is 'husked' via burn damage.
+	var/husk_icon            = 'icons/mob/human_races/species/default_husk.dmi'
+	/// An alternate icon set to use when a mob or organ has been skeletonised.
+	var/skeletal_icon        = 'icons/mob/human_races/species/human/skeleton.dmi'
+	/// Used for mob icon generation for non-32x32 species.
+	var/icon_template        = 'icons/mob/human_races/species/template.dmi'
+	/// Drawn over a mob when the mob is on fire.
+	var/ignited_icon         = 'icons/mob/OnFire.dmi'
+	/// Drawn over mob bodyparts when they are surgically open/retracted.
+	var/surgery_overlay_icon = 'icons/mob/surgery.dmi'
+	/// Used to retrieve bodytypes by pronoun type in get_bodytype_by_pronouns()
 	var/associated_gender
-	var/appearance_flags = 0 // Appearance/display related features.
-
-	/// Used when filing your nails.
+	/// Appearance/display related features.
+	var/appearance_flags     = 0
+	/// What noun is used when filing your nails?
 	var/nail_noun
 	/// What tech levels should limbs of this type use/need?
-	var/limb_tech = @'{"biotech":2}'
-	var/icon_cache_uid
+	var/limb_tech            = @'{"biotech":2}'
 	/// Determines if eyes should render on heads using this bodytype.
-	var/has_eyes = TRUE
+	var/has_eyes             = TRUE
 	/// Prefixed to the initial name of the limb, if non-null.
 	var/modifier_string
 	/// Modifies min and max broken damage for the limb.
-	var/hardiness = 1
+	var/hardiness            = 1
 	/// Applies a slowdown value to this limb.
-	var/movement_slowdown = 0
+	var/movement_slowdown    = 0
 	/// Determines if this bodytype can be repaired by nanopaste, sparks when damaged, can malfunction, and can take EMP damage.
-	var/is_robotic = FALSE
+	var/is_robotic           = FALSE
 	/// For hands, determines the dexterity value passed to get_manual_dexterity(). If null, defers to species.
-	var/manual_dexterity = null
+	var/manual_dexterity     = null
 	/// Determines how the limb behaves with regards to manual attachment/detachment.
-	var/modular_limb_tier = MODULAR_BODYPART_INVALID
-	// Expected organ types per category, used only for stance checking at time of writing.
-	var/list/organs_by_category = list()
-	// Expected organ tags per category, used only for stance checking at time of writing.
-	var/list/organ_tags_by_category = list()
-
+	var/modular_limb_tier    = MODULAR_BODYPART_INVALID
+	/// Expected organ types per category, used only for stance checking at time of writing.
+	VAR_PRIVATE/list/_organs_by_category
+	/// Expected organ tags per category, used only for stance checking at time of writing.
+	VAR_PRIVATE/list/_organ_tags_by_category
+	/// A set of slot strings to modifier strings, used to modify clothing if the state is available in the icon.
 	var/list/onmob_state_modifiers
+	/// An intensity value applied to limbs with this bodytype when creating the health status indicator HUD element.
 	var/health_hud_intensity = 1
+	/// Used for offsetting large icons.
+	var/pixel_offset_x       = 0
+	/// Used for offsetting large icons.
+	var/pixel_offset_y       = 0
+	/// Used for offsetting large icons.
+	var/pixel_offset_z       = 0
+	/// Used to offset the antagHUD indicator for wide or tall mobs.
+	var/antaghud_offset_x    = 0
+	/// Used to offset the antagHUD indicator for wide or tall mobs.
+	var/antaghud_offset_y    = 0
+	/// Amount to shift eyes on the Y axis to correct for non-32px height. Used downstream, do not remove.
+	var/eye_offset           = 0
+	/// Used to apply flags like WIDE_LOAD to nonstandard mobs.
+	var/z_flags              = 0
+	/// Amount to shift overlays when lying. TODO: check if this is still needed with KEEP_TOGETHER
+	var/list/prone_overlay_offset
 
-	var/pixel_offset_x = 0                    // Used for offsetting large icons.
-	var/pixel_offset_y = 0                    // Used for offsetting large icons.
-	var/pixel_offset_z = 0                    // Used for offsetting large icons.
-
-	var/antaghud_offset_x = 0                 // As above, but specifically for the antagHUD indicator.
-	var/antaghud_offset_y = 0                 // As above, but specifically for the antagHUD indicator.
-
-	var/eye_offset = 0                        // Amount to shift eyes on the Y axis to correct for non-32px height.
-
-	var/z_flags = 0
-
-	var/list/prone_overlay_offset = list(0, 0) // amount to shift overlays when lying
-
-	// Per-bodytype per-zone message strings, see /mob/proc/get_hug_zone_messages
+	/// Per-bodytype per-zone message strings, see /mob/proc/get_hug_zone_messages
 	var/list/default_hug_message
 	var/list/hug_messages = list(
 		BP_L_HAND = list(
@@ -88,6 +109,7 @@ var/global/list/bodytypes_by_category = list()
 		)
 	)
 
+	/// For emotes that check bodytypes for sounds, this list will partially override the general emote_sounds list.
 	var/list/override_emote_sounds = list(
 		"cough" = list(
 			'sound/voice/emotes/f_cougha.ogg',
@@ -97,6 +119,8 @@ var/global/list/bodytypes_by_category = list()
 			'sound/voice/emotes/f_sneeze.ogg'
 		)
 	)
+
+	/// Provides bodytype-specific sounds to emote that need them.
 	var/list/emote_sounds = list(
 		"whistle"  = list('sound/voice/emotes/longwhistle.ogg'),
 		"qwhistle" = list('sound/voice/emotes/shortwhistle.ogg'),
@@ -106,24 +130,26 @@ var/global/list/bodytypes_by_category = list()
 	var/list/broadcast_emote_sounds = list(
 		"swhistle" = list('sound/voice/emotes/summon_whistle.ogg')
 	)
+
+	/// Sounds that play when a mob with this bodytype goes prone.
 	var/list/bodyfall_sounds = list(
 		'sound/foley/meat1.ogg',
 		'sound/foley/meat2.ogg'
 	)
 
 	// Used for initializing prefs/preview
-	var/base_color =      COLOR_BLACK
-	var/base_eye_color =  COLOR_BLACK
+	var/base_color     = COLOR_BLACK
+	var/base_eye_color = COLOR_BLACK
 
 	/// Used to initialize organ material
 	var/organ_material = /decl/material/solid/organic/meat
 	/// Used to initialize organ matter
-	var/list/matter =     null
+	var/list/matter
 	/// The reagent organs are filled with, which currently affects what mobs that eat the organ will receive.
 	/// TODO: Remove this in a later matter edibility refactor.
 	var/edible_reagent =  /decl/material/solid/organic/meat
 	/// A bitfield representing various bodytype-specific features.
-	var/body_flags = 0
+	var/body_flags     = 0
 	/// Used to modify the arterial_bleed_severity of organs.
 	var/arterial_bleed_multiplier = 1
 	/// Associative list of organ_tag = "encased value". If set, sets the organ's encased var to the corresponding value; used in surgery.
@@ -167,53 +193,66 @@ var/global/list/bodytypes_by_category = list()
 	var/vision_organ
 	/// If set, an organ with this tag is required for breathing
 	var/breathing_organ
-
-	var/list/override_organ_types // Used for species that only need to change one or two entries in has_organ.
-
+	/// Used for species that only need to change one or two entries in has_organ.
+	var/list/override_organ_types
+	/// Used for comparing ages between mobs.
 	var/age_descriptor = /datum/appearance_descriptor/age
+	/// Used for comparing various cosmetic properties between mobs.
 	var/list/appearance_descriptors = list(
 		/datum/appearance_descriptor/height = 1,
 		/datum/appearance_descriptor/build =  1
 	)
-
 	/// Losing an organ from this list will give a grace period of `vital_organ_failure_death_delay` then kill the mob.
 	var/list/vital_organs = list(BP_BRAIN)
 	/// The grace period before mob death when an organ in `vital_organs` is lost
 	var/vital_organ_failure_death_delay = 25 SECONDS
+	/// The relative size of a mob. Consistent with ITEM_SIZE defines.
 	var/mob_size = MOB_SIZE_MEDIUM
-
+	/// A list of sprite accessories applied to this mob by default.
 	var/list/default_sprite_accessories
 
 	// Darksight handling
 	/// Fractional multiplier (0 to 1) for the base alpha of the darkness overlay. A value of 1 means darkness is completely invisible.
-	var/eye_base_low_light_vision = 0
+	var/eye_base_low_light_vision             = 0
 	/// The lumcount (turf luminosity) threshold under which adaptive low light vision will begin processing.
-	var/eye_low_light_vision_threshold = 0.3
+	var/eye_low_light_vision_threshold        = 0.3
 	/// Fractional multiplier for the overall effectiveness of low light vision for this species. Caps the final alpha value of the darkness plane.
-	var/eye_low_light_vision_effectiveness = 0
+	var/eye_low_light_vision_effectiveness    = 0
 	/// The rate at which low light vision adjusts towards the final value, as a fractional multiplier of the difference between the current and target alphas. ie. set to 0.15 for a 15% shift towards the target value each tick.
 	var/eye_low_light_vision_adjustment_speed = 0.15
+	/// How many tiles can this mob see in the dark? Note that degree of visibility is determined by low light vision vars above, this is just the radius.
+	var/eye_darksight_range                   = 2
 
-	// Other eye vars.
-	var/eye_contaminant_guard = 0
+	/// Do the eyes of this bodytype protect against chlorine and such?
+	var/eye_contaminant_guard       = 0
+	/// Are the eyes of this bodytype resistant to flashes?
 	var/eye_innate_flash_protection = FLASH_PROTECTION_NONE
-	var/eye_icon = 'icons/mob/human_races/species/default_eyes.dmi'
-	var/apply_eye_colour = TRUE
-	var/eye_darksight_range = 2
-	var/eye_blend = ICON_ADD
+	/// Icon to draw eye overlays from.
+	var/eye_icon                    = 'icons/mob/human_races/species/default_eyes.dmi'
+	/// Do the eyes of this mob apply a pref colour like hair?
+	var/apply_eye_colour            = TRUE
+	/// What blend mode is used to draw eyes onto the mob?
+	var/eye_blend                   = ICON_ADD
 	/// Stun from blindness modifier.
-	var/eye_flash_mod = 1
+	var/eye_flash_mod               = 1
 
 	// Bodytype temperature damage thresholds.
-	var/cold_level_1 = 243  // Cold damage level 1 below this point. -30 Celsium degrees
-	var/cold_level_2 = 200  // Cold damage level 2 below this point.
-	var/cold_level_3 = 120  // Cold damage level 3 below this point.
-	var/heat_level_1 = 360  // Heat damage level 1 above this point.
-	var/heat_level_2 = 400  // Heat damage level 2 above this point.
-	var/heat_level_3 = 1000 // Heat damage level 3 above this point.
+	/// Cold damage level 1 below this point. -30 Celsium degrees
+	var/cold_level_1 = 243
+	/// Cold damage level 2 below this point.
+	var/cold_level_2 = 200
+	/// Cold damage level 3 below this point.
+	var/cold_level_3 = 120
+	/// Heat damage level 1 above this point.
+	var/heat_level_1 = 360
+	/// Heat damage level 2 above this point.
+	var/heat_level_2 = 400
+	/// Heat damage level 3 above this point.
+	var/heat_level_3 = 1000
 
-	// Temperature comfort levels and strings.
+	// Above this point, discomfort strings will be shown.
 	var/heat_discomfort_level = 315
+	// Below this point, discomfort strings will be shown.
 	var/cold_discomfort_level = 285
 	/// Aesthetic messages about feeling warm.
 	var/list/heat_discomfort_strings = list(
@@ -372,15 +411,19 @@ var/global/list/bodytypes_by_category = list()
 		organ_data["descriptor"] = initial(organ.name)
 		var/organ_cat = initial(organ.organ_category)
 		if(organ_cat)
-			LAZYADD(organs_by_category[organ_cat], organ)
-			LAZYADD(organ_tags_by_category[organ_cat], organ_tag)
+			LAZYINITLIST(_organs_by_category)
+			LAZYADD(_organs_by_category[organ_cat], organ)
+			LAZYINITLIST(_organ_tags_by_category)
+			LAZYADD(_organ_tags_by_category[organ_cat], organ_tag)
 
 	for(var/organ_tag in has_organ)
 		var/obj/item/organ/organ = has_organ[organ_tag]
 		var/organ_cat = initial(organ.organ_category)
 		if(organ_cat)
-			LAZYADD(organs_by_category[organ_cat], organ)
-			LAZYADD(organ_tags_by_category[organ_cat], organ_tag)
+			LAZYINITLIST(_organs_by_category)
+			LAZYADD(_organs_by_category[organ_cat], organ)
+			LAZYINITLIST(_organ_tags_by_category)
+			LAZYADD(_organ_tags_by_category[organ_cat], organ_tag)
 
 	if(LAZYLEN(appearance_descriptors))
 		for(var/desctype in appearance_descriptors)
@@ -394,13 +437,18 @@ var/global/list/bodytypes_by_category = list()
 		appearance_descriptors.Insert(1, age.name)
 		appearance_descriptors[age.name] = age
 
+/decl/bodytype/proc/get_expected_organ_tags_for_category(var/category)
+	return LAZYACCESS(_organ_tags_by_category, category)
+
 /decl/bodytype/proc/get_expected_organ_count_for_categories(var/list/categories)
 	. = 0
 	for(var/category in categories)
-		if(category && (category in organs_by_category))
-			. += length(organs_by_category[category])
+		if(category && (category in _organs_by_category))
+			. += length(_organs_by_category[category])
 
 /decl/bodytype/proc/apply_limb_colouration(var/obj/item/organ/external/E, var/icon/applying)
+	if(!isnull(limb_icon_intensity))
+		applying.SetIntensity(limb_icon_intensity)
 	return applying
 
 /decl/bodytype/proc/check_dismember_type_override(var/disintegrate)
