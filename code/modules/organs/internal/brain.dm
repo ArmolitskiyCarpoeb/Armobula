@@ -9,7 +9,7 @@
 	throw_range = 5
 	origin_tech = @'{"biotech":3}'
 	attack_verb = list("attacked", "slapped", "whacked")
-	relative_size = 85
+	relative_size = 90
 	damage_reduction = 0
 	scale_max_damage_to_species_health = FALSE
 	transfer_brainmob_with_organ = TRUE

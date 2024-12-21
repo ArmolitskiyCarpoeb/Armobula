@@ -1,278 +1,912 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"k" = (
+"av" = (
+/obj/effect/catwalk_plated/white,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
+	dir = 1;
+	id_tag = "centcom_escape_dock_north_pump"
+	},
+/turf/floor/plating,
+/area/map_template/oldpod)
+"aI" = (
+/obj/structure/bed,
+/obj/item/bedsheet/brown,
 /obj/abstract/exterior_marker/inside,
-/turf/floor/rock/basalt,
+/turf/floor/tiled/techfloor/grid,
+/area/map_template/oldpod)
+"ba" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/floor/tiled/steel_ridged,
+/area/map_template/oldpod)
+"dj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/floor/tiled/sad_floor_ridged,
+/area/map_template/oldpod)
+"eU" = (
+/obj/structure/filing_cabinet/chestdrawer,
+/turf/floor/tiled/sad_floor_ridged,
+/area/map_template/oldpod)
+"fE" = (
+/obj/structure/closet/firecloset,
+/turf/floor/tiled/steel_ridged,
+/area/map_template/oldpod)
+"gw" = (
+/turf/template_noop,
 /area/vesta/caves/point_of_interest/bunker)
-"r" = (
-/turf/floor/rock/basalt,
-/area/vesta/caves/point_of_interest/bunker)
-"w" = (
-/obj/item/bladed/knife,
+"gW" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/turf/floor/tiled/sad_floor_mono,
+/area/map_template/oldpod)
+"iE" = (
+/obj/machinery/power/smes/buildable/max_cap_in_out,
+/turf/floor/tiled/sad_floor/yellow_2,
+/area/map_template/oldpod)
+"iI" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/effect/catwalk_plated/white,
+/turf/floor/plating,
+/area/map_template/oldpod)
+"iP" = (
+/obj/structure/table/steel_reinforced,
+/obj/machinery/recharger,
 /obj/abstract/exterior_marker/inside,
+/turf/floor/tiled/sad_floor_ridged,
+/area/map_template/oldpod)
+"jh" = (
+/obj/machinery/light/small,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/floor/tiled/sad_floor/yellow_2,
+/area/map_template/oldpod)
+"jp" = (
+/obj/machinery/light/small,
+/turf/floor/tiled/sad_floor_mono,
+/area/map_template/oldpod)
+"lx" = (
+/turf/floor/tiled/sad_floor_ridged,
+/area/map_template/oldpod)
+"lJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/floor/tiled/steel_grid_2,
+/area/map_template/oldpod)
+"ng" = (
+/obj/machinery/button/access/interior{
+	id_tag = "bunker_inner";
+	name = "interior access button";
+	dir = 8;
+	pixel_y = -20
+	},
+/turf/floor/tiled/steel_ridged,
+/area/map_template/oldpod)
+"nX" = (
+/obj/structure/bed/chair/padded/black{
+	dir = 4
+	},
+/turf/floor/tiled/sad_floor_ridged,
+/area/map_template/oldpod)
+"nY" = (
 /obj/abstract/exterior_marker/inside,
-/turf/floor/rock/basalt,
-/area/vesta/caves/point_of_interest/bunker)
-"z" = (
-/obj/abstract/exterior_marker/inside,
-/turf/floor/grass,
-/area/vesta/caves/point_of_interest/bunker)
-"G" = (
-/obj/item/bone/skull/deer,
-/obj/item/food/butchery/stomach,
-/obj/item/food/butchery/offal,
-/turf/floor/rock/basalt,
-/area/vesta/caves/point_of_interest/bunker)
-"K" = (
+/turf/floor/tiled/sad_floor_mono,
+/area/map_template/oldpod)
+"oe" = (
+/obj/structure/closet/toolcloset,
+/turf/floor/tiled/sad_floor/yellow_2,
+/area/map_template/oldpod)
+"oT" = (
 /turf/template_noop,
 /area/template_noop)
-"M" = (
-/mob/living/simple_animal/hostile/bear,
-/obj/abstract/exterior_marker/inside,
-/turf/floor/rock/basalt,
+"qj" = (
+/obj/item/ammo_casing/pistol,
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/floor/tiled/sad_floor_ridged,
+/area/map_template/oldpod)
+"qv" = (
+/obj/effect/catwalk_plated/white,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/door/airlock/external/bolted{
+	id_tag = "bunker_inner"
+	},
+/turf/floor/plating,
+/area/map_template/oldpod)
+"qI" = (
+/obj/structure/closet/crate/bin,
+/turf/floor/tiled/sad_floor_ridged,
+/area/map_template/oldpod)
+"rx" = (
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/floor/tiled/sad_floor_mono,
+/area/map_template/oldpod)
+"tl" = (
+/turf/floor/tiled/doted_floor,
+/area/map_template/oldpod)
+"tC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/floor/tiled/sad_floor_mono,
+/area/map_template/oldpod)
+"tI" = (
+/obj/structure/bed/chair/padded/black,
+/turf/floor/tiled/sad_floor_ridged,
+/area/map_template/oldpod)
+"ut" = (
+/obj/structure/sign/poster,
+/turf/floor/tiled/sad_floor_mono,
+/area/map_template/oldpod)
+"vw" = (
+/obj/effect/catwalk_plated/white,
+/obj/machinery/door/airlock/chaplain,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/floor/plating,
+/area/map_template/oldpod)
+"vH" = (
+/obj/structure/bed,
+/obj/item/bedsheet/brown,
+/turf/floor/tiled/techfloor/grid,
+/area/map_template/oldpod)
+"wZ" = (
+/obj/structure/table/steel_reinforced,
+/obj/item/flashlight/lamp,
+/turf/floor/tiled/sad_floor_mono,
+/area/map_template/oldpod)
+"xa" = (
+/obj/machinery/washing_machine,
+/turf/floor/tiled/steel_grid_2,
+/area/map_template/oldpod)
+"xR" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/floor/tiled/steel_grid_2,
+/area/map_template/oldpod)
+"ya" = (
+/turf/floor/tiled/sad_floor/yellow_2,
+/area/map_template/oldpod)
+"yM" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/floor/tiled/sad_floor/yellow_2,
+/area/map_template/oldpod)
+"yV" = (
+/obj/structure/table/steel_reinforced,
+/obj/structure/flora/pottedplant/deskleaf,
+/turf/floor/tiled/sad_floor_ridged,
+/area/map_template/oldpod)
+"yY" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	level = 2
+	},
+/turf/floor/tiled/sad_floor_ridged,
+/area/map_template/oldpod)
+"zA" = (
+/obj/structure/table/steel_reinforced,
+/obj/item/paper_bin{
+	pixel_x = -3;
+	pixel_y = 7
+	},
+/turf/floor/tiled/sad_floor_ridged,
+/area/map_template/oldpod)
+"zN" = (
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/turf/floor/tiled/sad_floor/yellow_2,
+/area/map_template/oldpod)
+"zO" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/floor/tiled/steel_ridged,
+/area/map_template/oldpod)
+"zS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/floor/tiled/sad_floor_mono,
+/area/map_template/oldpod)
+"Bb" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/floor/tiled/sad_floor_ridged,
+/area/map_template/oldpod)
+"Bq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/structure/bed/chair/padded/black{
+	dir = 8
+	},
+/obj/abstract/landmark/corpse/syndicate,
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/item/gun/projectile/pistol{
+	magazine_type = /obj/item/ammo_magazine/pistol/empty
+	},
+/turf/floor/tiled/sad_floor_mono,
+/area/map_template/oldpod)
+"BC" = (
+/obj/structure/closet/secure_closet/engineering_welding,
+/turf/floor/tiled/sad_floor/yellow_2,
+/area/map_template/oldpod)
+"Cb" = (
+/obj/structure/bed,
+/obj/item/bedsheet/brown,
+/turf/floor/tiled/steel_grid_2,
+/area/map_template/oldpod)
+"CO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/floor/tiled/sad_floor_mono,
+/area/map_template/oldpod)
+"DG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/floor/tiled/sad_floor_mono,
+/area/map_template/oldpod)
+"EM" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/floor/tiled/steel_ridged,
+/area/map_template/oldpod)
+"EQ" = (
+/obj/structure/closet/emcloset,
+/obj/random/voidsuit,
+/obj/random/voidsuit_and_helmet,
+/turf/floor/tiled/steel_ridged,
+/area/map_template/oldpod)
+"Fp" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/floor/tiled/doted_floor,
+/area/map_template/oldpod)
+"Fq" = (
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/machinery/port_gen/pacman,
+/turf/floor/tiled/sad_floor/yellow_2,
+/area/map_template/oldpod)
+"FC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/bed/chair/padded/black{
+	dir = 8
+	},
+/turf/floor/tiled/sad_floor_mono,
+/area/map_template/oldpod)
+"FM" = (
+/obj/structure/closet/walllocker/med{
+	pixel_y = 29
+	},
+/turf/floor/tiled/steel_grid_2,
+/area/map_template/oldpod)
+"Gk" = (
+/obj/machinery/atmospherics/unary/tank/air{
+	dir = 1;
+	start_pressure = 740.5
+	},
+/turf/floor/tiled/sad_floor_mono,
+/area/map_template/oldpod)
+"GR" = (
+/obj/machinery/button/access/exterior{
+	id_tag = "bunker_outer";
+	name = "exterior access button";
+	pixel_x = -22;
+	dir = 4
+	},
+/turf/template_noop,
 /area/vesta/caves/point_of_interest/bunker)
-"U" = (
-/obj/abstract/exterior_marker/inside,
-/obj/abstract/exterior_marker/inside,
-/turf/floor/rock/basalt,
+"HR" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/effect/catwalk_plated/white,
+/turf/floor/plating,
+/area/map_template/oldpod)
+"Iv" = (
+/obj/structure/rack/dark,
+/obj/item/stack/material/brick/mapped/graphite/fifteen,
+/turf/floor/tiled/sad_floor/yellow_2,
+/area/map_template/oldpod)
+"IU" = (
+/turf/wall/r_wall/prepainted2{
+	color = "#565656";
+	paint_color = "#565656";
+	stripe_color = "#6c6c6c"
+	},
+/area/map_template/oldpod)
+"Jn" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/floor/tiled/steel_grid_2,
+/area/map_template/oldpod)
+"Jx" = (
+/obj/structure/table/steel_reinforced,
+/obj/machinery/microwave{
+	pixel_x = -3;
+	pixel_y = 6
+	},
+/turf/floor/tiled/sad_floor_ridged,
+/area/map_template/oldpod)
+"KH" = (
+/obj/effect/catwalk_plated/white,
+/obj/machinery/door/airlock/civilian,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/floor/plating,
+/area/map_template/oldpod)
+"KL" = (
+/obj/structure/sign/poster,
+/turf/floor/tiled/steel_grid_2,
+/area/map_template/oldpod)
+"Lu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/floor/tiled/sad_floor/yellow_2,
+/area/map_template/oldpod)
+"LL" = (
+/obj/machinery/door/airlock/hatch/maintenance,
+/obj/effect/catwalk_plated/white,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/floor/plating,
+/area/map_template/oldpod)
+"Mh" = (
+/obj/effect/catwalk_plated/white,
+/obj/machinery/door/airlock/external/bolted{
+	id_tag = "bunker_inner"
+	},
+/turf/floor/plating,
+/area/map_template/oldpod)
+"ME" = (
+/turf/floor/tiled/steel_grid_2,
+/area/map_template/oldpod)
+"MP" = (
+/turf/floor/rock/cave,
 /area/vesta/caves/point_of_interest/bunker)
+"Nm" = (
+/obj/structure/cable/yellow,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/machinery/power/apc{
+	locked = 0;
+	name = "south bump";
+	pixel_y = -28
+	},
+/turf/floor/tiled/sad_floor/yellow_2,
+/area/map_template/oldpod)
+"Oi" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/turf/floor/tiled/steel_grid_2,
+/area/map_template/oldpod)
+"Pd" = (
+/obj/machinery/door/airlock/chaplain,
+/obj/effect/catwalk_plated/white,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/floor/plating,
+/area/map_template/oldpod)
+"Qo" = (
+/obj/effect/catwalk_plated/white,
+/obj/machinery/door/airlock/external/bolted{
+	id_tag = "bunker_outer"
+	},
+/turf/floor/plating,
+/area/map_template/oldpod)
+"QH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/catwalk_plated/white,
+/turf/floor/plating,
+/area/map_template/oldpod)
+"Rv" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/effect/catwalk_plated/white,
+/turf/floor/plating,
+/area/map_template/oldpod)
+"SJ" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/floor/tiled/steel_ridged,
+/area/map_template/oldpod)
+"Td" = (
+/obj/machinery/light/flamp,
+/turf/floor/tiled/techfloor/grid,
+/area/map_template/oldpod)
+"Tn" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/machinery/light/uv{
+	dir = 1
+	},
+/turf/floor/tiled/sad_floor_mono,
+/area/map_template/oldpod)
+"Un" = (
+/obj/structure/closet/secure_closet/engineering_electrical,
+/obj/abstract/exterior_marker/inside,
+/turf/floor/tiled/sad_floor/yellow_2,
+/area/map_template/oldpod)
+"Uv" = (
+/obj/structure/closet/emcloset,
+/turf/floor/tiled/steel_grid_2,
+/area/map_template/oldpod)
+"UF" = (
+/obj/structure/table/steel_reinforced,
+/obj/item/box/checkers/chess,
+/obj/item/box/checkers/chess/red{
+	pixel_y = 8
+	},
+/turf/floor/tiled/sad_floor_mono,
+/area/map_template/oldpod)
+"Wz" = (
+/turf/floor/tiled/steel_ridged,
+/area/map_template/oldpod)
+"WI" = (
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/turf/floor/tiled/sad_floor_mono,
+/area/map_template/oldpod)
+"Xk" = (
+/obj/machinery/door/airlock/hatch/maintenance,
+/obj/effect/catwalk_plated/white,
+/turf/floor/plating,
+/area/map_template/oldpod)
+"Ym" = (
+/obj/effect/catwalk_plated/white,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/machinery/airlock_sensor{
+	id_tag = "bunker_sensor";
+	pixel_y = 25
+	},
+/turf/floor/plating,
+/area/map_template/oldpod)
+"YU" = (
+/turf/floor/tiled/sad_floor_mono,
+/area/map_template/oldpod)
+"ZE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/floor/tiled/steel_grid_2,
+/area/map_template/oldpod)
 
 (1,1,1) = {"
-K
-K
-K
-K
-K
-K
-K
-K
-K
-K
-K
-K
-K
-K
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
 "}
 (2,1,1) = {"
-K
-K
-K
-K
-K
-K
-K
-k
-k
-k
-K
-K
-K
-K
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
 "}
 (3,1,1) = {"
-K
-K
-K
-r
-r
-r
-k
-k
-k
-k
-k
-K
-K
-K
+oT
+oT
+gw
+gw
+MP
+MP
+gw
+gw
+MP
+gw
+gw
+gw
+MP
+MP
+MP
+gw
+oT
+oT
+oT
 "}
 (4,1,1) = {"
-K
-K
-k
-U
-U
-k
-k
-k
-U
-k
-r
-r
-K
-K
+oT
+oT
+MP
+IU
+IU
+IU
+IU
+IU
+IU
+IU
+IU
+IU
+IU
+IU
+IU
+gw
+oT
+oT
+oT
 "}
 (5,1,1) = {"
-K
-K
-k
-U
-U
-k
-k
-k
-G
-r
-r
-r
-K
-K
+oT
+oT
+MP
+IU
+Un
+ya
+Fq
+IU
+eU
+Bb
+nX
+tI
+Bb
+iP
+IU
+gw
+oT
+oT
+oT
 "}
 (6,1,1) = {"
-K
-k
-k
-U
-U
-k
-r
-k
-r
-z
-z
-z
-r
-K
+oT
+oT
+MP
+IU
+oe
+tl
+yM
+Xk
+lx
+YU
+UF
+wZ
+YU
+yV
+IU
+MP
+oT
+oT
+oT
 "}
 (7,1,1) = {"
-K
-k
-k
-U
-U
-r
-r
-k
-r
-z
-z
-z
-r
-K
+oT
+oT
+gw
+IU
+BC
+Rv
+jh
+IU
+yY
+tC
+Bq
+FC
+CO
+zA
+IU
+MP
+oT
+oT
+oT
 "}
 (8,1,1) = {"
-K
-k
-k
-U
-w
-k
-M
-k
-r
-z
-z
-z
-r
-K
+oT
+oT
+gw
+IU
+zN
+Fp
+Nm
+IU
+Jx
+lx
+qj
+lx
+dj
+qI
+IU
+MP
+oT
+oT
+oT
 "}
 (9,1,1) = {"
-K
-K
-k
-U
-U
-k
-k
-k
-r
-z
-z
-z
-r
-K
+oT
+oT
+gw
+IU
+iE
+Lu
+Iv
+IU
+IU
+IU
+IU
+IU
+vw
+IU
+IU
+MP
+oT
+oT
+oT
 "}
 (10,1,1) = {"
-K
-K
-r
-k
-k
-k
-k
-r
-r
-r
-r
-r
-K
-K
+oT
+oT
+gw
+IU
+IU
+LL
+IU
+IU
+fE
+EQ
+IU
+xa
+lJ
+Uv
+IU
+gw
+oT
+oT
+oT
 "}
 (11,1,1) = {"
-K
-K
-r
-k
-k
-k
-k
-k
-r
-r
-r
-r
-K
-K
+oT
+oT
+gw
+IU
+Gk
+HR
+WI
+IU
+SJ
+Wz
+IU
+Jn
+lJ
+KL
+IU
+gw
+oT
+oT
+oT
 "}
 (12,1,1) = {"
-K
-K
-K
-k
-k
-k
-k
-k
-k
-k
-K
-K
-K
-K
+oT
+oT
+MP
+IU
+gW
+zS
+DG
+KH
+QH
+iI
+Pd
+ZE
+Oi
+ME
+IU
+gw
+oT
+oT
+oT
 "}
 (13,1,1) = {"
-K
-K
-K
-K
-K
-k
-k
-k
-K
-K
-K
-K
-K
-K
+oT
+oT
+MP
+IU
+Tn
+YU
+jp
+IU
+ba
+zO
+IU
+FM
+xR
+ME
+IU
+MP
+oT
+oT
+oT
 "}
 (14,1,1) = {"
-K
-K
-K
-K
-K
-K
-K
-K
-K
-K
-K
-K
-K
-K
+oT
+oT
+MP
+IU
+gW
+YU
+ut
+IU
+EM
+ng
+IU
+Cb
+ME
+Cb
+IU
+gw
+oT
+oT
+oT
 "}
 (15,1,1) = {"
-K
-K
-K
-K
-K
-K
-K
-K
-K
-K
-K
-K
-K
-K
+oT
+oT
+MP
+IU
+nY
+rx
+rx
+IU
+qv
+Mh
+IU
+vH
+Td
+aI
+IU
+MP
+oT
+oT
+oT
+"}
+(16,1,1) = {"
+oT
+oT
+gw
+IU
+IU
+IU
+IU
+IU
+Ym
+av
+IU
+IU
+IU
+IU
+IU
+gw
+oT
+oT
+oT
+"}
+(17,1,1) = {"
+oT
+oT
+gw
+MP
+MP
+MP
+MP
+IU
+Qo
+Qo
+IU
+MP
+MP
+MP
+gw
+gw
+oT
+oT
+oT
+"}
+(18,1,1) = {"
+oT
+oT
+gw
+gw
+gw
+MP
+MP
+GR
+MP
+MP
+MP
+gw
+MP
+MP
+gw
+gw
+oT
+oT
+oT
+"}
+(19,1,1) = {"
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
+oT
 "}

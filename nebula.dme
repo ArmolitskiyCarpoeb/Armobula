@@ -4120,7 +4120,6 @@
 #include "maps\vesta\submaps\_submaps.dm"
 #include "maps\vesta\submaps\caves\_caves.dm"
 #include "maps\vesta\submaps\caves\bunker\bunker.dm"
-#include "maps\vesta\submaps\caves\bunker\bunker.dmm"
 #include "maps\~mapsystem\map_preferences.dm"
 #include "maps\~mapsystem\map_ranks.dm"
 #include "maps\~mapsystem\map_skills.dm"

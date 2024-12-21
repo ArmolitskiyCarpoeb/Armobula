@@ -15,6 +15,12 @@
 		/decl/material/solid/fiberglass = MATTER_AMOUNT_REINFORCEMENT,
 		/decl/material/solid/metal/silver = MATTER_AMOUNT_REINFORCEMENT
 	)
+	max_shots = 20
+
+	firemodes = list(
+		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, indicator_color=COLOR_CYAN),
+		list(mode_name="kill", projectile_type=/obj/item/projectile/beam, indicator_color=COLOR_RED)
+		)
 
 /obj/item/gun/energy/laser/mounted
 	self_recharge = 1

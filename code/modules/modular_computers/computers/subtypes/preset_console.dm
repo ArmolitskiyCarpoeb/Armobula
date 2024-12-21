@@ -134,6 +134,7 @@
 		/datum/computer_file/program/digitalwarrant,
 		/datum/computer_file/program/camera_monitor,
 		/datum/computer_file/program/records,
+		/datum/computer_file/program/forceauthorization,
 		/datum/computer_file/program/wordprocessor
 	)
 

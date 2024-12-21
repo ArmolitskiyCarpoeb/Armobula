@@ -46,7 +46,7 @@
 	var/list/guns = data["guns"]
 	if(!guns.len)
 		data["message"] = "No weapons registered"
-
+/*
 	if(!data["is_silicon_usr"]) // don't send data even though they won't be able to see it
 		data["cyborg_guns"] = list()
 		for(var/obj/item/gun/energy/gun/secure/mounted/G in global.registered_cyborg_weapons)
@@ -60,6 +60,7 @@
 				modes += list(list("index" = i, "mode_name" = firemode.name, "authorized" = G.authorized_modes[i]))
 
 			data["cyborg_guns"] += list(list("name" = "[G]", "ref" = "\ref[G]", "owner" = G.registered_owner, "modes" = modes))
+*/
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
