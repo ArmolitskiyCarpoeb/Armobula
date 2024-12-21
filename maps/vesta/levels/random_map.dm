@@ -22,7 +22,7 @@
 	if(value <= 3)
 		return /turf/floor/mud/water
 	if(value <= 4)
-		return /turf/floor/grass/wild
+		return /turf/floor/dirt
 	if(value <= 5)
 		return /turf/floor/grass
 	return /turf/floor/rock/cave
@@ -31,11 +31,11 @@
 	abstract_type = /datum/random_map/noise/forage/acheron
 
 /datum/random_map/noise/forage/acheron/caves/New()
+	target_turf_type = /turf/floor/dirt
 	forage["caves"] = list(
 		"plumphelmet",
 		"glowbell",
 		"caverncandle",
-		"weepingmoon",
 		"towercap"
 	)
 	..()

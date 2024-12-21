@@ -64,7 +64,7 @@
 	level_id = "vesta_caves"
 	use_global_exterior_ambience = FALSE
 //	base_area = null
-	abstract_type = /datum/level_data/player_level/vesta
+//	abstract_type = /datum/level_data/player_level/vesta
 //	connected_levels = list(
 //		"vesta_caves" = WEST,
 //		"vesta_caves" = EAST,
@@ -78,12 +78,12 @@
 		/datum/random_map/noise/acheron/caves,
 		/datum/random_map/noise/forage/acheron/caves
 	)
-	base_turf = /turf/floor/rock/cave
+//	base_turf = /turf/floor/rock/cave
 	exterior_atmosphere = list(
 		/decl/material/gas/oxygen =   MOLES_O2STANDARD,
 		/decl/material/gas/nitrogen = MOLES_N2STANDARD
 	)
-	submap_budget   = 2
+	submap_budget   = 4
 	submap_category = MAP_TEMPLATE_CATEGORY_VESTA_CAVES
 	submap_area		= /area/vesta/caves/point_of_interest
 	list/mobs_to_spawn = list()
