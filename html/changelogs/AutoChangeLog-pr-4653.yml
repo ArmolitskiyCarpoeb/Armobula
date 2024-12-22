@@ -1,0 +1,6 @@
+author: ophelia v0.8
+changes:
+  - {imageadd: added new dirt and mud tile sprites}
+  - {imageadd: 'added new wooden chest sprites, by Doe'}
+  - {tweak: mud and soil plots are now properly greyscaled to soil material color}
+delete-after: true
