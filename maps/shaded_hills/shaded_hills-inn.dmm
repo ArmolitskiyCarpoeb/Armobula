@@ -771,10 +771,6 @@
 /obj/structure/closet/crate/chest/ebony,
 /turf/floor/path/basalt,
 /area/shaded_hills/general_store)
-"wA" = (
-/obj/abstract/exterior_marker/inside,
-/turf/floor/dirt,
-/area/shaded_hills/outside/downlands)
 "xh" = (
 /obj/structure/table/wood/ebony,
 /obj/item/chems/condiment/large/salt,
@@ -1212,10 +1208,6 @@
 	},
 /turf/floor/wood/walnut,
 /area/shaded_hills/inn)
-"Iz" = (
-/obj/abstract/exterior_marker/inside,
-/turf/wall/brick/basalt,
-/area/shaded_hills/outside/downlands)
 "IB" = (
 /obj/structure/door/walnut,
 /obj/abstract/landmark/lock_preset/shaded_hills/shrine,
@@ -1324,8 +1316,7 @@
 /turf/floor/path/basalt,
 /area/shaded_hills/outside/downlands)
 "Lj" = (
-/obj/structure/reagent_dispensers/well/mapped,
-/obj/abstract/exterior_marker/inside,
+/obj/structure/reagent_dispensers/well/mapped/covered,
 /turf/floor/dirt,
 /area/shaded_hills/outside/downlands)
 "Ly" = (
@@ -7835,9 +7826,9 @@ HI
 HI
 HI
 TR
-Iz
-Iz
-Iz
+TR
+TR
+TR
 TR
 TR
 EV
@@ -7987,9 +7978,9 @@ HI
 HI
 TR
 TR
-wA
-wA
-wA
+TR
+TR
+TR
 TR
 TR
 EV
@@ -8139,9 +8130,9 @@ HI
 HI
 TR
 TR
-wA
+TR
 Lj
-wA
+TR
 TR
 TR
 EV
@@ -8291,9 +8282,9 @@ HI
 HI
 TR
 TR
-wA
-wA
-wA
+TR
+TR
+TR
 TR
 TR
 TR
@@ -8443,9 +8434,9 @@ HI
 HI
 HI
 TR
-Iz
-Iz
-Iz
+TR
+TR
+TR
 TR
 TR
 EV

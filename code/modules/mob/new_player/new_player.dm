@@ -2,6 +2,7 @@
 	universal_speak = TRUE
 	mob_sort_value = 10
 	invisibility = INVISIBILITY_ABSTRACT
+	is_spawnable_type = FALSE
 	simulated = FALSE
 	density = FALSE
 	stat = DEAD

@@ -31,11 +31,11 @@
 
 /obj/structure/reagent_dispensers/barrel/cask/ebony/beer/populate_reagents()
 	. = ..()
-	add_to_reagents(/decl/material/liquid/ethanol/beer, reagents.maximum_volume)
+	add_to_reagents(/decl/material/liquid/alcohol/beer, reagents.maximum_volume)
 
 /obj/structure/reagent_dispensers/barrel/cask/ebony/wine/populate_reagents()
 	. = ..()
-	add_to_reagents(/decl/material/liquid/ethanol/wine, reagents.maximum_volume)
+	add_to_reagents(/decl/material/liquid/alcohol/wine, reagents.maximum_volume)
 
 /obj/structure/reagent_dispensers/barrel/cask/ebony/oil/populate_reagents()
 	. = ..()
