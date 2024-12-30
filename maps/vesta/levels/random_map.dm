@@ -18,24 +18,27 @@
 /datum/random_map/noise/acheron/caves/get_appropriate_path(var/value)
 	value = noise2value(value)
 	if(value <= 2)
-		return /turf/floor/mud/water/deep
-	if(value <= 3)
 		return /turf/floor/mud/water
+	if(value <= 3)
+		return /turf/floor/grass
 	if(value <= 4)
 		return /turf/floor/dirt
 	if(value <= 5)
-		return /turf/floor/grass
+		return /turf/floor/barren
 	return /turf/floor/rock/cave
 
 /datum/random_map/noise/forage/acheron
 	abstract_type = /datum/random_map/noise/forage/acheron
 
 /datum/random_map/noise/forage/acheron/caves/New()
-	target_turf_type = /turf/floor/dirt
 	forage["caves"] = list(
 		"plumphelmet",
 		"glowbell",
 		"caverncandle",
 		"towercap"
 	)
-	..()
+	forage["grass"] |= list(
+		"yarrow",
+		"valerian"
+	)
+	return ..()

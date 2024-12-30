@@ -11,7 +11,8 @@
 	level_generators = list(
 		/datum/random_map/automata/cave_system/acheron,
 		/datum/random_map/noise/ore/rich,
-		/datum/random_map/noise/acheron/caves
+		/datum/random_map/noise/acheron/caves,
+		/datum/random_map/noise/forage/acheron/caves
 	)
 	base_turf = /turf/floor/rock/cave
 //	exterior_atmosphere = list(
@@ -83,7 +84,7 @@
 		/decl/material/gas/oxygen =   MOLES_O2STANDARD,
 		/decl/material/gas/nitrogen = MOLES_N2STANDARD
 	)
-	submap_budget   = 4
+	submap_budget   = 7
 	submap_category = MAP_TEMPLATE_CATEGORY_VESTA_CAVES
 	submap_area		= /area/vesta/caves/point_of_interest
 	list/mobs_to_spawn = list()

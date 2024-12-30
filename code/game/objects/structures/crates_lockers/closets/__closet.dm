@@ -44,14 +44,14 @@ var/global/list/closets = list()
 	global.closets += src
 	if((setup & CLOSET_HAS_LOCK))
 		verbs += /obj/structure/closet/proc/togglelock_verb
-
+/*
 	if(ispath(closet_appearance))
 		var/decl/closet_appearance/app = GET_DECL(closet_appearance)
 		if(app)
 			icon = app.icon
 			reset_color()
 			queue_icon_update()
-
+*/
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/structure/closet/LateInitialize(mapload, ...)
