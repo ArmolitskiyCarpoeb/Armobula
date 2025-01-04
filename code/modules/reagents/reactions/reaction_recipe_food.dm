@@ -58,7 +58,7 @@
 	name = "Enzyme Margarine"
 	required_reagents = list(
 		/decl/material/solid/sodiumchloride = 1,
-		/decl/material/liquid/nutriment/plant_oil = 20
+		/decl/material/liquid/oil/plant = 20
 	)
 	catalysts = list(/decl/material/liquid/enzyme = 5)
 	mix_message = "The solution thickens and curdles into a pale yellow solid."

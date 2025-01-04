@@ -909,6 +909,12 @@ var/global/datum/reagents/sink/infinite_reagent_sink = new
 
 /* Atom reagent creation - use it all the time */
 
+/datum/reagents/proc/get_skimmable_reagents()
+	for(var/mat in reagent_volumes)
+		var/decl/material/reagent = GET_DECL(mat)
+		if(reagent.skimmable)
+			LAZYADD(., mat)
+
 /atom/proc/create_reagents(var/max_vol)
 	if(reagents)
 		log_debug("Attempted to create a new reagents holder when already referencing one: [log_info_line(src)]")

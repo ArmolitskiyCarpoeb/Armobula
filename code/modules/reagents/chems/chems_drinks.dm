@@ -309,6 +309,7 @@
 	taste_description = "creamy milk"
 	color = "#dfd7af"
 	uid = "chem_drink_cream"
+	skimmable = TRUE
 
 	glass_name = "cream"
 	glass_desc = "Ewwww..."

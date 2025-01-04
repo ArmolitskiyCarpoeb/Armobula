@@ -126,11 +126,11 @@
 	new /obj/item/stack/medical/resin/crafted(T, create_stacks)
 
 /decl/chemical_reaction/synthesis/soap
-	name = "Handmade Soap"
+	name = "Handmade Plant Soap"
 	required_reagents = list(
-		/decl/material/solid/carbon/ashes         = 5,
-		/decl/material/liquid/water               = 5,
-		/decl/material/liquid/nutriment/plant_oil = 10
+		/decl/material/solid/carbon/ashes = 5,
+		/decl/material/liquid/water       = 5,
+		/decl/material/liquid/oil/plant   = 10
 	)
 	result_amount = 1
 	mix_message = "The solution thickens and solidifies."
@@ -146,6 +146,14 @@
 		return
 	for(var/i = 1 to create_soap)
 		new /obj/item/soap/crafted(T)
+
+/decl/chemical_reaction/synthesis/soap/corn
+	name = "Handmade Corn Soap"
+	required_reagents = list(
+		/decl/material/solid/carbon/ashes    = 5,
+		/decl/material/liquid/water          = 5,
+		/decl/material/liquid/oil/plant/corn = 10
+	)
 
 // Making chipboard out of wood scraps/recycled wood.
 /decl/chemical_reaction/synthesis/chipboard

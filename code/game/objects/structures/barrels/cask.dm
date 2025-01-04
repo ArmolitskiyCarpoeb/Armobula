@@ -39,4 +39,4 @@
 
 /obj/structure/reagent_dispensers/barrel/cask/ebony/oil/populate_reagents()
 	. = ..()
-	add_to_reagents(/decl/material/liquid/nutriment/plant_oil, reagents.maximum_volume)
+	add_to_reagents(/decl/material/liquid/oil, reagents.maximum_volume)

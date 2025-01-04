@@ -141,6 +141,8 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 	var/list/stack_origin_tech = @'{"materials":1}' // Research level for stacks.
 
 	// Attributes
+	/// Does this material float to the top of liquids, allowing it to be skimmed off? Specific to cream at time of writing.
+	var/skimmable = FALSE
 	/// How rare is this material in exoplanet xenoflora?
 	var/exoplanet_rarity_plant = MAT_RARITY_MUNDANE
 	/// How rare is this material in exoplanet atmospheres?
