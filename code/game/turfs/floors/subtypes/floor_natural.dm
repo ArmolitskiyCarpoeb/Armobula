@@ -37,6 +37,14 @@
 	_flooring = /decl/flooring/grass
 	_base_flooring = /decl/flooring/dirt
 
+/turf/floor/moss
+	name = "moss"
+	icon = 'icons/turf/flooring/grass.dmi'
+	icon_state = "moss"
+	color = null
+	_flooring = /decl/flooring/grass/moss
+	_base_flooring = /decl/flooring/rock
+
 /turf/floor/grass/wild
 	name = "wild grass"
 	icon = 'icons/turf/flooring/wildgrass.dmi'

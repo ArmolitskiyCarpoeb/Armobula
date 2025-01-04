@@ -18,13 +18,13 @@
 /datum/random_map/noise/acheron/caves/get_appropriate_path(var/value)
 	value = noise2value(value)
 	if(value <= 2)
-		return /turf/floor/mud/water
+		return /turf/floor/rock/cave
 	if(value <= 3)
-		return /turf/floor/grass
+		return /turf/floor/moss
 	if(value <= 4)
-		return /turf/floor/dirt
+		return /turf/floor/moss
 	if(value <= 5)
-		return /turf/floor/barren
+		return /turf/floor/rock/cave
 	return /turf/floor/rock/cave
 
 /datum/random_map/noise/forage/acheron

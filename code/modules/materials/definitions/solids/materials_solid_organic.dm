@@ -200,7 +200,7 @@
 /decl/material/solid/organic/plantmatter
 	name = "plant matter"
 	uid = "solid_plantmatter"
-	color = COLOR_GREEN_GRAY
+	color = null
 	flags = MAT_FLAG_PADDING
 	ignition_point = T0C+300
 	conductive = 1

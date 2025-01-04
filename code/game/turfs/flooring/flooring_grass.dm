@@ -6,7 +6,7 @@
 	has_base_range     = 3
 	footstep_type      = /decl/footsteps/grass
 	icon_edge_layer    = FLOOR_EDGE_GRASS
-	color              = "#5e7a3b"
+	color              = null
 	turf_flags         = TURF_FLAG_BACKGROUND | TURF_IS_HOLOMAP_PATH | TURF_FLAG_ABSORB_LIQUID
 	can_engrave        = FALSE
 	damage_temperature = T0C+80
@@ -52,3 +52,11 @@
 	has_base_range  = 3
 	build_type      = /obj/item/stack/tile/grass
 	force_material  = /decl/material/solid/organic/plastic
+
+/decl/flooring/grass/moss
+	name               = "cave moss"
+	icon               = 'icons/turf/flooring/grass.dmi'
+	icon_base          = "moss"
+	desc               = "A stupid cave moss."
+	has_base_range     = null
+	icon_edge_layer    = FLOOR_EDGE_GRASS
