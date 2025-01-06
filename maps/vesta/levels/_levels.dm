@@ -72,14 +72,14 @@
 //		"vesta_caves" = NORTH,
 //		"vesta_caves" = SOUTH
 //	)
-//	strata = /decl/strata/acheron
+	strata = /decl/strata/acheron
 	level_generators = list(
 		/datum/random_map/automata/cave_system/acheron,
 		/datum/random_map/noise/ore/rich,
 		/datum/random_map/noise/acheron/caves,
 		/datum/random_map/noise/forage/acheron/caves
 	)
-//	base_turf = /turf/floor/rock/cave
+	base_turf = /turf/floor/rock/cave
 	exterior_atmosphere = list(
 		/decl/material/gas/oxygen =   MOLES_O2STANDARD,
 		/decl/material/gas/nitrogen = MOLES_N2STANDARD

@@ -125,6 +125,10 @@
 	var/place_prob
 	var/place_type
 
+	if(istype(flooring, /decl/flooring/grass/moss))
+		place_prob = 70
+		place_type = SAFEPICK(forage["caves"])
+
 	if(floor.is_outside())
 		if(istype(flooring, /decl/flooring/rock))
 			if(prob(15)) // Static as current map has limited amount of rock turfs
