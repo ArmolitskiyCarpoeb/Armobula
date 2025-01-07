@@ -59,4 +59,4 @@
 	icon_base          = "moss"
 	desc               = "A stupid cave moss."
 	has_base_range     = null
-	icon_edge_layer    = FLOOR_EDGE_GRASS
+	icon_edge_layer    = null
