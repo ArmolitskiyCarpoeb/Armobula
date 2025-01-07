@@ -54,6 +54,6 @@
 		if(user_mob?.get_bodytype_category() != bodytype)
 			light_overlay = user_mob?.get_bodytype()?.get_offset_overlay_image(user_mob, overlay.icon, "[overlay.icon_state]_light", null, slot)
 		if(!light_overlay)
-			light_overlay = image(overlay.icon, "[overlay.icon_state]_light")
+			light_overlay = emissive_overlay(overlay.icon, "[overlay.icon_state]_light")
 		overlay.overlays += light_overlay
 	. = ..()
