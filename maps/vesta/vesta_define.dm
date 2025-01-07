@@ -67,3 +67,6 @@
 /datum/map/vesta/get_map_info()
 	return "МОЯ ЖОПА ГОРИИИТ!!!"
 */
+
+/datum/map/vesta/get_available_submap_archetypes()
+	return null // Return list of decl instances when relevant submaps exist.
