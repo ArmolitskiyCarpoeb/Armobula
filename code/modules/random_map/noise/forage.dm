@@ -126,7 +126,7 @@
 	var/place_type
 
 	if(istype(flooring, /decl/flooring/grass/moss))
-		place_prob = 70
+		place_prob = parse_value * cave_forage_weight
 		place_type = SAFEPICK(forage["caves"])
 
 	if(floor.is_outside())
