@@ -21,7 +21,7 @@
 	allowed_latejoin_spawns = list()
 
 	lobby_screens = list(
-		'maps/vesta/lobby/vesta.png'
+		'maps/vesta/lobby/acheron.png'
 	)
 
 	lobby_tracks = list(
