@@ -10,13 +10,13 @@
 	return "<font color='#[value][value][value][value][value][value]'>[pick(list(",",".","'","`"))]</font>"
 
 /datum/random_map/noise/desert/get_appropriate_path(var/value)
-	var/val = min(9,max(0,round((value/cell_range)*10)))
+	var/val = min(8,max(1,round((value/cell_range)*10)))
 	if(isnull(val)) val = 0
 	switch(val)
 		if(0 to 1)
-			return /turf/floor/rock/sand/water
+			return /turf/floor/moss
 		else
-			return /turf/floor/rock/sand
+			return /turf/floor/rock/cave
 
 /datum/random_map/noise/desert/get_additional_spawns(var/value, var/turf/T)
 	var/val = min(9,max(0,round((value/cell_range)*10)))

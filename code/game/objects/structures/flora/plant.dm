@@ -122,14 +122,16 @@
 
 /obj/structure/flora/plant/random_mushroom
 	name = "mushroom"
-	color = COLOR_BEIGE
+	color = COLOR_BROWN
 	icon_state = "mushroom10-3"
 	is_spawnable_type = TRUE
 
 /obj/structure/flora/plant/random_mushroom/proc/get_mushroom_variants()
 	var/static/list/mushroom_variants = list(
 		"amanita",
-		"destroyingangel"
+		"destroyingangel",
+		"mold",
+		"plumphelmet"
 	)
 	return mushroom_variants
 

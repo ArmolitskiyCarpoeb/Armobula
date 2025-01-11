@@ -37,4 +37,12 @@
 		"caverncandle",
 		"towercap"
 	)
-	..()
+	forage["rocks"] = list(
+		/atom/movable/spawn_boulder,
+		/atom/movable/spawn_boulder/rock
+	)
+	return ..()
+
+/datum/random_map/noise/caves/acheron
+	descriptor           = "CAVES2"
+	target_turf_type = /turf/floor/rock/cave

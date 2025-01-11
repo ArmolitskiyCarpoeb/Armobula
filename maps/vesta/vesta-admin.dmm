@@ -1,22 +1,29 @@
 "ai" = (/obj/effect/wingrille_spawn/reinforced/crescent,/turf/unsimulated/floor{icon_state = "plating"; name = "plating"},/area/space)
+"aj" = (/obj/effect/floor_decal/techfloor{dir = 9},/turf/floor/tiled/sad_floor,/area/centcom/holding)
 "am" = (/obj/effect/floor_decal/industrial/warning{dir = 1},/turf/floor/tiled/sad_floor/yellow_2,/area/shuttle/escape_shuttle)
 "aq" = (/obj/effect/floor_decal/industrial/warning{dir = 1},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
+"aB" = (/obj/structure/bed/chair/padded/yellow{dir = 8},/turf/floor/tiled/sad_floor/green_1,/area/centcom/holding)
+"aG" = (/obj/machinery/light{dir = 1},/turf/floor/tiled/techfloor,/area/centcom/holding)
 "aI" = (/obj/structure/bed/chair/shuttle/black{dir = 4},/obj/effect/floor_decal/techfloor{dir = 8},/obj/structure/extinguisher_cabinet{pixel_x = -27; pixel_y = 1},/turf/floor/tiled/monofloor2,/area/ship/shuttle_arrival)
+"bj" = (/obj/machinery/light{dir = 8},/obj/effect/floor_decal/techfloor{dir = 8},/obj/structure/window/basic{dir = 1},/turf/floor/tiled/sad_floor,/area/centcom/holding)
+"bE" = (/obj/structure/closet/crate/bin,/turf/floor/tiled/sad_floor/green_2,/area/centcom/holding)
 "bI" = (/obj/abstract/level_data_spawner/admin_level{name = "Centcomm"},/turf/space,/area/space)
 "bJ" = (/obj/effect/catwalk_plated/white,/obj/machinery/door/airlock/external{autoset_access = 0; id_tag = "arrivals_shuttle_hatch"; locked = 1; name = "Ship Exterior"},/turf/floor,/area/ship/shuttle_arrival)
 "bL" = (/obj/structure/cable/green{icon_state = "0-2"},/obj/structure/shuttle/engine/propulsion{dir = 1},/turf/floor,/area/ship/shuttle_arrival)
 "ce" = (/obj/machinery/conveyor{dir = 4; id_tag = "QMLoad"},/obj/machinery/door/airlock/external/bolted{id_tag = "supply_shuttle_hatch"; name = "Shuttle Hatch"},/turf/floor/plating,/area/vesta/supply)
-"cI" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 10},/turf/floor/plating,/area/centcom/holding)
-"da" = (/obj/machinery/portable_atmospherics/canister/air/airlock,/obj/machinery/atmospherics/portables_connector{dir = 4},/turf/floor/plating,/area/centcom/holding)
+"cI" = (/obj/effect/floor_decal/techfloor,/turf/floor/tiled/sad_floor,/area/centcom/holding)
+"da" = (/obj/machinery/portable_atmospherics/canister/air/airlock,/obj/machinery/atmospherics/portables_connector{dir = 4},/obj/effect/catwalk_plated/white,/turf/floor/plating,/area/centcom/holding)
 "dc" = (/turf/floor/tiled/monofloor2,/area/ship/shuttle_arrival)
 "dj" = (/obj/structure/shuttle/engine/heater{dir = 1},/obj/structure/cable/green{icon_state = "4-8"},/obj/structure/cable/green{icon_state = "1-4"},/turf/floor,/area/ship/shuttle_arrival)
 "dw" = (/obj/structure/window/reinforced/full,/obj/effect/shuttle_landmark/escape_shuttle/start,/turf/floor/plating,/area/shuttle/escape_shuttle)
 "dG" = (/obj/structure/cable/green{icon_state = "1-2"},/obj/machinery/door/airlock/hatch/maintenance/bolted,/turf/floor/tiled/monofloor3,/area/ship/shuttle_arrival)
+"dH" = (/turf/floor/tiled/freezer,/area/centcom/holding)
 "dQ" = (/obj/structure/cable/green{icon_state = "0-4"},/obj/structure/shuttle/engine/propulsion{dir = 8},/turf/floor,/area/ship/shuttle_arrival)
 "dY" = (/turf/floor/tiled/techfloor,/area/centcom/holding)
 "ek" = (/obj/machinery/light{dir = 8},/obj/machinery/atmospherics/pipe/simple/hidden{dir = 6},/obj/effect/catwalk_plated/white,/turf/floor/plating,/area/centcom/holding)
 "em" = (/obj/machinery/computer/modular/preset/civilian{dir = 4; icon_state = "console"},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "ew" = (/obj/machinery/computer/modular/preset/security{dir = 8},/turf/floor/plating,/area/shuttle/escape_shuttle)
+"ey" = (/obj/structure/window/basic{dir = 1},/turf/floor/tiled/sad_floor,/area/centcom/holding)
 "eA" = (/obj/machinery/porta_turret/crescent,/obj/effect/floor_decal/industrial/hatch/yellow,/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "fb" = (/turf/space,/area/shuttle/escape_shuttle)
 "fd" = (/obj/structure/handrail{dir = 1},/obj/effect/floor_decal/techfloor,/turf/floor/tiled/monofloor3,/area/shuttle/escape_shuttle)
@@ -25,20 +32,26 @@
 "fq" = (/obj/structure/shuttle/engine/propulsion{dir = 4},/turf/floor/plating,/area/vesta/supply)
 "fC" = (/obj/structure/shuttle/engine/propulsion,/turf/floor,/area/ship/shuttle_arrival)
 "fI" = (/obj/structure/cable/green{icon_state = "1-2"},/obj/effect/shuttle_landmark/vesta/arrivals_offsite,/turf/floor/tiled/monofloor3,/area/ship/shuttle_arrival)
+"fJ" = (/obj/structure/window/basic/full,/turf/floor/plating,/area/centcom/holding)
 "fM" = (/obj/structure/window/reinforced/crescent{dir = 4},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "gf" = (/obj/structure/window/reinforced/crescent{dir = 8},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
+"gl" = (/obj/machinery/light{dir = 8},/obj/effect/floor_decal/techfloor{dir = 8},/turf/floor/tiled/sad_floor,/area/centcom/holding)
 "gm" = (/obj/effect/floor_decal/techfloor{dir = 1},/obj/structure/extinguisher_cabinet{pixel_x = -7; pixel_y = 32},/turf/floor/tiled/monofloor3,/area/shuttle/escape_shuttle)
 "gw" = (/obj/effect/floor_decal/techfloor{dir = 1},/obj/structure/closet/emcloset,/turf/floor/tiled/monofloor3,/area/shuttle/escape_shuttle)
 "gF" = (/obj/structure/table/reinforced,/obj/item/card/id/captains_spare,/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "gL" = (/obj/effect/floor_decal/corner/green/three_quarters{dir = 8},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "gQ" = (/obj/structure/sign/warning/secure_area,/turf/unsimulated/wall,/area/space)
 "gY" = (/turf/floor/plating,/area/centcom/holding)
+"hb" = (/obj/structure/hygiene/toilet{dir = 8},/obj/structure/curtain/open/shower,/turf/floor/tiled/freezer,/area/centcom/holding)
 "hi" = (/obj/effect/floor_decal/corner/green{dir = 8},/obj/effect/floor_decal/industrial/warning/corner{dir = 1},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
+"hD" = (/turf/unsimulated/wall/airlock,/area/centcom/holding)
 "ic" = (/obj/effect/floor_decal/corner/green{dir = 6},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
-"il" = (/obj/machinery/atmospherics/pipe/manifold/hidden{dir = 1},/turf/floor/plating,/area/centcom/holding)
+"il" = (/obj/machinery/atmospherics/pipe/manifold/hidden{dir = 1},/obj/effect/catwalk_plated/white,/turf/floor/plating,/area/centcom/holding)
+"iL" = (/obj/structure/hygiene/shower{pixel_y = 16; dir = 4},/obj/structure/curtain/open/shower,/turf/floor/tiled/freezer,/area/centcom/holding)
 "iN" = (/obj/structure/shuttle/engine/heater,/turf/floor/plating,/area/vesta/supply)
 "jt" = (/obj/structure/bed/chair/shuttle/black{dir = 8},/turf/floor/tiled/monofloor3,/area/shuttle/escape_shuttle)
 "ju" = (/obj/machinery/door/airlock/external/bolted{id_tag = "centcom_arrival_dock_south_outer"; name = "Arrival Airlock"},/obj/effect/catwalk_plated/white,/turf/floor/plating,/area/centcom/holding)
+"jO" = (/obj/machinery/atmospherics/pipe/simple/hidden,/obj/effect/catwalk_plated/white,/obj/machinery/door/airlock/centcom,/turf/floor/plating,/area/centcom/holding)
 "jQ" = (/obj/structure/bed/chair/shuttle/black{dir = 1},/obj/machinery/light,/turf/floor/tiled/sad_floor/yellow_2,/area/shuttle/escape_shuttle)
 "jS" = (/obj/machinery/door/airlock/hatch/maintenance,/obj/effect/catwalk_plated/white,/turf/floor/plating,/area/shuttle/escape_shuttle)
 "jX" = (/obj/structure/bed/chair/shuttle/black,/obj/structure/cable/green{icon_state = "1-2"},/turf/floor/tiled/monofloor3,/area/ship/shuttle_arrival)
@@ -48,9 +61,12 @@
 "lK" = (/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{dir = 4; id_tag = "centcom_arrival_dock_north_pump"},/obj/machinery/airlock_sensor{id_tag = "centcom_arrival_dock_north_sensor"; pixel_y = -25; dir = 1},/obj/effect/catwalk_plated/white,/turf/floor/plating,/area/centcom/holding)
 "lW" = (/obj/item/radio/intercom{pixel_y = 20},/obj/structure/decoy{name = "A.L.I.C.E."},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "lZ" = (/obj/effect/floor_decal/industrial/warning{dir = 6},/turf/floor/tiled/sad_floor/green_2,/area/shuttle/escape_shuttle)
+"mj" = (/obj/structure/window/basic{dir = 1},/obj/structure/bed/sofa/middle/blue{dir = 6},/turf/floor/tiled/sad_floor,/area/centcom/holding)
 "mw" = (/obj/structure/bed/chair/shuttle/black{dir = 1},/turf/floor/tiled/sad_floor/yellow_2,/area/shuttle/escape_shuttle)
 "mK" = (/obj/effect/floor_decal/industrial/warning{dir = 9},/turf/floor/tiled/sad_floor/yellow_2,/area/shuttle/escape_shuttle)
 "mL" = (/obj/structure/window/reinforced/full,/turf/wall/shuttle,/area/ship/shuttle_arrival)
+"mZ" = (/obj/structure/grille,/turf/floor/plating,/area/centcom/holding)
+"nr" = (/obj/structure/cryofeed,/turf/floor/tiled/steel_ridged,/area/centcom/holding)
 "nG" = (/obj/effect/floor_decal/corner/green,/obj/effect/floor_decal/industrial/warning/corner{dir = 4},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "nP" = (/obj/effect/catwalk_plated/white,/obj/machinery/door/airlock/external/bolted{id_tag = "escape_shuttle_hatch"; name = "Shuttle Hatch"},/turf/floor/plating,/area/shuttle/escape_shuttle)
 "oc" = (/obj/machinery/door/airlock/centcom{name = "Teleporter Bay"},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
@@ -58,48 +74,57 @@
 "ov" = (/obj/structure/shuttle/engine/heater{dir = 1},/turf/floor/plating,/area/vesta/supply)
 "pi" = (/obj/structure/cable/green{icon_state = "1-2"},/turf/floor/tiled/monofloor2,/area/ship/shuttle_arrival)
 "pq" = (/obj/structure/shuttle/engine/propulsion{dir = 1},/turf/floor/plating,/area/vesta/supply)
-"pr" = (/obj/machinery/power/apc{dir = 1; pixel_y = 21},/turf/floor/tiled/techfloor,/area/centcom/holding)
+"pr" = (/obj/machinery/power/apc{dir = 1; pixel_y = 21},/obj/effect/catwalk_plated/white,/turf/floor/plating,/area/centcom/holding)
 "py" = (/obj/machinery/alarm{dir = 4; pixel_x = -22},/turf/floor/tiled/monofloor3,/area/shuttle/escape_shuttle)
 "pD" = (/obj/machinery/light{dir = 4},/turf/floor/tiled/monofloor3,/area/vesta/supply)
-"qa" = (/obj/machinery/atmospherics/pipe/simple/hidden,/turf/floor/plating,/area/centcom/holding)
+"qa" = (/turf/floor/tiled/sad_floor,/area/centcom/holding)
 "ql" = (/obj/machinery/power/smes/buildable/power_shuttle,/turf/floor/tiled/steel_ridged,/area/shuttle/escape_shuttle)
 "qm" = (/obj/structure/cable/green{icon_state = "0-8"},/obj/structure/shuttle/engine/propulsion{dir = 4},/turf/floor,/area/ship/shuttle_arrival)
+"qr" = (/turf/floor/tiled/steel_ridged,/area/centcom/holding)
 "qv" = (/turf/floor/tiled/monofloor,/area/shuttle/escape_shuttle)
 "qJ" = (/obj/structure/handrail{dir = 8},/obj/item/radio/intercom{dir = 8; pixel_x = 22},/turf/floor/tiled/monofloor3,/area/shuttle/escape_shuttle)
+"qO" = (/obj/machinery/door/airlock/glass/civilian,/turf/floor/tiled/steel_ridged,/area/centcom/holding)
 "qT" = (/obj/effect/catwalk_plated/white,/obj/machinery/door/airlock/glass/command,/turf/floor/plating,/area/shuttle/escape_shuttle)
 "qW" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 4},/obj/machinery/door/airlock/external/bolted{id_tag = "centcom_arrival_dock_north_inner"; name = "Arrival Airlock"},/obj/effect/catwalk_plated/white,/turf/floor/plating,/area/centcom/holding)
 "qY" = (/obj/machinery/light{dir = 4},/obj/structure/bed/chair/shuttle/black{dir = 8},/obj/effect/floor_decal/techfloor{dir = 4},/turf/floor/tiled/monofloor2,/area/ship/shuttle_arrival)
 "rb" = (/obj/structure/shuttle/engine/propulsion{icon_state = "burst_l"; dir = 8},/turf/floor/plating,/area/shuttle/escape_shuttle)
+"rc" = (/obj/structure/closet/secure_closet/personal,/turf/floor/tiled/old_cargo,/area/centcom/holding)
 "rh" = (/obj/structure/window/reinforced/full,/turf/floor/plating,/area/shuttle/escape_shuttle)
+"rn" = (/obj/effect/floor_decal/techfloor{dir = 10},/turf/floor/tiled/sad_floor,/area/centcom/holding)
 "rB" = (/obj/machinery/computer/robotics{dir = 4},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "rG" = (/obj/structure/window/reinforced/crescent{dir = 4},/obj/structure/window/reinforced/crescent,/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "rN" = (/obj/machinery/embedded_controller/radio/simple_docking_controller{dir = 8; id_tag = "supply_shuttle"; pixel_x = 25; tag_door = "supply_shuttle_hatch"},/turf/floor/tiled/monofloor3,/area/vesta/supply)
 "rV" = (/obj/structure/bed/chair,/obj/effect/floor_decal/industrial/warning/corner{dir = 4},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
+"rY" = (/obj/machinery/light/small{dir = 4},/turf/floor/tiled/old_cargo,/area/centcom/holding)
 "sv" = (/obj/machinery/door/airlock/centcom{name = "Maintenance Access"},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
+"sz" = (/obj/structure/table/reinforced,/obj/item/ashtray/plastic,/turf/floor/tiled/sad_floor/green_1,/area/centcom/holding)
 "sA" = (/obj/structure/bed/chair/shuttle/black,/obj/effect/floor_decal/industrial/warning{dir = 4},/turf/floor/tiled/sad_floor/green_2,/area/shuttle/escape_shuttle)
 "sE" = (/obj/machinery/teleport/station{dir = 4},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
+"sF" = (/obj/machinery/light/small,/turf/floor/tiled/freezer,/area/centcom/holding)
 "sK" = (/turf/floor/tiled/monofloor3,/area/ship/shuttle_arrival)
 "sM" = (/turf/space,/area/space)
+"sZ" = (/obj/machinery/light{dir = 4},/obj/effect/floor_decal/techfloor,/turf/floor/tiled/sad_floor,/area/centcom/holding)
 "ta" = (/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{dir = 4; id_tag = "centcom_arrival_dock_south_pump"},/obj/machinery/airlock_sensor{id_tag = "centcom_arrival_dock_south_sensor"; pixel_y = 25},/obj/effect/catwalk_plated/white,/turf/floor/plating,/area/centcom/holding)
 "tq" = (/obj/machinery/door/airlock/centcom{name = "Bridge"},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
-"tx" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 4},/turf/floor/plating,/area/centcom/holding)
+"tx" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 4},/obj/effect/catwalk_plated/white,/turf/floor/plating,/area/centcom/holding)
 "tz" = (/obj/effect/floor_decal/corner/green{dir = 4},/obj/effect/floor_decal/industrial/warning/corner,/turf/unsimulated/floor{icon_state = "steel"},/area/space)
-"tD" = (/obj/machinery/portable_atmospherics/canister/air/airlock,/obj/machinery/atmospherics/portables_connector{dir = 8},/turf/floor/plating,/area/centcom/holding)
+"tD" = (/obj/machinery/portable_atmospherics/canister/air/airlock,/obj/machinery/atmospherics/portables_connector{dir = 8},/obj/effect/catwalk_plated/white,/turf/floor/plating,/area/centcom/holding)
 "tX" = (/obj/structure/bed/chair/shuttle/black,/obj/machinery/light{dir = 1},/turf/floor/tiled/sad_floor/green_2,/area/shuttle/escape_shuttle)
 "tZ" = (/obj/structure/bed/chair/shuttle/black,/turf/floor/tiled/sad_floor/red_2,/area/shuttle/escape_shuttle)
 "uj" = (/obj/machinery/computer/modular/preset/medical{dir = 8; icon_state = "console"},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "uL" = (/obj/machinery/computer/modular/preset/cardslot/command{dir = 1; icon_state = "console"},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "uZ" = (/turf/floor/tiled/steel_ridged,/area/shuttle/escape_shuttle)
 "vb" = (/obj/machinery/power/smes/buildable/power_shuttle,/turf/floor/tiled/monofloor2,/area/ship/shuttle_arrival)
-"vm" = (/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{dir = 1; id_tag = "centcom_escape_dock_south_airlock"; master_tag = "centcom_escape_dock"; pixel_y = -25; tag_airpump = "centcom_escape_dock_south_pump"; tag_chamber_sensor = "centcom_escape_dock_south_sensor"; tag_exterior_door = "centcom_escape_dock_south_outer"; tag_interior_door = "centcom_escape_dock_south_inner"},/turf/floor/plating,/area/centcom/holding)
-"vo" = (/obj/machinery/atmospherics/pipe/manifold/hidden,/turf/floor/plating,/area/centcom/holding)
+"vm" = (/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{dir = 1; id_tag = "centcom_escape_dock_south_airlock"; master_tag = "centcom_escape_dock"; pixel_y = -25; tag_airpump = "centcom_escape_dock_south_pump"; tag_chamber_sensor = "centcom_escape_dock_south_sensor"; tag_exterior_door = "centcom_escape_dock_south_outer"; tag_interior_door = "centcom_escape_dock_south_inner"},/turf/floor/tiled/sad_floor_mono,/area/centcom/holding)
+"vo" = (/obj/machinery/atmospherics/pipe/manifold/hidden,/obj/effect/catwalk_plated/white,/turf/floor/plating,/area/centcom/holding)
 "vx" = (/turf/floor,/area/ship/shuttle_arrival)
 "vR" = (/turf/unsimulated/wall,/area/space)
 "wc" = (/obj/effect/floor_decal/industrial/warning,/turf/floor/tiled/sad_floor/green_2,/area/shuttle/escape_shuttle)
 "wr" = (/obj/structure/bed/chair/shuttle/black,/obj/machinery/light{dir = 1},/turf/floor/tiled/sad_floor/red_2,/area/shuttle/escape_shuttle)
 "wU" = (/obj/structure/bed/chair/shuttle/black{dir = 4},/obj/effect/floor_decal/techfloor{dir = 8},/turf/floor/tiled/monofloor2,/area/ship/shuttle_arrival)
-"xC" = (/obj/machinery/door/airlock/external/bolted{id_tag = "centcom_escape_dock_north_outer"; name = "Escape Airlock"},/turf/floor/plating,/area/centcom/holding)
+"xC" = (/obj/machinery/door/airlock/external/bolted{id_tag = "centcom_escape_dock_north_outer"; name = "Escape Airlock"},/obj/effect/catwalk_plated/white,/turf/floor/plating,/area/centcom/holding)
 "xF" = (/turf/floor/tiled/monofloor3,/area/shuttle/escape_shuttle)
+"xV" = (/obj/structure/bed/chair/padded/yellow{dir = 4},/turf/floor/tiled/sad_floor/green_1,/area/centcom/holding)
 "yf" = (/obj/effect/floor_decal/corner/green{dir = 1},/obj/effect/floor_decal/industrial/warning/corner{dir = 8},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "yi" = (/obj/structure/bed/chair/shuttle/black{dir = 1},/turf/floor/tiled/sad_floor/red_2,/area/shuttle/escape_shuttle)
 "yk" = (/obj/structure/handrail{dir = 8},/turf/floor/tiled/monofloor3,/area/shuttle/escape_shuttle)
@@ -107,24 +132,37 @@
 "yN" = (/obj/effect/floor_decal/corner/green{dir = 8},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "yV" = (/obj/effect/floor_decal/techfloor{dir = 1},/obj/structure/handrail,/turf/floor/tiled/monofloor3,/area/shuttle/escape_shuttle)
 "zA" = (/obj/machinery/embedded_controller/radio/docking_port_multi{child_names_txt = "Airlock One;Airlock Two"; child_tags_txt = "centcom_arrival_dock_north_airlock;centcom_arrival_dock_south_airlock"; dir = 1; id_tag = "centcom_arrival_dock"; pixel_y = 1; pixel_x = -20},/turf/floor/tiled/techfloor,/area/centcom/holding)
+"zJ" = (/turf/floor/tiled/sad_floor/green_2,/area/centcom/holding)
+"zN" = (/obj/effect/floor_decal/techfloor,/obj/machinery/newscaster{pixel_y = 32},/turf/floor/tiled/sad_floor,/area/centcom/holding)
 "As" = (/obj/effect/floor_decal/corner/green{dir = 10},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
-"Az" = (/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{dir = 1; id_tag = "centcom_escape_dock_south_pump"},/obj/machinery/airlock_sensor{id_tag = "centcom_escape_dock_south_sensor"; pixel_y = 25},/turf/floor/plating,/area/centcom/holding)
+"Az" = (/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{dir = 1; id_tag = "centcom_escape_dock_south_pump"},/obj/machinery/airlock_sensor{id_tag = "centcom_escape_dock_south_sensor"; pixel_y = 25},/obj/effect/catwalk_plated/white,/turf/floor/plating,/area/centcom/holding)
 "AJ" = (/obj/machinery/atmospherics/pipe/simple/hidden,/obj/effect/catwalk_plated/white,/turf/floor/plating,/area/centcom/holding)
+"AN" = (/obj/structure/hygiene/drain/bath,/turf/floor/tiled/freezer,/area/centcom/holding)
 "Bd" = (/obj/structure/bed/chair/shuttle/black,/obj/effect/floor_decal/industrial/warning{dir = 8},/turf/floor/tiled/sad_floor/green_2,/area/shuttle/escape_shuttle)
 "BL" = (/obj/structure/shuttle/engine/heater{dir = 8},/turf/floor/plating,/area/shuttle/escape_shuttle)
-"BV" = (/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{dir = 1; id_tag = "centcom_escape_dock_north_pump"},/obj/machinery/airlock_sensor{id_tag = "centcom_escape_dock_north_sensor"; pixel_y = -25; dir = 1},/turf/floor/plating,/area/centcom/holding)
-"BW" = (/obj/machinery/power/apc{dir = 1; name = "north bump"; pixel_y = 24},/turf/floor/plating,/area/centcom/holding)
+"BV" = (/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{dir = 1; id_tag = "centcom_escape_dock_north_pump"},/obj/machinery/airlock_sensor{id_tag = "centcom_escape_dock_north_sensor"; pixel_y = -25; dir = 1},/obj/effect/catwalk_plated/white,/turf/floor/plating,/area/centcom/holding)
+"BW" = (/obj/machinery/power/apc{dir = 1; name = "north bump"; pixel_y = 24},/turf/floor/tiled/sad_floor_mono,/area/centcom/holding)
 "Cb" = (/turf/wall/shuttle,/area/ship/shuttle_arrival)
 "Cd" = (/obj/machinery/door/window{name = "AI Core Door"},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
+"Ch" = (/turf/floor/tiled/monofloor,/area/centcom/holding)
+"Cs" = (/obj/machinery/light{dir = 4},/obj/structure/window/basic{dir = 1},/turf/floor/tiled/sad_floor,/area/centcom/holding)
 "CA" = (/obj/machinery/embedded_controller/radio/simple_docking_controller{dir = 8; id_tag = "cargo_bay_centcom"; pixel_x = 25; tag_door = "supply_shuttle_hatch_dock"},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
+"CK" = (/obj/structure/table/reinforced,/turf/floor/tiled/sad_floor,/area/centcom/holding)
 "CL" = (/obj/machinery/power/apc{dir = 1; pixel_y = 21},/obj/machinery/power/terminal{dir = 4},/obj/structure/cable/green{icon_state = "0-2"},/obj/structure/cable/green,/turf/floor/tiled/monofloor3,/area/ship/shuttle_arrival)
+"CM" = (/obj/structure/bed/sofa/right{dir = 8},/turf/floor/tiled/sad_floor,/area/centcom/holding)
+"Dg" = (/obj/structure/bed/sofa/left{dir = 4},/turf/floor/tiled/sad_floor,/area/centcom/holding)
 "Dn" = (/obj/structure/closet/crate/plastic/rations,/turf/floor/tiled/steel_ridged,/area/shuttle/escape_shuttle)
+"Ds" = (/obj/structure/table/reinforced,/turf/floor/tiled/sad_floor/green_1,/area/centcom/holding)
 "Dt" = (/obj/machinery/light/small{dir = 4},/turf/floor/tiled/monofloor3,/area/ship/shuttle_arrival)
 "DH" = (/turf/floor/tiled/monofloor3,/area/vesta/supply)
+"DM" = (/obj/effect/floor_decal/techfloor{dir = 1},/obj/machinery/light,/turf/floor/tiled/sad_floor,/area/centcom/holding)
 "Eo" = (/obj/structure/bed/chair,/obj/effect/floor_decal/industrial/warning/corner{dir = 1},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
+"Et" = (/obj/effect/catwalk_plated/white,/obj/machinery/light/small{dir = 1},/turf/floor/plating,/area/centcom/holding)
 "EX" = (/obj/effect/floor_decal/industrial/warning{dir = 4},/obj/effect/floor_decal/techfloor{dir = 4},/obj/machinery/embedded_controller/radio/simple_docking_controller{dir = 1; id_tag = "arrivals_shuttle"; pixel_x = 1; pixel_y = -27; tag_door = "arrivals_shuttle_hatch"},/turf/floor/tiled/monofloor2,/area/ship/shuttle_arrival)
 "Fa" = (/obj/structure/shuttle/engine/heater,/obj/structure/cable/green{icon_state = "4-8"},/obj/structure/cable/green{icon_state = "2-4"},/turf/floor,/area/ship/shuttle_arrival)
 "Fs" = (/obj/structure/lattice,/turf/unsimulated/wall,/area/space)
+"Fy" = (/obj/structure/window/basic{dir = 1},/obj/structure/bed/sofa/middle/blue,/turf/floor/tiled/sad_floor,/area/centcom/holding)
+"FF" = (/obj/structure/window/basic{dir = 1},/obj/structure/bed/sofa/middle/blue{dir = 10},/turf/floor/tiled/sad_floor,/area/centcom/holding)
 "FI" = (/obj/machinery/door/airlock/external/bolted{id_tag = "supply_shuttle_hatch"; name = "Shuttle Hatch"},/turf/floor/plating,/area/vesta/supply)
 "FR" = (/turf/floor/plating,/area/shuttle/escape_shuttle)
 "FZ" = (/obj/machinery/atmospherics/pipe/manifold/hidden{dir = 4},/obj/effect/catwalk_plated/white,/turf/floor/plating,/area/centcom/holding)
@@ -139,21 +177,26 @@
 "IW" = (/obj/structure/bed/chair/shuttle/black{dir = 4},/obj/effect/floor_decal/techfloor{dir = 8},/obj/machinery/alarm{dir = 4; pixel_x = -22},/turf/floor/tiled/monofloor2,/area/ship/shuttle_arrival)
 "Jy" = (/obj/structure/bed/chair/shuttle/black{dir = 8},/obj/machinery/embedded_controller/radio/simple_docking_controller{dir = 1; id_tag = "escape_shuttle"; pixel_y = -25; tag_door = "escape_shuttle_hatch"},/turf/floor/tiled/monofloor3,/area/shuttle/escape_shuttle)
 "JN" = (/obj/structure/cable/green{icon_state = "1-2"},/obj/structure/cable/green{icon_state = "1-8"},/obj/structure/cable/green{icon_state = "1-4"},/obj/structure/cable/green{icon_state = "1-2"},/turf/floor,/area/ship/shuttle_arrival)
-"JV" = (/obj/machinery/atmospherics/pipe/simple/hidden,/obj/machinery/door/airlock/external/bolted{id_tag = "centcom_escape_dock_south_inner"; name = "Escape Airlock"},/turf/floor/plating,/area/centcom/holding)
+"JV" = (/obj/machinery/atmospherics/pipe/simple/hidden,/obj/machinery/door/airlock/external/bolted{id_tag = "centcom_escape_dock_south_inner"; name = "Escape Airlock"},/obj/effect/catwalk_plated/white,/turf/floor/plating,/area/centcom/holding)
 "Kd" = (/obj/item/radio/intercom{dir = 8; pixel_x = 22},/turf/floor/tiled/monofloor3,/area/shuttle/escape_shuttle)
-"KD" = (/obj/machinery/door/airlock/external/bolted{id_tag = "centcom_escape_dock_south_outer"; name = "Escape Airlock"},/turf/floor/plating,/area/centcom/holding)
+"Kw" = (/obj/machinery/light{dir = 4},/obj/structure/bed/chair/padded/yellow{dir = 8},/turf/floor/tiled/sad_floor/green_2,/area/centcom/holding)
+"KD" = (/obj/machinery/door/airlock/external/bolted{id_tag = "centcom_escape_dock_south_outer"; name = "Escape Airlock"},/obj/effect/catwalk_plated/white,/turf/floor/plating,/area/centcom/holding)
 "KO" = (/obj/structure/cable/green{icon_state = "1-2"},/turf/wall/shuttle,/area/ship/shuttle_arrival)
+"KQ" = (/obj/machinery/light,/turf/floor/tiled/sad_floor/green_2,/area/centcom/holding)
+"KT" = (/obj/machinery/light,/turf/floor/tiled/sad_floor_mono,/area/centcom/holding)
 "KW" = (/obj/machinery/power/terminal{dir = 4},/obj/machinery/power/apc{dir = 1; name = "north bump"; pixel_y = 24},/turf/floor/tiled/steel_ridged,/area/shuttle/escape_shuttle)
 "KZ" = (/obj/structure/shuttle/engine/propulsion{dir = 4},/turf/floor/plating,/area/shuttle/escape_shuttle)
 "Lp" = (/obj/structure/shuttle/engine/propulsion{icon_state = "burst_l"},/turf/floor/plating,/area/shuttle/escape_shuttle)
-"LM" = (/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{dir = 1; id_tag = "centcom_arrival_dock_north_airlock"; master_tag = "centcom_arrival_dock"; pixel_y = 1; tag_airpump = "centcom_arrival_dock_north_pump"; tag_chamber_sensor = "centcom_arrival_dock_north_sensor"; tag_exterior_door = "centcom_arrival_dock_north_outer"; tag_interior_door = "centcom_arrival_dock_north_inner"; pixel_x = -20},/turf/floor/tiled/techfloor,/area/centcom/holding)
+"LM" = (/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{dir = 1; id_tag = "centcom_arrival_dock_north_airlock"; master_tag = "centcom_arrival_dock"; pixel_y = 1; tag_airpump = "centcom_arrival_dock_north_pump"; tag_chamber_sensor = "centcom_arrival_dock_north_sensor"; tag_exterior_door = "centcom_arrival_dock_north_outer"; tag_interior_door = "centcom_arrival_dock_north_inner"; pixel_x = -20},/turf/floor/tiled/sad_floor_mono,/area/centcom/holding)
 "LQ" = (/obj/machinery/light{dir = 4},/turf/floor/tiled/monofloor2,/area/shuttle/escape_shuttle)
 "Me" = (/obj/effect/floor_decal/industrial/warning{dir = 4},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
+"Mf" = (/obj/machinery/door/airlock/centcom,/turf/floor/tiled/steel_ridged,/area/centcom/holding)
 "Mh" = (/obj/structure/shuttle/engine/propulsion/burst,/turf/floor,/area/ship/shuttle_arrival)
 "MO" = (/obj/effect/floor_decal/corner/green/three_quarters,/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "MS" = (/obj/structure/handrail{dir = 4},/turf/floor/tiled/monofloor2,/area/shuttle/escape_shuttle)
 "MY" = (/obj/machinery/conveyor{dir = 8; id_tag = "QMLoad2"},/obj/machinery/door/airlock/external/bolted{id_tag = "supply_shuttle_hatch"; name = "Shuttle Hatch"},/turf/floor/plating,/area/vesta/supply)
 "MZ" = (/turf/unsimulated/dark_filler,/area/space)
+"Na" = (/obj/effect/floor_decal/techfloor{dir = 8},/turf/floor/tiled/sad_floor,/area/centcom/holding)
 "Nc" = (/obj/structure/table/reinforced,/obj/machinery/recharger{pixel_y = 4},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "Ne" = (/obj/structure/window/reinforced/crescent{dir = 8},/obj/structure/window/reinforced/crescent,/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "NE" = (/obj/effect/floor_decal/techfloor{dir = 8},/obj/structure/closet/emcloset,/turf/floor/tiled/monofloor2,/area/ship/shuttle_arrival)
@@ -161,10 +204,12 @@
 "Oc" = (/obj/structure/cable/green{icon_state = "1-2"},/obj/machinery/door/airlock/hatch/maintenance/bolted,/turf/floor/tiled/monofloor2,/area/ship/shuttle_arrival)
 "Od" = (/obj/structure/table/steel_reinforced,/turf/floor/tiled/monofloor2,/area/shuttle/escape_shuttle)
 "Oj" = (/obj/machinery/door/airlock/external/bolted{id_tag = "centcom_arrival_dock_north_outer"; name = "Arrival Airlock"},/obj/effect/catwalk_plated/white,/turf/floor/plating,/area/centcom/holding)
+"On" = (/obj/machinery/door/airlock/civilian,/turf/floor/tiled/steel_ridged,/area/centcom/holding)
 "Oy" = (/obj/structure/bed/chair/shuttle/black{dir = 8},/obj/machinery/light,/turf/floor/tiled/monofloor2,/area/shuttle/escape_shuttle)
 "OI" = (/obj/effect/shuttle_landmark/supply/start,/turf/floor/tiled/monofloor3,/area/vesta/supply)
 "OS" = (/obj/structure/bed/chair/shuttle/black{dir = 8},/obj/machinery/light{dir = 1},/turf/floor/tiled/monofloor2,/area/shuttle/escape_shuttle)
 "OZ" = (/obj/structure/shuttle/engine/heater,/obj/structure/cable/green{icon_state = "4-8"},/obj/structure/cable/green{icon_state = "2-8"},/turf/floor,/area/ship/shuttle_arrival)
+"Pb" = (/obj/machinery/light{dir = 8},/turf/floor/tiled/sad_floor_mono,/area/centcom/holding)
 "Pd" = (/obj/structure/shuttle/engine/propulsion/burst/left,/turf/floor,/area/ship/shuttle_arrival)
 "Pi" = (/obj/effect/catwalk_plated/white,/turf/floor/plating,/area/centcom/holding)
 "Pj" = (/obj/effect/floor_decal/industrial/warning{dir = 8},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
@@ -174,7 +219,7 @@
 "PY" = (/turf/wall/shuttle,/area/vesta/supply)
 "Qb" = (/obj/structure/bed/chair{dir = 8},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "Qj" = (/obj/structure/bed/chair/shuttle/black{dir = 1},/obj/effect/floor_decal/industrial/warning{dir = 4},/turf/floor/tiled/sad_floor/yellow_2,/area/shuttle/escape_shuttle)
-"Qk" = (/obj/machinery/light{dir = 4},/turf/floor/tiled/techfloor,/area/centcom/holding)
+"Qk" = (/turf/floor/tiled/sad_floor_mono,/area/centcom/holding)
 "Qn" = (/obj/structure/bed/chair/shuttle/black{dir = 8},/obj/effect/floor_decal/techfloor{dir = 4},/turf/floor/tiled/monofloor2,/area/ship/shuttle_arrival)
 "Qo" = (/obj/structure/bed/roller,/obj/effect/floor_decal/techfloor,/turf/floor/tiled/monofloor3,/area/shuttle/escape_shuttle)
 "Qp" = (/obj/effect/floor_decal/techfloor,/obj/machinery/cryopod,/turf/floor/tiled/monofloor3,/area/shuttle/escape_shuttle)
@@ -183,35 +228,48 @@
 "Rm" = (/obj/structure/cable/green{icon_state = "1-2"},/turf/floor/tiled/monofloor3,/area/ship/shuttle_arrival)
 "Rz" = (/obj/structure/shuttle/engine/propulsion,/turf/floor/plating,/area/vesta/supply)
 "RK" = (/obj/effect/floor_decal/techfloor,/turf/floor/tiled/monofloor3,/area/shuttle/escape_shuttle)
-"RR" = (/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{dir = 1; id_tag = "centcom_arrival_dock_south_airlock"; master_tag = "centcom_arrival_dock"; pixel_y = 1; tag_airpump = "centcom_arrival_dock_south_pump"; tag_chamber_sensor = "centcom_arrival_dock_south_sensor"; tag_exterior_door = "centcom_arrival_dock_south_outer"; tag_interior_door = "centcom_arrival_dock_south_inner"; pixel_x = -20},/turf/floor/tiled/techfloor,/area/centcom/holding)
+"RR" = (/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{dir = 1; id_tag = "centcom_arrival_dock_south_airlock"; master_tag = "centcom_arrival_dock"; pixel_y = 1; tag_airpump = "centcom_arrival_dock_south_pump"; tag_chamber_sensor = "centcom_arrival_dock_south_sensor"; tag_exterior_door = "centcom_arrival_dock_south_outer"; tag_interior_door = "centcom_arrival_dock_south_inner"; pixel_x = -20},/turf/floor/tiled/sad_floor_mono,/area/centcom/holding)
+"Sk" = (/obj/machinery/cryopod,/turf/floor/tiled/steel_ridged,/area/centcom/holding)
 "SC" = (/obj/machinery/teleport/hub,/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "ST" = (/obj/structure/bed/chair{dir = 4},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "Tg" = (/obj/structure/table/reinforced,/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "Th" = (/obj/machinery/oxygen_pump,/turf/wall/shuttle,/area/ship/shuttle_arrival)
 "Tm" = (/obj/effect/floor_decal/industrial/warning{dir = 4},/obj/effect/floor_decal/techfloor{dir = 4},/turf/floor/tiled/monofloor2,/area/ship/shuttle_arrival)
+"Tp" = (/obj/machinery/light{dir = 1},/turf/floor/tiled/sad_floor_mono,/area/centcom/holding)
+"TE" = (/obj/machinery/light/small,/turf/floor/tiled/sad_floor_mono,/area/centcom/holding)
 "TJ" = (/obj/machinery/button/blast_door{id_tag = "crescent_checkpoint_access"; name = "Crescent Checkpoint Access"; pixel_x = -6; pixel_y = -24},/obj/machinery/button/blast_door{id_tag = "crescent_thunderdome"; name = "Thunderdome Access"; pixel_x = 6; pixel_y = -24},/obj/machinery/button/blast_door{id_tag = "crescent_vip_shuttle"; name = "VIP Shuttle Access"; pixel_x = 6; pixel_y = -34},/obj/machinery/button/blast_door{id_tag = "CREED"; name = "Spec Ops Ready Room"; pixel_x = -6; pixel_y = -34},/obj/machinery/turretid{pixel_x = 28; pixel_y = -28; req_access = list("ACCESS_CENT_GENERAL")},/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "TL" = (/obj/structure/shuttle/engine/heater{dir = 4},/turf/floor/plating,/area/shuttle/escape_shuttle)
 "TO" = (/obj/structure/lattice,/turf/space,/area/space)
+"TS" = (/obj/structure/table/reinforced,/obj/item/ashtray/plastic,/turf/floor/tiled/sad_floor,/area/centcom/holding)
+"Ug" = (/obj/abstract/landmark/latejoin,/turf/floor/tiled/sad_floor_mono,/area/centcom/holding)
+"Uv" = (/turf/floor/tiled/old_cargo,/area/centcom/holding)
 "Uw" = (/obj/machinery/computer/modular/preset/medical{dir = 4},/turf/floor/plating,/area/shuttle/escape_shuttle)
 "Uz" = (/obj/machinery/conveyor{dir = 8; id_tag = "QMLoad2"},/obj/effect/floor_decal/industrial/warning{dir = 8},/turf/floor/tiled/monofloor3,/area/vesta/supply)
 "UC" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 10},/obj/effect/catwalk_plated/white,/turf/floor/plating,/area/centcom/holding)
-"UL" = (/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{id_tag = "centcom_escape_dock_north_airlock"; master_tag = "centcom_escape_dock"; pixel_y = 24; tag_airpump = "centcom_escape_dock_north_pump"; tag_chamber_sensor = "centcom_escape_dock_north_sensor"; tag_exterior_door = "centcom_escape_dock_north_outer"; tag_interior_door = "centcom_escape_dock_north_inner"},/turf/floor/plating,/area/centcom/holding)
+"UG" = (/obj/machinery/light{dir = 4},/obj/effect/floor_decal/techfloor{dir = 1},/turf/floor/tiled/sad_floor,/area/centcom/holding)
+"UL" = (/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{id_tag = "centcom_escape_dock_north_airlock"; master_tag = "centcom_escape_dock"; pixel_y = -25; tag_airpump = "centcom_escape_dock_north_pump"; tag_chamber_sensor = "centcom_escape_dock_north_sensor"; tag_exterior_door = "centcom_escape_dock_north_outer"; tag_interior_door = "centcom_escape_dock_north_inner"},/turf/floor/tiled/sad_floor_mono,/area/centcom/holding)
+"Vf" = (/obj/effect/floor_decal/techfloor{dir = 8},/obj/structure/closet/emcloset,/turf/floor/tiled/sad_floor,/area/centcom/holding)
 "Vo" = (/obj/effect/floor_decal/industrial/warning{dir = 8},/turf/floor/tiled/monofloor3,/area/vesta/supply)
+"Vt" = (/obj/structure/closet/emcloset,/turf/floor/tiled/sad_floor,/area/centcom/holding)
 "Vz" = (/obj/structure/cable/green{icon_state = "1-2"},/obj/machinery/computer/shuttle_control/arrivals,/turf/floor/tiled/monofloor3,/area/ship/shuttle_arrival)
 "Wo" = (/obj/machinery/light{dir = 8},/turf/floor/tiled/techfloor,/area/centcom/holding)
+"Wr" = (/obj/machinery/light{dir = 4},/turf/floor/tiled/sad_floor_mono,/area/centcom/holding)
 "WA" = (/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "WJ" = (/obj/structure/cable/green{icon_state = "1-2"},/obj/structure/cable/green{icon_state = "0-4"},/obj/structure/cable/green{icon_state = "0-8"},/turf/wall/shuttle,/area/ship/shuttle_arrival)
-"Xt" = (/obj/machinery/door/airlock/external/bolted{id_tag = "centcom_escape_dock_north_inner"; name = "Escape Airlock"},/obj/machinery/atmospherics/pipe/simple/hidden,/turf/floor/plating,/area/centcom/holding)
+"Xn" = (/obj/effect/floor_decal/techfloor{dir = 1},/turf/floor/tiled/sad_floor,/area/centcom/holding)
+"Xt" = (/obj/machinery/door/airlock/external/bolted{id_tag = "centcom_escape_dock_north_inner"; name = "Escape Airlock"},/obj/machinery/atmospherics/pipe/simple/hidden,/obj/effect/catwalk_plated/white,/turf/floor/plating,/area/centcom/holding)
 "Xw" = (/obj/machinery/computer/teleporter,/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "Xy" = (/obj/structure/bed/chair,/turf/unsimulated/floor{icon_state = "steel"},/area/space)
 "XH" = (/obj/structure/closet/emcloset,/turf/floor/tiled/monofloor2,/area/ship/shuttle_arrival)
+"Ys" = (/obj/structure/hygiene/sink{dir = 8; pixel_x = -12; pixel_y = 2},/turf/floor/tiled/freezer,/area/centcom/holding)
 "Yz" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 4},/obj/machinery/door/airlock/external/bolted{id_tag = "centcom_arrival_dock_south_inner"; name = "Arrival Airlock"},/obj/effect/catwalk_plated/white,/turf/floor/plating,/area/centcom/holding)
 "YI" = (/obj/effect/floor_decal/industrial/warning{dir = 5},/turf/floor/tiled/sad_floor/yellow_2,/area/shuttle/escape_shuttle)
 "YM" = (/obj/structure/shuttle/engine/propulsion{dir = 8},/turf/floor/plating,/area/vesta/supply)
-"YN" = (/obj/abstract/landmark/latejoin,/turf/floor/tiled/techfloor,/area/centcom/holding)
+"YN" = (/turf/floor/tiled/sad_floor/green_1,/area/centcom/holding)
 "YY" = (/obj/effect/floor_decal/industrial/warning{dir = 10},/turf/floor/tiled/sad_floor/green_2,/area/shuttle/escape_shuttle)
 "Zn" = (/obj/machinery/computer/shuttle_control/emergency,/turf/floor/plating,/area/shuttle/escape_shuttle)
-"Zt" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 6},/turf/floor/plating,/area/centcom/holding)
+"Zt" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 6},/obj/effect/catwalk_plated/white,/turf/floor/plating,/area/centcom/holding)
+"ZD" = (/turf/floor/tiled/techfloor,/area/space)
 "ZK" = (/obj/machinery/portable_atmospherics/canister/air/airlock,/obj/machinery/atmospherics/portables_connector{dir = 1},/turf/floor/tiled/techfloor,/area/centcom/holding)
 "ZM" = (/obj/item/radio/intercom{dir = 8; pixel_x = 22},/obj/machinery/light{dir = 4},/obj/structure/bed/chair/shuttle/black{dir = 8},/obj/effect/floor_decal/techfloor{dir = 4},/turf/floor/tiled/monofloor2,/area/ship/shuttle_arrival)
 "ZV" = (/obj/effect/catwalk_plated/white,/turf/floor/plating,/area/shuttle/escape_shuttle)
@@ -305,23 +363,23 @@ sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMvxbLHgbLPusMsMsMGqGqGqGqGqGqGqGqGqGqGqGqGqGqGqGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMdQdjWJlIqmsMsMsMGqzAdYdYdYprdYdYdYdYGqdYdYdYdYGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMCbCbKOCbCbsMsMsMGqWodYdYdYdYdYdYdYdYdYdYdYdYQkGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMCbXHCLvbCbsMsMsMGqdYdYdYdYdYdYdYdYdYdYdYdYdYdYGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMCbCbdGThCbGqGqGqGqLMdYdYdYdYdYdYdYdYdYdYdYdYdYGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMCbNERmTmbJOjPilKqWHuUCYNdYdYdYdYdYdYdYdYdYdYdYGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMCbwURmqYCbGqGqGqGqdYAJYNdYdYdYdYdYdYdYdYdYdYdYGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMCbaIfIQnCbsMsMsMGqdYAJYNdYdYdYdYdYdYdYdYdYdYQkGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMCbIWRmQnCbsMsMsMGqdYAJYNdYdYdYdYdYdYdYdYdYdYdYGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMCbwURmZMCbGqGqGqGqdYAJYNdYdYdYdYdYdYdYdYdYdYdYGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMCbNERmEXbJjuPitaYzHuFZYNdYdYdYdYdYdYdYdYdYdYdYGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMCbCbOcCbCbGqGqGqGqRRAJdYdYdYdYdYdYdYdYdYdYdYdYGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMCbXHpiQJCbsMsMsMGqdYAJdYdYdYdYdYdYdYdYdYdYdYdYGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMCbsKjXDtCbsMsMsMGqekFZdYdYdYdYdYdYdYdYdYdYdYQkGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMmLdcVzdcmLsMsMsMGqZKZKdYdYdYdYdYdYdYGqdYdYdYdYGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMCbCbKOCbCbsMsMsMGqGqGqGqGqGqGqGqGqGqGqGqGqGqGqGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMvRvRvRsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMvxbLHgbLPusMsMsMGqGqGqGqGqGqGqGqGqhDGqGqGqGqGqGqGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMdQdjWJlIqmsMsMsMGqzAdYGqPiprPiPiEtPiPiPiPiPiPihDGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMCbCbKOCbCbsMsMsMGqWodYGqmZqrmZmZmZmZmZmZmZGqGqGqGqGqGqGqGqGqGqGqGqGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMCbXHCLvbCbsMsMsMGqGqMfGqbjqaeymjFyFyFFeyCsGqGqGqGqSknrGqSknrGqSknrGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMCbCbdGThCbGqGqGqGqLMQkTpNaqaqaDgCKTSCMqaqahDGqGqGqrYGqGqrYGqGqrYGqGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMCbNERmTmbJOjPilKqWHuUCQkNaqaqaqaqaqaqaqaqaGqGqGqGqUvrcGqUvrcGqUvrcGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMCbwURmqYCbGqGqGqGqQkAJQkrncIcIcIcIcIcIcIcIcIzNsZGqOnGqGqOnGqGqOnGqGqGqGqGqGqGqGqGqGqGqvRvRvRvRvRvRvRvRvRvRvRvRvRvRvRvRvRvRvRvRvRvRvR
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMCbaIfIQnCbsMsMsMGqQkAJQkQkQkQkQkQkQkQkQkQkQkQkQkqOQkQkQkQkQkQkQkQkUgUgUghDGqdYaGdYdYdYZDZDZDZDZDZDZDZDZDZDZDZDZDZDZDZDZDZDZDZDZDZDZD
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMCbIWRmQnCbsMsMsMGqQkAJQkQkQkQkQkQkQkQkQkQkQkQkQkqOQkQkTEQkQkQkQkTEUgUgUghDGqdYdYdYdYdYZDZDZDZDZDZDZDZDZDZDZDZDZDZDZDZDZDZDZDZDZDZDZD
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMCbwURmZMCbGqGqGqGqQkAJQkajXnXnDMXnXnXnXnXnXnXnUGGqGqGqGqGqOnGqGqGqGqGqGqGqGqGqGqGqGqGqvRvRvRvRvRvRvRvRvRvRvRvRvRvRvRvRvRvRvRvRvRvRvR
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMCbNERmEXbJjuPitaYzHuFZQkNaqaqaGqfJfJdYfJfJGqfJGqGqiLdHGqYsdHdHdHhbGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMCbCbOcCbCbGqGqGqGqRRAJKTNaqaqafJzJzJzJzJzJzJzJzJGqiLANdHdHdHdHdHhbGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMCbXHpiQJCbsMsMsMGqGqjOGqglqaqadYzJxVszaBYNxVDsKwGqiLsFGqYsdHsFdHhbGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMCbsKjXDtCbsMsMsMGqekFZGqNaqaqafJzJxVDsaBYNYNYNzJGqGqGqGqGqGqGqGqGqGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMmLdcVzdcmLsMsMsMGqZKZKGqVfVtVtGqzJzJKQzJzJzJzJbEGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMCbCbKOCbCbsMsMsMGqGqGqGqGqGqGqGqGqGqGqGqGqGqGqGqGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMPdFaJNOZHysMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMvxfCMhfCvxsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
@@ -383,14 +441,14 @@ sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMGqGqGqGqGqGqGqGqGqGqGqGqGqGqGqGqGqGqGqGqGqGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMGqgYgYgYgYgYgYgYgYgYBWgYgYgYgYgYgYgYgYgYgYGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMGqgYgYgYgYgYgYgYgYgYgYgYgYgYgYgYgYgYgYgYgYGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMGqgYgYgYgYgYgYZttxtxiltxtxcIgYgYgYgYgYgYgYGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMGqgYgYQBgYgYvmqagYdavotDgYqaULgYgYgYgYgYgYGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMGqGqGqGqGqGqGqqaGqGqGqGqGqqaGqGqGqGqGqGqGqGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
-sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMGqqaGqsMsMsMGqqaGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMvRvRvRvRvRvRvRvRvRvRvRsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMGqGqGqGqGqGqGqhDGqGqGqGqGqhDGqGqGqGqGqGqGqGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMGqgYgYgYgYGqQkQkQkQkBWQkQkQkQkGqgYgYgYgYgYGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMGqgYgYgYgYhDQkQkQkQkQkQkQkQkQkhDgYgYgYgYgYGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMGqgYgYgYgYGqPbZttxtxiltxtxUCWrGqgYgYgYgYgYGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMGqgYgYQBgYGqvmAJChdavotDChAJULGqgYgYgYgYgYGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMGqGqGqGqGqGqGqAJGqGqGqGqGqAJGqGqGqGqGqGqGqGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
+sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMGqAJGqsMsMsMGqAJGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMGqJVGqsMsMsMGqXtGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMGqAzGqsMsMsMGqBVGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM
 sMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMGqKDGqsMsMsMGqxCGqsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsM

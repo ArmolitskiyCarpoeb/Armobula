@@ -1,3 +1,4 @@
+/*
 #ifndef MODPACK_PSIONICS
 #define MODPACK_PSIONICS
 // BEGIN_INCLUDE
@@ -65,3 +66,11 @@
 #include "system\psionics\null\~null.dm"
 // END_INCLUDE
 #endif
+// BEGIN_INTERNALS
+// END_INTERNALS
+// BEGIN_FILE_DIR
+#define FILE_DIR .
+// END_FILE_DIR
+// BEGIN_PREFERENCES
+// END_PREFERENCES
+*/

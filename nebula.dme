@@ -3580,6 +3580,7 @@
 #include "code\modules\random_map\dungeon\rooms\tomb.dm"
 #include "code\modules\random_map\mazes\maze.dm"
 #include "code\modules\random_map\mazes\maze_cell.dm"
+#include "code\modules\random_map\noise\caves.dm"
 #include "code\modules\random_map\noise\desert.dm"
 #include "code\modules\random_map\noise\forage.dm"
 #include "code\modules\random_map\noise\magma.dm"

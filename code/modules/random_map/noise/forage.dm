@@ -94,10 +94,10 @@
 	var/list/cave_trees = list(
 		/obj/structure/flora/tree/softwood/towercap
 	)
-	var/tree_weight = 0.35
-	var/cave_tree_weight = 0.35
-	var/forage_weight = 0.3
-	var/cave_forage_weight = 0.3
+	var/tree_weight = 0.5
+	var/cave_tree_weight = 0.5
+	var/forage_weight = 0.5
+	var/cave_forage_weight = 0.5
 
 /datum/random_map/noise/forage/New()
 	for(var/category in forage)
@@ -131,7 +131,7 @@
 
 	if(floor.is_outside())
 		if(istype(flooring, /decl/flooring/rock))
-			if(prob(15)) // Static as current map has limited amount of rock turfs
+			if(prob(50)) // Static as current map has limited amount of rock turfs
 				var/rock_type = SAFEPICK(forage["rocks"])
 				new rock_type(floor)
 				return
