@@ -152,6 +152,7 @@ What is the naming convention for planes or layers?
 	//EFFECTS BELOW LIGHTING
 	#define BELOW_PROJECTILE_LAYER      4.14
 	#define DEEP_FLUID_LAYER            4.15
+	#define ROCK_SIDE_LAYER          	4.16
 	#define FIRE_LAYER                  4.16
 	#define PROJECTILE_LAYER            4.17
 	#define ABOVE_PROJECTILE_LAYER      4.18

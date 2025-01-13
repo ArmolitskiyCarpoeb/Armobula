@@ -107,7 +107,7 @@
 					rock_side.pixel_x += world.icon_size
 				if(WEST)
 					rock_side.pixel_x -= world.icon_size
-			add_overlay(rock_side)
+			add_overlay(rock_side, ROCK_SIDE_LAYER)
 
 //		var/decl/material/use_material = target.get_material()
 //		target.color = use_material?.color
