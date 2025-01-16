@@ -14,3 +14,7 @@
 #ifdef MODPACK_FANTASY_SPECIES
 #include "patches/fantasy.dm"
 #endif
+
+#ifdef CONTENT_PACK_SUPERMATTER
+#include "patches/supermatter.dm"
+#endif

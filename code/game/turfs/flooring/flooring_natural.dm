@@ -28,6 +28,7 @@
 	has_base_range  = null
 	footstep_type   = /decl/footsteps/mud
 	force_material  = /decl/material/solid/organic/meat
+	print_type      = /obj/effect/footprints
 
 /decl/flooring/barren
 	name            = "ground"
@@ -51,13 +52,14 @@
 	turf_flags      = TURF_FLAG_BACKGROUND | TURF_IS_HOLOMAP_PATH | TURF_FLAG_ABSORB_LIQUID
 	force_material  = /decl/material/solid/clay
 	growth_value    = 1.2
+	can_collect     = TRUE
+	print_type      = /obj/effect/footprints
 
 /decl/flooring/ice
 	name            = "ice"
 	desc            = "A hard, slippery layer of frozen water."
 	icon            = 'icons/turf/flooring/ice.dmi'
 	icon_base       = "ice"
-	footstep_type   = /decl/footsteps/plating
 	color           = COLOR_LIQUID_WATER
 	force_material  = /decl/material/solid/ice
 

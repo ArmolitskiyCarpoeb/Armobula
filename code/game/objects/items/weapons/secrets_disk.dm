@@ -29,7 +29,7 @@
 
 /obj/item/disk/secret_project/proc/get_secret_project_nouns()
 	var/static/list/nouns = list(
-		"a superluminal artillery cannon", "a supermatter engine", "a fusion engine", "an atmospheric scrubber",\
+		"a superluminal artillery cannon", "a fusion engine", "an atmospheric scrubber",\
 		"a human cloning pod", "a microwave oven", "a wormhole generator", "a laser carbine", "an energy pistol",\
 		"a wormhole", "a teleporter", "a huge mining drill", "a strange spacecraft", "a space station",\
 		"a sleek-looking fighter spacecraft", "a ballistic rifle", "an energy sword", "an inanimate carbon rod"

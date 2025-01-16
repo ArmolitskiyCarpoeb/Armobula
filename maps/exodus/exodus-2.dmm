@@ -63541,6 +63541,10 @@
 /obj/item/radio/beacon,
 /turf/floor/plating,
 /area/ship/exodus_pod_research)
+"eYg" = (
+/obj/effect/shuttle_landmark/automatic,
+/turf/space,
+/area/space)
 "eZK" = (
 /obj/effect/floor_decal/corner/purple,
 /obj/machinery/light,
@@ -75575,7 +75579,7 @@ cLU
 cLU
 cLU
 cLU
-cLU
+eYg
 cLU
 cLU
 cLU
@@ -87502,7 +87506,7 @@ cLU
 cLU
 cLU
 cLU
-cLU
+eYg
 cLU
 cLU
 cLU
@@ -107475,7 +107479,7 @@ cLU
 cLU
 cLU
 cLU
-cLU
+eYg
 cLU
 cLU
 cLU
@@ -115425,7 +115429,7 @@ cLU
 cLU
 cLU
 cLU
-cLU
+eYg
 cLU
 cLU
 cLU

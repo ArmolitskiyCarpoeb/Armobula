@@ -10,6 +10,7 @@
 	matter                            = list(/decl/material/solid/metal/steel = MATTER_AMOUNT_SECONDARY)
 	max_health                        = 100
 	tool_interaction_flags            = TOOL_INTERACTION_DECONSTRUCT
+
 	var/wrenchable                    = TRUE
 	var/unwrenched                    = FALSE
 	var/tmp/volume                    = 1000
@@ -102,6 +103,7 @@
 			log_and_message_admins("opened a tank at [get_area_name(loc)].")
 			leak()
 		return TRUE
+
 	. = ..()
 
 /obj/structure/reagent_dispensers/verb/set_amount_dispensed()
@@ -351,6 +353,7 @@
 /decl/interaction_handler/toggle_open/reagent_dispenser
 	name                 = "Toggle refilling cap"
 	expected_target_type = /obj/structure/reagent_dispensers
+	examine_desc         = "open or close the refilling cap"
 
 /decl/interaction_handler/toggle_open/reagent_dispenser/invoked(atom/target, mob/user, obj/item/prop)
 	if(target.atom_flags & ATOM_FLAG_OPEN_CONTAINER)

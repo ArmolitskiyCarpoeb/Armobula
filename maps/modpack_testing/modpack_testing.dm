@@ -5,6 +5,7 @@
 
 	#include "../../mods/content/mundane.dm"
 	#include "../../mods/content/scaling_descriptors.dm"
+	#include "../../mods/content/standard_jobs/_standard_jobs.dme"
 
 	#include "../../mods/content/bigpharma/_bigpharma.dme"
 	#include "../../mods/content/byond_membership/_byond_membership.dm"
@@ -20,6 +21,7 @@
 	#include "../../mods/content/pheromones/_pheromones.dme"
 	#include "../../mods/content/psionics/_psionics.dme"
 	#include "../../mods/content/shackles/_shackles.dme"
+	#include "../../mods/content/supermatter/_supermatter.dme"
 	#include "../../mods/content/xenobiology/_xenobiology.dme"
 
 	#include "../../mods/gamemodes/cult/_cult.dme"

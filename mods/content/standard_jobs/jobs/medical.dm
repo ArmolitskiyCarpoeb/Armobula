@@ -1,5 +1,6 @@
-/datum/job/cmo
+/datum/job/standard/cmo
 	title = "Chief Medical Officer"
+	hud_icon_state = "hudcmo"
 	head_position = 1
 	department_types = list(
 		/decl/department/medical,
@@ -73,8 +74,9 @@
 	)
 	event_categories = list(ASSIGNMENT_MEDICAL)
 
-/datum/job/doctor
+/datum/job/standard/doctor
 	title = "Medical Doctor"
+	hud_icon_state = "hudmed"
 	department_types = list(/decl/department/medical)
 	minimal_player_age = 3
 	total_positions = 5
@@ -126,8 +128,9 @@
 	skill_points = 22
 	event_categories = list(ASSIGNMENT_MEDICAL)
 
-/datum/job/chemist
+/datum/job/standard/chemist
 	title = "Pharmacist"
+	hud_icon_state = "hudpharmacist"
 	department_types = list(/decl/department/medical)
 	minimal_player_age = 7
 	total_positions = 2
@@ -161,8 +164,9 @@
 	)
 	skill_points = 16
 
-/datum/job/counselor
+/datum/job/standard/counselor
 	title = "Counselor"
+	hud_icon_state = "hudmed"
 	alt_titles = list("Mentalist")
 	department_types = list(/decl/department/medical)
 	total_positions = 1

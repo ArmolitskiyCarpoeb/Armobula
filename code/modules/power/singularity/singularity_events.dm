@@ -39,13 +39,3 @@
 		to_chat(M, SPAN_DANGER("You look directly into \the [source] and feel [source.current_stage.mesmerize_text]."))
 		M.apply_effect(3, STUN)
 		M.visible_message(SPAN_DANGER("\The [M] stares blankly at \the [source]!"))
-
-/decl/singularity_event/supermatter_wave/handle_event(obj/effect/singularity/source)
-	for(var/mob/living/M in view(10, source.loc))
-		to_chat(M, SPAN_WARNING("You hear an unearthly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat."))
-		if(prob(67))
-			to_chat(M, SPAN_NOTICE("Miraculously, it fails to kill you."))
-		else
-			to_chat(M, SPAN_DANGER("You don't even have a moment to react as you are reduced to ashes by the intense radiation."))
-			M.dust()
-	SSradiation.radiate(source, rand(source.energy))
