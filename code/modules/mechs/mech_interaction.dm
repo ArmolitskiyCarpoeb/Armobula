@@ -134,10 +134,8 @@
 	// User is not necessarily the exosuit, or the same person, so update intent.
 	if(user != src)
 		set_intent(user.get_intent())
-		if(user.zone_sel)
-			zone_sel.set_selected_zone(user.get_target_zone())
-		else
-			zone_sel.set_selected_zone(BP_CHEST)
+		set_target_zone(user.get_target_zone())
+
 	// You may attack the target with your exosuit FIST if you're malfunctioning.
 	var/atom/movable/AM = A
 	var/fail_prob = (user != src && istype(AM) && AM.loc != src) ? (user.skill_check(SKILL_MECH, HAS_PERK) ? 0: 15 ) : 0
@@ -460,9 +458,9 @@
 			if(!body) //Error
 				return TRUE
 			var/delay = min(5 SECONDS * user.skill_delay_mult(SKILL_DEVICES), 5 SECONDS * user.skill_delay_mult(SKILL_EVA))
-			visible_message(SPAN_NOTICE("\The [user] starts forcing the \the [src]'s emergency [body.hatch_descriptor] release using \the [thing]."))
+			visible_message(SPAN_NOTICE("\The [user] starts forcing \the [src]'s emergency [body.hatch_descriptor] release using \the [thing]."))
 			if(do_after(user, delay, src))
-				visible_message(SPAN_NOTICE("\The [user] forces \the [src]'s [body.hatch_descriptor] open using the \the [thing]."))
+				visible_message(SPAN_NOTICE("\The [user] forces \the [src]'s [body.hatch_descriptor] open using \the [thing]."))
 				playsound(user.loc, 'sound/machines/bolts_up.ogg', 25, 1)
 				hatch_locked = FALSE
 				hatch_closed = FALSE

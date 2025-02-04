@@ -270,7 +270,7 @@
 	usr.setClickCooldown(20)
 
 	if(usr.stat > 0)
-		to_chat(usr, "You are unconcious and cannot do that!")
+		to_chat(usr, "You are unconscious and cannot do that!")
 		return
 
 	if(usr.restrained())
@@ -319,9 +319,3 @@
 		"<span class='danger'>[self ? "You pop" : "[U] pops"] your [current_limb.joint] back in!</span>" \
 		)
 		current_limb.undislocate()
-
-/mob/living/human/verb/pull_punches()
-	set name = "Switch Stance"
-	set desc = "Try not to hurt them."
-	set category = "IC"
-	species.toggle_stance(src)

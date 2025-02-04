@@ -100,7 +100,7 @@
 
 /obj/item/clothing/attackby(obj/item/I, mob/user)
 	var/rags = RAG_COUNT(src)
-	if(istype(material) && material.default_solid_form && rags && (I.edge || I.sharp) && user.check_intent(I_FLAG_HARM))
+	if(istype(material) && material.default_solid_form && rags && (I.is_sharp() || I.has_edge()) && user.check_intent(I_FLAG_HARM))
 		if(length(accessories))
 			to_chat(user, SPAN_WARNING("You should remove the accessories attached to \the [src] first."))
 			return TRUE
@@ -285,7 +285,7 @@
 		update_wearer_vision()
 	return ..()
 
-/obj/item/clothing/proc/refit_for_bodytype(var/target_bodytype)
+/obj/item/clothing/proc/refit_for_bodytype(target_bodytype, skip_rename = FALSE)
 
 	bodytype_equip_flags = 0
 	decls_repository.get_decls_of_subtype(/decl/bodytype) // Make sure they're prefetched so the below list is populated
@@ -297,17 +297,20 @@
 	if(species_icon && (check_state_in_icon(ICON_STATE_INV, species_icon) || check_state_in_icon(ICON_STATE_WORLD, species_icon)))
 		icon = species_icon
 
+	if(!skip_rename)
+		SetName("refitted [initial(name)]")
+
 	if(last_icon != icon)
 		reconsider_single_icon()
 		update_clothing_icon()
 
 /obj/item/clothing/get_examine_name()
-	var/list/ensemble = list(name)
+	var/list/ensemble = list(..())
 	for(var/obj/item/clothing/accessory in accessories)
 		if(accessory.accessory_visibility == ACCESSORY_VISIBILITY_ENSEMBLE)
-			LAZYADD(ensemble, accessory.get_examine_name())
-	if(length(ensemble) <= 1)
-		return ..()
+			ensemble += accessory.get_examine_name()
+	if(length(ensemble) == 1) // don't worry about it being empty, we always have a minimum of one
+		return ensemble[1]
 	return english_list(ensemble, summarize = TRUE)
 
 /obj/item/clothing/get_examine_line()

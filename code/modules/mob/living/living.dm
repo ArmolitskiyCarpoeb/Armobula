@@ -351,7 +351,7 @@ default behaviour is:
 		switch_from_dead_to_living_mob_list()
 		timeofdeath = 0
 
-	// restore us to conciousness
+	// restore us to consciousness
 	set_stat(CONSCIOUS)
 
 	// make the icons look correct
@@ -521,6 +521,7 @@ default behaviour is:
 	var/turf/old_loc = loc
 	. = ..()
 	if(.)
+		refresh_hud_element(HUD_UP_HINT)
 		handle_grabs_after_move(old_loc, Dir)
 		if(active_storage && !active_storage.can_view(src))
 			active_storage.close(src)
@@ -646,7 +647,7 @@ default behaviour is:
 	set category = "IC"
 
 	// No posture, no adjustment.
-	if(length(get_available_postures()) <= 1 || incapacitated(INCAPACITATION_KNOCKOUT) || !canClick())
+	if(length(get_available_postures()) <= 1 || incapacitated(INCAPACITATION_KNOCKDOWN) || !canClick())
 		return
 
 	var/list/selectable_postures = get_selectable_postures()
@@ -667,18 +668,18 @@ default behaviour is:
 		selected_posture = selectable_postures[1]
 	else
 		selected_posture = input(src, "Which posture do you wish to adopt?", "Change Posture", current_posture) as null|anything in selectable_postures
-		if(!selected_posture || length(get_available_postures()) <= 1 || incapacitated(INCAPACITATION_KNOCKOUT) || !canClick())
+		if(!selected_posture || length(get_available_postures()) <= 1 || incapacitated(INCAPACITATION_KNOCKDOWN) || !canClick())
 			return
 		if(current_posture == selected_posture || !(selected_posture in get_selectable_postures()))
 			return
 
 	setClickCooldown(3)
-	to_chat(src, SPAN_NOTICE("You are now [selected_posture.posture_change_message]."))
 	if(current_posture.prone && !selected_posture.prone)
-		if(!do_after(src, 2 SECONDS, src, incapacitation_flags = ~INCAPACITATION_FORCELYING))
+		if(!do_after(src, 2 SECONDS, src, incapacitation_flags = INCAPACITATION_KNOCKDOWN))
 			return
 		if(current_posture == selected_posture || !(selected_posture in get_selectable_postures()))
 			return
+	to_chat(src, SPAN_NOTICE("You are now [selected_posture.posture_change_message]."))
 	set_posture(selected_posture)
 
 //called when the mob receives a bright flash
@@ -694,24 +695,17 @@ default behaviour is:
 /mob/living/proc/has_brain()
 	return TRUE
 
-/mob/living/proc/slip(var/slipped_on, stun_duration = 8)
+// We are jumping, levitating or being thrown.
+/mob/living/immune_to_floor_hazards()
+	. = ..() || is_floating
 
-	var/decl/species/my_species = get_species()
-	if(my_species?.check_no_slip(src))
-		return FALSE
-
-	var/obj/item/shoes = get_equipped_item(slot_shoes_str)
-	if(shoes && (shoes.item_flags & ITEM_FLAG_NOSLIP))
-		return FALSE
-
-	if(has_gravity() && !buckled && !current_posture?.prone)
+/mob/living/proc/slip(slipped_on, stun_duration = 8)
+	if(can_slip())
 		to_chat(src, SPAN_DANGER("You slipped on [slipped_on]!"))
 		playsound(loc, 'sound/misc/slip.ogg', 50, 1, -3)
 		SET_STATUS_MAX(src, STAT_WEAK, stun_duration)
 		return TRUE
-
 	return FALSE
-
 
 /mob/living/human/canUnEquip(obj/item/I)
 	. = ..() && !(I in get_organs())
@@ -1077,7 +1071,7 @@ default behaviour is:
 				if(user.mob_size >= exosuit.body.min_pilot_size && user.mob_size <= exosuit.body.max_pilot_size)
 					exosuit.enter(src)
 				else
-					to_chat(user, SPAN_WARNING("You cannot pilot a exosuit of this size."))
+					to_chat(user, SPAN_WARNING("You cannot pilot an exosuit of this size."))
 				return TRUE
 	. = ..()
 
@@ -1127,20 +1121,21 @@ default behaviour is:
 		if(A.CheckRemoval(src))
 			A.Remove(src)
 	for(var/obj/item/I in src)
-		if(I.action_button_name)
-			if(!I.action)
-				I.action = new I.default_action_type
-			I.action.name = I.action_button_name
-			I.action.desc = I.action_button_desc
-			I.action.SetTarget(I)
-			I.action.Grant(src)
+		if(QDELETED(I))
+			continue
+		if(!I.action_button_name)
+			continue
+		I.action ||= new I.default_action_type
+		I.action.name = I.action_button_name
+		I.action.desc = I.action_button_desc
+		I.action.SetTarget(I)
+		I.action.Grant(src)
 	return
 
 /mob/living/update_action_buttons()
 	if(!istype(hud_used) || !client)
 		return
-
-	if(hud_used.hud_shown != 1)	//Hud toggled to minimal
+	if(!hud_used.is_hud_shown())	//Hud toggled to minimal
 		return
 
 	client.screen -= hud_used.hide_actions_toggle
@@ -1174,13 +1169,14 @@ default behaviour is:
 		client.screen += hud_used.hide_actions_toggle
 
 /mob/living/handle_fall_effect(var/turf/landing)
-	..()
-	if(istype(landing) && !landing.is_open())
-		apply_fall_damage(landing)
-		if(client)
-			var/area/A = get_area(landing)
-			if(A)
-				A.alert_on_fall(src)
+	if(!(. = ..()) || !istype(landing))
+		return
+	apply_fall_damage(landing)
+	if(!client)
+		return
+	var/area/landing_area = get_area(landing)
+	if(landing_area)
+		landing_area.alert_on_fall(src)
 
 /mob/living/proc/apply_fall_damage(var/turf/landing)
 	take_damage(rand(max(1, ceil(mob_size * 0.33)), max(1, ceil(mob_size * 0.66))) * get_fall_height())
@@ -1607,23 +1603,27 @@ default behaviour is:
 		my_species?.handle_trail(src, T, old_loc)
 		return
 
-	var/list/bloodDNA
-	var/bloodcolor
-	var/list/blood_data = REAGENT_DATA(source.coating, /decl/material/liquid/blood)
-	if(blood_data)
-		bloodDNA = list(blood_data[DATA_BLOOD_DNA] = blood_data[DATA_BLOOD_TYPE])
-	else
-		bloodDNA = list()
-	bloodcolor = source.coating.get_color()
+	var/use_move_trail = my_species?.get_move_trail(src)
+	if(!use_move_trail)
+		return
+
+	var/decl/material/contaminant_type = source.coating.reagent_volumes[1] // take [1] instead of primary reagent to match what remove_any will probably remove
+	if(!T.can_show_coating_footprints(contaminant_type))
+		return
+	/// An associative list of DNA unique enzymes -> blood type. Used by forensics, mostly.
+	var/list/bloodDNA = list()
+	var/track_color
+	var/list/source_data = REAGENT_DATA(source.coating, contaminant_type)
+	if(source_data && source_data[DATA_BLOOD_DNA] && source_data[DATA_BLOOD_TYPE])
+		bloodDNA = list(source_data[DATA_BLOOD_DNA] = source_data[DATA_BLOOD_TYPE])
+	track_color = source.coating.get_color()
+	T.AddTracks(use_move_trail, bloodDNA, dir, 0, track_color, contaminant_type) // Coming
+	if(isturf(old_loc))
+		var/turf/old_turf = old_loc
+		if(old_turf.can_show_coating_footprints(contaminant_type))
+			old_turf.AddTracks(use_move_trail, bloodDNA, 0, dir, track_color, contaminant_type) // Going
 	source.remove_coating(1)
 	update_equipment_overlay(slot_shoes_str)
-
-	var/use_move_trail = my_species?.get_move_trail(src)
-	if(use_move_trail)
-		T.AddTracks(use_move_trail, bloodDNA, dir, 0, bloodcolor) // Coming
-		if(isturf(old_loc))
-			var/turf/old_turf = old_loc
-			old_turf.AddTracks(use_move_trail, bloodDNA, 0, dir, bloodcolor) // Going
 
 /mob/living/proc/handle_general_grooming(user, obj/item/grooming/tool)
 	if(tool.grooming_flags & (GROOMABLE_BRUSH|GROOMABLE_COMB))
@@ -1754,7 +1754,7 @@ default behaviour is:
 	user.set_special_ability_cooldown(5 SECONDS)
 	visible_message(SPAN_DANGER("You hear something rumbling inside [src]'s stomach..."))
 	var/obj/item/I = user.get_active_held_item()
-	var/force = I?.get_attack_force(user)
+	var/force = I?.expend_attack_force(user)
 	if(!force)
 		return
 	var/d = rand(round(force / 4), force)
@@ -1938,11 +1938,12 @@ default behaviour is:
 		var/datum/inventory_slot/gripper/slot = get_inventory_slot_datum(empty_hand)
 		if(!istype(slot))
 			continue
+		var/req_item_dex = item.get_required_attack_dexterity(src)
 		if(slot.requires_organ_tag)
 			var/obj/item/organ/external/hand = GET_EXTERNAL_ORGAN(src, slot.requires_organ_tag)
-			if(istype(hand) && hand.is_usable() && (!item.needs_attack_dexterity || hand.get_manual_dexterity() >= item.needs_attack_dexterity))
+			if(istype(hand) && hand.is_usable() && (!req_item_dex || hand.get_manual_dexterity() >= req_item_dex))
 				return TRUE
-		else if(!item.needs_attack_dexterity || slot.dexterity >= item.needs_attack_dexterity)
+		else if(!req_item_dex || slot.dexterity >= req_item_dex)
 			return TRUE
 	return FALSE
 
@@ -1984,12 +1985,44 @@ default behaviour is:
 /mob/living/proc/get_age()
 	. = LAZYACCESS(appearance_descriptors, "age") || 30
 
-/mob/living/proc/add_walking_contaminant(material_type, amount, data)
+/mob/living/proc/get_walking_contaminant_targets()
 	var/obj/item/clothing/shoes/shoes = get_equipped_item(slot_shoes_str)
 	if(istype(shoes))
 		if(!buckled)
-			shoes.add_coating(material_type, amount, data)
+			return list(shoes)
 	else
-		for(var/obj/item/organ/external/limb in get_organs_by_categories(global.child_stance_limbs))
-			limb.add_coating(material_type, amount, data)
+		return get_organs_by_categories(global.child_stance_limbs)
+	return null
+
+/// Adds `amount` units of `material_type` contaminant to whatever we're walking with,
+/// be it shoes, normal human feet, dog paws, robot treads, a million millipede legs,
+/// the sky's the limit. If multiple targets are returned from
+/// `get_walking_contaminant_targets()`, then `amount` is split evenly
+/// between them.
+/mob/living/proc/add_walking_contaminant(material_type, amount, data)
+	if(amount <= 0)
+		return FALSE
+	var/list/obj/item/sources = get_walking_contaminant_targets()
+	if(!LAZYLEN(sources))
+		return FALSE
+	var/amount_per = max(CHEMS_QUANTIZE(amount / length(sources)), MINIMUM_CHEMICAL_VOLUME) // don't let it round down to 0, always add something
+	for(var/obj/item/dirty_item in sources)
+		dirty_item.add_coating(material_type, amount_per, data)
+	// i don't like how hardcoded this is, it might be better to use RAISE_EVENT or something
+	// like /decl/observ/on_add_walking_contaminant or something
+	// or things should just update their worn slot when coating is added
 	update_equipment_overlay(slot_shoes_str)
+	return TRUE
+
+/mob/living/get_cell()
+	var/obj/item/organ/internal/cell/cell = get_organ(BP_CELL, /obj/item/organ/internal/cell)
+	return istype(cell) ? cell.cell : null
+
+/mob/living/verb/pull_punches()
+	set name = "Switch Stance"
+	set desc = "Try not to hurt them."
+	set category = "IC"
+	if(!incapacitated())
+		pulling_punches = !pulling_punches
+		to_chat(src, SPAN_NOTICE("You are now [pulling_punches ? "pulling your punches" : "not pulling your punches"]."))
+

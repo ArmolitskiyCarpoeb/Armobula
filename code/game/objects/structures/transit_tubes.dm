@@ -45,7 +45,12 @@
 	var/moving = 0
 	var/datum/gas_mixture/air_contents = new()
 
-
+/obj/structure/transit_tube_pod/attack_hand(mob/user)
+	if(!moving && length(contents) && isturf(user.loc))
+		user.visible_message(SPAN_NOTICE("\The [user] empties out \the [src]!"))
+		dump_contents()
+		return TRUE
+	return ..()
 
 /obj/structure/transit_tube_pod/Destroy()
 	dump_contents()
@@ -375,7 +380,7 @@
 
 
 // Parse the icon_state into a list of directions.
-// This means that mappers can use Dream Maker's built in
+// This means that mappers can use Dream Maker's built-in
 //  "Generate Instances from Icon-states" option to get all
 //  variations. Additionally, as a separate proc, sub-types
 //  can handle it more intelligently.

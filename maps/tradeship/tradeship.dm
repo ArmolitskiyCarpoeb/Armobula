@@ -4,6 +4,8 @@
 		#include "../../code/unit_tests/offset_tests.dm"
 	#endif
 
+	#include "../../mods/content/tabloids/_tabloids.dme"
+
 	#include "../random_ruins/exoplanet_ruins/playablecolony/playablecolony.dm"
 
 	#include "../../mods/content/government/away_sites/icarus/icarus.dm"
@@ -37,7 +39,11 @@
 	#include "../../mods/mobs/dionaea/_dionaea.dme"
 
 	#include "../../mods/species/ascent/_ascent.dme"
-	#include "../../mods/species/bayliens/_bayliens.dme"
+	#include "../../mods/species/tajaran/_tajaran.dme"
+	#include "../../mods/species/unathi/_unathi.dme"
+	#include "../../mods/species/skrell/_skrell.dme"
+	#include "../../mods/species/adherent/_adherent.dme"
+	#include "../../mods/species/tritonian/_tritonian.dme"
 	#include "../../mods/species/drakes/_drakes.dme"
 	#include "../../mods/species/neoavians/_neoavians.dme"
 	#include "../../mods/species/serpentid/_serpentid.dme"

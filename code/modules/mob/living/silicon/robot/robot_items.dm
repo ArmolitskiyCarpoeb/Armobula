@@ -87,7 +87,7 @@
 //A harvest item for serviceborgs.
 /obj/item/robot_harvester
 	name = "auto harvester"
-	desc = "A hand-held harvest tool that resembles a sickle.  It uses energy to cut plant matter very efficently."
+	desc = "A hand-held harvest tool that resembles a sickle.  It uses energy to cut plant matter very efficiently."
 	icon = 'icons/obj/items/borg_module/autoharvester.dmi'
 	icon_state = "autoharvester"
 	max_health = ITEM_HEALTH_NO_DAMAGE
@@ -177,12 +177,8 @@
 /obj/item/form_printer/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
 	return FALSE
 
-/obj/item/form_printer/afterattack(atom/target, mob/living/user, flag, params)
-
-	if(!target || !flag)
-		return
-
-	if(istype(target,/obj/structure/table))
+/obj/item/form_printer/afterattack(atom/target, mob/living/user, proximity, params)
+	if(istype(target) && !istype(target, /obj/screen) && proximity)
 		deploy_paper(get_turf(target))
 
 /obj/item/form_printer/attack_self(mob/user)
@@ -191,7 +187,6 @@
 /obj/item/form_printer/proc/deploy_paper(var/turf/T)
 	T.visible_message(SPAN_NOTICE("\The [src.loc] dispenses a sheet of crisp white paper."))
 	new /obj/item/paper(T)
-
 
 //Personal shielding for the combat module.
 /obj/item/borg/combat/shield

@@ -9,7 +9,7 @@
 		user_living.prepare_maneuver()
 
 /obj/screen/maneuver/examine(mob/user, distance)
-	. = ..()
+	SHOULD_CALL_PARENT(FALSE)
 	if(!isliving(user))
 		return
 	var/mob/living/user_living = user

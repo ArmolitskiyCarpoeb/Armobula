@@ -84,4 +84,5 @@
 	..(locked_frequency)
 
 /obj/item/radio/intercom/locked/entertainment
+	broadcasting = TRUE
 	locked_frequency = 1461

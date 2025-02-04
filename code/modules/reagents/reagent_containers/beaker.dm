@@ -164,7 +164,7 @@
 	material_alteration = MAT_FLAG_ALTERATION_NONE
 	lid_color = COLOR_GRAY40
 
-/obj/item/chems/glass/beaker/insulated/get_thermal_mass_coefficient()
+/obj/item/chems/glass/beaker/insulated/get_thermal_mass_coefficient(delta)
 	return 0.1
 
 // Hack around reagent temp changes.
@@ -178,5 +178,5 @@
 	matter = list(/decl/material/solid/organic/plastic = MATTER_AMOUNT_REINFORCEMENT)
 	volume = 120
 
-/obj/item/chems/glass/beaker/sulphuric/populate_reagents()
+/obj/item/chems/glass/beaker/sulfuric/populate_reagents()
 	add_to_reagents(/decl/material/liquid/acid, reagents.maximum_volume)

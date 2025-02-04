@@ -451,7 +451,7 @@
 /mob/proc/item_should_have_screen_presence(obj/item/item, slot)
 	if(!slot || !istype(hud_used))
 		return FALSE
-	if(hud_used.inventory_shown)
+	if(hud_used.is_inventory_shown())
 		return TRUE
 	var/datum/inventory_slot/inv_slot = get_inventory_slot_datum(slot)
 	return !(inv_slot?.can_be_hidden)
@@ -466,7 +466,8 @@
 	return
 
 /mob/proc/select_held_item_slot(var/slot)
-	return
+	SHOULD_CALL_PARENT(TRUE)
+	clear_available_intents()
 
 /mob/proc/get_inventory_slots()
 	return
@@ -494,3 +495,9 @@
 		var/org = GET_EXTERNAL_ORGAN(src, hand_slot)
 		if(org)
 			LAZYDISTINCTADD(., org)
+
+/mob/proc/get_active_hand_bodypart_flags()
+	var/datum/inventory_slot/gripper/inv_slot = get_inventory_slot_datum(get_active_held_item_slot())
+	if(istype(inv_slot))
+		. = inv_slot.covering_slot_flags
+	. ||= SLOT_HANDS

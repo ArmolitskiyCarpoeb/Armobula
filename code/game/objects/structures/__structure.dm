@@ -137,7 +137,9 @@
 		else
 			damage *= STRUCTURE_BRITTLE_MATERIAL_DAMAGE_MULTIPLIER
 
-	playsound(loc, hitsound, 60, 1)
+	if(!silent)
+		playsound(loc, hitsound, 60, 1)
+
 	var/current_max_health = get_max_health()
 	current_health = clamp(current_health - damage, 0, current_max_health)
 	show_damage_message(current_health/current_max_health)
@@ -245,12 +247,12 @@
 			playsound(loc, 'sound/weapons/tablehit1.ogg', 50, 1)
 		var/list/L = take_damage(rand(1,5))
 		for(var/obj/item/shard/S in L)
-			if(S.sharp && prob(50))
+			if(S.is_sharp() && prob(50))
 				victim.visible_message(
 					SPAN_DANGER("\The [S] slices into [victim]'s face!"),
 					SPAN_DANGER("\The [S] slices into your face!")
 				)
-				victim.standard_weapon_hit_effects(S, user, S.get_attack_force()*2, BP_HEAD)
+				victim.standard_weapon_hit_effects(S, user, S.expend_attack_force()*2, BP_HEAD)
 		qdel(grab)
 	else if(atom_flags & ATOM_FLAG_CLIMBABLE)
 		var/obj/occupied = turf_is_crowded()
@@ -322,6 +324,17 @@ Note: This proc can be overwritten to allow for different types of auto-alignmen
 	W.pixel_x = (CELLSIZE * (cell_x + 0.5)) - center["x"]
 	W.pixel_y = (CELLSIZE * (cell_y + 0.5)) - center["y"]
 	W.pixel_z = 0
+
+// Does this structure override turf depth for the purposes of mob offsets?
+/obj/structure/proc/is_platform()
+	return FALSE
+
+/obj/structure/proc/is_z_passable()
+	return TRUE
+
+/obj/structure/on_turf_height_change(new_height)
+	 // We may be a fixed point.
+	return !is_platform() && ..()
 
 /obj/structure/hitby(var/atom/movable/AM, var/datum/thrownthing/TT)
 	. = ..()

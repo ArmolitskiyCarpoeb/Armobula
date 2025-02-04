@@ -1,6 +1,6 @@
 //Spacesuit
 //Note: Everything in modules/clothing/spacesuits should have the entire suit grouped together.
-//      Meaning the the suit is defined directly after the corrisponding helmet. Just like below!
+//      Meaning the suit is defined directly after the corresponding helmet. Just like below!
 
 /obj/item/clothing/head/helmet/space
 	name = "space helmet"
@@ -103,7 +103,7 @@
 		overlay.icon_state = "[overlay.icon_state]_dark"
 	. = ..()
 
-/obj/item/clothing/head/helmet/space/on_update_icon(mob/user)
+/obj/item/clothing/head/helmet/space/on_update_icon()
 	. = ..()
 	var/base_icon_state = get_world_inventory_state()
 	if(!base_icon_state)

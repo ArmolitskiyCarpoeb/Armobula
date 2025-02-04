@@ -41,7 +41,7 @@
 
 	After that, mostly just check your state, check whether you're holding an item,
 	check whether you're adjacent to the target, then pass off the click to whoever
-	is recieving it.
+	is receiving it.
 	The most common are:
 	* mob/UnarmedAttack(atom,adjacent) - used here only when adjacent, with no item in hand; in the case of humans, checks gloves
 	* atom/attackby(item,user) - used only when adjacent
@@ -282,10 +282,10 @@
 	return A.CtrlClick(src)
 
 /atom/proc/CtrlClick(var/mob/user)
-	if(loc == user)
+	if(get_recursive_loc_of_type(/mob) == user)
 		var/decl/interaction_handler/handler = get_quick_interaction_handler(user)
 		if(handler)
-			var/using_item = user.get_active_held_item() || user.get_usable_hand_slot_organ()
+			var/using_item = user.get_active_held_item()
 			if(handler.is_possible(src, user, using_item))
 				return handler.invoked(src, user, using_item)
 	return FALSE

@@ -38,7 +38,7 @@
 	var/max_pressure_protection // Set this variable if the item protects its wearer against high pressures below an upper bound. Keep at null to disable protection.
 	var/min_pressure_protection // Set this variable if the item protects its wearer against low pressures above a lower bound. Keep at null to disable protection. 0 represents protection against hard vacuum.
 
-	var/datum/action/item_action/action = null
+	var/datum/action/item_action/action
 	var/action_button_name //It is also the text which gets displayed on the action button. If not set it defaults to 'Use [name]'. If it's not set, there'll be no button.
 	var/action_button_desc //A description for action button which will be displayed as tooltip.
 	var/default_action_type = /datum/action/item_action // Specify the default type and behavior of the action button for this atom.
@@ -119,6 +119,20 @@
 
 	/// Can this item knock someone out if used as a weapon? Overridden for natural weapons as a nerf to simplemobs.
 	var/weapon_can_knock_prone = TRUE
+
+/// Returns a dexterity value required to use this item as a weapon.
+/obj/item/proc/get_required_attack_dexterity(mob/user, atom/target)
+	// We can likely assume that if we're located inside a rig, then the wearer
+	// has the appropriate dexterity to wear and use the rig, even if they aren't
+	// manually dexterous; specifically useful for things like baxxid and drakes.
+	var/obj/item/rig/rig = get_recursive_loc_of_type(/obj/item/rig)
+	. = istype(rig) ? DEXTERITY_NONE : needs_attack_dexterity
+	if(istype(target))
+		. = target.adjust_required_attack_dexterity(user, .)
+
+// Returns a dexterity value required to interact with this item at all, such as picking it up.
+/obj/item/get_required_interaction_dexterity()
+	return needs_interaction_dexterity
 
 /obj/item/get_color()
 	if(paint_color)
@@ -227,6 +241,14 @@
 	STOP_PROCESSING(SSobj, src)
 	QDEL_NULL(hidden_uplink)
 	QDEL_NULL(coating)
+
+	if(istype(action))
+		if(action.target == src)
+			action.target = null
+		if(!QDELETED(action))
+			QDEL_NULL(action)
+		else
+			action = null
 
 	if(ismob(loc))
 		var/mob/M = loc
@@ -377,6 +399,13 @@
 	if(drying_wetness > 0 && drying_wetness != initial(drying_wetness))
 		desc_comp += "\The [src] is [get_dryness_text()]."
 
+	if(coating?.total_volume)
+		desc_comp += "It is covered in [coating.get_coated_name()]." // It is covered in dilute oily slimy bloody mud.
+
+	if(check_rights(R_DEBUG, 0, user))
+		to_chat(user, "\The [src] has a temperature of [temperature]K.")
+
+
 	return ..(user, distance, "", jointext(desc_comp, "<br/>"))
 
 /obj/item/check_mousedrop_adjacency(var/atom/over, var/mob/user)
@@ -485,7 +514,7 @@
 			return TRUE
 	return ..()
 
-/obj/item/end_throw()
+/obj/item/end_throw(datum/thrownthing/TT)
 	. = ..()
 	squash_item()
 
@@ -570,12 +599,12 @@
 		return TRUE
 	return FALSE
 
-/obj/item/proc/user_can_attack_with(mob/user, silent = FALSE)
-	return !needs_attack_dexterity || user.check_dexterity(needs_attack_dexterity, silent = silent)
+/obj/item/proc/user_can_attack_with(mob/user, atom/target, silent = FALSE)
+	return user.check_dexterity(get_required_attack_dexterity(user, target), silent = silent)
 
 /obj/item/attackby(obj/item/used_item, mob/user)
 	// if can_wield is false we still need to call parent for storage objects to work properly
-	var/can_wield = user_can_attack_with(user, silent = TRUE)
+	var/can_wield = used_item.user_can_attack_with(user, silent = TRUE)
 
 	if(can_wield && try_slapcrafting(used_item, user))
 		return TRUE
@@ -815,21 +844,19 @@
 		LAZYSET(blood_DNA, unique_enzymes, blood_type)
 	return TRUE
 
-var/global/list/_coating_overlay_cache = list()
+var/global/list/icon/_coating_overlay_cache = list()
 var/global/icon/_item_coating_mask = icon('icons/effects/blood.dmi', "itemblood")
 /obj/item/proc/generate_coating_overlay(force = FALSE)
 	if(coating_overlay && !force)
 		return
-	var/cache_key = "[icon]-[icon_state]"
-	if(global._coating_overlay_cache[cache_key])
-		coating_overlay = global._coating_overlay_cache[cache_key]
-		return
-	var/icon/I = new /icon(icon, icon_state)
-	I.MapColors(0,0,0, 0,0,0, 0,0,0, 1,1,1)         // Sets the icon RGB channel to pure white.
-	I.Blend(global._item_coating_mask, ICON_MULTIPLY) // Masks the coating overlay against the generated mask.
-	coating_overlay = image(I)
+	var/cache_key = "\ref[icon]-[icon_state]" // this needs to use ref because of stringification
+	if(!global._coating_overlay_cache[cache_key])
+		var/icon/I = new /icon(icon, icon_state)
+		I.MapColors(0,0,0, 0,0,0, 0,0,0, 1,1,1)         // Sets the icon RGB channel to pure white.
+		I.Blend(global._item_coating_mask, ICON_MULTIPLY) // Masks the coating overlay against the generated mask.
+		global._coating_overlay_cache[cache_key] = I
+	coating_overlay = image(global._coating_overlay_cache[cache_key])
 	coating_overlay.appearance_flags |= NO_CLIENT_COLOR|RESET_COLOR
-	global._coating_overlay_cache[cache_key] = coating_overlay
 
 /obj/item/proc/showoff(mob/user)
 	for(var/mob/M in view(user))
@@ -864,7 +891,7 @@ modules/mob/living/human/life.dm if you die, you will be zoomed out.
 	if(!istype(user.hud_used))
 		return
 
-	if(user.hud_used.hud_shown)
+	if(user.hud_used.is_hud_shown())
 		user.toggle_zoom_hud()	// If the user has already limited their HUD this avoids them having a HUD when they zoom in
 	user.client.view = viewsize
 	zoom = 1
@@ -912,7 +939,7 @@ modules/mob/living/human/life.dm if you die, you will be zoomed out.
 		return
 
 	user.client.view = world.view
-	if(!user.hud_used.hud_shown)
+	if(istype(user.hud_used) && !user.hud_used.is_hud_shown())
 		user.toggle_zoom_hud()
 	user.client.pixel_x = 0
 	user.client.pixel_y = 0
@@ -923,13 +950,10 @@ modules/mob/living/human/life.dm if you die, you will be zoomed out.
 	return 0 // Process Kill
 
 /obj/item/proc/get_examine_name()
-	. = name
-	if(coating?.total_volume)
-		. = SPAN_WARNING("<font color='[coating.get_color()]'>stained</font> [.]")
-	if(gender == PLURAL)
-		. = "some [.]"
-	else
-		. = "\a [.]"
+	var/examine_prefix = get_examine_prefix()
+	if(examine_prefix)
+		examine_prefix += " "
+	return ADD_ARTICLE_GENDER("[examine_prefix][name]", gender)
 
 /obj/item/proc/get_examine_line()
 	. = "[html_icon(src)] [get_examine_name()]"
@@ -1004,11 +1028,11 @@ modules/mob/living/human/life.dm if you die, you will be zoomed out.
 /obj/item/proc/get_autopsy_descriptors()
 	var/list/descriptors = list()
 	descriptors += w_class_description()
-	if(sharp)
+	if(is_sharp())
 		descriptors += "sharp"
-	if(edge)
+	if(has_edge())
 		descriptors += "edged"
-	if(get_attack_force() >= 10 && !sharp && !edge)
+	if(get_attack_force() >= 10 && !is_sharp() && !has_edge())
 		descriptors += "heavy"
 	if(material)
 		descriptors += "made of [material.solid_name]"
@@ -1034,6 +1058,13 @@ modules/mob/living/human/life.dm if you die, you will be zoomed out.
 	if(!coating)
 		return
 	coating.remove_any(amount)
+	if(coating.total_volume <= MINIMUM_CHEMICAL_VOLUME)
+		clean(FALSE)
+
+/obj/item/proc/transfer_coating_to(atom/target, amount = 1, multiplier = 1, copy = 0, defer_update = FALSE, transferred_phases = (MAT_PHASE_LIQUID | MAT_PHASE_SOLID))
+	if(!coating)
+		return
+	coating.trans_to(target, amount, multiplier)
 	if(coating.total_volume <= MINIMUM_CHEMICAL_VOLUME)
 		clean(FALSE)
 
@@ -1141,8 +1172,13 @@ modules/mob/living/human/life.dm if you die, you will be zoomed out.
 /obj/item/proc/loadout_should_keep(obj/item/new_item, mob/wearer)
 	return type != new_item.type && !replaced_in_loadout
 
+/obj/item/dropped(mob/user, slot)
+	. = ..()
+	user?.clear_available_intents()
+
 /obj/item/equipped(mob/user, slot)
 	. = ..()
+	user?.clear_available_intents()
 	// delay for 1ds to allow the rest of the call stack to resolve
 	if(!QDELETED(src) && !QDELETED(user) && user.get_equipped_slot_for_item(src) == slot)
 		try_burn_wearer(user, slot, 1)
@@ -1273,3 +1309,14 @@ modules/mob/living/human/life.dm if you die, you will be zoomed out.
 		squash_item()
 		if(!QDELETED(src))
 			physically_destroyed()
+
+/obj/item/proc/get_provided_intents(mob/wielder)
+	return null
+
+/obj/item/get_examine_prefix()
+	if(coating?.total_volume)
+		var/coating_string = coating.get_coated_adjectives() // component coloring is handled in here
+		if(get_config_value(/decl/config/enum/colored_coating_names) == CONFIG_COATING_COLOR_MIXTURE)
+			coating_string = FONT_COLORED(coating.get_color(), coating_string)
+		return coating_string
+	return ..()

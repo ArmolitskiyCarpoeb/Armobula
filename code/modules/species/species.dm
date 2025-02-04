@@ -79,10 +79,6 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 
 	// Combat vars.
 	var/total_health = DEFAULT_SPECIES_HEALTH  // Point at which the mob will enter crit.
-	var/list/unarmed_attacks = list(           // Possible unarmed attacks that the mob will use in combat,
-		/decl/natural_attack,
-		/decl/natural_attack/bite
-		)
 
 	var/brute_mod =      1                    // Physical damage multiplier.
 	var/burn_mod =       1                    // Burn damage multiplier.
@@ -178,7 +174,7 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 
 	var/list/base_auras
 
-	var/job_skill_buffs = list()				// A list containing jobs (/datum/job), with values the extra points that job recieves.
+	var/job_skill_buffs = list()				// A list containing jobs (/datum/job), with values the extra points that job receives.
 
 	var/standing_jump_range = 2
 	var/list/maneuvers = list(/decl/maneuver/leap)
@@ -490,23 +486,6 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 		return TRUE //We could tie it to stamina
 	return FALSE
 
-// Called when using the shredding behavior.
-/decl/species/proc/can_shred(var/mob/living/human/H, var/ignore_intent, var/ignore_antag)
-
-	if((!ignore_intent && !H.check_intent(I_FLAG_HARM)) || H.pulling_punches)
-		return 0
-
-	if(!ignore_antag && H.mind && !player_is_antag(H.mind))
-		return 0
-
-	for(var/attack_type in unarmed_attacks)
-		var/decl/natural_attack/attack = GET_DECL(attack_type)
-		if(!istype(attack) || !attack.is_usable(H))
-			continue
-		if(attack.shredding)
-			return 1
-	return 0
-
 /decl/species/proc/handle_vision(var/mob/living/human/H)
 	var/list/vision = H.get_accumulated_vision_handlers()
 	H.update_sight()
@@ -627,7 +606,7 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 			return
 
 	var/randn = rand(1, 100) - skill_mod + state_mod
-	if(!(check_no_slip(target)) && randn <= 25)
+	if(!target.can_slip() && randn <= 25)
 		var/armor_check = 100 * target.get_blocked_ratio(affecting, BRUTE, damage = 20)
 		target.apply_effect(push_mod, WEAKEN, armor_check)
 		playsound(target.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
@@ -687,8 +666,8 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 		if(31 to 45)	. = 4
 		else			. = 8
 
-/decl/species/proc/check_no_slip(var/mob/living/human/H)
-	if(can_overcome_gravity(H))
+/decl/species/proc/check_no_slip(mob/living/user, magboots_only)
+	if(can_overcome_gravity(user))
 		return TRUE
 	return (species_flags & SPECIES_FLAG_NO_SLIP)
 

@@ -1,6 +1,6 @@
 /decl/material/liquid/acid
-	name = "sulphuric acid"
-	uid = "liquid_sulphuric_acid"
+	name = "sulfuric acid"
+	uid = "liquid_sulfuric_acid"
 	lore_text = "A very corrosive mineral acid with the molecular formula H2SO4."
 	taste_description = "acid"
 	color = "#db5008"
@@ -31,7 +31,7 @@
 /decl/material/liquid/acid/polyacid
 	name = "polytrinic acid"
 	uid = "liquid_polytrinic_acid"
-	lore_text = "Polytrinic acid is a an extremely corrosive chemical substance."
+	lore_text = "Polytrinic acid is an extremely corrosive chemical substance."
 	taste_description = "acid"
 	color = "#8e18a9"
 	solvent_power = MAT_SOLVENT_STRONGEST

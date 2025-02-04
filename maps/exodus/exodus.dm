@@ -14,6 +14,7 @@
 	#include "../../mods/content/standard_jobs/_standard_jobs.dme"
 	#include "../../mods/content/supermatter/_supermatter.dme"
 	#include "../../mods/content/xenobiology/_xenobiology.dme"
+	#include "../../mods/content/tabloids/_tabloids.dme"
 
 	#include "../../mods/gamemodes/cult/_cult.dme"
 	#include "../../mods/gamemodes/heist/_heist.dme"
@@ -28,11 +29,16 @@
 	#include "../../mods/mobs/dionaea/_dionaea.dme"
 
 	#include "../../mods/species/ascent/_ascent.dme"
-	#include "../../mods/species/bayliens/_bayliens.dme"
+	#include "../../mods/species/tajaran/_tajaran.dme"
+	#include "../../mods/species/unathi/_unathi.dme"
+	#include "../../mods/species/skrell/_skrell.dme"
+	#include "../../mods/species/adherent/_adherent.dme"
+	#include "../../mods/species/tritonian/_tritonian.dme"
 	#include "../../mods/species/serpentid/_serpentid.dme"
 	#include "../../mods/species/utility_frames/_utility_frames.dme"
 
 	#include "../random_ruins/exoplanet_ruins/playablecolony/playablecolony.dm"
+	#include "../random_ruins/exoplanet_ruins/crashed_pod/crashed_pod.dm"
 
 	#include "../../mods/content/government/away_sites/icarus/icarus.dm"
 	#include "../../mods/content/corporate/away_sites/lar_maria/lar_maria.dm"

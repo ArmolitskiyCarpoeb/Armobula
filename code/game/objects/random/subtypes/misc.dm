@@ -14,7 +14,7 @@
 		/obj/item/pill_bottle/happy                    = 2,
 		/obj/item/pill_bottle/zoom                     = 2,
 		/obj/item/chems/glass/beaker/vial/random/toxin = 1,
-		/obj/item/chems/glass/beaker/sulphuric         = 1,
+		/obj/item/chems/glass/beaker/sulfuric         = 1,
 		/obj/item/poster                               = 5,
 		/obj/item/butterflyblade                       = 3,
 		/obj/item/butterflyhandle                      = 3,
@@ -164,6 +164,7 @@
 		/obj/effect/decal/cleanable/ash,
 		/obj/effect/decal/cleanable/generic,
 		/obj/effect/decal/cleanable/flour,
+		/obj/effect/decal/cleanable/filth,
 		/obj/effect/decal/cleanable/dirt/visible,
 		/obj/item/remains/robot
 	)
@@ -224,7 +225,7 @@
 /obj/random/soap/spawn_choices()
 	var/static/list/spawnable_choices = list(
 		/obj/item/soap                         = 12,
-		/obj/item/chems/glass/rag              =  2,
+		/obj/item/chems/rag              =  2,
 		/obj/item/chems/spray/cleaner          =  2,
 		/obj/item/grenade/chem_grenade/cleaner =  1
 	)

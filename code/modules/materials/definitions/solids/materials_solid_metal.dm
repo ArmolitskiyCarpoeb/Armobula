@@ -20,6 +20,8 @@
 	icon_reinf = 'icons/turf/walls/reinforced_metal.dmi'
 	exoplanet_rarity_gas = MAT_RARITY_NOWHERE
 	tensile_strength = 0.8 // metal wire is probably better than plastic?
+	forgable = TRUE
+	glows_with_heat = TRUE
 
 /decl/material/solid/metal/uranium
 	name = "uranium"
@@ -487,3 +489,4 @@
 	taste_mult = 0 //no taste
 	color = "#dcdcdc"
 	value = 0.5
+	melting_point = 3422 CELSIUS

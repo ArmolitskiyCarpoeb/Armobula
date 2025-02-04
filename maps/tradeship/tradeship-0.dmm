@@ -1009,7 +1009,7 @@
 "dN" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/item/tool/hoe/mini,
-/turf/floor,
+/turf/floor/plating/dirt,
 /area/ship/trade/aft_port_underside_maint)
 "en" = (
 /turf/floor/laminate/walnut,
@@ -1179,7 +1179,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/portable_atmospherics/hydroponics/soil,
-/turf/floor,
+/turf/floor/plating/dirt,
 /area/ship/trade/aft_port_underside_maint)
 "lv" = (
 /obj/effect/decal/cleanable/dirt/visible,
@@ -1231,11 +1231,11 @@
 /area/ship/trade/fore_port_underside_maint)
 "oo" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
-/turf/floor,
+/turf/floor/plating/dirt,
 /area/ship/trade/aft_starboard_underside_maint)
 "or" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
-/turf/floor,
+/turf/floor/plating/dirt,
 /area/ship/trade/aft_port_underside_maint)
 "os" = (
 /obj/structure/lattice,
@@ -1325,7 +1325,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/backpack/dufflebag,
-/obj/item/chems/glass/rag,
+/obj/item/chems/rag,
 /obj/item/chems/glass/bucket,
 /obj/machinery/firealarm{
 	pixel_y = 21
@@ -1483,7 +1483,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/floor,
+/turf/floor/plating/dirt,
 /area/ship/trade/aft_port_underside_maint)
 "xP" = (
 /obj/structure/disposalpipe/segment{
@@ -1518,7 +1518,7 @@
 /obj/item/assembly/mousetrap,
 /obj/item/radio,
 /obj/item/bag/trash,
-/obj/item/chems/glass/rag,
+/obj/item/chems/rag,
 /obj/item/caution,
 /obj/item/caution,
 /obj/item/caution,
@@ -2053,7 +2053,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/floor,
+/turf/floor/plating/dirt,
 /area/ship/trade/aft_starboard_underside_maint)
 "QW" = (
 /obj/item/stack/tile/floor/five,

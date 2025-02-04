@@ -18,11 +18,12 @@
 	_avian_onmob_icon = null
 
 //Backpacks & tanks
-
 /obj/item/backpack/satchel
 	_avian_onmob_icon = 'mods/species/neoavians/icons/clothing/satchel.dmi'
 
 //Radsuits (theyre essential?)
+/obj/item/clothing/head/radiation
+	_avian_onmob_icon = 'mods/species/neoavians/icons/clothing/head/rad_helm.dmi'
 
 /obj/item/clothing/head/radiation
 	_avian_onmob_icon = 'mods/species/neoavians/icons/clothing/head/rad_helm.dmi'
@@ -42,7 +43,6 @@
 	name = "smock"
 	desc = "A loose-fitting smock favoured by neo-avians."
 	icon = 'mods/species/neoavians/icons/clothing/under/smock.dmi'
-	icon_state = ICON_STATE_WORLD
 	bodytype_equip_flags = BODY_EQUIP_FLAG_AVIAN
 	_avian_onmob_icon = null
 
@@ -77,12 +77,15 @@
 	name = "stylish uniform"
 	icon = 'mods/species/neoavians/icons/clothing/under/stylish_form.dmi'
 
+/obj/item/clothing/shoes
+	_avian_onmob_icon = 'mods/species/neoavians/icons/clothing/feet/shoes.dmi'
+
 /obj/item/clothing/shoes/avian
 	name = "small shoes"
-	icon = 'mods/species/neoavians/icons/clothing/feet/shoes.dmi'
 	color = COLOR_GRAY
 	bodytype_equip_flags = BODY_EQUIP_FLAG_AVIAN
 	_avian_onmob_icon = null
+	icon = 'mods/species/neoavians/icons/clothing/feet/shoes.dmi'
 
 /obj/item/clothing/shoes/avian/footwraps
 	name = "cloth footwraps"

@@ -1,6 +1,6 @@
 /datum/unit_test/icon_test
 	name = "ICON STATE template"
-	template = /datum/unit_test/icon_test
+	abstract_type = /datum/unit_test/icon_test
 
 /datum/unit_test/icon_test/food_shall_have_icon_states
 	name = "ICON STATE: Food And Drink Subtypes Shall Have Icon States"
@@ -12,10 +12,13 @@
 	// We skip lumps because they are invisible, they are only ever inside utensils.
 	var/list/skip_types = list(/obj/item/food/lump)
 
-/datum/unit_test/icon_test/food_shall_have_icon_states/start_test()
-
+/datum/unit_test/icon_test/food_shall_have_icon_states/proc/assemble_skipped_types()
 	skip_types |= typesof(/obj/item/food/grown)
 	skip_types |= typesof(/obj/item/food/processed_grown)
+
+/datum/unit_test/icon_test/food_shall_have_icon_states/start_test()
+
+	assemble_skipped_types()
 
 	var/list/failures = list()
 	for(var/check_type in check_types)

@@ -13,7 +13,7 @@
 	abstract_type = /obj/item/chems/drinks/bottle
 
 	var/smash_duration = 5 //Directly relates to the 'weaken' duration. Lowered by armor (i.e. helmets)
-	var/obj/item/chems/glass/rag/rag = null
+	var/obj/item/chems/rag/rag = null
 	var/rag_underlay = "rag"
 	var/stop_spin_bottle = FALSE //Gotta stop the rotation.
 
@@ -95,7 +95,7 @@
 
 /obj/item/chems/drinks/bottle/attackby(obj/item/W, mob/user)
 	if(!rag)
-		if(istype(W, /obj/item/chems/glass/rag))
+		if(istype(W, /obj/item/chems/rag))
 			insert_rag(W, user)
 			return TRUE
 	else if(W.isflamesource())
@@ -105,7 +105,7 @@
 /obj/item/chems/drinks/bottle/attack_self(mob/user)
 	return rag ? remove_rag(user) : ..()
 
-/obj/item/chems/drinks/bottle/proc/insert_rag(obj/item/chems/glass/rag/R, mob/user)
+/obj/item/chems/drinks/bottle/proc/insert_rag(obj/item/chems/rag/R, mob/user)
 	if(material?.type != /decl/material/solid/glass)
 		to_chat(user, SPAN_WARNING("\The [src] isn't made of glass, you can't make a good Molotov with it."))
 		return TRUE
@@ -168,7 +168,7 @@
 		user.visible_message(SPAN_DANGER("\The [user] smashes \the [src] into [H]'s [affecting.name]!"))
 		// You are going to knock someone out for longer if they are not wearing a helmet.
 		var/blocked = target.get_blocked_ratio(hit_zone, BRUTE, damage = 10) * 100
-		var/weaken_duration = smash_duration + min(0, get_attack_force(user) - blocked + 10)
+		var/weaken_duration = smash_duration + min(0, expend_attack_force(user) - blocked + 10)
 		if(weaken_duration)
 			target.apply_effect(min(weaken_duration, 5), WEAKEN, blocked) // Never weaken more than a flash!
 	else
@@ -228,8 +228,7 @@
 	throw_range = 5
 	item_state = "beer"
 	attack_verb = list("stabbed", "slashed", "attacked")
-	sharp = 1
-	edge = 0
+	sharp = TRUE
 	obj_flags = OBJ_FLAG_HOLLOW
 	material = /decl/material/solid/glass
 	_base_attack_force = 9
@@ -291,7 +290,7 @@
 
 /obj/item/chems/drinks/bottle/patron
 	name = "Wrapp Artiste Patron"
-	desc = "Silver laced tequila, served in space night clubs across the galaxy."
+	desc = "Silver laced tequila, served in space nightclubs across the galaxy."
 	icon_state = "patronbottle"
 	center_of_mass = @'{"x":16,"y":6}'
 
@@ -347,7 +346,7 @@
 
 /obj/item/chems/drinks/bottle/cognac
 	name = "Chateau De Baton Premium Cognac"
-	desc = "A sweet and strongly alchoholic drink, made after numerous distillations and years of maturing. You might as well not scream 'SHITCURITY' this time."
+	desc = "A sweet and strongly alcoholic drink, made after numerous distillations and years of maturing. You might as well not scream 'SHITCURITY' this time."
 	icon_state = "cognacbottle"
 	center_of_mass = @'{"x":16,"y":6}'
 
@@ -410,7 +409,7 @@
 
 /obj/item/chems/drinks/bottle/cola
 	name = "\improper Space Cola"
-	desc = "Cola. in space."
+	desc = "Cola... in space."
 	icon_state = "colabottle"
 	center_of_mass = @'{"x":16,"y":6}'
 
