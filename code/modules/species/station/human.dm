@@ -6,12 +6,12 @@
 		/decl/language/animal,
 		/decl/language/machine
 	)
-	unarmed_attacks = list(
-		/decl/natural_attack/stomp,
-		/decl/natural_attack/kick,
-		/decl/natural_attack/punch,
-		/decl/natural_attack/bite
-	)
+//	unarmed_attacks = list(
+//		/decl/natural_attack/stomp,
+//		/decl/natural_attack/kick,
+//		/decl/natural_attack/punch,
+//		/decl/natural_attack/bite
+//	)
 	description = "A medium-sized creature prone to great ambition. If you are reading this, you are probably a human."
 	hidden_from_codex = FALSE
 	spawn_flags = SPECIES_CAN_JOIN

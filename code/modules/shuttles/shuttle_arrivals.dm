@@ -1,6 +1,6 @@
 // The new arrivals shuttle.
 /datum/shuttle/autodock/ferry/arrivals
-	category = /datum/shuttle/autodock/ferry/arrivals
+	abstract_type = /datum/shuttle/autodock/ferry/arrivals
 
 	name = "Arrivals"
 	location = 1

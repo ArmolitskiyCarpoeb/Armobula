@@ -9,7 +9,7 @@
 
 	footstep_type   = /decl/footsteps/plating
 
-	gender          = NEUTER
+//	gender          = NEUTER
 
 
 /decl/flooring/rock/update_turf_strings(turf/floor/target)

@@ -2,7 +2,7 @@
 
 /datum/map_template/vesta
 	abstract_type = /datum/map_template/vesta
-	template_parent_type = /datum/map_template/vesta
+	var/template_parent_type = /datum/map_template/vesta
 	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS | TEMPLATE_FLAG_NO_RUINS
 	area_usage_test_exempted_root_areas = list(
 		/area/vesta/caves/point_of_interest
