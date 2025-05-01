@@ -2,8 +2,8 @@
 	uid = "species_human"
 	name = "Human"
 	name_plural = "Humans"
-	primitive_form = SPECIES_MONKEY
-//	primitive_form = /decl/species/monkey::uid
+//	primitive_form = SPECIES_MONKEY
+	primitive_form = /decl/species/monkey::uid
 	unspeakable_langs = list(
 		/decl/language/animal,
 		/decl/language/machine
