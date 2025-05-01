@@ -145,6 +145,7 @@
 	frame_type = /obj/structure/door_assembly/door_assembly_ext
 	door_color = COLOR_NT_RED
 	paintable = PAINT_PAINTABLE
+	safe = 0
 	stock_part_presets = list(
 		/decl/stock_part_preset/radio/receiver/airlock/external_air = 1,
 		/decl/stock_part_preset/radio/event_transmitter/airlock/external_air = 1
