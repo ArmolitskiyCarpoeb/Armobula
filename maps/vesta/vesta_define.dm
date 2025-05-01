@@ -63,10 +63,10 @@
 		list("name" = "Supply",        "key" = "u", "frequency" = 1347, "color" = COMMS_COLOR_SUPPLY,    "span_class" = "supradio", "secured" = list(access_cargo)),
 //		list("name" = "Exploration",   "key" = "x", "frequency" = 1361, "color" = COMMS_COLOR_EXPLORER , "span_class" = "EXPradio", "secured" = list(access_eva))
 	)
-/*
+
 /datum/map/vesta/get_map_info()
-	return "Шестнадцать тонн, руби и долби,	чем глубже под землю - тем больше долги."
-*/
+	return "А в шахтёрской масти тоже люди чалятся..."
+
 
 /datum/map/vesta/get_available_submap_archetypes()
 	return null // Return list of decl instances when relevant submaps exist.
