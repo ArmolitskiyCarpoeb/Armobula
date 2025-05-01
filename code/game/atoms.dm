@@ -333,8 +333,8 @@
 	if(handler)
 		LAZYADD(., SPAN_NOTICE("<b>Ctrl-click</b> \the [src] while in your inventory to [lowertext(handler.name)]."))
 
-	if(user?.get_preference_value(/datum/client_preference/inquisitive_examine) == PREF_ON && user.can_use_codex() && SScodex.get_codex_entry(get_codex_value(user)))
-		LAZYADD(., SPAN_NOTICE("The codex has <b><a href='byond://?src=\ref[SScodex];show_examined_info=\ref[src];show_to=\ref[user]'>relevant information</a></b> available."))
+//	if(user?.get_preference_value(/datum/client_preference/inquisitive_examine) == PREF_ON && user.can_use_codex() && SScodex.get_codex_entry(get_codex_value(user)))
+//		LAZYADD(., SPAN_NOTICE("The codex has <b><a href='byond://?src=\ref[SScodex];show_examined_info=\ref[src];show_to=\ref[user]'>relevant information</a></b> available."))
 
 /**
 	Relay movement to this atom.
