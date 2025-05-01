@@ -16,7 +16,7 @@ on:
 env:
   BYOND_MAJOR: "515"
   BYOND_MINOR: "1643"
-  SPACEMAN_DMM_VERSION: suite-1.8
+  SPACEMAN_DMM_VERSION: suite-1.9
 
 jobs:
   DreamChecker:
@@ -34,6 +34,7 @@ jobs:
         run: |
           set -o pipefail
           ~/dreamchecker 2>&1 | tee ${GITHUB_WORKSPACE}/output-annotations.txt
+          ./test/lint-all-modpacks.sh nebula.dme
       - name: Annotate Lints
         uses: yogstation13/DreamAnnotate@v2
         if: always()

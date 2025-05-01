@@ -103,12 +103,12 @@ var/global/list/surgery_tool_exception_cache = list()
 		if(allowed_species)
 			. = FALSE
 			if(species)
-				for(var/species_name in allowed_species)
-					if(species.get_root_species_name(target) == species_name)
+				for(var/species_uid in allowed_species)
+					if(species.uid == species_uid)
 						return TRUE
 		if(species && disallowed_species)
-			for(var/species_name in disallowed_species)
-				if(species.get_root_species_name(target) == species_name)
+			for(var/species_uid in disallowed_species)
+				if(species.uid == species_uid)
 					return FALSE
 
 /decl/surgery_step/proc/get_skill_reqs(mob/living/user, mob/living/target, obj/item/tool, target_zone)
@@ -148,9 +148,9 @@ var/global/list/surgery_tool_exception_cache = list()
 				 affected.how_open() < open_threshold))
 					return FALSE
 			// Check if clothing is blocking access
-			var/obj/item/I = user.get_covering_equipped_item_by_zone(target_zone)
+			var/obj/item/I = target.get_covering_equipped_item_by_zone(target_zone)
 			if(I && (I.item_flags & ITEM_FLAG_THICKMATERIAL))
-				to_chat(user,SPAN_NOTICE("The material covering this area is too thick for you to do surgery through!"))
+				to_chat(user,SPAN_NOTICE("\The [I] covering that area is too thick for you to do surgery through!"))
 				return FALSE
 			return affected
 	return FALSE

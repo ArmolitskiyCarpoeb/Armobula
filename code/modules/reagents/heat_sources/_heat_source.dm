@@ -83,23 +83,22 @@
 
 		// Hackery to heat pots placed onto a hotplate without also grilling/baking stuff.
 		if(isturf(loc))
-			var/datum/gas_mixture/environment = loc.return_air()
 			for(var/obj/item/chems/cooking_vessel/pot in loc.get_contained_external_atoms())
-				pot.fire_act(environment, temperature, 500)
+				pot.handle_external_heating(temperature, src)
 
 		return TRUE // Don't kill this processing loop unless we're not powered.
 	. = ..()
 
-/obj/machinery/reagent_temperature/attackby(var/obj/item/thing, var/mob/user)
+/obj/machinery/reagent_temperature/attackby(var/obj/item/used_item, var/mob/user)
 
-	if(istype(thing, /obj/item/chems/cooking_vessel))
-		if(!user.try_unequip(thing, get_turf(src)))
+	if(istype(used_item, /obj/item/chems/cooking_vessel))
+		if(!user.try_unequip(used_item, get_turf(src)))
 			return TRUE
-		thing.reset_offsets(anim_time = 0)
-		user.visible_message(SPAN_NOTICE("\The [user] places \the [thing] onto \the [src]."))
+		used_item.reset_offsets(anim_time = 0)
+		user.visible_message(SPAN_NOTICE("\The [user] places \the [used_item] onto \the [src]."))
 		return TRUE
 
-	if(IS_WRENCH(thing))
+	if(IS_WRENCH(used_item))
 		if(use_power == POWER_USE_ACTIVE)
 			to_chat(user, SPAN_WARNING("Turn \the [src] off first!"))
 		else
@@ -108,18 +107,18 @@
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 		return TRUE
 
-	if(thing.reagents)
+	if(used_item.reagents)
 		for(var/checktype in permitted_types)
-			if(istype(thing, checktype))
+			if(istype(used_item, checktype))
 				if(container)
 					to_chat(user, SPAN_WARNING("\The [src] is already holding \the [container]."))
-				else if(user.try_unequip(thing))
-					thing.forceMove(src)
-					container = thing
+				else if(user.try_unequip(used_item))
+					used_item.forceMove(src)
+					container = used_item
 					visible_message(SPAN_NOTICE("\The [user] places \the [container] on \the [src]."))
 					update_icon()
 				return TRUE
-		to_chat(user, SPAN_WARNING("\The [src] cannot accept \the [thing]."))
+		to_chat(user, SPAN_WARNING("\The [src] cannot accept \the [used_item]."))
 		return FALSE
 
 	. = ..()

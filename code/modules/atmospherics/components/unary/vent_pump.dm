@@ -278,16 +278,16 @@
 	. = ..()
 	toggle_input_toggle()
 
-/obj/machinery/atmospherics/unary/vent_pump/attackby(obj/item/W, mob/user)
-	if(IS_WELDER(W))
+/obj/machinery/atmospherics/unary/vent_pump/attackby(obj/item/used_item, mob/user)
+	if(IS_WELDER(used_item))
 
-		var/obj/item/weldingtool/WT = W
+		var/obj/item/weldingtool/welder = used_item
 
-		if(!WT.isOn())
+		if(!welder.isOn())
 			to_chat(user, "<span class='notice'>The welding tool needs to be on to start this task.</span>")
 			return 1
 
-		if(!WT.weld(0,user))
+		if(!welder.weld(0,user))
 			to_chat(user, "<span class='warning'>You need more welding fuel to complete this task.</span>")
 			return 1
 
@@ -301,7 +301,7 @@
 		if(!src)
 			return 1
 
-		if(!WT.isOn())
+		if(!welder.isOn())
 			to_chat(user, "<span class='notice'>The welding tool needs to be on to finish this task.</span>")
 			return 1
 
@@ -312,7 +312,7 @@
 			"<span class='notice'>You [welded ? "weld \the [src] shut" : "unweld \the [src]"].</span>", \
 			"You hear welding.")
 		return 1
-	if(IS_MULTITOOL(W))
+	if(IS_MULTITOOL(used_item))
 		var/datum/browser/written_digital/popup = new(user, "Vent Configuration Utility", "[src] Configuration Panel", 600, 200)
 		popup.set_content(jointext(get_console_data(),"<br>"))
 		popup.open()
@@ -320,14 +320,14 @@
 
 	return ..()
 
-/obj/machinery/atmospherics/unary/vent_pump/examine(mob/user, distance)
+/obj/machinery/atmospherics/unary/vent_pump/get_examine_strings(mob/user, distance, infix, suffix)
 	. = ..()
 	if(distance <= 1)
-		to_chat(user, "A small gauge in the corner reads [round(last_flow_rate, 0.1)] L/s; [round(last_power_draw)] W.")
+		. += "A small gauge in the corner reads [round(last_flow_rate, 0.1)] L/s; [round(last_power_draw)] W."
 	else
-		to_chat(user, "You are too far away to read the gauge.")
+		. += "You are too far away to read the gauge."
 	if(welded)
-		to_chat(user, "It seems welded shut.")
+		. += "It seems welded shut."
 
 /obj/machinery/atmospherics/unary/vent_pump/cannot_transition_to(state_path, mob/user)
 	if(state_path == /decl/machine_construction/default/deconstructed)

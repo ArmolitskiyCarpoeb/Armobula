@@ -889,14 +889,13 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	id_tag = "ninjadoor";
-	name = "Blast Door";
-	
+	name = "Blast Door"
 	},
 /turf/unsimulated/floor/dark,
 /area/map_template/ninja_dojo/start)
 "cS" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/bed/chair{
+/obj/structure/chair{
 	dir = 4
 	},
 /turf/unsimulated/floor/dark,
@@ -976,7 +975,7 @@
 /turf/unsimulated/floor/dark,
 /area/map_template/ninja_dojo/start)
 "da" = (
-/obj/structure/bed/chair/shuttle,
+/obj/structure/chair/shuttle,
 /turf/unsimulated/floor/dark,
 /area/map_template/ninja_dojo/start)
 "db" = (

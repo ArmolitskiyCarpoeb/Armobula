@@ -42,7 +42,7 @@
 	if((. = ..()))
 		update_icon()
 
-/obj/item/chems/syringe/on_picked_up(mob/user)
+/obj/item/chems/syringe/on_picked_up(mob/user, atom/old_loc)
 	. = ..()
 	update_icon()
 
@@ -64,7 +64,7 @@
 	. = ..()
 	update_icon()
 
-/obj/item/chems/syringe/attackby(obj/item/I, mob/user)
+/obj/item/chems/syringe/attackby(obj/item/used_item, mob/user)
 	return FALSE // allow afterattack to proceed
 
 /obj/item/chems/syringe/afterattack(obj/target, mob/user, proximity)

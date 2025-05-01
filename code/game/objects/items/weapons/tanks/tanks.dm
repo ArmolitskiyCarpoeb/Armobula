@@ -85,7 +85,7 @@ var/global/list/global/tank_gauge_cache = list()
 		. += gas_data.get_value() * air_contents.gas[gas] * GAS_WORTH_MULTIPLIER
 	. = max(1, round(.))
 
-/obj/item/tank/examine(mob/user)
+/obj/item/tank/get_examine_strings(mob/user, distance, infix, suffix)
 	. = ..()
 	var/descriptive
 	if(!air_contents)
@@ -107,36 +107,35 @@ var/global/list/global/tank_gauge_cache = list()
 				descriptive = "cold"
 			else
 				descriptive = "bitterly cold"
-	to_chat(user, "<span class='notice'>\The [src] feels [descriptive].</span>")
+	. += SPAN_NOTICE("\The [src] feels [descriptive].")
 
 	if(proxyassembly.assembly || wired)
-		to_chat(user, "<span class='warning'>It seems to have [wired? "some wires ": ""][wired && proxyassembly.assembly? "and ":""][proxyassembly.assembly ? "some sort of assembly ":""]attached to it.</span>")
+		. += SPAN_WARNING("It seems to have [wired? "some wires ": ""][wired && proxyassembly.assembly? "and ":""][proxyassembly.assembly ? "some sort of assembly ":""]attached to it.")
 	if(valve_welded)
-		to_chat(user, "<span class='warning'>\The [src] emergency relief valve has been welded shut!</span>")
+		. += SPAN_WARNING("\The [src] emergency relief valve has been welded shut!")
 
-
-/obj/item/tank/attackby(var/obj/item/W, var/mob/user)
+/obj/item/tank/attackby(var/obj/item/used_item, var/mob/user)
 	if (istype(loc, /obj/item/assembly))
 		icon = loc
 
-	if (istype(W, /obj/item/scanner/gas))
+	if (istype(used_item, /obj/item/scanner/gas))
 		return TRUE
 
-	if (istype(W,/obj/item/latexballon))
-		var/obj/item/latexballon/LB = W
+	if (istype(used_item,/obj/item/latexballon))
+		var/obj/item/latexballon/LB = used_item
 		LB.blow(src)
 		add_fingerprint(user)
 		return TRUE
 
-	if(IS_COIL(W))
-		var/obj/item/stack/cable_coil/C = W
+	if(IS_COIL(used_item))
+		var/obj/item/stack/cable_coil/C = used_item
 		if(C.use(1))
 			wired = 1
 			to_chat(user, "<span class='notice'>You attach the wires to the tank.</span>")
 			update_icon()
 		return TRUE
 
-	if(IS_WIRECUTTER(W))
+	if(IS_WIRECUTTER(used_item))
 		if(wired && proxyassembly.assembly)
 
 			to_chat(user, "<span class='notice'>You carefully begin clipping the wires that attach to the tank.</span>")
@@ -174,23 +173,20 @@ var/global/list/global/tank_gauge_cache = list()
 			to_chat(user, "<span class='notice'>There are no wires to cut!</span>")
 		return TRUE
 
-	if(istype(W, /obj/item/assembly_holder))
+	if(istype(used_item, /obj/item/assembly_holder))
 		if(wired)
 			to_chat(user, "<span class='notice'>You begin attaching the assembly to \the [src].</span>")
 			if(do_after(user, 50, src))
-				to_chat(user, "<span class='notice'>You finish attaching the assembly to \the [src].</span>")
-				global.bombers += "[key_name(user)] attached an assembly to a wired [src]. Temp: [air_contents.temperature-T0C]"
-				log_and_message_admins("attached an assembly to a wired [src]. Temp: [air_contents.temperature-T0C]", user)
-				assemble_bomb(W,user)
+				assemble_bomb(used_item,user)
 			else
 				to_chat(user, "<span class='notice'>You stop attaching the assembly.</span>")
 		else
 			to_chat(user, "<span class='notice'>You need to wire the device up first.</span>")
 		return TRUE
 
-	if(IS_WELDER(W))
-		var/obj/item/weldingtool/WT = W
-		if(WT.weld(1,user))
+	if(IS_WELDER(used_item))
+		var/obj/item/weldingtool/welder = used_item
+		if(welder.weld(1,user))
 			if(!valve_welded)
 				to_chat(user, "<span class='notice'>You begin welding \the [src] emergency pressure relief valve.</span>")
 				if(do_after(user, 40,src))
@@ -200,8 +196,8 @@ var/global/list/global/tank_gauge_cache = list()
 				else
 					global.bombers += "[key_name(user)] attempted to weld \a [src]. [air_contents.temperature-T0C]"
 					log_and_message_admins("attempted to weld \a [src]. [air_contents.temperature-T0C]", user)
-					if(WT.welding)
-						to_chat(user, "<span class='danger'>You accidentally rake \the [W] across \the [src]!</span>")
+					if(welder.welding)
+						to_chat(user, "<span class='danger'>You accidentally rake \the [used_item] across \the [src]!</span>")
 						maxintegrity -= rand(2,6)
 						integrity = min(integrity,maxintegrity)
 						air_contents.add_thermal_energy(rand(2000,50000))
@@ -210,8 +206,8 @@ var/global/list/global/tank_gauge_cache = list()
 		add_fingerprint(user)
 		return TRUE
 
-	if(istype(W, /obj/item/flamethrower))
-		var/obj/item/flamethrower/F = W
+	if(istype(used_item, /obj/item/flamethrower))
+		var/obj/item/flamethrower/F = used_item
 		if(!F.secured || F.tank || !user.try_unequip(src, F))
 			return TRUE
 
@@ -551,39 +547,45 @@ var/global/list/global/tank_gauge_cache = list()
 /obj/item/tankassemblyproxy/receive_signal()	//This is mainly called by the sensor through sense() to the holder, and from the holder to here.
 	tank.cause_explosion()	//boom (or not boom if you made shijwtty mix)
 
-/obj/item/tank/proc/assemble_bomb(W,user)	//Bomb assembly proc. This turns assembly+tank into a bomb
-	var/obj/item/assembly_holder/S = W
-	var/mob/M = user
-	if(!S.secured)										//Check if the assembly is secured
-		return
+/obj/item/tank/proc/assemble_bomb(used_item,mob/user)	//Bomb assembly proc. This turns assembly+tank into a bomb
+	var/obj/item/assembly_holder/S = used_item
 	if(isigniter(S.a_left) == isigniter(S.a_right))		//Check if either part of the assembly has an igniter, but if both parts are igniters, then fuck it
 		return
+	if(!S.secured)										//Check if the assembly is secured
+		to_chat(user, SPAN_NOTICE("\The [S] must be secured before attaching it to \the [src]!"))
+		return
 
-	if(!M.try_unequip(src))
+	if(!user.try_unequip(src))
 		return					//Remove the tank from your character,in case you were holding it
-	M.put_in_hands(src)			//Equips the bomb if possible, or puts it on the floor.
+	user.put_in_hands(src)			//Equips the bomb if possible, or puts it on the floor.
 
 	proxyassembly.assembly = S	//Tell the bomb about its assembly part
 	S.master = proxyassembly	//Tell the assembly about its new owner
-	S.forceMove(src)			//Move the assembly
+	user.remove_from_mob(S, src, FALSE) //Move the assembly and reset HUD layer/plane status
 
 	update_icon()
+	to_chat(user, "<span class='notice'>You finish attaching the assembly to \the [src].</span>")
+	global.bombers += "[key_name(user)] attached an assembly to a wired [src]. Temp: [air_contents.temperature-T0C]"
+	log_and_message_admins("attached an assembly to a wired [src]. Temp: [air_contents.temperature-T0C]", user)
 
 /obj/item/tank/proc/cause_explosion()	//This happens when a bomb is told to explode
+
 	var/obj/item/assembly_holder/assy = proxyassembly.assembly
-	var/ign = assy.a_right
-	var/obj/item/other = assy.a_left
+	var/obj/item/igniter = assy.a_right
+	var/obj/item/other   = assy.a_left
 
 	if (isigniter(assy.a_left))
-		ign = assy.a_left
-		other = assy.a_right
+		igniter = assy.a_left
+		other   = assy.a_right
 
 	if(other)
 		other.dropInto(get_turf(src))
-	qdel(ign)
+	if(!QDELETED(igniter))
+		qdel(igniter)
 	assy.master = null
 	proxyassembly.assembly = null
-	qdel(assy)
+	if(!QDELETED(assy))
+		qdel(assy)
 	update_icon()
 
 	air_contents.add_thermal_energy(15000)

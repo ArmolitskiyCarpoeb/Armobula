@@ -20,7 +20,8 @@ var/global/list/_ui_all_keys = list(
 	(HUD_CHARGE),
 	(HUD_THROW),
 	(HUD_MANEUVER),
-	(HUD_INTENT)
+	(HUD_INTENT),
+	(HUD_MODIFIERS)
 )
 
 var/global/list/_ui_expected_states
@@ -64,7 +65,8 @@ var/global/list/_ui_expected_states
 			"hand_selected",
 			"act_equip",
 			"hand1",
-			"hand2"
+			"hand2",
+			"hand_blank"
 		),
 		(HUD_HEALTH) = list(
 			"health0",
@@ -174,6 +176,10 @@ var/global/list/_ui_expected_states
 		(HUD_THROW) = list(
 			"act_throw_on",
 			"act_throw_off"
+		),
+		(HUD_MODIFIERS) = list(
+			"blank",
+			"modifier_base"
 		)
 	)
 
@@ -187,6 +193,7 @@ var/global/list/_ui_expected_states
 	// Collect hand slot sates.
 	for(var/slot in global.all_hand_slots)
 		global._ui_expected_states[HUD_HANDS] |= "hand_[slot]"
+
 	for(var/gripper_type in subtypesof(/datum/inventory_slot/gripper))
 		var/datum/inventory_slot/gripper/gripper = gripper_type
 		if(TYPE_IS_ABSTRACT(gripper))

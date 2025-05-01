@@ -112,7 +112,7 @@
 		fingerprint.completeness = rand(10,90)
 		forensics.add_data(/datum/forensics/fingerprints, fingerprint)
 
-/obj/item/organ/external/Initialize(mapload, material_key, datum/mob_snapshot/supplied_appearance, decl/bodytype/new_bodytype)
+/obj/item/organ/external/Initialize(mapload, material_key, datum/mob_snapshot/supplied_appearance)
 	. = ..()
 	if(. != INITIALIZE_HINT_QDEL && isnull(pain_disability_threshold))
 		pain_disability_threshold = (max_damage * 0.75)
@@ -135,7 +135,7 @@
 	if(owner)
 		LAZYREMOVE(owner.bad_external_organs, src)
 
-/obj/item/organ/external/set_species(specie_name)
+/obj/item/organ/external/set_species(species_uid)
 	_icon_cache_key = null
 	. = ..()
 	skin_blend = bodytype.limb_blend
@@ -202,7 +202,7 @@
 
 	if(owner && burn_damage)
 		owner.custom_pain("Something inside your [src] burns a [severity < 2 ? "bit" : "lot"]!", power * 15) //robotic organs won't feel it anyway
-		take_external_damage(0, burn_damage, 0, used_weapon = "Hot metal")
+		take_damage(burn_damage, BURN, inflicter = "Hot metal")
 		check_pain_disarm()
 
 	if(owner && (limb_flags & ORGAN_FLAG_CAN_STAND))
@@ -226,23 +226,23 @@
 		return //no eating the limb until everything's been removed
 	return ..()
 
-/obj/item/organ/external/examine(mob/user, distance)
+/obj/item/organ/external/get_examine_strings(mob/user, distance, infix, suffix)
 	. = ..()
 	if(distance <= 1 || isghost(user))
 		for(var/obj/item/embedded in contents)
 			if(istype(embedded, /obj/item/organ))
 				continue
-			to_chat(user, SPAN_DANGER("There is \a [embedded] sticking out of it."))
+			. += SPAN_DANGER("There is \a [embedded] sticking out of it.")
 		var/ouchies = get_wounds_desc()
 		if(ouchies != "nothing")
-			to_chat(user, SPAN_NOTICE("There is [ouchies] visible on it."))
+			. += SPAN_NOTICE("There is [ouchies] visible on it.")
 
-	return
-
-/obj/item/organ/external/show_decay_status(mob/user)
-	..(user)
+/obj/item/organ/external/get_decay_status(mob/user)
+	. = ..()
 	for(var/obj/item/organ/external/child in children)
-		child.show_decay_status(user)
+		var/decay_status = child.get_decay_status(user)
+		if(decay_status)
+			. += decay_status
 
 /obj/item/organ/external/attackby(obj/item/used_item, mob/user)
 
@@ -767,6 +767,10 @@ This function completely restores a damaged organ to perfect condition.
 		pain = 0
 	..()
 
+	//check if we've hit max_damage
+	if((brute_dam + burn_dam) >= max_damage)
+		die()
+
 //Updating germ levels. Handles organ germ levels and necrosis.
 /*
 The INFECTION_LEVEL values defined in setup.dm control the time it takes to reach the different
@@ -952,7 +956,6 @@ Note that amputating the affected organ does in fact remove the infection from t
 		clamped |= wound.clamped
 		number_wounds += wound.amount
 
-	damage = brute_dam + burn_dam
 	update_damage_ratios()
 
 /obj/item/organ/external/proc/update_damage_ratios()
@@ -1081,9 +1084,19 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(!clean)
 		owner.shock_stage += min_broken_damage
 
-	var/obj/item/organ/external/original_parent = parent
 	var/mob/living/human/victim = owner //Keep a reference for post-removed().
+	var/obj/item/organ/external/original_parent = parent
 	owner.remove_organ(src, TRUE, FALSE, ignore_children, update_icon = FALSE)
+	if(original_parent)
+		// Traumatic amputation is messy.
+		if(!clean && disintegrate != DISMEMBER_METHOD_BURN)
+			original_parent.sever_artery()
+		// Leave a big ol hole.
+		var/datum/wound/lost_limb/stump = new(src, disintegrate, clean)
+		stump.parent_organ = original_parent
+		LAZYADD(original_parent.wounds, stump)
+		original_parent.update_damages()
+
 	var/remaining_organs = victim.get_external_organs()
 	if(istype(victim) && !QDELETED(victim))
 		// If they are down to their last organ, just spawn the organ and delete them.
@@ -1095,20 +1108,9 @@ Note that amputating the affected organ does in fact remove the infection from t
 			victim.dump_contents()
 			qdel(victim)
 		else // We deliberately skip queuing this via remove_organ() above due to potentially immediately deleting the mob.
+			victim.update_damage_overlays(FALSE)
 			victim.regenerate_body_icon = TRUE
 			victim.queue_icon_update()
-
-	if(original_parent)
-
-		// Traumatic amputation is messy.
-		if(!clean && disintegrate != DISMEMBER_METHOD_BURN)
-			original_parent.sever_artery()
-
-		// Leave a big ol hole.
-		var/datum/wound/lost_limb/stump = new(src, disintegrate, clean)
-		stump.parent_organ = original_parent
-		LAZYADD(original_parent.wounds, stump)
-		original_parent.update_damages()
 
 	if(QDELETED(src))
 		return
@@ -1506,7 +1508,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(LAZYLEN(internal_organs) && prob(brute_dam + force))
 		owner.custom_pain("A piece of bone in your [encased ? encased : name] moves painfully!", 50, affecting = src)
 		var/obj/item/organ/internal/internal_organ = pick(internal_organs)
-		internal_organ.take_internal_damage(rand(3,5))
+		internal_organ.take_damage(rand(3,5))
 
 /obj/item/organ/external/proc/jointlock(mob/attacker)
 	if(!can_feel_pain())
@@ -1548,7 +1550,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	else if(status & ORGAN_BROKEN)
 		. += max_delay * 3/8
 	else if(BP_IS_PROSTHETIC(src))
-		. += max_delay * CLAMP01(damage/max_damage)
+		. += max_delay * CLAMP01((brute_dam + burn_dam) / max_damage)
 
 /obj/item/organ/external/proc/is_robotic()
 	return bodytype.is_robotic
@@ -1563,7 +1565,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 /obj/item/organ/external/die() //External organs dying on a dime causes some real issues in combat
 	if(!BP_IS_PROSTHETIC(src) && !BP_IS_CRYSTAL(src))
-		var/decay_rate = damage/(max_damage*2)
+		var/decay_rate = (brute_dam + burn_dam) / (max_damage*2)
 		germ_level += round(rand(decay_rate,decay_rate*1.5)) //So instead, we're going to say the damage is so severe its functions are slowly failing due to the extensive damage
 	else //TODO: more advanced system for synths
 		if(istype(src,/obj/item/organ/external/chest) || istype(src,/obj/item/organ/external/groin))
@@ -1639,3 +1641,5 @@ Note that amputating the affected organ does in fact remove the infection from t
 	_sprite_accessories = null
 	update_icon()
 
+/obj/item/organ/external/is_broken()
+	return (brute_dam + burn_dam) >= min_broken_damage || ..()

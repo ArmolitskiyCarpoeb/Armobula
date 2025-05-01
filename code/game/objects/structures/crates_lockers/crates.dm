@@ -11,7 +11,7 @@
 	var/rigged = 0
 
 /obj/structure/closet/crate/open(mob/user)
-	if((atom_flags & ATOM_FLAG_CLIMBABLE) && !opened && can_open(user))
+	if((atom_flags & ATOM_FLAG_CLIMBABLE) && LAZYLEN(climbers) && !opened && can_open(user))
 		object_shaken()
 	. = ..()
 	if(.)
@@ -24,7 +24,7 @@
 			for(var/obj/item/assembly/A in src)
 				A.activate()
 
-/obj/structure/closet/crate/examine(mob/user)
+/obj/structure/closet/crate/get_examine_strings(mob/user, distance, infix, suffix)
 	. = ..()
 	if(rigged && opened)
 		var/list/devices = list()
@@ -32,15 +32,15 @@
 			devices += H
 		for(var/obj/item/assembly/A in src)
 			devices += A
-		to_chat(user,"There are some wires attached to the lid, connected to [english_list(devices)].")
+		. += "There are some wires attached to the lid, connected to [english_list(devices)]."
 
-/obj/structure/closet/crate/attackby(obj/item/W, mob/user)
+/obj/structure/closet/crate/attackby(obj/item/used_item, mob/user)
 	if(opened)
 		return ..()
-	else if(istype(W, /obj/item/stack/package_wrap))
+	else if(istype(used_item, /obj/item/stack/package_wrap))
 		return FALSE // let afterattack run
-	else if(istype(W, /obj/item/stack/cable_coil))
-		var/obj/item/stack/cable_coil/C = W
+	else if(istype(used_item, /obj/item/stack/cable_coil))
+		var/obj/item/stack/cable_coil/C = used_item
 		if(rigged)
 			to_chat(user, "<span class='notice'>[src] is already rigged!</span>")
 			return TRUE
@@ -49,12 +49,12 @@
 			rigged = 1
 			return TRUE
 		return FALSE
-	else if((istype(W, /obj/item/assembly_holder) || istype(W, /obj/item/assembly)) && rigged)
-		if(!user.try_unequip(W, src))
+	else if((istype(used_item, /obj/item/assembly_holder) || istype(used_item, /obj/item/assembly)) && rigged)
+		if(!user.try_unequip(used_item, src))
 			return TRUE
-		to_chat(user, "<span class='notice'>You attach [W] to [src].</span>")
+		to_chat(user, "<span class='notice'>You attach [used_item] to [src].</span>")
 		return TRUE
-	else if(IS_WIRECUTTER(W))
+	else if(IS_WIRECUTTER(used_item))
 		if(rigged)
 			to_chat(user, "<span class='notice'>You cut away the wiring.</span>")
 			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)

@@ -1,20 +1,20 @@
 /obj/machinery/portable_atmospherics/canister
-	name = "canister"
-	icon = 'icons/obj/atmos.dmi'
-	icon_state = "yellow"
-	density = TRUE
-	max_health = 100
-	obj_flags = OBJ_FLAG_CONDUCTIBLE
-	w_class = ITEM_SIZE_GARGANTUAN
-	construct_state = /decl/machine_construction/pipe/welder
-	uncreated_component_parts = null
-	start_pressure             = 45 ATM
-	volume                     = 1000
-	interact_offline           = TRUE
-	matter = list(
+	name             = "canister"
+	icon             = 'icons/obj/atmos.dmi'
+	icon_state       = "yellow"
+	density          = TRUE
+	max_health       = 100
+	obj_flags        = OBJ_FLAG_CONDUCTIBLE
+	w_class          = ITEM_SIZE_GARGANTUAN
+	construct_state  = /decl/machine_construction/pipe/welder
+	stat_immune      = NOSCREEN | NOINPUT | NOPOWER
+	start_pressure   = 45 ATM
+	volume           = 1000
+	interact_offline = TRUE
+	matter           = list(
 		/decl/material/solid/metal/steel = 10 * SHEET_MATERIAL_AMOUNT
 	)
-
+	uncreated_component_parts  = null
 	var/valve_open             = FALSE
 	var/release_pressure       = ONE_ATMOSPHERE
 	var/release_flow_rate      = ATMOS_DEFAULT_VOLUME_PUMP //in L/s
@@ -197,15 +197,15 @@ EMPTY_CANISTER(hydrogen, /obj/machinery/portable_atmospherics/canister/hydrogen)
 		healthcheck()
 	return ..()
 
-/obj/machinery/portable_atmospherics/canister/bash(var/obj/item/W, var/mob/user)
+/obj/machinery/portable_atmospherics/canister/bash(var/obj/item/used_item, var/mob/user)
 	. = ..()
 	if(.)
-		current_health -= W.expend_attack_force(user)
+		current_health -= used_item.expend_attack_force(user)
 		healthcheck()
 
-/obj/machinery/portable_atmospherics/canister/attackby(var/obj/item/W, var/mob/user)
-	if(isrobot(user) && istype(W, /obj/item/tank/jetpack))
-		var/obj/item/tank/jetpack/pack = W
+/obj/machinery/portable_atmospherics/canister/attackby(var/obj/item/used_item, var/mob/user)
+	if(isrobot(user) && istype(used_item, /obj/item/tank/jetpack))
+		var/obj/item/tank/jetpack/pack = used_item
 		var/datum/gas_mixture/thejetpack = pack.air_contents
 		if(thejetpack)
 			var/env_pressure = thejetpack.return_pressure()

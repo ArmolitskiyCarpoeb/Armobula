@@ -15,13 +15,13 @@
 		/obj/item/camera,
 		/obj/item/camera_film = 2,
 		/obj/item/photo_album,
-		/obj/item/chems/glass/paint/red,
-		/obj/item/chems/glass/paint/green,
-		/obj/item/chems/glass/paint/blue,
-		/obj/item/chems/glass/paint/yellow,
-		/obj/item/chems/glass/paint/purple,
-		/obj/item/chems/glass/paint/black,
-		/obj/item/chems/glass/paint/white,
+		/obj/item/chems/glass/bucket/paint/red,
+		/obj/item/chems/glass/bucket/paint/green,
+		/obj/item/chems/glass/bucket/paint/blue,
+		/obj/item/chems/glass/bucket/paint/yellow,
+		/obj/item/chems/glass/bucket/paint/purple,
+		/obj/item/chems/glass/bucket/paint/black,
+		/obj/item/chems/glass/bucket/paint/white,
 		/obj/item/poster,
 		/obj/item/stack/package_wrap/fifty      = 2,
 		/obj/item/stack/package_wrap/gift/fifty = 2
@@ -94,7 +94,7 @@
 					/obj/item/clothing/pants/slacks/purple,
 					/obj/item/clothing/shirt/button,
 					/obj/item/clothing/suit/jacket/vest/black,
-					/obj/item/clothing/jumpsuit/mailman,
+					/obj/item/clothing/costume/mailman,
 					/obj/item/clothing/dress/saloon,
 					/obj/item/clothing/suspenders,
 					/obj/item/clothing/suit/toggle/labcoat/mad,
@@ -103,7 +103,7 @@
 					/obj/item/clothing/costume/owl,
 					/obj/item/clothing/pants/slacks/black,
 					/obj/item/clothing/shirt/button,
-					/obj/item/clothing/neck/tie/bow/color/red,
+					/obj/item/clothing/neck/tie/bow/red,
 					/obj/item/clothing/suit/jacket/vest/blue,
 					/obj/item/clothing/costume/gladiator,
 					/obj/item/clothing/costume/soviet,
@@ -115,7 +115,7 @@
 					/obj/item/clothing/costume/kilt,
 					/obj/item/clothing/costume/savage_hunter,
 					/obj/item/clothing/costume/savage_hunter/female,
-					/obj/item/clothing/jumpsuit/wetsuit)
+					/obj/item/clothing/costume/wetsuit)
 	name = "Costume - Random"
 	containername = "actor costumes crate"
 	supply_method = /decl/supply_method/randomized

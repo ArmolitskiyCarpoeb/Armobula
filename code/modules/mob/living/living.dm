@@ -21,11 +21,12 @@
 		return my_species.ai
 	return ..()
 
-/mob/living/show_other_examine_strings(mob/user, distance, infix, suffix, hideflags, decl/pronouns/pronouns)
+/mob/living/get_other_examine_strings(mob/user, distance, infix, suffix, hideflags, decl/pronouns/pronouns)
+	. = ..()
 	if(admin_paralyzed)
-		to_chat(user, SPAN_OCCULT("OOC: [pronouns.He] [pronouns.has] been paralyzed by staff. Please avoid interacting with [pronouns.him] unless cleared to do so by staff."))
+		. += SPAN_OCCULT("OOC: [pronouns.He] [pronouns.has] been paralyzed by staff. Please avoid interacting with [pronouns.him] unless cleared to do so by staff.")
 	if(!length(get_external_organs()) && length(embedded)) // fallback for simple embedding used by limbless mobs
-		to_chat(user, SPAN_WARNING("[pronouns.He] [pronouns.has] [inline_counting_english_list(embedded, determiners = DET_INDEFINITE)] embedded in [pronouns.him]."))
+		. += SPAN_WARNING("[pronouns.He] [pronouns.has] [inline_counting_english_list(embedded, determiners = DET_INDEFINITE)] embedded in [pronouns.him].")
 
 //mob verbs are faster than object verbs. See above.
 /mob/living/pointed(atom/A as mob|obj|turf in view())
@@ -232,8 +233,8 @@ default behaviour is:
 	if(stat != DEAD && should_be_dead())
 		death()
 		if(!QDELETED(src)) // death() may delete or remove us
-			set_status(STAT_BLIND, 1)
-			set_status(STAT_SILENCE, 0)
+			set_status_condition(STAT_BLIND, 1)
+			set_status_condition(STAT_SILENCE, 0)
 	return TRUE
 
 //This proc is used for mobs which are affected by pressure to calculate the amount of pressure that actually
@@ -329,17 +330,17 @@ default behaviour is:
 	set_damage(OXY, 0)
 	set_damage(CLONE, 0)
 	set_damage(BRAIN, 0)
-	set_status(STAT_PARA, 0)
-	set_status(STAT_STUN, 0)
-	set_status(STAT_WEAK, 0)
+	set_status_condition(STAT_PARA, 0)
+	set_status_condition(STAT_STUN, 0)
+	set_status_condition(STAT_WEAK, 0)
 
 	// shut down ongoing problems
 	radiation = 0
 	bodytemperature = get_species()?.body_temperature || initial(bodytemperature)
 	reset_genetic_conditions()
 
-	// fix all status conditions including blind/deaf
-	clear_status_effects()
+	// clear all status conditions including blind/deaf
+	clear_status_conditions()
 
 	heal_overall_damage(get_damage(BRUTE), get_damage(BURN))
 
@@ -374,8 +375,8 @@ default behaviour is:
 		repair_brain = FALSE
 		var/obj/item/organ/internal/brain = GET_INTERNAL_ORGAN(src, BP_BRAIN)
 		if(brain)
-			if(brain.damage > (brain.max_damage/2))
-				brain.damage = (brain.max_damage/2)
+			if(brain.get_organ_damage() > (brain.max_damage/2))
+				brain.set_organ_damage(brain.max_damage/2)
 			if(brain.status & ORGAN_DEAD)
 				brain.status &= ~ORGAN_DEAD
 				START_PROCESSING(SSobj, brain)
@@ -426,7 +427,7 @@ default behaviour is:
 			continue
 		var/icon/DI
 		var/use_colour = (BP_IS_PROSTHETIC(O) ? SYNTH_BLOOD_COLOR : O.species.get_species_blood_color(src))
-		var/cache_index = "[O.damage_state]/[O.bodytype.uid]/[O.icon_state]/[use_colour]/[O.species.name]"
+		var/cache_index = "[O.damage_state]/[O.bodytype.uid]/[O.icon_state]/[use_colour]/[O.species.uid]"
 		if(!(cache_index in damage_icon_parts))
 			var/damage_overlay_icon = O.bodytype.get_damage_overlays(src)
 			if(check_state_in_icon(O.damage_state, damage_overlay_icon))
@@ -707,9 +708,6 @@ default behaviour is:
 		return TRUE
 	return FALSE
 
-/mob/living/human/canUnEquip(obj/item/I)
-	. = ..() && !(I in get_organs())
-
 /mob/proc/can_be_possessed_by(var/mob/observer/ghost/possessor)
 	return istype(possessor) && possessor.client
 
@@ -744,48 +742,14 @@ default behaviour is:
 	to_chat(src, "<span class='notice'>Remember to stay in character for a mob of this type!</span>")
 	return 1
 
-/mob/proc/add_aura(var/obj/aura/aura, skip_icon_update = FALSE)
-	return FALSE
-
-/mob/living/add_aura(var/obj/aura/aura, skip_icon_update = FALSE)
-	if(ispath(aura))
-		aura = new aura(src)
-	if(!istype(aura))
-		return FALSE
-	LAZYDISTINCTADD(auras,aura)
-	if(!skip_icon_update)
-		update_icon()
-	return TRUE
-
-/mob/proc/has_aura(aura_type)
-	return FALSE
-
-/mob/living/has_aura(aura_type)
-	return length(auras) && (locate(aura_type) in auras)
-
-/mob/proc/remove_aura(var/obj/aura/aura, skip_icon_update = FALSE)
-	return FALSE
-
-/mob/living/remove_aura(var/obj/aura/aura, skip_icon_update = FALSE)
-	if(ispath(aura))
-		aura = locate() in auras
-	if(!istype(aura))
-		return FALSE
-	LAZYREMOVE(auras,aura)
-	if(!skip_icon_update)
-		update_icon()
-	return TRUE
-
 /mob/living/Destroy()
+	clear_mob_modifiers()
 	QDEL_NULL(aiming)
 	QDEL_NULL_LIST(_hallucinations)
 	QDEL_NULL_LIST(aimed_at_by)
 	LAZYCLEARLIST(smell_cooldown)
 	if(stressors) // Do not QDEL_NULL, keys are managed instances.
 		stressors = null
-	if(auras)
-		for(var/a in auras)
-			remove_aura(a)
 	// done in this order so that icon updates aren't triggered once all our organs are obliterated
 	delete_inventory(TRUE)
 	delete_organs()
@@ -888,7 +852,7 @@ default behaviour is:
 	if(!HAS_STATUS(src, STAT_PARA) && stat == CONSCIOUS)
 		visible_message(SPAN_DANGER("\The [src] starts having a seizure!"))
 		SET_STATUS_MAX(src, STAT_PARA, rand(8,16))
-		set_status(STAT_JITTER, rand(150,200))
+		set_status_condition(STAT_JITTER, rand(150,200))
 		take_damage(rand(50, 60), PAIN)
 
 /mob/living/proc/get_digestion_product()
@@ -904,6 +868,14 @@ default behaviour is:
 		if(I) // get_organ with a type passed already does a typecheck
 			return I.get_flash_mod()
 	return get_bodytype()?.eye_flash_mod
+
+/mob/living/proc/get_flash_burn()
+	var/vision_organ_tag = get_vision_organ_tag()
+	if(vision_organ_tag)
+		var/obj/item/organ/internal/eyes/I = get_organ(vision_organ_tag, /obj/item/organ/internal/eyes)
+		if(I)
+			return I.get_flash_burn()
+	return get_bodytype()?.eye_flash_burn
 
 /mob/living/proc/eyecheck()
 	var/total_protection = flash_protection
@@ -980,9 +952,9 @@ default behaviour is:
 			if(user != src)
 				to_chat(user, SPAN_NOTICE("\The [src] scans the writing..."))
 		if(skill_check(SKILL_LITERACY, SKILL_BASIC))
-			if(skip_delays || do_after(src, 1 SECOND, user))
+			if(skip_delays || do_mob(user, src, 1 SECOND))
 				. = stars(text_content, 85)
-		else if(skip_delays || do_after(src, 3 SECONDS, user))
+		else if(skip_delays || do_mob(user, src, 3 SECONDS))
 			. = ..()
 
 /mob/living/handle_writing_literacy(var/mob/user, var/text_content, var/skip_delays)
@@ -1607,21 +1579,21 @@ default behaviour is:
 	if(!use_move_trail)
 		return
 
-	var/decl/material/contaminant_type = source.coating.reagent_volumes[1] // take [1] instead of primary reagent to match what remove_any will probably remove
-	if(!T.can_show_coating_footprints(contaminant_type))
+	var/decl/material/contaminant = source.coating.reagent_volumes[1] // take [1] instead of primary reagent to match what remove_any will probably remove
+	if(!T.can_show_coating_footprints(contaminant))
 		return
 	/// An associative list of DNA unique enzymes -> blood type. Used by forensics, mostly.
 	var/list/bloodDNA = list()
 	var/track_color
-	var/list/source_data = REAGENT_DATA(source.coating, contaminant_type)
+	var/list/source_data = REAGENT_DATA(source.coating, contaminant)
 	if(source_data && source_data[DATA_BLOOD_DNA] && source_data[DATA_BLOOD_TYPE])
 		bloodDNA = list(source_data[DATA_BLOOD_DNA] = source_data[DATA_BLOOD_TYPE])
 	track_color = source.coating.get_color()
-	T.AddTracks(use_move_trail, bloodDNA, dir, 0, track_color, contaminant_type) // Coming
+	T.AddTracks(use_move_trail, bloodDNA, dir, 0, track_color, contaminant.type) // Coming
 	if(isturf(old_loc))
 		var/turf/old_turf = old_loc
-		if(old_turf.can_show_coating_footprints(contaminant_type))
-			old_turf.AddTracks(use_move_trail, bloodDNA, 0, dir, track_color, contaminant_type) // Going
+		if(old_turf.can_show_coating_footprints(contaminant))
+			old_turf.AddTracks(use_move_trail, bloodDNA, 0, dir, track_color, contaminant.type) // Going
 	source.remove_coating(1)
 	update_equipment_overlay(slot_shoes_str)
 
@@ -1665,7 +1637,7 @@ default behaviour is:
 		for(var/datum/wound/wound in affected.wounds)
 			LAZYREMOVE(wound.embedded_objects, implant)
 		if(!surgical_removal)
-			affected.take_external_damage((implant.w_class * 3), 0, DAM_EDGE, "Embedded object extraction")
+			affected.take_damage((implant.w_class * 3), damage_flags = DAM_EDGE, inflicter = "Embedded object extraction")
 			if(!BP_IS_PROSTHETIC(affected) && prob(implant.w_class * 5) && affected.sever_artery()) //I'M SO ANEMIC I COULD JUST -DIE-.
 				custom_pain("Something tears wetly in your [affected.name] as [implant] is pulled free!", 50, affecting = affected)
 
@@ -1725,20 +1697,28 @@ default behaviour is:
 		return range * range - 0.333
 	return range
 
-/mob/living/handle_flashed(var/flash_strength)
+/mob/living/handle_flashed(var/flash_strength, do_stun = TRUE)
 
 	var/safety = eyecheck()
-	if(safety >= FLASH_PROTECTION_MODERATE || flash_strength <= 0) // May be modified by human proc.
+	var/flash_burn = get_flash_burn()
+	var/flash_mod = get_flash_mod()
+
+	if(safety >= FLASH_PROTECTION_MODERATE || flash_strength <= 0 || flash_mod <= 0) // May be modified by human proc.
 		return FALSE
 
 	flash_eyes(FLASH_PROTECTION_MODERATE - safety)
-	SET_STATUS_MAX(src, STAT_STUN, (flash_strength / 2))
+	if(do_stun)
+		SET_STATUS_MAX(src, STAT_STUN, (flash_strength / 2))
 	SET_STATUS_MAX(src, STAT_BLURRY, flash_strength)
 	SET_STATUS_MAX(src, STAT_CONFUSE, (flash_strength + 2))
+
+	if(flash_burn > 0)
+		apply_damage(flash_strength * flash_burn/5, BURN, BP_HEAD, used_weapon = "Photon burns")
 	if(flash_strength > 3)
 		drop_held_items()
 	if(flash_strength > 5)
 		SET_STATUS_MAX(src, STAT_WEAK, 2)
+	return TRUE
 
 /mob/living/verb/showoff()
 	set name = "Show Held Item"
@@ -1762,7 +1742,7 @@ default behaviour is:
 	playsound(user.loc, 'sound/effects/attackblob.ogg', 50, 1)
 	var/obj/item/organ/external/organ = GET_EXTERNAL_ORGAN(src, BP_CHEST)
 	if(istype(organ))
-		organ.take_external_damage(d, 0)
+		organ.take_damage(d)
 	else
 		take_organ_damage(d)
 	if(prob(get_damage(BRUTE) - 50))
@@ -1964,23 +1944,20 @@ default behaviour is:
 		set_moving_slowly()
 	start_automove(target, metadata = upset ? _flee_automove_metadata : _annoyed_automove_metadata)
 
-/mob/living/examine(mob/user, distance, infix, suffix)
-
+/mob/living/get_examine_strings(mob/user, distance, infix, suffix)
 	. = ..()
-
 	if(has_extension(src, /datum/extension/shearable))
 		var/datum/extension/shearable/shearable = get_extension(src, /datum/extension/shearable)
 		if(world.time >= shearable.next_fleece || shearable.has_fleece)
-			to_chat(user, SPAN_NOTICE("\The [src] can be sheared with shears, or a similar tool."))
+			. += SPAN_NOTICE("\The [src] can be sheared with shears, or a similar tool.")
 		else
-			to_chat(user, SPAN_WARNING("\The [src] will be ready to be sheared in [ceil((shearable.next_fleece-world.time) / 10)] second\s."))
-
+			. += SPAN_WARNING("\The [src] will be ready to be sheared in [ceil((shearable.next_fleece-world.time) / 10)] second\s.")
 	if(has_extension(src, /datum/extension/milkable))
 		var/datum/extension/milkable/milkable = get_extension(src, /datum/extension/milkable)
 		if(milkable.udder.total_volume > 0)
-			to_chat(user, SPAN_NOTICE("\The [src] can be milked into a bucket or other container."))
+			. += SPAN_NOTICE("\The [src] can be milked into a bucket or other container.")
 		else
-			to_chat(user, SPAN_WARNING("\The [src] cannot currently be milked."))
+			. += SPAN_WARNING("\The [src] cannot currently be milked.")
 
 /mob/living/proc/get_age()
 	. = LAZYACCESS(appearance_descriptors, "age") || 30
@@ -2026,3 +2003,5 @@ default behaviour is:
 		pulling_punches = !pulling_punches
 		to_chat(src, SPAN_NOTICE("You are now [pulling_punches ? "pulling your punches" : "not pulling your punches"]."))
 
+/mob/living/is_cloaked()
+	return has_mob_modifier(/decl/mob_modifier/cloaked)

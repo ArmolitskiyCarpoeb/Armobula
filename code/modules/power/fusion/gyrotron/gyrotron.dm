@@ -46,9 +46,10 @@
 	return rate*10
 
 /obj/machinery/emitter/gyrotron/get_emitter_beam()
-	var/obj/item/projectile/beam/emitter/E = ..()
-	E.damage = mega_energy * 50
-	return E
+	var/obj/item/projectile/beam/emitter/beam = ..()
+	if(istype(beam))
+		beam.damage = mega_energy * 50
+	return beam
 
 /obj/machinery/emitter/gyrotron/on_update_icon()
 	if (active && (can_use_power_oneoff(active_power_usage) <= 0))
@@ -56,8 +57,8 @@
 	else
 		icon_state = "emitter-off"
 
-/obj/machinery/emitter/gyrotron/attackby(var/obj/item/W, var/mob/user)
-	if(IS_MULTITOOL(W))
+/obj/machinery/emitter/gyrotron/attackby(var/obj/item/used_item, var/mob/user)
+	if(IS_MULTITOOL(used_item))
 		var/datum/extension/local_network_member/fusion = get_extension(src, /datum/extension/local_network_member)
 		fusion.get_new_tag(user)
 		return TRUE

@@ -223,6 +223,7 @@
 	if(!change_turf && !change_area)
 		return
 	var/area/A = change_area ? get_base_area_instance() : null
+	// We don't have to worry about the edge turfs because those are handled in build_border().
 	for(var/turf/T as anything in Z_ALL_TURFS(level_z))
 		if(change_turf)
 			T = T.ChangeTurf(picked_turf)

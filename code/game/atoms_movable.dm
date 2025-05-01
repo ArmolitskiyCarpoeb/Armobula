@@ -61,13 +61,11 @@
 	SSspacedrift.processing[src] = src
 	return 1
 
-//return 0 to space drift, 1 to stop, -1 for mobs to handle space slips
+//return SPACE_MOVE_FORBIDDEN to space drift, SPACE_MOVE_PERMITTED to stop, SPACE_MOVE_SUPPORTED for mobs to handle space slips
 /atom/movable/proc/is_space_movement_permitted(allow_movement = FALSE)
 	if(!simulated)
 		return SPACE_MOVE_PERMITTED
 	if(has_gravity())
-		return SPACE_MOVE_PERMITTED
-	if(length(grabbed_by))
 		return SPACE_MOVE_PERMITTED
 	if(throwing)
 		return SPACE_MOVE_PERMITTED
@@ -75,6 +73,11 @@
 		return SPACE_MOVE_PERMITTED
 	if(!isturf(loc))
 		return SPACE_MOVE_PERMITTED
+	if(length(grabbed_by))
+		for(var/obj/item/grab/grab as anything in grabbed_by)
+			if(grab.assailant == src)
+				continue
+			return SPACE_MOVE_PERMITTED
 	if(locate(/obj/structure/lattice) in range(1, get_turf(src))) //Not realistic but makes pushing things in space easier
 		return SPACE_MOVE_SUPPORTED
 	return SPACE_MOVE_FORBIDDEN
@@ -185,8 +188,8 @@
 	. = TRUE
 
 	// observ
-	if(!loc)
-		RAISE_EVENT(/decl/observ/moved, src, origin, null)
+	if(!loc && event_listeners?[/decl/observ/moved])
+		raise_event_non_global(/decl/observ/moved, origin, null)
 
 	// freelook
 	if(simulated && opacity)
@@ -237,8 +240,8 @@
 			else
 				unbuckle_mob()
 
-		if(!loc)
-			RAISE_EVENT(/decl/observ/moved, src, old_loc, null)
+		if(!loc && event_listeners?[/decl/observ/moved])
+			raise_event_non_global(/decl/observ/moved, old_loc, null)
 
 		// freelook
 		if(simulated && opacity)
@@ -543,7 +546,7 @@
 	var/burn_damage = rand(my_size, round(my_size * 1.5))
 	var/obj/item/organ/external/organ = check_organ && holder.get_organ(check_organ)
 	if(istype(organ))
-		organ.take_external_damage(0, burn_damage)
+		organ.take_damage(burn_damage, BURN)
 	else
 		holder.take_damage(burn_damage, BURN)
 	if(held_slot in holder.get_held_item_slots())
@@ -603,3 +606,5 @@
 		return TRUE
 	return FALSE
 
+/atom/movable/proc/get_cryogenic_power()
+	return 0

@@ -88,13 +88,10 @@
 // Calculate how much of the environment pressure-difference affects the human.
 /mob/living/human/calculate_affecting_pressure(var/pressure)
 	var/pressure_difference
+	var/species_safe_pressure = species.get_safe_pressure(src)
 
 	// First get the absolute pressure difference.
-	if(pressure < ONE_ATMOSPHERE) // We are in an underpressure.
-		pressure_difference = ONE_ATMOSPHERE - pressure
-
-	else //We are in an overpressure or standard atmosphere.
-		pressure_difference = pressure - ONE_ATMOSPHERE
+	pressure_difference = abs(pressure - species_safe_pressure)
 
 	if(pressure_difference < 5) // If the difference is small, don't bother calculating the fraction.
 		pressure_difference = 0
@@ -107,10 +104,10 @@
 	// The difference is always positive to avoid extra calculations.
 	// Apply the relative difference on a standard atmosphere to get the final result.
 	// The return value will be the adjusted_pressure of the human that is the basis of pressure warnings and damage.
-	if(pressure < ONE_ATMOSPHERE)
-		return ONE_ATMOSPHERE - pressure_difference
+	if(pressure < species_safe_pressure)
+		return species_safe_pressure - pressure_difference
 	else
-		return ONE_ATMOSPHERE + pressure_difference
+		return species_safe_pressure + pressure_difference
 
 /mob/living/human/handle_impaired_vision()
 
@@ -125,8 +122,8 @@
 		vision = GET_INTERNAL_ORGAN(src, vision_organ_tag)
 
 	if(!vision_organ_tag) // Presumably if a species has no vision organs, they see via some other means.
-		set_status(STAT_BLIND, 0)
-		set_status(STAT_BLURRY, 0)
+		set_status_condition(STAT_BLIND, 0)
+		set_status_condition(STAT_BLURRY, 0)
 	else if(!vision || (vision && !vision.is_usable()))   // Vision organs cut out or broken? Permablind.
 		SET_STATUS_MAX(src, STAT_BLIND, 2)
 		SET_STATUS_MAX(src, STAT_BLURRY, 1)
@@ -224,7 +221,7 @@
 			burn_dam = COLD_DAMAGE_LEVEL_2
 		else
 			burn_dam = COLD_DAMAGE_LEVEL_3
-		set_stasis(get_cryogenic_factor(bodytemperature), STASIS_COLD)
+		add_mob_modifier(/decl/mob_modifier/stasis, 2 SECONDS, source = src)
 		if(!has_chemical_effect(CE_CRYO, 1))
 			take_overall_damage(burn=burn_dam, used_weapon = "Low Body Temperature")
 			SET_HUD_ALERT_MAX(src, HUD_FIRE, 1)
@@ -246,11 +243,11 @@
 		SET_HUD_ALERT(src, HUD_PRESSURE, -1)
 	else
 		var/list/obj/item/organ/external/parts = get_damageable_organs()
-		for(var/obj/item/organ/external/O in parts)
-			if(QDELETED(O) || !(O.owner == src))
+		for(var/obj/item/organ/external/limb in parts)
+			if(QDELETED(limb) || !(limb.owner == src))
 				continue
-			if(O.damage + (LOW_PRESSURE_DAMAGE) < O.min_broken_damage) //vacuum does not break bones
-				O.take_external_damage(brute = LOW_PRESSURE_DAMAGE, used_weapon = "Low Pressure")
+			if(limb.brute_dam + limb.burn_dam + (LOW_PRESSURE_DAMAGE) < limb.min_broken_damage) //vacuum does not break bones
+				limb.take_damage(LOW_PRESSURE_DAMAGE, inflicter = "Low Pressure")
 		if(getOxyLossPercent() < 55) // 11 OxyLoss per 4 ticks when wearing internals;    unconsciousness in 16 ticks, roughly half a minute
 			take_damage(4)  // 16 OxyLoss per 4 ticks when no internals present; unconsciousness in 13 ticks, OXY, roughly twenty seconds
 		SET_HUD_ALERT(src, HUD_PRESSURE, -2)
@@ -288,11 +285,11 @@
 	for(var/slot in global.standard_clothing_slots)
 		var/obj/item/clothing/C = get_equipped_item(slot)
 		if(istype(C))
-			if(C.min_cold_protection_temperature && C.min_cold_protection_temperature <= temperature)
+			if(!isnull(C.min_cold_protection_temperature) && C.min_cold_protection_temperature <= temperature)
 				. |= C.cold_protection
 			if(LAZYLEN(C.accessories))
 				for(var/obj/item/clothing/accessory in C.accessories)
-					if(accessory.min_cold_protection_temperature && accessory.min_cold_protection_temperature <= temperature)
+					if(!isnull(accessory.min_cold_protection_temperature) && accessory.min_cold_protection_temperature <= temperature)
 						. |= accessory.cold_protection
 
 
@@ -351,8 +348,8 @@
 
 	if(vsc.contaminant_control.CONTAMINATION_LOSS)
 		var/total_contamination= 0
-		for(var/obj/item/I in src)
-			if(I.contaminated)
+		for(var/obj/item/thing in src)
+			if(thing.contaminated)
 				total_contamination += vsc.contaminant_control.CONTAMINATION_LOSS
 		take_damage(total_contamination, TOX)
 
@@ -470,9 +467,9 @@
 	// Puke if toxloss is too high
 	var/vomit_score = 0
 	for(var/tag in list(BP_LIVER,BP_KIDNEYS))
-		var/obj/item/organ/internal/I = GET_INTERNAL_ORGAN(src, tag)
-		if(I)
-			vomit_score += I.damage
+		var/obj/item/organ/internal/organ = GET_INTERNAL_ORGAN(src, tag)
+		if(organ)
+			vomit_score += organ.get_organ_damage()
 		else if (should_have_organ(tag))
 			vomit_score += 45
 	if(has_chemical_effect(CE_TOXIN, 1) || radiation)
@@ -618,9 +615,9 @@
 
 		var/obj/item/id = get_equipped_item(slot_wear_id_str)
 		if(id)
-			var/obj/item/card/id/I = id.GetIdCard()
-			if(I)
-				var/datum/job/J = SSjobs.get_by_title(I.GetJobName())
+			var/obj/item/card/id/id_card = id.GetIdCard()
+			if(id_card)
+				var/datum/job/J = SSjobs.get_by_title(id_card.GetJobName())
 				if(J)
 					holder.icon       = J.hud_icon
 					holder.icon_state = J.hud_icon_state
@@ -633,9 +630,9 @@
 		var/perpname = name
 		var/obj/item/id = get_equipped_item(slot_wear_id_str)
 		if(id)
-			var/obj/item/card/id/I = id.GetIdCard()
-			if(I)
-				perpname = I.registered_name
+			var/obj/item/card/id/id_card = id.GetIdCard()
+			if(id_card)
+				perpname = id_card.registered_name
 
 		var/datum/computer_file/report/crew_record/E = get_crewmember_record(perpname)
 		if(E)
@@ -661,13 +658,13 @@
 		holder1.icon_state = "hud_imp_blank"
 		holder2.icon_state = "hud_imp_blank"
 		holder3.icon_state = "hud_imp_blank"
-		for(var/obj/item/implant/I in src)
-			if(I.implanted)
-				if(istype(I,/obj/item/implant/tracking))
+		for(var/obj/item/implant/implant in src)
+			if(implant.implanted)
+				if(istype(implant,/obj/item/implant/tracking))
 					holder1.icon_state = "hud_imp_tracking"
-				else if(istype(I,/obj/item/implant/loyalty))
+				else if(istype(implant,/obj/item/implant/loyalty))
 					holder2.icon_state = "hud_imp_loyal"
-				else if(istype(I,/obj/item/implant/chem))
+				else if(istype(implant,/obj/item/implant/chem))
 					holder3.icon_state = "hud_imp_chem"
 
 		hud_list[IMPTRACK_HUD] = holder1

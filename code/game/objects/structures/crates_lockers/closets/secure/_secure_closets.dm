@@ -18,7 +18,8 @@
 	var/greenlight = "light_g"
 	var/emag = "sparks"
 
-/obj/structure/closet/secure_closet/slice_into_parts(obj/item/weldingtool/WT, mob/user)
+// /obj/structure/closet/secure_closet/slice_into_parts(obj/item/weldingtool/WT, mob/user)
+/obj/structure/closet/secure_closet/slice_into_parts(obj/item/weldingtool/welder, mob/user)
 	to_chat(user, "<span class='notice'>\The [src] is too strong to be taken apart.</span>")
 
 /obj/structure/closet/secure_closet/update_icon()

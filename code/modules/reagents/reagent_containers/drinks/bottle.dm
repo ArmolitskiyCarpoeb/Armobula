@@ -93,13 +93,13 @@
 	qdel(src)
 	return B
 
-/obj/item/chems/drinks/bottle/attackby(obj/item/W, mob/user)
+/obj/item/chems/drinks/bottle/attackby(obj/item/used_item, mob/user)
 	if(!rag)
-		if(istype(W, /obj/item/chems/rag))
-			insert_rag(W, user)
+		if(istype(used_item, /obj/item/chems/rag))
+			insert_rag(used_item, user)
 			return TRUE
-	else if(W.isflamesource())
-		return rag.attackby(W, user)
+	else if(used_item.isflamesource())
+		return rag.attackby(used_item, user)
 	return ..()
 
 /obj/item/chems/drinks/bottle/attack_self(mob/user)
@@ -215,7 +215,7 @@
 			sleep(sleep_not_stacking) //Not stacking
 			stop_spin_bottle = FALSE
 
-/obj/item/chems/drinks/bottle/on_picked_up(mob/living/user)
+/obj/item/chems/drinks/bottle/on_picked_up(mob/living/user, atom/old_loc)
 	animate(src, transform = null, time = 0) //Restore bottle to its original position - animate() is needed to interrupt SpinAnimation()
 
 //Keeping this here for now, I'll ask if I should keep it here.
@@ -272,7 +272,7 @@
 
 /obj/item/chems/drinks/bottle/vodka
 	name = "Tunguska Triple Distilled"
-	desc = "Aah, vodka. Prime choice of drink AND fuel by Indies around the galaxy."
+	desc = "Aah, vodka. Useful for cocktails... and as bootleg rocket fuel, for those prone to amateur rocketry or trade sanctions."
 	icon_state = "vodkabottle"
 	center_of_mass = @'{"x":17,"y":3}'
 
@@ -501,15 +501,17 @@
 
 //////////////////////////PREMIUM ALCOHOL ///////////////////////
 /obj/item/chems/drinks/bottle/premiumvodka
-	name = "Four Stripes Quadruple Distilled"
-	desc = "Premium distilled vodka imported directly from the Gilgamesh Colonial Confederation."
+	name = "Quadruple Distilled Vodka"
+	desc = "Premium distilled vodka made from real, planet-grown potatoes."
 	icon_state = "premiumvodka"
 	center_of_mass = @'{"x":17,"y":3}'
 
+/obj/item/chems/drinks/bottle/premiumvodka/proc/make_random_name()
+	var/typepick = pick("Absolut","Gold","Quadruple Distilled","Platinum","Premium")
+	name = "[typepick] Vodka"
+
 /obj/item/chems/drinks/bottle/premiumvodka/populate_reagents()
-	var/namepick = pick("Four Stripes","Gilgamesh","Novaya Zemlya","Indie","STS-35")
-	var/typepick = pick("Absolut","Gold","Quadruple Distilled","Platinum","Standard")
-	name = "[namepick] [typepick]"
+	make_random_name()
 	add_to_reagents(/decl/material/liquid/alcohol/vodka/premium, reagents.maximum_volume)
 
 /obj/item/chems/drinks/bottle/premiumwine

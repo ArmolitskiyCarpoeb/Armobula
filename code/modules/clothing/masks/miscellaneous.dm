@@ -144,34 +144,16 @@
 	body_parts_covered = SLOT_HEAD|SLOT_FACE|SLOT_EYES
 	material = /decl/material/solid/organic/cloth
 
-/obj/item/clothing/mask/rubber/barros
-	name = "Amaya Barros mask"
-	desc = "Current Secretary-General of Sol Central Government. Not that the real thing would visit this pigsty."
-	icon = 'icons/clothing/mask/barros.dmi'
-	visible_name = "Amaya Barros"
-
-/obj/item/clothing/mask/rubber/admiral
-	name = "Admiral Diwali mask"
-	desc = "Admiral that led the infamous last stand at Helios against the Independent Navy in the Gaia conflict. For bridge officers who wish they'd achieve a fraction of that."
-	icon = 'icons/clothing/mask/admiral.dmi'
-	visible_name = "Admiral Diwali"
-
-/obj/item/clothing/mask/rubber/turner
-	name = "Charles Turner mask"
-	desc = "Premier of the Gilgamesh Colonial Confederation. Probably shouldn't wear this in front of your veteran uncle."
-	icon = 'icons/clothing/mask/turner.dmi'
-	visible_name = "Charles Turner"
-
 /obj/item/clothing/mask/rubber/species
 	name = "human mask"
 	desc = "A rubber human mask."
 	icon = 'icons/clothing/mask/human.dmi'
-	var/species = SPECIES_HUMAN
+	var/species = /decl/species/human::uid
 
 /obj/item/clothing/mask/rubber/species/Initialize()
 	. = ..()
 	visible_name = species
-	var/decl/species/S = get_species_by_key(species)
+	var/decl/species/S = decls_repository.get_decl_by_id(species)
 	if(istype(S))
 		var/decl/background_detail/C = GET_DECL(S.default_background_info[/decl/background_category/heritage])
 		if(istype(C))

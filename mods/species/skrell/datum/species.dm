@@ -4,8 +4,9 @@
 	bone_material = /decl/material/solid/organic/bone/cartilage
 
 /decl/species/skrell
-	name = SPECIES_SKRELL
-	name_plural = SPECIES_SKRELL
+	uid = "species_skrell"
+	name = "Skrell"
+	name_plural = "Skrell"
 
 	available_bodytypes = list(
 		/decl/bodytype/skrell
@@ -59,6 +60,9 @@
 	)
 
 	available_background_info = list(
+		/decl/background_category/citizenship = list(
+			/decl/background_detail/citizenship/other
+		),
 		/decl/background_category/heritage = list(
 			/decl/background_detail/heritage/skrell,
 			/decl/background_detail/heritage/skrell/caste_malish,
@@ -133,7 +137,7 @@
 // TODO: There's not currently a way to check this, which might be a little annoying for forensics.
 // But this is just a stopgap to stop Skrell from literally leaking blood everywhere they go.
 /decl/material/liquid/mucus/skrell/get_reagent_color(datum/reagents/holder)
-	var/list/goo_data = REAGENT_DATA(holder, type)
+	var/list/goo_data = REAGENT_DATA(holder, src)
 	return goo_data?[DATA_BLOOD_COLOR] || ..()
 
 /obj/effect/decal/cleanable/blood/tracks/footprints/skrellprints

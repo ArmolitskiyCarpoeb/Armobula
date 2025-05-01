@@ -309,7 +309,10 @@
 		client.eye = loc
 
 /mob/proc/get_descriptive_slot_name(var/slot)
-	return global.descriptive_slot_names[slot] || slot
+	if(global.abstract_slot_names[slot]) // this is an abstract slot like "in backpack"
+		return global.abstract_slot_names[slot]
+	var/datum/inventory_slot/slot_datum = get_inventory_slot_datum(slot)
+	return slot_datum?.slot_name || slot
 
 /mob/proc/show_stripping_window(mob/user)
 
@@ -377,8 +380,8 @@
 /mob/proc/get_additional_stripping_options()
 	return
 
-//mob verbs are faster than object verbs. See http://www.byond.com/forum/?post=1326139&page=2#comment8198716 for why this isn't atom/verb/examine()
-/mob/verb/examinate(atom/A as mob|obj|turf in view())
+//mob verbs are faster than object verbs. See http://www.byond.com/forum/?post=1326139&page=2#comment8198716
+/mob/verb/examine_verb(atom/A as mob|obj|turf in view())
 	set name = "Examine"
 	set category = "IC"
 
@@ -418,8 +421,8 @@
 
 	RAISE_EVENT(/decl/observ/mob_examining, src, A)
 
-	if(!A.examine(src, distance))
-		PRINT_STACK_TRACE("Improper /examine() override: [log_info_line(A)]")
+	if(!A.examined_by(src, distance))
+		PRINT_STACK_TRACE("Improper /examined_by() override: [log_info_line(A)]")
 
 /mob/verb/pointed(atom/A as mob|obj|turf in view())
 	set name = "Point To"
@@ -1153,7 +1156,7 @@
 
 	return FALSE
 
-/mob/proc/handle_flashed(var/flash_strength)
+/mob/proc/handle_flashed(var/flash_strength, do_stun = FALSE)
 	return FALSE
 
 /mob/proc/do_flash_animation()
@@ -1462,7 +1465,7 @@
 	if(get_equipped_item(slot_handcuffed_str) || buckled)
 		return FALSE
 	for(var/decl/natural_attack/attack as anything in get_mob_natural_attacks())
-		if(attack.is_usable(src) && attack.shredding)
+		if(attack.attack_is_usable(src) && attack.shredding)
 			return TRUE
 	return FALSE
 
@@ -1473,4 +1476,11 @@
 		var/list/limb_unarmed_attacks = limb.get_natural_attacks()
 		if(istype(limb_unarmed_attacks, /decl/natural_attack) || (islist(limb_unarmed_attacks) && length(limb_unarmed_attacks)))
 			LAZYDISTINCTADD(., limb_unarmed_attacks)
+
+/mob/proc/isSynthetic()
+	return FALSE
+
+// Returns true if the mob is cloaked, otherwise false
+/mob/proc/is_cloaked()
+	return FALSE
 

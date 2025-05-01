@@ -65,7 +65,7 @@
 	. = ..()
 	var/warning_message
 	var/warning_prob = 10
-	var/dosage = LAZYACCESS(M.chem_doses, type)
+	var/dosage = CHEM_DOSE(M, src)
 	var/mob/living/human/H = M
 	if(dosage >= 3)
 		warning_message = pick("extremely dizzy","short of breath","faint","confused")
@@ -81,8 +81,8 @@
 	else if(dosage >= 0.25)
 		warning_message = pick("a little dizzy","short of breath")
 		warning_prob = 10
-	if(istype(H) && dosage > 1 && H.ticks_since_last_successful_breath < 15)
-		H.ticks_since_last_successful_breath++
+	if(istype(H) && dosage > 1 && H.suffocation_counter < 15)
+		H.suffocation_counter++
 	if(warning_message && prob(warning_prob))
 		to_chat(M, SPAN_WARNING("You feel [warning_message]."))
 
@@ -133,7 +133,7 @@
 
 /decl/material/gas/nitrous_oxide/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	. = ..()
-	var/dosage = LAZYACCESS(M.chem_doses, type)
+	var/dosage = CHEM_DOSE(M, src)
 	if(dosage >= 1)
 		if(prob(5)) SET_STATUS_MAX(M, STAT_ASLEEP, 3)
 		SET_STATUS_MAX(M, STAT_DIZZY, 3)
@@ -257,7 +257,7 @@
 
 /decl/material/gas/xenon/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	. = ..()
-	var/dosage = LAZYACCESS(M.chem_doses, type)
+	var/dosage = CHEM_DOSE(M, src)
 	if(dosage >= 1)
 		if(prob(5)) SET_STATUS_MAX(M, STAT_ASLEEP, 3)
 		SET_STATUS_MAX(M, STAT_DIZZY, 3)

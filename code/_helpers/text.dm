@@ -27,6 +27,10 @@
  * from text that will be sent to the browser.
  */
 #define strip_improper(input_text) replacetext(replacetext(input_text, "\proper", ""), "\improper", "")
+var/global/regex/starts_uppercase_regex = regex(@"^[A-Z]")
+var/global/regex/starts_lowercase_regex = regex(@"^[a-z]")
+#define is_proper(input_text) ((findtext(input_text, "\proper") == 1) || findtext(input_text, starts_uppercase_regex))
+#define is_improper(input_text) ((findtext(input_text, "\improper") == 1 || findtext(input_text, starts_lowercase_regex)))
 
 //Used for preprocessing entered text
 //Added in an additional check to alert players if input is too long
@@ -610,9 +614,9 @@
 
 // If char isn't part of the text the entire text is returned
 /proc/copytext_after_last(var/text, var/char)
-	var/regex/R = regex("(\[^[char]\]*)$")
-	R.Find(text)
-	return R.group[1]
+	var/regex/copytext_regex = regex("(\[^[char]\]*)$")
+	copytext_regex.Find(text)
+	return copytext_regex.group[1]
 
 /proc/sql_sanitize_text(var/text)
 	text = replacetext(text, "'", "''")

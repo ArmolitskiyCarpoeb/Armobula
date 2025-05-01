@@ -369,7 +369,7 @@
 	if(M.has_trait(/decl/trait/metabolically_inert))
 		return
 
-	var/volume = REAGENT_VOLUME(holder, type)
+	var/volume = REAGENT_VOLUME(holder, src)
 	if(volume > 15)
 		M.add_chemical_effect(CE_PULSE, 1)
 	if(volume > 45)
@@ -549,7 +549,7 @@
 	SET_STATUS_MAX(M, STAT_DIZZY,  20)
 	ADJ_STATUS(M, STAT_DIZZY, 2)
 	ADJ_STATUS(M, STAT_JITTER, 2)
-	M.set_status(STAT_DROWSY, 0)
+	M.set_status_condition(STAT_DROWSY, 0)
 
 /decl/material/liquid/drink/grenadine
 	name = "grenadine syrup"
@@ -582,8 +582,8 @@
 
 /decl/material/liquid/drink/cola/build_presentation_name_from_reagents(var/obj/item/prop, var/supplied)
 	if(prop.reagents.has_reagent(/decl/material/liquid/drink/milk))
-		. = "pilk"
-	. = ..(prop, .)
+		supplied = "pilk"
+	. = ..()
 
 /decl/material/liquid/drink/citrussoda
 	name = "citrus soda"

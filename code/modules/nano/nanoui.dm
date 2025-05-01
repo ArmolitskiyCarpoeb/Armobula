@@ -134,7 +134,7 @@ nanoui is used to open and update nano browser uis
   *
   * @return nothing
   */
-/datum/nanoui/proc/set_status(state, push_update)
+/datum/nanoui/proc/set_nano_status(state, push_update)
 	if (state != status) // Only update if it is different
 		if (status == STATUS_DISABLED)
 			status = state
@@ -164,7 +164,7 @@ nanoui is used to open and update nano browser uis
 	if(new_status == STATUS_CLOSE)
 		close()
 		return 1
-	set_status(new_status, push_update)
+	set_nano_status(new_status, push_update)
 
  /**
   * Set the ui to auto update (every master_controller tick)
@@ -520,7 +520,7 @@ nanoui is used to open and update nano browser uis
 			set_map_z_level(map_z)
 			map_update = 1
 
-	if ((src_object && src_object.Topic(href, href_list, state)) || map_update)
+	if (src_object && (src_object.Topic(href, href_list, state) || map_update))
 		SSnano.update_uis(src_object) // update all UIs attached to src_object
 
  /**

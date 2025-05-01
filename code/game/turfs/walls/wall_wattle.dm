@@ -21,16 +21,16 @@
 	return list("", "paint") // paint should always be available because of plastering!
 
 // Daubing with clay or soil
-/turf/wall/wattle/attackby(obj/item/W, mob/user, click_params)
+/turf/wall/wattle/attackby(obj/item/used_item, mob/user, click_params)
 	if(isnull(daubing_material))
 		var/static/list/daub_materials = list( // Does not include subtypes.
 			/decl/material/solid/soil = TRUE,
 			/decl/material/solid/clay = TRUE
 		)
-		if(istype(W, /obj/item/stack/material) && daub_materials[W.material?.type])
+		if(istype(used_item, /obj/item/stack/material) && daub_materials[used_item.material?.type])
 			if(!user.check_dexterity(DEXTERITY_WIELD_ITEM))
 				return TRUE
-			var/obj/item/stack/material/stack = W
+			var/obj/item/stack/material/stack = used_item
 			var/sheets_to_use = stack.matter_units_to_sheets(matter_to_daub)
 			if(stack.can_use(sheets_to_use) && user.do_skilled(1 SECOND, daubing_skill, target = src) && stack.can_use(sheets_to_use))
 				to_chat(user, SPAN_NOTICE("You daub \the [src] with \the [stack]."))
@@ -49,7 +49,7 @@
 // daubed walls have the color of their daubing
 /turf/wall/wattle/get_base_color()
 	if(daubing_material)
-		return "#ae9f70" // daubing_material.color // sorry, but using the daubing material color looks bad
+		return "#795946" // daubing_material.color // sorry, but using the daubing material color looks bad
 	return ..()
 
 // don't plaster over our damn reinforcements
@@ -89,6 +89,7 @@
 /turf/wall/wattle/daubed
 	icon_state = "wattledaub"
 	daubing_material = /decl/material/solid/clay
+	color = "#795946" // temporary mapping preview colour taken from get_base_color()
 	// the daub is lost when destroyed/deconstructed, since it's dried anyway
 
 /turf/wall/wattle/daubed/plastered
@@ -116,7 +117,6 @@
 }; \
 /turf/wall/wattle/daubed/##material_name { \
 	material = /decl/material/solid/organic/wood/##material_name; \
-	color = /decl/material/solid/organic/wood/##material_name::color; \
 }; \
 /turf/wall/wattle/daubed/##material_name/shutter { \
 	shutter_state = FALSE; \

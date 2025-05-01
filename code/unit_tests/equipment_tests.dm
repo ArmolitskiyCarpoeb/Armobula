@@ -7,7 +7,7 @@
 	async = 1
 
 /datum/unit_test/vision_glasses/start_test()
-	subject = new(get_safe_turf(), SPECIES_HUMAN) // force human so default map species doesn't mess with anything
+	subject = new(get_safe_turf(), /decl/species/human::uid) // force human so default map species doesn't mess with anything
 	subject.equip_to_slot(new glasses_type(subject), slot_glasses_str)
 	return 1
 
@@ -55,10 +55,10 @@
 
 	for(var/storage_type in typesof(/obj))
 		var/obj/thing = storage_type
-		if(TYPE_IS_ABSTRACT(thing) || !ispath(initial(thing.storage), /datum/storage))
+		if(!TYPE_IS_SPAWNABLE(thing) || !ispath(initial(thing.storage), /datum/storage))
 			continue
 		thing = new thing //should be fine to put it in nullspace...
-		var/bad_msg = "[ascii_red]--------------- [thing.name] \[[thing.type] | [thing.storage]\]"
+		var/bad_msg = "[ascii_red]--------------- [thing.name] \[[thing.type] | [thing.storage || "NULL"]\]"
 		bad_tests += test_storage_capacity(thing.storage, bad_msg)
 
 	if(bad_tests)
@@ -150,7 +150,7 @@
 		failure_list += "[item] was equipped to [equipped_location] despite failing isEquipped (should not be equipped)."
 
 /datum/unit_test/equipment_slot_test/start_test()
-	var/mob/living/human/subject = new(get_safe_turf(), SPECIES_HUMAN) // force human so default map species doesn't mess with anything
+	var/mob/living/human/subject = new(get_safe_turf(), /decl/species/human::uid) // force human so default map species doesn't mess with anything
 	created_atoms |= subject
 	var/list/failures = list()
 

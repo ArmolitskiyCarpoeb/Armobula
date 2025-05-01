@@ -13,7 +13,7 @@
 
 /obj/item/organ/internal/eyes/insectoid/serpentid/additional_flash_effects(var/intensity)
 	if(!eyes_shielded)
-		take_internal_damage(max(0, 4 * (intensity)))
+		take_damage(max(0, 4 * (intensity)))
 		return 1
 	else
 		return -1
@@ -78,7 +78,7 @@
 
 	if(breath_fail_ratio < 0.25 && oxygenated)
 		SET_HUD_ALERT(H, HUD_OXY, 0)
-	if(breath_fail_ratio >= 0.25 && (damage || world.time > last_successful_breath + 2 MINUTES))
+	if(breath_fail_ratio >= 0.25 && (_organ_damage || world.time > last_successful_breath + 2 MINUTES))
 		H.take_damage(HUMAN_MAX_OXYLOSS * breath_fail_ratio, OXY)
 		if(oxygenated)
 			SET_HUD_ALERT(H, HUD_OXY, 1)
@@ -118,7 +118,7 @@
 				to_chat(owner, "<span class='warning'>Your body is barely functioning and is starting to shut down.</span>")
 				SET_STATUS_MAX(owner, STAT_PARA, 2)
 				var/obj/item/organ/internal/I = pick(owner.internal_organs)
-				I.take_internal_damage(5)
+				I.take_damage(5)
 	..()
 
 /obj/item/organ/external/chest/insectoid/serpentid
@@ -185,16 +185,16 @@
 /obj/item/organ/external/groin/insectoid/serpentid/refresh_action_button()
 	. = ..()
 	if(. && istype(action))
-		action.button_icon_state = "cloak-[owner && owner.is_cloaked_by(species) ? 1 : 0]"
+		action.button_icon_state = "cloak-[owner?.has_mob_modifier(/decl/mob_modifier/cloaked, source = species) ? 1 : 0]"
 		action.button?.update_icon()
 
 /obj/item/organ/external/groin/insectoid/serpentid/attack_self(var/mob/user)
 	. = ..()
-	if(.)
-		if(owner.is_cloaked_by(species))
-			owner.remove_cloaking_source(species)
+	if(. && owner)
+		if(owner.has_mob_modifier(/decl/mob_modifier/cloaked, source = species))
+			owner.remove_mob_modifier(/decl/mob_modifier/cloaked, source = species)
 		else
-			owner.add_cloaking_source(species)
+			owner.add_mob_modifier(/decl/mob_modifier/cloaked, source = species)
 			owner.apply_effect(2, STUN, 0)
 		refresh_action_button()
 

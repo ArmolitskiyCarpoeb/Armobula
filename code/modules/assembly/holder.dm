@@ -20,20 +20,26 @@
 	global.listening_objects += src
 
 /obj/item/assembly_holder/Destroy()
-	if(!QDELETED(a_left))
-		a_left.holder = null
-		QDEL_NULL(a_left)
-	else
+
+	if(a_left)
+		if(a_left.holder == src)
+			a_left.holder = null
+		if(!QDELETED(a_left))
+			qdel(a_left)
 		a_left = null
-	if(!QDELETED(a_right))
-		a_right.holder = null
-		QDEL_NULL(a_right)
-	else
+
+	if(a_right)
+		if(a_right.holder == src)
+			a_right.holder = null
+		if(!QDELETED(a_right))
+			qdel(a_right)
 		a_right = null
-	if(!QDELETED(special_assembly))
-		QDEL_NULL(special_assembly)
-	else
+
+	if(special_assembly)
+		if(!QDELETED(special_assembly))
+			qdel(special_assembly)
 		special_assembly = null
+
 	return ..()
 
 /obj/item/assembly_holder/proc/attach(var/obj/item/left_item, var/obj/item/right_item, var/mob/user)
@@ -118,8 +124,8 @@
 		a_right.holder_movement()
 	return ..()
 
-/obj/item/assembly_holder/attackby(obj/item/W, mob/user)
-	if(IS_SCREWDRIVER(W))
+/obj/item/assembly_holder/attackby(obj/item/used_item, mob/user)
+	if(IS_SCREWDRIVER(used_item))
 		if(!a_left || !a_right)
 			to_chat(user, "<span class='warning'>BUG:Assembly part missing, please report this!</span>")
 			return TRUE
@@ -168,13 +174,13 @@
 	if(a_left)
 		a_left.hear_talk(M,msg,verb,speaking)
 
-/obj/item/assembly_holder/examine(mob/user, distance)
+/obj/item/assembly_holder/get_examine_strings(mob/user, distance, infix, suffix)
 	. = ..()
 	if (distance <= 1 || src.loc == user)
 		if (src.secured)
-			to_chat(user, "\The [src] is ready!")
+			. += "\The [src] is ready!"
 		else
-			to_chat(user, "\The [src] can be attached!")
+			. += "\The [src] can be attached!"
 
 /obj/item/assembly_holder/on_update_icon()
 	. = ..()

@@ -21,16 +21,16 @@
 		power_usage = power_usage_occupied
 	..()
 
-/obj/item/stock_parts/computer/ai_slot/attackby(var/obj/item/W, var/mob/user)
-	if(istype(W, /obj/item/aicard))
+/obj/item/stock_parts/computer/ai_slot/attackby(var/obj/item/used_item, var/mob/user)
+	if(istype(used_item, /obj/item/aicard))
 		if(stored_card)
 			to_chat(user, "\The [src] is already occupied.")
 			return TRUE
-		if(!user.try_unequip(W, src))
+		if(!user.try_unequip(used_item, src))
 			return TRUE
-		do_insert_ai(user, W)
+		do_insert_ai(user, used_item)
 		return TRUE
-	if(IS_SCREWDRIVER(W))
+	if(stored_card && IS_SCREWDRIVER(used_item))
 		to_chat(user, "You manually remove \the [stored_card] from \the [src].")
 		do_eject_ai(user)
 		return TRUE
@@ -64,8 +64,9 @@
 	device.do_eject_ai(user)
 
 /obj/item/stock_parts/computer/ai_slot/proc/do_eject_ai(mob/user)
-	stored_card.dropInto(loc)
-	stored_card = null
+	if(stored_card)
+		stored_card.dropInto(loc)
+		stored_card = null
 
 	loc.verbs -= /obj/item/stock_parts/computer/ai_slot/verb/eject_ai
 

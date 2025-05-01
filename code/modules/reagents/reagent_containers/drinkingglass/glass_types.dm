@@ -50,7 +50,6 @@
 	icon = 'icons/obj/drink_glasses/shot.dmi'
 	filling_states = @"[33,66,100]"
 	volume = 5
-	material = /decl/material/solid/glass
 	possible_transfer_amounts = @"[1,2,5]"
 	rim_pos = @'{"y":17,"x_left":13,"x_right":21}'
 
@@ -61,7 +60,6 @@
 	icon = 'icons/obj/drink_glasses/pint.dmi'
 	filling_states = @"[16,33,50,66,83,100]"
 	volume = 60
-	material = /decl/material/solid/glass
 	possible_transfer_amounts = @"[5,10,15,30,60]"
 	rim_pos = @'{"y":25,"x_left":12,"x_right":21}'
 
@@ -106,7 +104,6 @@
 	icon = 'icons/obj/drink_glasses/carafe.dmi'
 	filling_states = @"[10,20,30,40,50,60,70,80,90,100]"
 	volume = 120
-	material = /decl/material/solid/glass
 	possible_transfer_amounts = @"[5,10,15,30,60,120]"
 	rim_pos = @'{"y":26,"x_left":12,"x_right":21}'
 	center_of_mass = @'{"x":16,"y":7}'
@@ -178,26 +175,12 @@
 	icon_state = "coffeecup_metal"
 	material = /decl/material/solid/metal/stainlesssteel
 
-/obj/item/chems/drinks/glass2/coffeecup/STC
-	name = "\improper ICCG coffee cup"
-	desc = "A coffee cup adorned with the flag of the Gilgamesh Colonial Confederation, for when you need some espionage charges to go with your morning coffee."
-	base_icon = "coffeecup_STC"
-	icon_state = "coffeecup_STC"
-	base_name = "\improper ICCG cup"
-
 /obj/item/chems/drinks/glass2/coffeecup/pawn
 	name = "pawn coffee cup"
 	desc = "A black coffee cup adorned with the image of a red chess pawn."
 	base_icon = "coffeecup_pawn"
 	icon_state = "coffeecup_pawn"
 	base_name = "pawn cup"
-
-/obj/item/chems/drinks/glass2/coffeecup/britcup
-	name = "british coffee cup"
-	desc = "A coffee cup with the British flag emblazoned on it."
-	base_icon = "coffeecup_brit"
-	icon_state = "coffeecup_brit"
-	base_name = "british cup"
 
 /obj/item/chems/drinks/glass2/coffeecup/tall
 	name = "tall coffee cup"

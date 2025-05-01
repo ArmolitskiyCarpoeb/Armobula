@@ -38,20 +38,20 @@
 		mytape = null
 	return ..()
 
-/obj/item/taperecorder/attackby(obj/item/I, mob/user, params)
-	if(IS_SCREWDRIVER(I))
+/obj/item/taperecorder/attackby(obj/item/used_item, mob/user, params)
+	if(IS_SCREWDRIVER(used_item))
 		maintenance = !maintenance
 		to_chat(user, "<span class='notice'>You [maintenance ? "open" : "secure"] the lid.</span>")
 		return TRUE
-	if(istype(I, /obj/item/magnetic_tape))
+	if(istype(used_item, /obj/item/magnetic_tape))
 		if(mytape)
 			to_chat(user, "<span class='notice'>There's already a tape inside.</span>")
 			return TRUE
-		if(!user.try_unequip(I))
+		if(!user.try_unequip(used_item))
 			return TRUE
-		I.forceMove(src)
-		mytape = I
-		to_chat(user, "<span class='notice'>You insert [I] into [src].</span>")
+		used_item.forceMove(src)
+		mytape = used_item
+		to_chat(user, "<span class='notice'>You insert [used_item] into [src].</span>")
 		update_icon()
 		return TRUE
 	return ..()
@@ -90,10 +90,10 @@
 	mytape = null
 	update_icon()
 
-/obj/item/taperecorder/examine(mob/user, distance)
+/obj/item/taperecorder/get_examine_strings(mob/user, distance, infix, suffix)
 	. = ..()
 	if(distance <= 1 && maintenance)
-		to_chat(user, "<span class='notice'>The wires are exposed.</span>")
+		. += SPAN_NOTICE("The wires are exposed.")
 
 /obj/item/taperecorder/hear_talk(mob/living/M, msg, var/verb="says", decl/language/speaking=null)
 	if(mytape && recording)
@@ -421,10 +421,10 @@
 	storedinfo += "*\[[time2text(used_capacity*10,"mm:ss")]\] [text]"
 
 
-/obj/item/magnetic_tape/attackby(obj/item/I, mob/user, params)
+/obj/item/magnetic_tape/attackby(obj/item/used_item, mob/user, params)
 	if(user.incapacitated()) // TODO: this may not be necessary since OnClick checks before starting the attack chain
 		return TRUE
-	if(ruined && IS_SCREWDRIVER(I))
+	if(ruined && IS_SCREWDRIVER(used_item))
 		if(!max_capacity)
 			to_chat(user, "<span class='notice'>There is no tape left inside.</span>")
 			return TRUE
@@ -433,7 +433,7 @@
 			to_chat(user, "<span class='notice'>You wound the tape back in.</span>")
 			fix()
 		return TRUE
-	else if(IS_PEN(I))
+	else if(IS_PEN(used_item))
 		if(loc == user)
 			var/new_name = input(user, "What would you like to label the tape?", "Tape labeling") as null|text
 			if(isnull(new_name)) return TRUE
@@ -445,11 +445,11 @@
 				SetName("tape")
 				to_chat(user, "<span class='notice'>You scratch off the label.</span>")
 		return TRUE
-	else if(IS_WIRECUTTER(I))
+	else if(IS_WIRECUTTER(used_item))
 		cut(user)
 		return TRUE
-	else if(istype(I, /obj/item/magnetic_tape/loose))
-		join(user, I)
+	else if(istype(used_item, /obj/item/magnetic_tape/loose))
+		join(user, used_item)
 		return TRUE
 	return ..()
 
@@ -532,9 +532,9 @@
 /obj/item/magnetic_tape/loose/get_loose_tape()
 	return
 
-/obj/item/magnetic_tape/loose/examine(mob/user, distance)
+/obj/item/magnetic_tape/loose/get_examine_strings(mob/user, distance, infix, suffix)
 	. = ..()
 	if(distance <= 1)
-		to_chat(user, "<span class='notice'>It looks long enough to hold [max_capacity] seconds worth of recording.</span>")
+		. += SPAN_NOTICE("It looks long enough to hold [max_capacity] seconds worth of recording.")
 		if(doctored && user.skill_check(SKILL_FORENSICS, SKILL_PROF))
-			to_chat(user, "<span class='notice'>It has been tampered with...</span>")
+			. += SPAN_WARNING("It has been tampered with...")

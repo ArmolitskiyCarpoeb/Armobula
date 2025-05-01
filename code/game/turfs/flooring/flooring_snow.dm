@@ -26,7 +26,7 @@
 /decl/flooring/snow/fire_act(turf/floor/target, datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(!target.reagents?.total_volume)
 		if(target.get_topmost_flooring() == src)
-			target.set_flooring(/decl/flooring/permafrost)
+			target.remove_flooring(src)
 		else if(target.get_base_flooring() == src)
 			target.set_base_flooring(/decl/flooring/permafrost)
 		return
@@ -41,7 +41,7 @@
 	walker.add_walking_contaminant(force_material.type, rand(1, 2))
 
 /decl/flooring/snow/can_show_coating_footprints(turf/target, decl/material/contaminant)
-	if(force_material.type == contaminant) // So we don't end up covered in a million footsteps that we provided.
+	if(force_material == contaminant) // So we don't end up covered in a million footsteps that we provided.
 		return FALSE
 	return ..()
 

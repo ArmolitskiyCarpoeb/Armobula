@@ -164,7 +164,6 @@ var/global/list/admin_verbs_debug = list(
 	/datum/admins/proc/jump_to_fluid_source,
 	/datum/admins/proc/jump_to_fluid_active,
 	/client/proc/cmd_admin_list_open_jobs,
-	/client/proc/Debug2,
 	/client/proc/ZASSettings,
 	/client/proc/cmd_debug_make_powernets,
 	/client/proc/debug_controller,
@@ -219,6 +218,7 @@ var/global/list/admin_verbs_debug = list(
 	/datum/admins/proc/force_weather_state,
 	/datum/admins/proc/force_kill_weather,
 	/client/proc/force_reload_theme_css,
+	/client/proc/toggle_browser_inspect,
 	)
 
 var/global/list/admin_verbs_paranoid_debug = list(
@@ -288,7 +288,6 @@ var/global/list/admin_verbs_hideable = list(
 	/client/proc/cmd_admin_list_open_jobs,
 	/client/proc/callproc,
 	/client/proc/callproc_target,
-	/client/proc/Debug2,
 	/client/proc/reload_admins,
 	/client/proc/cmd_debug_make_powernets,
 	/client/proc/debug_controller,

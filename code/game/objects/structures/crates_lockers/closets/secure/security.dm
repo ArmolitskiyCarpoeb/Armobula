@@ -14,7 +14,13 @@
 		/obj/item/clothing/head/caphat/cap,
 		/obj/item/clothing/jumpsuit/captain,
 		/obj/item/clothing/shoes/color/brown,
-		/obj/item/radio/headset/heads/captain
+		/obj/item/radio/headset/heads/captain,
+		/obj/item/clothing/gloves/captain,
+		/obj/item/gun/energy/gun,
+		/obj/item/telebaton,
+		/obj/item/clothing/dress/cap,
+		/obj/item/clothing/head/caphat/formal,
+		/obj/item/clothing/costume/captainformal
 	)
 
 /obj/structure/closet/secure_closet/hop

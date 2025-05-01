@@ -1,7 +1,9 @@
 /decl/species/human
-	name = SPECIES_HUMAN
+	uid = "species_human"
+	name = "Human"
 	name_plural = "Humans"
 	primitive_form = SPECIES_MONKEY
+//	primitive_form = /decl/species/monkey::uid
 	unspeakable_langs = list(
 		/decl/language/animal,
 		/decl/language/machine
@@ -37,9 +39,6 @@
 		/decl/emote/exertion/synthetic,
 		/decl/emote/exertion/synthetic/creak
 	)
-
-/decl/species/human/get_root_species_name(var/mob/living/human/H)
-	return SPECIES_HUMAN
 
 /decl/species/human/get_ssd(var/mob/living/human/H)
 	if(H.stat == CONSCIOUS)

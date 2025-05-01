@@ -24,10 +24,6 @@
 	// Flooring data.
 	var/floor_icon_state_override
 
-	// TODO:
-	VAR_PROTECTED/decl/flooring/_base_flooring = /decl/flooring/plating
-	VAR_PROTECTED/decl/flooring/_flooring
-
 	var/const/TRENCH_DEPTH_PER_ACTION = 100
 
 /turf/floor/Initialize(var/ml, var/floortype)
@@ -39,10 +35,13 @@
 
 	set_turf_materials(floor_material, skip_update = TRUE)
 
-	if(!floortype && ispath(_flooring))
+	if(!floortype && (ispath(_flooring) || islist(_flooring)))
 		floortype = _flooring
+	else
+		floortype = null
 	if(floortype)
-		set_flooring(GET_DECL(floortype), skip_update = TRUE)
+		_flooring = null
+		set_flooring(floortype, skip_update = TRUE)
 
 //	if(fill_reagent_type && get_physical_height() < 0)
 //		add_to_reagents(fill_reagent_type, abs(height))
@@ -50,17 +49,10 @@
 
 
 	if(floor_material || get_topmost_flooring())
-		if(ml)
-			queue_icon_update()
-		else
-			for(var/direction in global.alldirs)
-				var/turf/target_turf = get_step_resolving_mimic(src, direction)
-				if(istype(target_turf))
-					if(TICK_CHECK) // not CHECK_TICK -- only queue if the server is overloaded
-						target_turf.queue_icon_update()
-					else
-						target_turf.update_icon()
-			update_icon()
+		update_from_flooring(skip_update = ml)
+		if(ml) // We skipped the update above to avoid updating our neighbors, but we need to update ourselves.
+			lazy_update_icon()
+
 
 /turf/floor/ChangeTurf(turf/N, tell_universe, force_lighting_update, keep_air, update_open_turfs_above, keep_height)
 	if(is_processing)
@@ -68,7 +60,7 @@
 	. = ..()
 
 /turf/floor/Destroy()
-	set_flooring(null)
+	clear_flooring()
 	if(is_processing)
 		STOP_PROCESSING(SSobj, src)
 	return ..()
@@ -81,9 +73,6 @@
 
 /turf/floor/can_climb_from_below(var/mob/climber)
 	return TRUE
-
-/turf/floor/proc/has_flooring()
-	return istype(_flooring)
 
 /turf/floor/is_plating()
 	if(density)
@@ -266,13 +255,6 @@
 	if(istype(my_material))
 		return my_material.color
 	return color
-
-/turf/floor/proc/get_all_flooring()
-	. = list()
-	if(istype(_flooring))
-		. += _flooring
-	if(istype(_base_flooring))
-		. += _base_flooring
 
 /turf/floor/Process()
 	for(var/decl/flooring/flooring in get_all_flooring())

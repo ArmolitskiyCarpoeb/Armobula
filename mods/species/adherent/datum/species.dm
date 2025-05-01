@@ -11,7 +11,8 @@
 	)
 
 /decl/species/adherent
-	name = SPECIES_ADHERENT
+	uid = "species_adherent"
+	name = "Adherent"
 	name_plural = "Adherents"
 	base_external_prosthetics_model = null
 
@@ -54,6 +55,9 @@
 	species_hud = /datum/hud_data/adherent
 
 	available_background_info = list(
+		/decl/background_category/citizenship = list(
+			/decl/background_detail/citizenship/other
+		),
 		/decl/background_category/heritage = list(
 			/decl/background_detail/heritage/adherent
 		),

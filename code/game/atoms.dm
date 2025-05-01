@@ -24,7 +24,7 @@
 	/// (DICTIONARY) A lazy map. The `key` is a MD5 player name and the `value` is the blood type.
 	var/list/blood_DNA
 	/// (BOOL) If this atom was bloodied before.
-	var/was_bloodied
+	var/was_bloodied = FALSE
 	/// (COLOR) The color of the blood shown on blood overlays.
 	var/blood_color
 	/// (FALSE|DEFINES) How this atom is interacting with UV light. See misc.dm
@@ -102,7 +102,7 @@
 	return null
 
 /**
-	Merge an exhaled air volume into air contents..
+	Merge an exhaled air volume into air contents.
 */
 /atom/proc/merge_exhaled_volume(datum/gas_mixture/exhaled)
 	var/datum/gas_mixture/environment = return_air()
@@ -145,7 +145,7 @@
 /atom/proc/try_on_reagent_change()
 	SHOULD_NOT_OVERRIDE(TRUE)
 	set waitfor = FALSE
-	if(QDELETED(src) ||_reagent_update_started >= world.time)
+	if(QDELETED(src) || _reagent_update_started >= world.time)
 		return FALSE
 	_reagent_update_started = world.time
 	sleep(0) // Defer to end of tick so we don't drop subsequent reagent updates.
@@ -216,7 +216,8 @@
 	SHOULD_CALL_PARENT(TRUE)
 	if(density != new_density)
 		density = !!new_density
-		RAISE_EVENT(/decl/observ/density_set, src, !density, density)
+		if(event_listeners?[/decl/observ/density_set])
+			raise_event_non_global(/decl/observ/density_set, !density, density)
 
 /**
 	Handle a projectile `P` hitting this atom
@@ -272,7 +273,7 @@
 	Overrides should either return the result of ..() or `TRUE` if not calling it.
 	Calls to ..() should generally not supply any arguments and instead rely on
 	BYOND's automatic argument passing. There is no need to check the return
-	value of ..(), this is only done by the calling `/examinate()` proc to validate
+	value of ..(), this is only done by the calling `/examine_verb()` proc to validate
 	the call chain.
 
 	- `user`: The mob examining this atom
@@ -282,16 +283,41 @@
 	- Return: `TRUE` when the call chain is valid, otherwise `FALSE`
 	- Events: `atom_examined`
 */
-/atom/proc/examine(mob/user, distance, infix = "", suffix = "")
-	SHOULD_CALL_PARENT(TRUE)
-	//This reformats names to get a/an properly working on item descriptions when they are bloody or coated in reagents.
-	var/examine_prefix = get_examine_prefix()
-	if(examine_prefix)
-		examine_prefix += " " // add a space to the end to be polite
-	var/composed_name = ADD_ARTICLE_GENDER("[examine_prefix][name]", gender)
+/atom/proc/examined_by(mob/user, distance, infix, suffix)
+	var/list/examine_lines
+	// to_chat(user, "<blockquote>") // these don't work in BYOND's native output panel. If we switch to browser output instead, you can readd this
+	for(var/add_lines in list(get_examine_header(user, distance, infix, suffix), get_examine_strings(user, distance, infix, suffix), get_examine_hints(user, distance, infix, suffix)))
+		if(islist(add_lines) && LAZYLEN(add_lines))
+			LAZYADD(examine_lines, add_lines)
+	if(LAZYLEN(examine_lines))
+		to_chat(user, jointext(examine_lines, "<br/>"))
+	// to_chat(user, "</blockquote>") // see above
+	RAISE_EVENT(/decl/observ/atom_examined, src, user, distance)
+	return TRUE
 
-	to_chat(user, "[html_icon(src)] That's [composed_name][infix][get_examine_punctuation()] [suffix]")
-	to_chat(user, desc)
+// Name, displayed at the top.
+/atom/proc/get_examine_header(mob/user, distance, infix, suffix)
+	SHOULD_CALL_PARENT(TRUE)
+	var/article_name = name
+	if(is_improper(name)) // no 'that's bloody oily slimy Bob', that's just Bob
+		//This reformats names to get a/an properly working on item descriptions when they are bloody or coated in reagents.
+		var/examine_prefix = get_examine_prefix()
+		if(examine_prefix)
+			examine_prefix += " " // add a space to the end to be polite
+		article_name = ADD_ARTICLE_GENDER("[examine_prefix][name]", gender)
+	return list("[html_icon(src)] That's [article_name][infix][get_examine_punctuation()] [suffix]")
+
+// Main body of examine, displayed after the header and before hints.
+/atom/proc/get_examine_strings(mob/user, distance, infix, suffix)
+	SHOULD_CALL_PARENT(TRUE)
+	. = list()
+	if(desc)
+		. += desc
+
+// Addendum to examine, displayed at the bottom
+/atom/proc/get_examine_hints(mob/user, distance, infix, suffix)
+
+	SHOULD_CALL_PARENT(TRUE)
 
 	var/list/alt_interactions = get_alt_interactions(user)
 	if(LAZYLEN(alt_interactions))
@@ -301,11 +327,14 @@
 			if(interaction.examine_desc && (interaction.always_show_on_examine || interaction.is_possible(src, user, user?.get_active_held_item())))
 				interaction_strings += emote_replace_target_tokens(interaction.examine_desc, src)
 		if(length(interaction_strings))
-			to_chat(user, SPAN_INFO("Alt-click on \the [src] to [english_list(interaction_strings, and_text = " or ")]."))
+			LAZYADD(., SPAN_INFO("Alt-click on \the [src] to [english_list(interaction_strings, and_text = " or ")]."))
 
-	RAISE_EVENT(/decl/observ/atom_examined, src, user, distance)
-	return TRUE
+	var/decl/interaction_handler/handler = get_quick_interaction_handler(user)
+	if(handler)
+		LAZYADD(., SPAN_NOTICE("<b>Ctrl-click</b> \the [src] while in your inventory to [lowertext(handler.name)]."))
 
+	if(user?.get_preference_value(/datum/client_preference/inquisitive_examine) == PREF_ON && user.can_use_codex() && SScodex.get_codex_entry(get_codex_value(user)))
+		LAZYADD(., SPAN_NOTICE("The codex has <b><a href='byond://?src=\ref[SScodex];show_examined_info=\ref[src];show_to=\ref[user]'>relevant information</a></b> available."))
 
 /**
 	Relay movement to this atom.
@@ -350,7 +379,8 @@
 			if(L.light_angle)
 				L.source_atom.update_light()
 
-	RAISE_EVENT(/decl/observ/dir_set, src, old_dir, new_dir)
+	if(event_listeners?[/decl/observ/dir_set])
+		raise_event_non_global(/decl/observ/dir_set, old_dir, new_dir)
 
 
 /// Set the icon to `new_icon`
@@ -372,18 +402,24 @@
 
 /**
 	Update this atom's icon.
-	If prior to the first SSicon_update flush (i.e. it's during init), icon updates are forced to queue instead.
-	This saves a lot of init time.
 
 	- Events: `updated_icon`
 */
 /atom/proc/update_icon()
 	SHOULD_CALL_PARENT(TRUE)
-	if(SSicon_update.init_state == SS_INITSTATE_NONE)
-		queue_icon_update()
-	else
-		on_update_icon()
-		RAISE_EVENT(/decl/observ/updated_icon, src)
+	on_update_icon()
+	if(event_listeners?[/decl/observ/updated_icon])
+		raise_event_non_global(/decl/observ/updated_icon)
+
+/**
+ * Update this atom's icon.
+ * If prior to SSicon_update's first flush, queues.
+ * Otherwise, updates instantly.
+ */
+/atom/proc/lazy_update_icon()
+	if(SSicon_update.init_state != SS_INITSTATE_NONE)
+		return update_icon()
+	queue_icon_update()
 
 /**
 	Update this atom's icon.
@@ -402,8 +438,8 @@
 /atom/proc/get_contained_matter()
 	if(length(reagents?.reagent_volumes))
 		LAZYINITLIST(.)
-		for(var/R in reagents.reagent_volumes)
-			.[R] += floor(REAGENT_VOLUME(reagents, R) / REAGENT_UNITS_PER_MATERIAL_UNIT)
+		for(var/decl/material/reagent as anything in reagents.reagent_volumes)
+			.[reagent] += floor(REAGENT_VOLUME(reagents, reagent) / REAGENT_UNITS_PER_MATERIAL_UNIT)
 	for(var/atom/contained_obj as anything in get_contained_external_atoms()) // machines handle component parts separately
 		. = MERGE_ASSOCS_WITH_NUM_VALUES(., contained_obj.get_contained_matter())
 
@@ -459,9 +495,8 @@
 */
 /atom/proc/try_detonate_reagents(var/severity = 3)
 	if(reagents)
-		for(var/r_type in reagents.reagent_volumes)
-			var/decl/material/R = GET_DECL(r_type)
-			R.explosion_act(src, severity)
+		for(var/decl/material/reagent as anything in reagents.reagent_volumes)
+			reagent.explosion_act(src, severity)
 
 /**
 	Handle an explosion of `severity` affecting this atom
@@ -790,7 +825,7 @@
 				M.take_damage(damage)
 			else
 				to_chat(M, SPAN_DANGER("You land heavily on your [affecting.name]!"))
-				affecting.take_external_damage(damage, 0)
+				affecting.take_damage(damage)
 				if(affecting.parent)
 					affecting.parent.add_autopsy_data("Misadventure", damage)
 
@@ -842,7 +877,7 @@
 	if(href_list["look_at_me"] && istype(user))
 		var/turf/T = get_turf(src)
 		if(T.CanUseTopic(user, global.view_topic_state) != STATUS_CLOSE)
-			user.examinate(src)
+			user.examine_verb(src)
 			return TOPIC_HANDLED
 	. = ..()
 

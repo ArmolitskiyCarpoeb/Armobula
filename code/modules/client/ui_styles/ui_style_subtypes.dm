@@ -17,7 +17,8 @@
 		(HUD_INVENTORY)   = 'icons/mob/screen/styles/orange/inventory.dmi',
 		(HUD_MOVEMENT)    = 'icons/mob/screen/styles/orange/movement.dmi',
 		(HUD_UP_HINT)     = 'icons/mob/screen/styles/orange/uphint.dmi',
-		(HUD_ZONE_SELECT) = 'icons/mob/screen/styles/orange/zone_selector.dmi'
+		(HUD_ZONE_SELECT) = 'icons/mob/screen/styles/orange/zone_selector.dmi',
+		(HUD_MODIFIERS)   = 'icons/mob/screen/styles/orange/modifiers.dmi'
 	)
 
 /decl/ui_style/old
@@ -34,7 +35,8 @@
 		(HUD_INVENTORY)   = 'icons/mob/screen/styles/old/inventory.dmi',
 		(HUD_MOVEMENT)    = 'icons/mob/screen/styles/old/movement.dmi',
 		(HUD_UP_HINT)     = 'icons/mob/screen/styles/old/uphint.dmi',
-		(HUD_ZONE_SELECT) = 'icons/mob/screen/styles/old/zone_selector.dmi'
+		(HUD_ZONE_SELECT) = 'icons/mob/screen/styles/old/zone_selector.dmi',
+		(HUD_MODIFIERS)   = 'icons/mob/screen/styles/old/modifiers.dmi'
 	)
 
 /decl/ui_style/old_noborder
@@ -51,7 +53,8 @@
 		(HUD_INVENTORY)   = 'icons/mob/screen/styles/old_noborder/inventory.dmi',
 		(HUD_MOVEMENT)    = 'icons/mob/screen/styles/old/movement.dmi',
 		(HUD_UP_HINT)     = 'icons/mob/screen/styles/old_noborder/uphint.dmi',
-		(HUD_ZONE_SELECT) = 'icons/mob/screen/styles/old_noborder/zone_selector.dmi'
+		(HUD_ZONE_SELECT) = 'icons/mob/screen/styles/old_noborder/zone_selector.dmi',
+		(HUD_MODIFIERS)   = 'icons/mob/screen/styles/old_noborder/modifiers.dmi'
 	)
 
 /decl/ui_style/white
@@ -68,7 +71,8 @@
 		(HUD_INVENTORY)   = 'icons/mob/screen/styles/white/inventory.dmi',
 		(HUD_MOVEMENT)    = 'icons/mob/screen/styles/white/movement.dmi',
 		(HUD_UP_HINT)     = 'icons/mob/screen/styles/white/uphint.dmi',
-		(HUD_ZONE_SELECT) = 'icons/mob/screen/styles/white/zone_selector.dmi'
+		(HUD_ZONE_SELECT) = 'icons/mob/screen/styles/white/zone_selector.dmi',
+		(HUD_MODIFIERS)   = 'icons/mob/screen/styles/white/modifiers.dmi'
 	)
 	use_overlay_color = TRUE
 	use_ui_color      = TRUE
@@ -87,7 +91,8 @@
 		(HUD_INVENTORY)   = 'icons/mob/screen/styles/minimalist/inventory.dmi',
 		(HUD_MOVEMENT)    = 'icons/mob/screen/styles/minimalist/movement.dmi',
 		(HUD_UP_HINT)     = 'icons/mob/screen/styles/minimalist/uphint.dmi',
-		(HUD_ZONE_SELECT) = 'icons/mob/screen/styles/minimalist/zone_selector.dmi'
+		(HUD_ZONE_SELECT) = 'icons/mob/screen/styles/minimalist/zone_selector.dmi',
+		(HUD_MODIFIERS)   = 'icons/mob/screen/styles/minimalist/modifiers.dmi'
 	)
 	use_overlay_color = TRUE
 	use_ui_color      = TRUE
@@ -95,7 +100,6 @@
 /decl/ui_style/underworld
 	name = "Underworld"
 	uid  = "ui_style_underworld"
-	restricted = FALSE
 	override_icons = list(
 		(HUD_ATTACK)      = 'icons/mob/screen/styles/underworld/attack_selector.dmi',
 		(HUD_FIRE_INTENT) = 'icons/mob/screen/styles/underworld/fire_intent.dmi',
@@ -107,7 +111,25 @@
 		(HUD_INVENTORY)   = 'icons/mob/screen/styles/underworld/inventory.dmi',
 		(HUD_MOVEMENT)    = 'icons/mob/screen/styles/underworld/movement.dmi',
 		(HUD_UP_HINT)     = 'icons/mob/screen/styles/underworld/uphint.dmi',
-		(HUD_ZONE_SELECT) = 'icons/mob/screen/styles/underworld/zone_selector.dmi'
+		(HUD_ZONE_SELECT) = 'icons/mob/screen/styles/underworld/zone_selector.dmi',
+		(HUD_MODIFIERS)   = 'icons/mob/screen/styles/underworld/modifiers.dmi'
 	)
 	use_overlay_color = TRUE
 	use_ui_color = TRUE
+
+/decl/ui_style/robot
+	name = "Stationbound"
+	uid = "ui_style_robot"
+	override_icons = list(
+		(HUD_ATTACK)      = 'icons/mob/screen/styles/robot/attack_selector.dmi',
+		(HUD_FIRE_INTENT) = 'icons/mob/screen/styles/robot/fire_intent.dmi',
+		(HUD_HANDS)       = 'icons/mob/screen/styles/robot/hands.dmi',
+		(HUD_DROP)        = 'icons/mob/screen/styles/robot/interaction_drop.dmi',
+		(HUD_THROW)       = 'icons/mob/screen/styles/robot/interaction_throw.dmi',
+		(HUD_RESIST)      = 'icons/mob/screen/styles/robot/interaction_resist.dmi',
+		(HUD_MANEUVER)    = 'icons/mob/screen/styles/robot/interaction_maneuver.dmi',
+		(HUD_INVENTORY)   = 'icons/mob/screen/styles/robot/inventory.dmi',
+		(HUD_MOVEMENT)    = 'icons/mob/screen/styles/robot/movement.dmi',
+		(HUD_UP_HINT)     = 'icons/mob/screen/styles/robot/uphint.dmi',
+		(HUD_ZONE_SELECT) = 'icons/mob/screen/styles/robot/zone_selector.dmi'
+	)

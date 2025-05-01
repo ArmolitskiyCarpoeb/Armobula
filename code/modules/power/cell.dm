@@ -79,17 +79,17 @@
 	update_icon()
 	return amount_used
 
-/obj/item/cell/examine(mob/user)
+/obj/item/cell/get_examine_strings(mob/user, distance, infix, suffix)
 	. = ..()
-	to_chat(user, "The label states it's capacity is [maxcharge] Wh.")
-	to_chat(user, "The charge meter reads [round(src.percent(), 0.1)]%.")
+	. += "The label states it's capacity is [maxcharge] Wh."
+	. += "The charge meter reads [round(src.percent(), 0.1)]%."
 
 /obj/item/cell/emp_act(severity)
 	// remove this if EMPs are ever rebalanced so that they don't instantly drain borg cells
 	// todo: containers (partially) shielding contents?
 	if(isrobot(loc))
-		var/mob/living/silicon/robot/R = loc
-		severity *= R.cell_emp_mult
+		var/mob/living/silicon/robot/robot = loc
+		severity *= robot.cell_emp_mult
 
 	// Lose 1/2, 1/4, 1/6 of the current charge per hit or 1/4, 1/8, 1/12 of the max charge per hit, whichever is highest
 	charge -= max(charge / (2 * severity), maxcharge/(4 * severity))

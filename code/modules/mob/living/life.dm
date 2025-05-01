@@ -25,12 +25,9 @@
 	if(QDELETED(src)) // Destroyed by fire or pressure damage in handle_environment()
 		return PROCESS_KILL
 	handle_regular_status_updates() // Status & health update, are we dead or alive etc.
-	handle_stasis()
 
-	if(stat != DEAD)
-		if(!is_in_stasis())
-			. = handle_living_non_stasis_processes()
-		aura_check(AURA_TYPE_LIFE)
+	if(stat != DEAD && !has_mob_modifier(/decl/mob_modifier/stasis))
+		. = handle_living_non_stasis_processes()
 
 	for(var/obj/item/grab/grab as anything in get_active_grabs())
 		grab.Process()
@@ -42,7 +39,8 @@
 	handle_grasp()
 	handle_stance()
 	handle_regular_hud_updates()
-	handle_status_effects()
+	handle_status_conditions()
+	handle_mob_modifiers()
 	return 1
 
 /mob/living/proc/handle_grasp()
@@ -236,21 +234,20 @@
 
 	// Update chem dosage.
 	// TODO: refactor chem dosage above isSynthetic() and GODMODE checks.
-	if(length(chem_doses))
-		for(var/T in chem_doses)
+	if(length(_chem_doses))
+		for(var/decl/material/reagent as anything in _chem_doses)
 
 			var/still_processing_reagent = FALSE
 			for(var/datum/reagents/holder as anything in metabolizing_holders)
-				if(holder.has_reagent(T))
+				if(holder.has_reagent(reagent))
 					still_processing_reagent = TRUE
 					break
 			if(still_processing_reagent)
 				continue
-			var/decl/material/R = GET_DECL(T)
-			var/dose = LAZYACCESS(chem_doses, T) - R.metabolism*2
-			LAZYSET(chem_doses, T, dose)
-			if(LAZYACCESS(chem_doses, T) <= 0)
-				LAZYREMOVE(chem_doses, T)
+			var/dose = CHEM_DOSE(src, reagent) - reagent.metabolism*2
+			LAZYSET(_chem_doses, reagent, dose)
+			if(CHEM_DOSE(src, reagent) <= 0)
+				LAZYREMOVE(_chem_doses, reagent)
 	if(apply_chemical_effects())
 		update_health()
 
@@ -445,6 +442,7 @@
 
 //this handles hud updates. Calls update_vision() and handle_hud_icons()
 /mob/living/proc/handle_regular_hud_updates()
+
 	SHOULD_CALL_PARENT(TRUE)
 	if(!should_do_hud_updates())
 		return FALSE

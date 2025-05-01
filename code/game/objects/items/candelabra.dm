@@ -7,7 +7,7 @@
 		list("x" =  6, "y" = 17)
 	)
 
-/datum/storage/candelabra/can_be_inserted(obj/item/W, mob/user, stop_messages, click_params)
+/datum/storage/candelabra/can_be_inserted(obj/item/used_item, mob/user, stop_messages, click_params)
 	. = ..() && holder && length(holder.get_stored_inventory()) < length(candle_offsets)
 
 /obj/item/candelabra
@@ -17,6 +17,7 @@
 	icon_state          = ICON_STATE_WORLD
 	storage             = /datum/storage/candelabra
 	material            = /decl/material/solid/metal/brass
+	color               = /decl/material/solid/metal/brass::color
 	material_alteration = MAT_FLAG_ALTERATION_ALL
 
 /obj/item/candelabra/attackby(obj/item/used_item, mob/user)
@@ -26,12 +27,8 @@
 				return TRUE
 	. = ..()
 
-/obj/item/candelabra/filled/Initialize(ml, material_key)
-	new /obj/item/flame/candle/random(src)
-	new /obj/item/flame/candle/random(src)
-	new /obj/item/flame/candle/random(src)
-	. = ..()
-	update_icon()
+/obj/item/candelabra/filled/WillContain()
+	return list(/obj/item/flame/candle/handmade = 3)
 
 // Workaround for vis_contents propagating color.
 /obj/item/candelabra/on_update_icon()

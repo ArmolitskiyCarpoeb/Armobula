@@ -22,6 +22,9 @@
 /obj/item/organ/internal/eyes/proc/get_flash_mod()
 	return bodytype.eye_flash_mod
 
+/obj/item/organ/internal/eyes/proc/get_flash_burn()
+	return bodytype.eye_flash_burn
+
 /obj/item/organ/internal/eyes/proc/get_darksight_range()
 	return bodytype.eye_darksight_range
 
@@ -75,7 +78,7 @@
 		if(istype(head))
 			head._icon_cache_key = null
 
-/obj/item/organ/internal/eyes/take_internal_damage(amount, var/silent=0)
+/obj/item/organ/internal/eyes/take_damage(damage, damage_type = BRUTE, damage_flags, inflicter, armor_pen = 0, silent, do_update_health)
 	var/oldbroken = is_broken()
 	. = ..()
 	if(is_broken() && !oldbroken && owner && !owner.stat)

@@ -1,19 +1,3 @@
-/client/proc/Debug2()
-	set category = "Debug"
-	set name = "Debug-Game"
-	if(!check_rights(R_DEBUG))	return
-
-	if(Debug2)
-		Debug2 = 0
-		message_admins("[key_name(src)] toggled debugging off.")
-		log_admin("[key_name(src)] toggled debugging off.")
-	else
-		Debug2 = 1
-		message_admins("[key_name(src)] toggled debugging on.")
-		log_admin("[key_name(src)] toggled debugging on.")
-
-	SSstatistics.add_field_details("admin_verb","DG2") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
 // callproc moved to code/modules/admin/callproc
 
 
@@ -80,9 +64,9 @@
 	set desc = "Specify a location to spawn a pAI device, then specify a key to play that pAI"
 
 	var/list/available = list()
-	for(var/mob/C in SSmobs.mob_list)
-		if(C.key)
-			available.Add(C)
+	for(var/mob/player in SSmobs.mob_list)
+		if(player.key)
+			available.Add(player)
 	var/mob/choice = input("Choose a player to play the pAI", "Spawn pAI") in available
 	if(!choice)
 		return 0
@@ -511,6 +495,8 @@
 		. += "<li>qdel() Count: [I.qdels]</li>"
 		if(I.early_destroy)
 			. += "<li>Early destroy count: [I.early_destroy]</li>"
+		if(I.qdels)
+			. += "<li>Average Destroy() Cost: [I.destroy_time / I.qdels]ms/call</li>"
 		. += "<li>Destroy() Cost: [I.destroy_time]ms</li>"
 		if(I.hard_deletes)
 			. += "<li>Total Hard Deletes [I.hard_deletes]</li>"
@@ -526,3 +512,26 @@
 	. += "</ol>"
 
 	show_browser(usr, JOINTEXT(.), "window=dellog")
+
+/client/proc/toggle_browser_inspect()
+	set category = "Debug"
+	set name = "Toggle Browser Inspect"
+
+	#if DM_VERSION >= 516
+
+	var/browser_options = winget(src, null, "browser-options")
+
+	if(findtext(browser_options, "devtools"))
+		// Disable the dev tools.
+		winset(src, null, list("browser-options" = "-devtools"))
+		message_admins("[key_name_admin(usr)] has disabled Browser Inspection.")
+	else
+		// Enable the dev tools.
+		winset(src, null, list("browser-options" = "+devtools"))
+		message_admins("[key_name_admin(usr)] has enabled Browser Inspection.")
+
+	#else
+
+	alert("Browser Inspection is not supported in this version of BYOND, please update to 516 or later.")
+
+	#endif

@@ -72,8 +72,8 @@
 		to_chat(mover, SPAN_WARNING("Maintenance protocols are in effect."))
 		exosuit.SetMoveCooldown(3)
 		return MOVEMENT_STOP
-	var/obj/item/cell/C = exosuit.get_cell()
-	if(!C || !C.check_charge(exosuit.legs.power_use * CELLRATE))
+	var/obj/item/cell/cell = exosuit.get_cell()
+	if(!cell || !cell.check_charge(exosuit.legs.power_use * CELLRATE))
 		to_chat(mover, SPAN_WARNING("The power indicator flashes briefly."))
 		exosuit.SetMoveCooldown(3) //On fast exosuits this got annoying fast
 		return MOVEMENT_STOP
@@ -140,12 +140,22 @@
 	. = SPACE_MOVE_FORBIDDEN
 	anchored = FALSE
 	//Regardless of modules, emp prevents control
-	if(has_gravity() || throwing || !isturf(loc) || length(grabbed_by) || !can_slip(magboots_only = TRUE) || locate(/obj/structure/lattice) in range(1, get_turf(src)))
-		. =  SPACE_MOVE_PERMITTED
-	else
-		var/obj/item/mech_equipment/ionjets/J = hardpoints[HARDPOINT_BACK]
-		if(istype(J) && ((allow_movement || J.stabilizers) && J.provides_thrust()))
+
+	if(length(grabbed_by))
+		for(var/obj/item/grab/grab as anything in grabbed_by)
+			if(grab.assailant == src)
+				continue
 			. = SPACE_MOVE_PERMITTED
+			break
+
+	if(. != SPACE_MOVE_PERMITTED)
+		if(has_gravity() || throwing || !isturf(loc) || length(grabbed_by) || !can_slip(magboots_only = TRUE) || locate(/obj/structure/lattice) in range(1, get_turf(src)))
+			. =  SPACE_MOVE_PERMITTED
+		else
+			var/obj/item/mech_equipment/ionjets/J = hardpoints[HARDPOINT_BACK]
+			if(istype(J) && ((allow_movement || J.stabilizers) && J.provides_thrust()))
+				. = SPACE_MOVE_PERMITTED
+
 	if(. == SPACE_MOVE_PERMITTED)
 		anchored = TRUE
 

@@ -38,33 +38,33 @@
 /obj/machinery/chem_master/proc/get_remaining_volume()
 	return clamp(reagent_limit - reagents.total_volume, 0, reagent_limit)
 
-/obj/machinery/chem_master/attackby(var/obj/item/B, var/mob/user)
+/obj/machinery/chem_master/attackby(var/obj/item/used_item, var/mob/user)
 
-	if(istype(B, /obj/item/chems/glass))
+	if(istype(used_item, /obj/item/chems/glass))
 
 		if(beaker)
 			to_chat(user, SPAN_WARNING("A beaker is already loaded into the machine."))
 			return TRUE
-		if(!user.try_unequip(B, src))
+		if(!user.try_unequip(used_item, src))
 			return TRUE
-		beaker = B
+		beaker = used_item
 		to_chat(user, SPAN_NOTICE("You add the beaker to the machine!"))
 		updateUsrDialog()
 		icon_state = "mixer1"
 		return TRUE
 
-	if(istype(B, /obj/item/chems))
+	if(istype(used_item, /obj/item/chems))
 		to_chat(user, SPAN_WARNING("\The [src] will only accept beakers."))
 		return TRUE
 
-	if(istype(B, /obj/item/pill_bottle))
+	if(istype(used_item, /obj/item/pill_bottle))
 
 		if(loaded_pill_bottle)
 			to_chat(user, SPAN_WARNING("A pill bottle is already loaded into the machine."))
 			return TRUE
-		if(!user.try_unequip(B, src))
+		if(!user.try_unequip(used_item, src))
 			return TRUE
-		loaded_pill_bottle = B
+		loaded_pill_bottle = used_item
 		to_chat(user, SPAN_NOTICE("You add the pill bottle into the dispenser slot!"))
 		updateUsrDialog()
 		return TRUE
@@ -223,8 +223,7 @@
 
 /obj/machinery/chem_master/proc/fetch_contaminants(mob/user, datum/reagents/reagents, decl/material/main_reagent)
 	. = list()
-	for(var/rtype in reagents.reagent_volumes)
-		var/decl/material/reagent = GET_DECL(rtype)
+	for(var/decl/material/reagent as anything in reagents.reagent_volumes)
 		if(reagent != main_reagent && prob(user.skill_fail_chance(core_skill, 100)))
 			. += reagent
 
@@ -291,27 +290,25 @@
 			dat += "Beaker is empty."
 		else
 			dat += "Add to buffer:<BR>"
-			for(var/rtype in R.reagent_volumes)
-				var/decl/material/G = GET_DECL(rtype)
-				dat += "[G.use_name], [REAGENT_VOLUME(R, rtype)] Units - "
-				dat += "<A href='byond://?src=\ref[src];analyze=\ref[G]'>(Analyze)</A> "
-				dat += "<A href='byond://?src=\ref[src];add=\ref[G];amount=1'>(1)</A> "
-				dat += "<A href='byond://?src=\ref[src];add=\ref[G];amount=5'>(5)</A> "
-				dat += "<A href='byond://?src=\ref[src];add=\ref[G];amount=10'>(10)</A> "
-				dat += "<A href='byond://?src=\ref[src];add=\ref[G];amount=[REAGENT_VOLUME(R, rtype)]'>(All)</A> "
-				dat += "<A href='byond://?src=\ref[src];addcustom=\ref[G]'>(Custom)</A><BR>"
+			for(var/decl/material/reagent as anything in R.reagent_volumes)
+				dat += "[reagent.use_name], [REAGENT_VOLUME(R, reagent)] Units - "
+				dat += "<A href='byond://?src=\ref[src];analyze=\ref[reagent]'>(Analyze)</A> "
+				dat += "<A href='byond://?src=\ref[src];add=\ref[reagent];amount=1'>(1)</A> "
+				dat += "<A href='byond://?src=\ref[src];add=\ref[reagent];amount=5'>(5)</A> "
+				dat += "<A href='byond://?src=\ref[src];add=\ref[reagent];amount=10'>(10)</A> "
+				dat += "<A href='byond://?src=\ref[src];add=\ref[reagent];amount=[REAGENT_VOLUME(R, reagent)]'>(All)</A> "
+				dat += "<A href='byond://?src=\ref[src];addcustom=\ref[reagent]'>(Custom)</A><BR>"
 
 		dat += "<HR>Transfer to <A href='byond://?src=\ref[src];toggle=1'>[(!mode ? "disposal" : "beaker")]:</A><BR>"
 		if(reagents.total_volume)
-			for(var/rtype in reagents.reagent_volumes)
-				var/decl/material/N = GET_DECL(rtype)
-				dat += "[N.use_name], [REAGENT_VOLUME(reagents, rtype)] Units - "
-				dat += "<A href='byond://?src=\ref[src];analyze=\ref[N]'>(Analyze)</A> "
-				dat += "<A href='byond://?src=\ref[src];remove=\ref[N];amount=1'>(1)</A> "
-				dat += "<A href='byond://?src=\ref[src];remove=\ref[N];amount=5'>(5)</A> "
-				dat += "<A href='byond://?src=\ref[src];remove=\ref[N];amount=10'>(10)</A> "
-				dat += "<A href='byond://?src=\ref[src];remove=\ref[N];amount=[REAGENT_VOLUME(reagents, rtype)]'>(All)</A> "
-				dat += "<A href='byond://?src=\ref[src];removecustom=\ref[N]'>(Custom)</A><BR>"
+			for(var/decl/material/reagent as anything in reagents.reagent_volumes)
+				dat += "[reagent.use_name], [REAGENT_VOLUME(reagents, reagent)] Units - "
+				dat += "<A href='byond://?src=\ref[src];analyze=\ref[reagent]'>(Analyze)</A> "
+				dat += "<A href='byond://?src=\ref[src];remove=\ref[reagent];amount=1'>(1)</A> "
+				dat += "<A href='byond://?src=\ref[src];remove=\ref[reagent];amount=5'>(5)</A> "
+				dat += "<A href='byond://?src=\ref[src];remove=\ref[reagent];amount=10'>(10)</A> "
+				dat += "<A href='byond://?src=\ref[src];remove=\ref[reagent];amount=[REAGENT_VOLUME(reagents, reagent)]'>(All)</A> "
+				dat += "<A href='byond://?src=\ref[src];removecustom=\ref[reagent]'>(Custom)</A><BR>"
 		else
 			dat += "Empty<BR>"
 		dat += extra_options()

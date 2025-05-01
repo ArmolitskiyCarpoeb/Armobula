@@ -479,7 +479,7 @@
 /obj/effect/floor_decal/carpet,
 /obj/item/clothing/costume/lawyer,
 /obj/item/clothing/costume/lawyer_bluesuit,
-/obj/item/clothing/jumpsuit/mailman,
+/obj/item/clothing/costume/mailman,
 /obj/item/clothing/webbing,
 /obj/item/clothing/costume/dispatch,
 /turf/unsimulated/floor/carpet,
@@ -736,8 +736,7 @@
 "cz" = (
 /obj/machinery/door/blast/regular/open{
 	id_tag = "SkipjackShuttersNorth";
-	name = "Blast Doors";
-	
+	name = "Blast Doors"
 	},
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /obj/effect/paint/brown,
@@ -830,7 +829,7 @@
 /turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "cL" = (
-/obj/structure/bed/chair/shuttle{
+/obj/structure/chair/shuttle{
 	dir = 8
 	},
 /turf/floor/shuttle/red,
@@ -856,7 +855,7 @@
 /turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "cN" = (
-/obj/structure/bed/chair/office/light{
+/obj/structure/chair/office/light{
 	dir = 4
 	},
 /turf/floor/shuttle/red,
@@ -1103,8 +1102,7 @@
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
 	id_tag = "SkipjackShuttersWest";
-	name = "Skipjack Shutters";
-	
+	name = "Skipjack Shutters"
 	},
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /obj/effect/paint/brown,
@@ -1130,8 +1128,7 @@
 /obj/machinery/door/blast/shutters/open{
 	dir = 8;
 	id_tag = "SkipjackShuttersEast";
-	name = "Skipjack Shutters";
-	
+	name = "Skipjack Shutters"
 	},
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /obj/effect/paint/brown,
@@ -1202,8 +1199,7 @@
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
 	id_tag = "SkipjackShuttersWest";
-	name = "Skipjack Shutters";
-	
+	name = "Skipjack Shutters"
 	},
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /turf/floor/plating,
@@ -1229,7 +1225,7 @@
 /turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "dM" = (
-/obj/structure/bed/chair{
+/obj/structure/chair{
 	dir = 4
 	},
 /obj/machinery/light/small{
@@ -1243,7 +1239,7 @@
 /turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "dO" = (
-/obj/structure/bed/chair{
+/obj/structure/chair{
 	dir = 8
 	},
 /obj/machinery/light/small{
@@ -1298,7 +1294,7 @@
 /turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "dX" = (
-/obj/structure/bed/chair{
+/obj/structure/chair{
 	dir = 4
 	},
 /turf/floor/shuttle/red,
@@ -1310,7 +1306,7 @@
 /turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "dZ" = (
-/obj/structure/bed/chair{
+/obj/structure/chair{
 	dir = 8
 	},
 /turf/floor/shuttle/red,

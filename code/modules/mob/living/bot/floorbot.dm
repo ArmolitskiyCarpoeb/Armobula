@@ -129,11 +129,6 @@
 	return emagged || (amount && (my_turf.is_floor_damaged() || (improvefloors && !my_turf.has_flooring())))
 
 /mob/living/bot/floorbot/UnarmedAttack(var/atom/A, var/proximity)
-
-	. = ..()
-	if(.)
-		return
-
 	if(busy)
 		return TRUE
 
@@ -165,7 +160,7 @@
 			anchored = TRUE
 			if(do_after(src, 50, F))
 				if(F.is_floor_damaged())
-					F.set_flooring(null)
+					F.remove_flooring(F.get_topmost_flooring())
 			anchored = FALSE
 			target = null
 			busy = 0
