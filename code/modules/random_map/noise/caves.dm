@@ -52,10 +52,10 @@
 	if(isnull(val)) val = 0
 	switch(val)
 		if(1 to 4)
-			if(prob(15))
+			if(prob(33))
 				new /obj/structure/flora/plant/random_mushroom(T)
 		if(6 to 7)
-			if(prob(15))
+			if(prob(11))
 //				var/grass_path = pick(subtypesof(/obj/structure/flora/plant/random_mushroom/glowing))
 //				new grass_path(T)
 				new /obj/structure/flora/plant/random_mushroom/glowing(T)
