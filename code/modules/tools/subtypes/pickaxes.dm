@@ -7,7 +7,7 @@
 	edge               = TRUE
 	w_class            = ITEM_SIZE_HUGE
 	handle_material    = /decl/material/solid/organic/wood/oak
-	_base_attack_force = 15
+	_base_attack_force = 20
 
 /obj/item/tool/pickaxe/Initialize(ml, material_key, _handle_material, _binding_material, override_tool_qualities, override_tool_properties)
 	. = ..()

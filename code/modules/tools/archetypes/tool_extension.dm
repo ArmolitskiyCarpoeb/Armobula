@@ -67,7 +67,7 @@
 	. = ceil(delay * get_tool_speed(archetype))
 	if(user && check_skill)
 		. *= user.skill_delay_mult(check_skill, 0.3)
-	. = max(round(.), 5)
+	. = max(round(.), 10)
 
 // Returns a failure message as a string if the interaction fails.
 /proc/handle_tool_interaction(archetype, mob/user, obj/item/tool, atom/target, delay = (1 SECOND), start_message, success_message, failure_message, fuel_expenditure = 0, check_skill = SKILL_CONSTRUCTION, prefix_message, suffix_message, check_skill_threshold, check_skill_prob = 50, set_cooldown = FALSE)
