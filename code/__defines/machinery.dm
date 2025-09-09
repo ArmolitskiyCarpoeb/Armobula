@@ -4,9 +4,8 @@ var/global/defer_powernet_rebuild = 0      // True if net rebuild will be called
 #define MEGAWATTS *1000000
 #define GIGAWATTS *1000000000
 
-#define MACHINERY_TICKRATE 2		// Tick rate for machinery in seconds. As it affects CELLRATE calculation it is kept as define here
-
-#define CELLRATE (1 / ( 3600 / MACHINERY_TICKRATE )) // Multiplier for charge units. Converts cell charge units(watthours) to joules. Takes into consideration that our machinery ticks once per two seconds.
+/// Multiplier for charge units. Converts cell charge units(watthours) to joules. Takes into consideration that our machinery ticks once per two seconds.
+#define CELLRATE (/datum/controller/subsystem/machines::wait / (1 HOUR))
 
 // Doors!
 #define DOOR_CRUSH_DAMAGE 40
@@ -44,7 +43,7 @@ var/global/defer_powernet_rebuild = 0      // True if net rebuild will be called
 // Camera channels
 // Station channels
 #define CAMERA_CHANNEL_PUBLIC "Public"
-#define CAMERA_CAMERA_CHANNEL_ENGINEERING "Engineering"
+#define CAMERA_CHANNEL_ENGINEERING "Engineering"
 #define CAMERA_CHANNEL_MEDICAL "Medical"
 #define CAMERA_CHANNEL_RESEARCH "Research"
 #define CAMERA_CHANNEL_SECURITY "Security"

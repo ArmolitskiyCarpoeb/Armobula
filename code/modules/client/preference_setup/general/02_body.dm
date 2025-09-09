@@ -14,6 +14,53 @@
 	name = "Body"
 	sort_order = 2
 
+/datum/category_item/player_setup_item/physical/body/populate_mob_snapshot(datum/mob_snapshot/snapshot, is_preview_copy = FALSE)
+	snapshot.blood_type = pref.blood_type
+	// we don't check appearance_flags here, apply_appearance_to does that
+	snapshot.skin_color = pref.skin_colour
+	snapshot.skin_tone = pref.skin_tone
+	snapshot.eye_color = pref.eye_colour
+	// so this is the hellish part.
+	// pref.sprite_accessories is sprite_accessories[accessory_category.type][loaded_accessory.type] = metadata
+	// snapshot.sprite_accessories is sprite_accessories[organ_tag][accessory_category.type][loaded_accessory.type] = metadata
+	// we have to convert it here
+	// on the bright side bodytype.default_sprite_accessories uses the same format
+	var/list/new_sprite_accessories = list()
+	// THIS IS HACKY. PLEASE FIND A BETTER WAY TO DO THIS
+	// Adds default bodytype accessories to the snapshot.
+	var/decl/bodytype/the_bodytype = pref.get_bodytype_decl()
+	for(var/accessory_category in the_bodytype.default_sprite_accessories)
+		var/decl/sprite_accessory_category/acc_cat = GET_DECL(accessory_category)
+		if(!acc_cat.always_apply_defaults)
+			continue
+		var/list/accessories = the_bodytype.default_sprite_accessories[accessory_category]
+		acc_cat.prepare_mob_snapshot(snapshot, accessories)
+		for(var/accessory in accessories)
+			var/decl/sprite_accessory/accessory_decl = GET_DECL(accessory)
+			var/accessory_metadata = accessories[accessory]
+			for(var/bodypart in accessory_decl.body_parts)
+				LAZYINITLIST(new_sprite_accessories[bodypart])
+				LAZYSET(new_sprite_accessories[bodypart][accessory_category], accessory, accessory_metadata)
+	// jank shit end
+	for(var/accessory_category in pref.sprite_accessories)
+		var/decl/sprite_accessory_category/acc_cat = GET_DECL(accessory_category)
+		var/list/accessories = pref.sprite_accessories[accessory_category]
+		acc_cat.prepare_mob_snapshot(snapshot, accessories)
+		// todo: copy this elsewhere
+		// ^ i have no clue if i ever did this or not. presumably bc i don't know what i meant needed copying
+		for(var/accessory in accessories)
+			var/decl/sprite_accessory/accessory_decl = GET_DECL(accessory)
+			var/accessory_metadata = accessories[accessory]
+			for(var/bodypart in accessory_decl.body_parts)
+				LAZYINITLIST(new_sprite_accessories[bodypart])
+				LAZYSET(new_sprite_accessories[bodypart][accessory_category], accessory, accessory_metadata)
+	if(length(new_sprite_accessories))
+		snapshot.sprite_accessories = new_sprite_accessories
+
+/datum/category_item/player_setup_item/physical/body/apply_post_snapshot_preferences(mob/living/human/character, is_preview_copy = FALSE)
+	if(LAZYLEN(pref.appearance_descriptors))
+		character.appearance_descriptors = pref.appearance_descriptors.Copy()
+
 /datum/category_item/player_setup_item/physical/body/load_character(datum/pref_record_reader/R)
 
 	pref.skin_colour =            R.read("skin_colour")
@@ -211,31 +258,34 @@
 			. += "</td></tr>"
 		. += "</table>"
 
+	// Items in this list are only added if there are entries in accessory_strings.
+	var/list/accessory_header = list()
+	var/list/accessory_strings = list()
 	if((mob_bodytype.appearance_flags & (HAS_EYE_COLOR|HAS_SKIN_COLOR|HAS_A_SKIN_TONE)) || length(mob_species.available_accessory_categories))
 
-		. += "<h3>Colouration and accessories</h3>"
-		. += "<table width = '500px'>"
+		accessory_header += "<h3>Colouration and accessories</h3>"
+		accessory_header += "<table width = '500px'>"
 
 		if(mob_bodytype.appearance_flags & HAS_A_SKIN_TONE)
-			. += "<tr>"
-			. += "<td width = '100px'><b>Skin tone</b></td>"
-			. += "<td width = '100px'><a href='byond://?src=\ref[src];skin_tone=1'>[-pref.skin_tone + 35]/[mob_bodytype.max_skin_tone()]</a></td>"
-			. += "<td colspan = 3 width = '300px'><td>"
-			. += "</tr>"
+			accessory_strings += "<tr>"
+			accessory_strings += "<td width = '100px'><b>Skin tone</b></td>"
+			accessory_strings += "<td width = '100px'><a href='byond://?src=\ref[src];skin_tone=1'>[-pref.skin_tone + 35]/[mob_bodytype.max_skin_tone()]</a></td>"
+			accessory_strings += "<td colspan = 3 width = '300px'><td>"
+			accessory_strings += "</tr>"
 
 		if(mob_bodytype.appearance_flags & HAS_SKIN_COLOR)
-			. += "<tr>"
-			. += "<td width = '100px'><b>Skin color</b></td>"
-			. += "<td width = '100px'>[COLORED_SQUARE(pref.skin_colour)] <a href='byond://?src=\ref[src];skin_color=1'>Change</a></td>"
-			. += "<td colspan = 3 width = '300px'><td>"
-			. += "</tr>"
+			accessory_strings += "<tr>"
+			accessory_strings += "<td width = '100px'><b>Skin color</b></td>"
+			accessory_strings += "<td width = '100px'>[COLORED_SQUARE(pref.skin_colour)] <a href='byond://?src=\ref[src];skin_color=1'>Change</a></td>"
+			accessory_strings += "<td colspan = 3 width = '300px'><td>"
+			accessory_strings += "</tr>"
 
 		if(mob_bodytype.appearance_flags & HAS_EYE_COLOR)
-			. += "<tr>"
-			. += "<td width = '100px'><b>Eyes</b></td>"
-			. += "<td width = '100px'>[COLORED_SQUARE(pref.eye_colour)] <a href='byond://?src=\ref[src];eye_color=1'>Change</a></td>"
-			. += "<td colspan = 3 width = '300px'><td>"
-			. += "</tr>"
+			accessory_strings += "<tr>"
+			accessory_strings += "<td width = '100px'><b>Eyes</b></td>"
+			accessory_strings += "<td width = '100px'>[COLORED_SQUARE(pref.eye_colour)] <a href='byond://?src=\ref[src];eye_color=1'>Change</a></td>"
+			accessory_strings += "<td colspan = 3 width = '300px'><td>"
+			accessory_strings += "</tr>"
 
 		var/const/up_arrow    = "&#8679;"
 		var/const/down_arrow  = "&#8681;"
@@ -264,19 +314,19 @@
 					var/decl/sprite_accessory_metadata/metadata = GET_DECL(metadata_type)
 					metadata_strings += metadata.get_metadata_options_string(src, accessory_cat_decl, accessory_decl, LAZYACCESS(accessory_metadata, metadata_type))
 				var/acc_decl_ref = "\ref[accessory_decl]"
-				. += "<tr>"
-				. += "<td width = '100px'><b>[accessory_cat_decl.name]</b></td>"
-				. += "<td width = '100px'>[jointext(metadata_strings, "<br>")]</td>"
-				. += "<td width = '20px'><a href='byond://?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_decl=[acc_decl_ref];acc_prev=1'>[left_arrow]</a></td>"
-				. += "<td width = '260px'><a href='byond://?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_decl=[acc_decl_ref];acc_style=1'>[accessory_decl.name]</a></td>"
-				. += "<td width = '20px'><a href='byond://?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_decl=[acc_decl_ref];acc_next=1'>[right_arrow]</a></td>"
-				. += "</tr>"
+				accessory_strings += "<tr>"
+				accessory_strings += "<td width = '100px'><b>[accessory_cat_decl.name]</b></td>"
+				accessory_strings += "<td width = '100px'>[jointext(metadata_strings, "<br>")]</td>"
+				accessory_strings += "<td width = '20px'><a href='byond://?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_decl=[acc_decl_ref];acc_prev=1'>[left_arrow]</a></td>"
+				accessory_strings += "<td width = '260px'><a href='byond://?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_decl=[acc_decl_ref];acc_style=1'>[accessory_decl.name]</a></td>"
+				accessory_strings += "<td width = '20px'><a href='byond://?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_decl=[acc_decl_ref];acc_next=1'>[right_arrow]</a></td>"
+				accessory_strings += "</tr>"
 				continue
 
-			. += "<tr>"
-			. += "<td width = '100px'><b>[accessory_cat_decl.name]</b></td>"
-			. += "<td width = '400px' colspan = 4></td>"
-			. += "</tr>"
+			accessory_strings += "<tr>"
+			accessory_strings += "<td width = '100px'><b>[accessory_cat_decl.name]</b></td>"
+			accessory_strings += "<td width = '400px' colspan = 4></td>"
+			accessory_strings += "</tr>"
 			var/i = 0
 			for(var/accessory in current_accessories)
 				i++
@@ -287,15 +337,19 @@
 					var/decl/sprite_accessory_metadata/metadata = GET_DECL(metadata_type)
 					metadata_strings += metadata.get_metadata_options_string(src, accessory_cat_decl, accessory_decl, LAZYACCESS(accessory_metadata, metadata_type))
 				var/acc_decl_ref = "\ref[accessory_decl]"
-				. += "<tr>"
-				. += "<td width = '100px'><a href='byond://?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_decl=[acc_decl_ref];acc_remove=1'>Remove</a></td>"
-				. += "<td width = '100px'>[jointext(metadata_strings, "<br>")]</td>"
-				. += "<td width = '20px'><a href='byond://?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_decl=[acc_decl_ref];acc_move_up=1'>[up_arrow]</a></td>"
-				. += "<td width = '260px'>[accessory_decl.name]</td>"
-				. += "<td width = '20px'><a href='byond://?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_decl=[acc_decl_ref];acc_move_down=1'>[down_arrow]</a></td>"
-				. += "</tr>"
+				accessory_strings += "<tr>"
+				accessory_strings += "<td width = '100px'><a href='byond://?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_decl=[acc_decl_ref];acc_remove=1'>Remove</a></td>"
+				accessory_strings += "<td width = '100px'>[jointext(metadata_strings, "<br>")]</td>"
+				accessory_strings += "<td width = '20px'><a href='byond://?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_decl=[acc_decl_ref];acc_move_up=1'>[up_arrow]</a></td>"
+				accessory_strings += "<td width = '260px'>[accessory_decl.name]</td>"
+				accessory_strings += "<td width = '20px'><a href='byond://?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_decl=[acc_decl_ref];acc_move_down=1'>[down_arrow]</a></td>"
+				accessory_strings += "</tr>"
 			if(isnull(accessory_cat_decl.max_selections) || i < accessory_cat_decl.max_selections)
-				. += "<tr><td colspan = 5 width = '500px'><a href='byond://?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_style=1'>Add marking</a></td></tr>"
+				accessory_strings += "<tr><td colspan = 5 width = '500px'><a href='byond://?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_style=1'>Add marking</a></td></tr>"
+
+	if(length(accessory_strings))
+		. += accessory_header
+		. += accessory_strings
 
 	. += "</table>"
 

@@ -14,6 +14,8 @@
 
 	var/list/sprite_accessories
 	var/list/genetic_conditions
+	/// Please find a better way to do this. This is done to add tails if we have the tail accessory selected...
+	var/list/extra_limbs
 
 /datum/mob_snapshot/New(mob/living/donor, genetic_info_only = FALSE)
 
@@ -21,6 +23,8 @@
 	eye_color      = donor?.get_eye_colour() || COLOR_BLACK
 	blood_type     = donor?.get_blood_type()
 	unique_enzymes = donor?.get_unique_enzymes()
+	skin_color     = donor?.get_skin_colour()
+	skin_tone      = donor?.get_skin_tone()
 	fingerprint    = donor?.get_full_print(ignore_blockers = TRUE)
 
 	root_species   = donor?.get_species()  || decls_repository.get_decl_by_id(global.using_map.default_species)
@@ -57,7 +61,7 @@
 	return clone
 
 // Replaces UpdateAppearance().
-/datum/mob_snapshot/proc/apply_appearance_to(mob/living/target)
+/datum/mob_snapshot/proc/apply_appearance_to(mob/living/target, do_update = TRUE)
 
 	if(istype(root_species) && root_species != target.get_species())
 		if(istype(root_bodytype))
@@ -73,15 +77,22 @@
 	target.set_eye_colour(eye_color)
 	target.set_skin_tone(skin_tone)
 
+	for(var/limb_data in extra_limbs)
+		var/limb_path = extra_limbs[limb_data]["path"]
+		var/obj/item/organ/external/new_limb = new limb_path(null, null, src)
+		target.add_organ(new_limb, null, TRUE, FALSE, FALSE, TRUE)
+	extra_limbs = null // can't reuse it!
+
 	for(var/obj/item/organ/organ in target.get_organs())
 		organ.copy_from_mob_snapshot(src)
 
 	for(var/decl/genetic_condition/condition as anything in genetic_conditions)
 		target.add_genetic_condition(condition.type)
 
-	target.force_update_limbs()
-	target.update_hair(update_icons = FALSE)
-	target.update_eyes()
+	if(do_update)
+		target.force_update_limbs()
+		target.update_hair(update_icons = FALSE)
+		target.update_eyes()
 	return TRUE
 
 /mob/proc/get_mob_snapshot(check_dna = FALSE)

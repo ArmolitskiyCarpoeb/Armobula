@@ -845,6 +845,7 @@
 			return ..(facing_dir)
 	else
 		return ..()
+	return FALSE
 
 /mob/proc/set_stat(var/new_stat)
 	. = stat != new_stat
@@ -1321,7 +1322,7 @@
 /mob/proc/set_skin_tone(value)
 	return
 
-/mob/proc/get_skin_tone(value)
+/mob/proc/get_skin_tone()
 	return
 
 /mob/proc/force_update_limbs()
@@ -1396,6 +1397,8 @@
 	for(var/turf/neighbor in RANGE_TURFS(my_turf, 1))
 		if(neighbor == my_turf)
 			continue
+		if(neighbor.is_wall() || neighbor.is_floor())
+			return neighbor
 		var/dense_object = neighbor.get_first_dense_object(exceptions = src)
 		if(dense_object)
 			return dense_object
