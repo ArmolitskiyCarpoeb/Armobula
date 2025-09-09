@@ -86,5 +86,5 @@
 	material = /decl/material/solid/stone/granite/god
 	color = "#dedede"
 	floor_type = /turf/floor/rock/cave
-	heat_capacity = 992500 //a little over 5 cm thick , 312500 for 1 m by 2.5 m by 0.25 m plasteel wall
+//	heat_capacity = 992500 //a little over 5 cm thick , 312500 for 1 m by 2.5 m by 0.25 m plasteel wall
 	explosion_resistance = 100
