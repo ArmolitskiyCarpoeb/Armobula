@@ -432,13 +432,13 @@ About the new airlock wires panel:
 			overlays += emissive_overlay(lights_file, "opening")
 			flick("opening", src)//[stat ? "_stat":]
 			animating_state = AIRLOCK_OPEN
-			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon), AIRLOCK_OPEN), 1 SECOND) // wait to update icon so the light doesn't go out too soon
+			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon), AIRLOCK_OPEN)) // wait to update icon so the light doesn't go out too soon
 		if("closing")
 			set_airlock_overlays(AIRLOCK_CLOSING)
 			overlays += emissive_overlay(lights_file, "closing")
 			flick("closing", src)
 			animating_state = AIRLOCK_CLOSED
-			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon), AIRLOCK_CLOSED), 1 SECOND) // wait to update icon so the light doesn't go out too soon
+			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon), AIRLOCK_CLOSED)) // wait to update icon so the light doesn't go out too soon
 		if("deny")
 			set_airlock_overlays(AIRLOCK_DENY)
 //			overlays += emissive_overlay(deny_file, "deny")
@@ -447,7 +447,7 @@ About the new airlock wires panel:
 				if(speaker)
 					playsound(loc, open_failure_access_denied, 50, 0)
 			animating_state = AIRLOCK_CLOSED
-			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon), AIRLOCK_CLOSED), 1 SECOND) // wait to update icon so the light doesn't go out too soon
+			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon), AIRLOCK_CLOSED)) // wait to update icon so the light doesn't go out too soon
 		if("emag")
 			set_airlock_overlays(AIRLOCK_EMAG)
 //			overlays += emissive_overlay(emag_file, "deny")
