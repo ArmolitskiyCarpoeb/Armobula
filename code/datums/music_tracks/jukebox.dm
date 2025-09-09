@@ -1,5 +1,7 @@
 var/global/list/jukebox_music_tracks = list(
-	"Space Oddity" = /decl/music_track/space_oddity
+	"Space Oddity" = /decl/music_track/space_oddity,
+	"The Man Who Sold The World" = /decl/music_track/world,
+	"Space Asshole" = /decl/music_track/asshole
 )
 
 /proc/setup_jukebox_music_tracks(var/list/tracks)
