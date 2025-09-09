@@ -4,8 +4,8 @@
 	uid = "solid_glass"
 	lore_text = "A brittle, transparent material made from molten silicates. It is generally not a liquid."
 	flags = MAT_FLAG_BRITTLE
-	color = GLASS_COLOR
-	opacity = 0.3
+	color = null
+	opacity = 1
 	integrity = 50
 	shard_name = SHARD_SHARD
 	tableslam_noise = 'sound/effects/Glasshit.ogg'

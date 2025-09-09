@@ -25,6 +25,8 @@
 		return paint_color
 	if(istype(material) && (material_alteration & MAT_FLAG_ALTERATION_COLOR))
 		return material.color
+	if (istype(/obj/structure, /obj/structure/window))
+		return initial(color)
 	return initial(color)
 
 /obj/structure/set_color(new_color)
