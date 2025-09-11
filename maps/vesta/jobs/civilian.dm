@@ -16,7 +16,7 @@
 /datum/job/vesta/assistant/equip_job(var/mob/living/human/H)
 	. = ..()
 	if(H)
-		H.newgeneratestats(8,16,8,16,8,16,8,16)
+		H.newgeneratestats(3,19,3,19,3,19,3,19)
 
 /datum/job/vesta/assistant/get_access()
 	if(get_config_value(/decl/config/toggle/assistant_maint))

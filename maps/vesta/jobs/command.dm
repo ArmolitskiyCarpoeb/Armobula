@@ -32,7 +32,7 @@
 /datum/job/vesta/captain/equip_job(var/mob/living/human/H)
 	. = ..()
 	if(H)
-		H.newgeneratestats(7,15,7,13,9,17,7,15)
+		H.newgeneratestats(3,19,3,19,3,19,3,19)
 
 /*
 /datum/job/vesta/captain/equip_job(var/mob/living/human/H, var/alt_title, var/datum/mil_branch/branch, var/datum/mil_rank/grade)
