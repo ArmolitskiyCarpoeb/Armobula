@@ -39,7 +39,7 @@
 */
 
 // Takes a stat *VALUE*.
-/mob/proc/statcheck(var/stat, var/requirement, var/message = null, var/type = null)//Requirement needs to be 1 through 20
+/mob/proc/statcheck(var/stat, var/requirement, var/message = null, var/type = null)//Requirement (1-20) + roll
 	var/roll = rand(0,20)// our "dice"
 	//log_debug("Roll: [roll], Mood affect: (-)[mood_affect(1)], Ability modifier [stat_to_modifier(stat)]")
 	log_debug("[src] Rolled a [roll] against a DC [requirement] [type] check")
@@ -55,7 +55,7 @@
 		return 0
 	return 1
 
-/mob/proc/newstatcheck(var/stat, var/requirement, var/message = null, var/type = null)//Requirement needs to be 1 through 20
+/mob/proc/newstatcheck(var/stat, var/requirement, var/message = null, var/type = null)//min requirement
 	if(stat >= requirement)
 		return 1
 	else
