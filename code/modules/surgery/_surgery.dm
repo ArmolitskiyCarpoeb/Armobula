@@ -317,8 +317,10 @@ var/global/list/surgery_tool_exception_cache = list()
 					var/skill_reqs = S.get_skill_reqs(user, M, src, zone)
 					var/duration = max(1, round(user.skill_delay_mult(skill_reqs[1]) * rand(S.min_duration, S.max_duration) * S.get_speed_modifier(user, M, src)))
 					if(prob(S.success_chance(user, M, src, zone)) && do_mob(user, M, duration))
-						S.end_step(user, M, zone, src)
-						handle_post_surgery()
+						if(user.newstatcheck(user.stats[STAT_IQ], 12, 0, STAT_IQ)) //IQ STAT CHECK FOR SURGERY
+							to_chat(user, SPAN_WARNING("You use all of your intellect to do the surgery."))
+							S.end_step(user, M, zone, src)
+							handle_post_surgery()
 					else if ((src in user.contents) && user.Adjacent(M))
 						S.fail_step(user, M, zone, src)
 					else
