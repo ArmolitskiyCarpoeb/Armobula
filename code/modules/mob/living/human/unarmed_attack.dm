@@ -84,7 +84,7 @@
 	if(armour >= 1)
 		return FALSE
 
-	var/stun_chance = rand(0, 100)
+	var/stun_chance = rand(0, 100) + user.stats[STAT_ST]
 	if(attack_damage >= 5 && !(target == user) && stun_chance <= attack_damage * 5) // 25% standard chance
 		switch(zone) // strong punches can have effects depending on where they hit
 			if(BP_HEAD, BP_EYES, BP_MOUTH)
@@ -168,7 +168,7 @@
 	attack_noun         = list("mouth")
 	attack_sound        = 'sound/weapons/bite.ogg'
 	shredding           = 0
-	damage              = 5
+	damage              = 3
 	sharp               = FALSE
 	edge                = FALSE
 	usable_with_limbs   = list(BP_HEAD)
