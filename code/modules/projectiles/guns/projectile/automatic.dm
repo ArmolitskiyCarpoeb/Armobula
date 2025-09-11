@@ -26,16 +26,36 @@
 	ammo_indicator = TRUE
 
 	firemodes = list(
-		list(mode_name="semi auto",      burst=1, fire_delay=null, one_hand_penalty=3, burst_accuracy=null, dispersion=null),
-		list(mode_name="3-round bursts", burst=3, fire_delay=null, one_hand_penalty=4, burst_accuracy=list(0,-1,-1),       dispersion=list(0.0, 1.6, 2.4, 2.4)),
-		list(mode_name="short bursts",   burst=5, fire_delay=null, one_hand_penalty=5, burst_accuracy=list(0,-1,-1,-1,-2), dispersion=list(1.6, 1.6, 2.0, 2.0, 2.4)),
-		list(mode_name="full auto",      burst=1, fire_delay=0,    burst_delay=1,      one_hand_penalty=5,                 burst_accuracy=list(0,-1,-1,-1,-2), dispersion=list(1.6, 1.6, 2.0, 2.0, 2.4), autofire_enabled=1)
+		list(mode_name="semi auto",      burst=1, fire_delay=null, one_hand_penalty=2, burst_accuracy=null, dispersion=null),
+		list(mode_name="3-round bursts", burst=3, fire_delay=null, one_hand_penalty=3, burst_accuracy=list(0,-1,-1),       dispersion=list(0.0, 1.4, 2.0, 2.0)),
+		list(mode_name="short bursts",   burst=5, fire_delay=null, one_hand_penalty=4, burst_accuracy=list(0,-1,-1,-1,-2), dispersion=list(1.4, 1.4, 1.7, 1.7, 2.0)),
+		list(mode_name="full auto",      burst=1, fire_delay=0,    burst_delay=1,      one_hand_penalty=5,                 burst_accuracy=list(0,-1,-1,-1,-2), dispersion=list(1.4, 1.4, 1.7, 1.7, 2.0), autofire_enabled=1)
 	)
 
 /obj/item/gun/projectile/automatic/smg/on_update_icon()
 	..()
 	if(ammo_magazine)
 		add_overlay("[get_world_inventory_state()]mag-[round(ammo_magazine.get_stored_ammo_count(),5)]")
+
+/obj/item/gun/projectile/automatic/smg/c20r
+	name = "C20r"
+	desc = "The best SMG in the known universe. Probably."
+	icon = 'icons/obj/guns/c20r.dmi'
+	accuracy_power = 8
+	one_hand_penalty = 2
+
+	caliber = CALIBER_PISTOL_SMALL
+	ammo_type = /obj/item/ammo_casing/pistol/c20r
+	load_method = MAGAZINE
+	magazine_type = /obj/item/ammo_magazine/smg/c20r
+	allowed_magazines = /obj/item/ammo_magazine/smg/c20r
+
+	firemodes = list(
+		list(mode_name="semi auto",      burst=1, fire_delay=null, one_hand_penalty=2, burst_accuracy=null, dispersion=null),
+		list(mode_name="3-round bursts", burst=3, fire_delay=null, one_hand_penalty=3, burst_accuracy=list(0,-1,-1),       dispersion=list(0.0, 1.4, 2.0, 2.0)),
+		list(mode_name="short bursts",   burst=5, fire_delay=null, one_hand_penalty=4, burst_accuracy=list(0,-1,-1,-1,-2), dispersion=list(1.4, 1.4, 1.7, 1.7, 2.0)),
+		list(mode_name="full auto",      burst=1, fire_delay=0,    burst_delay=1,      one_hand_penalty=5,                 burst_accuracy=list(0,-1,-1,-1,-2), dispersion=list(1.4, 1.4, 1.7, 1.7, 2.0), autofire_enabled=1)
+	)
 
 /obj/item/gun/projectile/automatic/assault_rifle
 	name = "assault rifle"

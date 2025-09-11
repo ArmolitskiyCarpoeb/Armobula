@@ -127,6 +127,19 @@
 	labels = list("practice")
 	ammo_type = /obj/item/ammo_casing/pistol/small/practice
 
+/obj/item/ammo_magazine/smg/c20r
+	name = "smg magazine"
+	icon_state = "smg"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/pistol/c20r
+	material = /decl/material/solid/metal/steel
+	caliber = CALIBER_PISTOL_SMALL
+	max_ammo = 25
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/smg/c20r/empty
+	initial_ammo = 0
+
 /obj/item/ammo_magazine/pistol
 	name = "pistol magazine"
 	icon_state = "pistol"

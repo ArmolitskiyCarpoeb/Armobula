@@ -74,6 +74,11 @@
 	damage = 45
 	distance_falloff = 3
 
+/obj/item/projectile/bullet/pistol/c20r
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	damage = 47
+	distance_falloff = 2
+
 /obj/item/projectile/bullet/pistol/holdout
 	damage = 40
 	penetration_modifier = 1.2

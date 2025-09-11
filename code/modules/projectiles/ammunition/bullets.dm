@@ -1,8 +1,13 @@
-
 /obj/item/ammo_casing/pistol
 	desc = "A pistol bullet casing."
 	caliber = CALIBER_PISTOL
 	projectile_type = /obj/item/projectile/bullet/pistol
+	icon = 'icons/obj/ammo/casings/pistol.dmi'
+
+/obj/item/ammo_casing/pistol/c20r
+	desc = "A pistol bullet casing."
+	caliber = CALIBER_PISTOL
+	projectile_type = /obj/item/projectile/bullet/pistol/c20r
 	icon = 'icons/obj/ammo/casings/pistol.dmi'
 
 /obj/item/ammo_casing/pistol/rubber
