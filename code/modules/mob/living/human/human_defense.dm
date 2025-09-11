@@ -153,9 +153,9 @@ meteor_act
 
 	if(effective_force > 10 || effective_force >= 5 && prob(33))
 		forcesay(global.hit_appends)	//forcesay checks stat already
-		radio_interrupt_cooldown = world.time + (RADIO_INTERRUPT_DEFAULT * 0.8) //getting beat on can briefly prevent radio use
+		radio_interrupt_cooldown = world.time + (RADIO_INTERRUPT_DEFAULT * 0.9) //getting beat on can briefly prevent radio use
 
-	if(!stat && I.weapon_can_knock_prone && (I.atom_damage_type == BRUTE || I.atom_damage_type == PAIN) && prob(25 + (effective_force * 2)))
+	if(!stat && I.weapon_can_knock_prone && (I.atom_damage_type == BRUTE || I.atom_damage_type == PAIN) && prob(60 + (effective_force * 2)))
 		if(!stat)
 			if(headcheck(hit_zone))
 				//Harder to score a stun but if you do it lasts a bit longer
