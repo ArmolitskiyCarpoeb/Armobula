@@ -40,6 +40,12 @@
 			var/obj/item/organ/external/E = GET_EXTERNAL_ORGAN(src, organ_name)
 			tally += E ? E.get_movement_delay(4) : 4
 
+	if(stats[STAT_DX] < 7)
+		tally += 0.4
+
+	if(stats[STAT_DX] > 13)
+		tally -= 0.4
+
 	if(shock_stage >= 10 || get_stamina() <= 0)
 		tally += 3
 
