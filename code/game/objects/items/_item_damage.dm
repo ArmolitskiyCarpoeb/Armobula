@@ -95,6 +95,8 @@
 				// you can't stab someone in the eyes wearing a mask!
 				to_chat(user, SPAN_WARNING("You're going to need to remove the eye covering first."))
 				return TRUE
+			//if(user.newstatcheck(user.stats[STAT_ST], 14, 0, STAT_ST))
+				//to_chat(user, SPAN_WARNING("You use your strength to crush through the eye covering."))
 
 	if(!M.check_has_eyes())
 		to_chat(user, SPAN_WARNING("You cannot locate any eyes on [M]!"))
