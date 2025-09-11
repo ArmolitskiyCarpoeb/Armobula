@@ -19,6 +19,9 @@
 	setClickCooldown(100)
 	unbuckle_time = max(0, (2 MINUTES) - get_special_resist_time())
 
+//	if(src.statcheck(src.stats[STAT_DX], 15, 0, STAT_DX) || src.statcheck(src.stats[STAT_ST], 15, 0, STAT_DX)) unblucke statcheck
+//		unbuckle_time *= 0.3
+
 	var/decl/pronouns/pronouns = get_pronouns()
 
 	visible_message(
