@@ -191,6 +191,9 @@
 				  were made for projectiles.
 			TODO: proc for melee combat miss chances depending on organ?
 		*/
+//		if(src.statcheck(src.stats[STAT_DX], 10, 0, STAT_DX))
+//			attack_message = "\The [H] attempted to strike \the [src], but missed!"
+//			miss_type = 1
 		if(prob(80))
 			hit_zone = ran_zone(hit_zone, target = src)
 		if(prob(15) && hit_zone != BP_CHEST) // Missed!
@@ -222,7 +225,7 @@
 	real_damage += attack.get_unarmed_damage(H, src)
 	real_damage *= damage_multiplier
 	rand_damage *= damage_multiplier
-	real_damage = max(1, real_damage)
+	real_damage = max(1, real_damage) * (H.stats[STAT_ST]/10)
 	// Apply additional unarmed effects.
 	attack.apply_attack_effects(H, src, rand_damage, hit_zone)
 	// Finally, apply damage to target
