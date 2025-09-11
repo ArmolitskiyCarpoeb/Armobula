@@ -235,11 +235,24 @@
 	if(HAS_STATUS(affecting, STAT_CONFUSE))
 		break_strength--
 
+	if(assailant.newstatcheck(assailant.stats[STAT_ST], 18, 0, STAT_ST))
+		break_strength--
+
 	if(break_strength < 1)
 		to_chat(grab.affecting, SPAN_WARNING("You try to break free but feel that unless something changes, you'll never escape!"))
 		return
+	if(affecting.newstatcheck(affecting.stats[STAT_ST], 18, 0, STAT_ST))
+		affecting.visible_message(SPAN_WARNING("\The [affecting] has broken free of \the [assailant]'s grip!"))
+		break_strength++
+		let_go(grab)
 
 	var/break_chance = break_chance_table[clamp(break_strength, 1, break_chance_table.len)]
+	if(affecting.statcheck(affecting.stats[STAT_ST], 14, 0, STAT_ST))
+		if(can_downgrade_on_resist)
+			affecting.visible_message(SPAN_WARNING("\The [affecting] has broken free of \the [assailant]'s grip!"))
+			let_go(grab)
+	if(assailant.newstatcheck(assailant.stats[STAT_ST], 14, 0, STAT_ST))
+		break_chance -= 50
 	if(prob(break_chance))
 		if(can_downgrade_on_resist && !prob((break_chance+100)/2))
 			affecting.visible_message(SPAN_WARNING("\The [affecting] has loosened \the [assailant]'s grip!"))
