@@ -22,6 +22,9 @@
 	breakouttime = max(5, breakouttime * user.get_restraint_breakout_mod())
 	user.setClickCooldown(breakouttime)
 
+//	if(user.statcheck(user.stats[STAT_DX], 15, 0, STAT_DX) || user.statcheck(user.stats[STAT_ST], 15, 0, STAT_DX)) resist restraint statcheck
+//		breakouttime *= 0.3
+
 	user.visible_message(
 		SPAN_DANGER("\The [user] attempts to remove \the [restraint]!"),
 		SPAN_DANGER("You attempt to remove \the [restraint] (This will take around [ceil(breakouttime / (1 SECOND))] second\s and you need to stand still)."),
