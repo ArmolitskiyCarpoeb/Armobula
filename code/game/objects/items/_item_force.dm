@@ -112,7 +112,7 @@
 	var/list/item_effects = weapon.get_item_effects(IE_CAT_DAMAGE)
 	if(length(item_effects))
 		for(var/decl/item_effect/damage_effect as anything in item_effects)
-			. = damage_effect.modify_attack_damage(., weapon, src, item_effects[damage_effect])
+			. = damage_effect.modify_attack_damage(., weapon, src, item_effects[damage_effect]) * (src.stats[STAT_ST]/10)
 	return round(.)
 
 // Debug proc - leaving in for future work. Linter hates protected var access so leave commented.
