@@ -18,7 +18,12 @@
 	survival_box_choices    = list()
 	passport_type           = null
 
-	allowed_latejoin_spawns = list()
+	default_spawn = /decl/spawnpoint/cryo
+
+	allowed_latejoin_spawns = list(
+		/decl/spawnpoint/cryo
+	)
+
 
 	lobby_screens = list(
 		'maps/vesta/lobby/acheron.png'
@@ -70,3 +75,23 @@
 
 /datum/map/vesta/get_available_submap_archetypes()
 	return null // Return list of decl instances when relevant submaps exist.
+
+/decl/spawnpoint/cryo/captain
+	name = "Captain Compartment"
+	spawn_announcement = "has completed revival in the captain compartment"
+	restrict_job = list(/datum/job/vesta/captain)
+	uid = "spawn_cryo_captain"
+
+/obj/abstract/landmark/latejoin/cryo_captain
+	spawn_decl = /decl/spawnpoint/cryo/captain
+
+/decl/spawnpoint/cryo
+	name = "Port Cryogenic Storage"
+	spawn_announcement = "has completed revival in the port cryogenics bay"
+
+/datum/gas_mixture/atmos_vesta
+	temperature = T20C
+	gas = list(
+		/decl/material/gas/oxygen   = MOLES_O2STANDARD,
+		/decl/material/gas/nitrogen = MOLES_N2STANDARD,
+	)
