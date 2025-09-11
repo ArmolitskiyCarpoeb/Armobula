@@ -63,7 +63,7 @@
 
 /obj/structure/closet/walllocker/oxy/attack_hand(mob/user)
 	var/decl/security_state/security_state = GET_DECL(global.using_map.security_state)
-	if(!opened & security_state.current_security_level_is_lower_than(security_state.high_security_level))
+	if(!opened & security_state.current_security_level_is_same_or_higher_than(security_state.highest_standard_security_level))
 		to_chat(usr, "<span class='danger'>Locked until emergency situation</span>")
 		return FALSE
 	else
