@@ -3,7 +3,7 @@
 	desc = "A small robot. It looks angry."
 	icon = 'icons/mob/simple_animal/drone.dmi'
 	speak_emote  = list("blares","buzzes","beeps")
-	max_health = 50
+	max_health = 75
 	natural_weapon = /obj/item/natural_weapon/drone_slicer
 	faction = "silicon"
 	min_gas = null
@@ -18,7 +18,7 @@
 
 /datum/mob_controller/aggressive/rogue_drone
 	emote_speech = list("Removing organic waste.","Pest control in progress.","Seize the means of maintenance!", "You have nothing to lose but your laws!")
-	speak_chance = 0.25
+	speak_chance = 0.35
 
 /datum/mob_controller/aggressive/rogue_drone/valid_target(var/atom/A)
 	. = ..()
