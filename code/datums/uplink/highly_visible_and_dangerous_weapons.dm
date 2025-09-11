@@ -7,20 +7,20 @@
 /datum/uplink_item/item/visible_weapons/zipgun
 	name = "Zip Gun"
 	desc = "A pipe attached to crude wooden stock with firing mechanism, holds one round."
-	item_cost = 8
+	item_cost = 2
 	path = /obj/item/gun/projectile/zipgun
 
 /datum/uplink_item/item/visible_weapons/smallenergy_gun
 	name = "Small Energy Gun"
 	desc = "A pocket-sized energy based sidearm with three different lethality settings."
-	item_cost = 16
+	item_cost = 12
 	path = /obj/item/gun/energy/gun/small
 
 /datum/uplink_item/item/visible_weapons/dartgun
 	name = "Dart Gun"
 	desc = "A gas-powered dart gun capable of delivering chemical payloads across short distances. \
 			Uses a unique cartridge loaded with hollow darts."
-	item_cost = 20
+	item_cost = 15
 	path = /obj/item/gun/projectile/dartgun
 
 /datum/uplink_item/item/visible_weapons/crossbow
@@ -61,6 +61,12 @@
 	item_cost = 56
 	path = /obj/item/backpack/satchel/syndie_kit/revolver
 
+/datum/uplink_item/item/visible_weapons/smg/c20r
+	name = "Standard Submachine Gun"
+	desc = "A quick-firing weapon with three toggleable fire modes."
+	item_cost = 54
+	path = /obj/item/gun/projectile/automatic/smg/c20r
+
 /datum/uplink_item/item/visible_weapons/grenade_launcher
 	name = "Grenade Launcher"
 	desc = "A pump action grenade launcher loaded with a random assortment of grenades"
@@ -69,11 +75,11 @@
 	path = /obj/item/gun/launcher/grenade/loaded
 
 //These are for traitors (or other antags, perhaps) to have the option of purchasing some merc gear.
-/datum/uplink_item/item/visible_weapons/smg
+/datum/uplink_item/item/visible_weapons/smg/c20r
 	name = "Standard Submachine Gun"
 	desc = "A quick-firing weapon with three toggleable fire modes."
 	item_cost = 52
-	path = /obj/item/gun/projectile/automatic/smg
+	path = /obj/item/gun/projectile/automatic/smg/c20r
 	antag_roles = list(/decl/special_role/mercenary)
 
 /datum/uplink_item/item/visible_weapons/assaultrifle
