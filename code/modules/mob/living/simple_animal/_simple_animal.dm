@@ -38,7 +38,7 @@
 	var/response_help_3p = "$USER$ pets $TARGET$."
 	var/response_disarm =  "pushes aside"
 	var/response_harm =    "kicks"
-	var/harm_intent_damage = 3
+	var/harm_intent_damage = 10
 
 	//Temperature effect
 	var/minbodytemp = 250
