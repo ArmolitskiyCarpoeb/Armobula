@@ -2,7 +2,7 @@
 	abstract_type = /decl/background_detail/location
 	category = /decl/background_category/homeworld
 	var/distance_heading = "Distance from Sol"
-	var/distance = 0
+//	var/distance = 0
 	var/ruling_body = "Other Faction"
 	var/capital
 
@@ -16,6 +16,6 @@
 		. += "<b>Capital:</b> [capital]."
 	if(!isnull(ruling_body))
 		. += "<b>Territory:</b> [ruling_body]."
-	if(!isnull(distance) && !isnull(distance_heading))
-		. += "<b>[distance_heading]:</b> [distance]."
+//	if(!isnull(distance) && !isnull(distance_heading))
+//		. += "<b>[distance_heading]:</b> [distance]."
 	. += ..()

@@ -25,7 +25,7 @@
 	uniform = /obj/item/clothing/jumpsuit/security
 	l_pocket = /obj/item/flash
 	r_pocket = /obj/item/handcuffs
-	id_type = /obj/item/card/id/vesta/security
+	id_type = /obj/item/card/id/vesta/security/marshal
 	pda_type = /obj/item/modular_computer/pda/security
 
 /decl/outfit/job/vesta/security/Initialize()
@@ -66,5 +66,9 @@
 /obj/item/card/id/vesta/security
 	name = "identification card"
 	desc = "A card issued to security staff."
-	color = COLOR_OFF_WHITE
-	detail_color = COLOR_MAROON
+	icon_state = "sec"
+
+/obj/item/card/id/vesta/security/marshal
+	name = "identification card"
+	desc = "A card issued to Marshal."
+	icon_state = "secGold"

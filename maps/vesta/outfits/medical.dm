@@ -31,4 +31,4 @@
 /obj/item/card/id/vesta/doctor
 	name = "identification card"
 	desc = "A card issued to medical staff."
-	detail_color = COLOR_PALE_BLUE_GRAY
+	icon_state = "med"

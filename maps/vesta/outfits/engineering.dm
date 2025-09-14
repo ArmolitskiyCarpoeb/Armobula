@@ -18,7 +18,7 @@
 /obj/item/card/id/vesta/engineering
 	name = "identification card"
 	desc = "A card issued to engineering staff."
-	detail_color = COLOR_SUN
+	icon_state = "eng"
 
 /decl/outfit/job/vesta/chief_engineer
 	name = "Job - Head Engineer"

@@ -24,13 +24,22 @@
 		/decl/spawnpoint/cryo
 	)
 
+	available_background_info = list(
+		/decl/background_category/citizenship = list(/decl/background_detail/citizenship/new_rome, /decl/background_detail/citizenship/os, /decl/background_detail/citizenship/other),
+		/decl/background_category/homeworld   = list(/decl/background_detail/location/artemis, /decl/background_detail/location/acheron),
+		/decl/background_category/faction     = list(/decl/background_detail/faction/ml),
+		/decl/background_category/heritage    = list(/decl/background_detail/heritage/acheron, /decl/background_detail/heritage/artemis),
+		/decl/background_category/religion    = list(/decl/background_detail/religion/novotheism, /decl/background_detail/religion/abbanism, /decl/background_detail/religion/atheism, /decl/background_detail/religion/other)
+	)
 
 	lobby_screens = list(
 		'maps/vesta/lobby/acheron.png'
 	)
 
 	lobby_tracks = list(
-		/decl/music_track/df_theme
+		/decl/music_track/df_theme,
+		/decl/music_track/level3_mod,
+		/decl/music_track/dilbert
 	)
 
 	char_preview_bgstate_options = list(

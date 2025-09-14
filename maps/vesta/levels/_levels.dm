@@ -9,6 +9,7 @@
 //	ambient_light_color = "#f3e6ca"
 	strata = /decl/strata/acheron
 	base_turf = /turf/floor/rock/cave
+	exterior_atmos_temp = 260.15
 //	exterior_atmosphere = list(
 //		/decl/material/gas/oxygen =   MOLES_O2STANDARD,
 //		/decl/material/gas/nitrogen = MOLES_N2STANDARD
@@ -58,6 +59,8 @@
 	level_id = "vesta_caves"
 	use_global_exterior_ambience = FALSE
 	base_area = null
+
+	exterior_atmos_temp = 260.15
 //	abstract_type = /datum/level_data/main_level/vesta
 //	connected_levels = list(
 //		"vesta_caves" = WEST,

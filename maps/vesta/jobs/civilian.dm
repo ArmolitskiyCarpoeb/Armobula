@@ -53,6 +53,7 @@
 		SKILL_BOTANY	= SKILL_MAX
 	)
 	skill_points = 30
+	hud_icon = "hudbartender"
 
 /datum/job/vesta/bartender/equip_job(var/mob/living/human/H)
 	. = ..()
@@ -80,6 +81,7 @@
 	    SKILL_CHEMISTRY = SKILL_BASIC
 	)
 	skill_points = 30
+	hud_icon = "hudchef"
 
 /datum/job/vesta/chef/equip_job(var/mob/living/human/H)
 	. = ..()
@@ -106,6 +108,7 @@
 	    SKILL_CHEMISTRY = SKILL_BASIC
 	)
 	event_categories = list(ASSIGNMENT_GARDENER)
+	hud_icon = "hudgardener"
 
 /datum/job/vesta/hydro/equip_job(var/mob/living/human/H)
 	. = ..()
@@ -129,7 +132,8 @@
 		access_mining,
 		access_mining_station,
 		access_external_airlocks,
-		access_eva
+		access_eva,
+		access_maint_tunnels
 	)
 	minimal_access = list(
 		access_cargo,
@@ -139,7 +143,8 @@
 		access_eva,
 		access_mining,
 		access_mining_station,
-		access_external_airlocks
+		access_external_airlocks,
+		access_maint_tunnels
 	)
 	min_skill = list(
 		SKILL_FINANCE	= SKILL_BASIC,
@@ -159,6 +164,7 @@
 		/datum/computer_file/program/deck_management,
 		/datum/computer_file/program/reports
 	)
+	hud_icon = "hudcargo"
 
 /datum/job/vesta/cargo/equip_job(var/mob/living/human/H)
 	. = ..()
@@ -193,6 +199,7 @@
 	    SKILL_EVA      = SKILL_BASIC
 	)
 	skill_points = 32
+	hud_icon = "hudminer"
 
 /datum/job/vesta/mining/equip_job(var/mob/living/human/H)
 	. = ..()

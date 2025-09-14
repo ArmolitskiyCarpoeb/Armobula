@@ -30,3 +30,23 @@
 
 /decl/background_detail/heritage/synthetic/sanitize_background_name(new_name)
 	return sanitize_name(new_name, allow_numbers = TRUE)
+
+/decl/background_detail/heritage/acheron
+	name = "Ахеронец"
+	description = "Те, кому не осталось места на Артемиде, нашли свое пристанище на мертвой планете. Грубияны, простолюдины, преступники, мрази, сквернословы."
+	language = /decl/language/human/common
+	secondary_langs = list(
+		/decl/language/human/common,
+		/decl/language/sign
+	)
+	uid = "heritage_acheron"
+
+/decl/background_detail/heritage/artemis
+	name = "Артемидовец"
+	description = "Люди с Артемиды, новой колыбели. Старались перенять культуру Землян, но за столетия много раз исказили её."
+	language = /decl/language/human/common
+	secondary_langs = list(
+		/decl/language/human/common,
+		/decl/language/sign
+	)
+	uid = "heritage_artemis"

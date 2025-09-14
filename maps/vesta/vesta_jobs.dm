@@ -9,7 +9,7 @@
 /datum/map/vesta
 	default_job_type = /datum/job/vesta/assistant
 	default_department_type = /decl/department/civilian
-//	id_hud_icons = 'maps/exodus/hud.dmi'
+	hud_icons = 'mods/content/standard_jobs/icons/hud.dmi'
 	allowed_jobs = list(
 		/datum/job/vesta/captain,
 		/datum/job/vesta/security/head,

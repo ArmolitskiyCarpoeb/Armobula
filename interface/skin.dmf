@@ -131,7 +131,7 @@ menu "menu"
 window "mainwindow"
 	elem "mainwindow"
 		type = MAIN
-		pos = 281,0
+		pos = 864,266
 		size = 640x440
 		anchor1 = -1,-1
 		anchor2 = -1,-1
@@ -139,18 +139,17 @@ window "mainwindow"
 		is-default = true
 		saved-params = "pos;size;is-minimized;is-maximized"
 		on-size = "OnResize"
-		is-maximized = true
 		macro = "default"
 		menu = "menu"
-		outer-size = 1936x1056
-		outer-pos = -8,-8
-		inner-size = 1920x997
+		outer-size = 656x518
+		outer-pos = 864,266
+		inner-size = 640x440
 		inner-pos = 8,51
 		screen-size = 1920x1040
 	elem "split"
 		type = CHILD
 		pos = 3,0
-		size = 640x440
+		size = 0x0
 		anchor1 = 0,0
 		anchor2 = 100,100
 		background-color = none
@@ -284,7 +283,7 @@ window "outputwindow"
 window "rpane"
 	elem "rpane"
 		type = MAIN
-		pos = 291,0
+		pos = 718,119
 		size = 640x480
 		anchor1 = -1,-1
 		anchor2 = -1,-1
@@ -292,8 +291,7 @@ window "rpane"
 		saved-params = "pos;size;is-minimized;is-maximized"
 		is-pane = true
 		outer-size = 656x538
-		outer-pos = 291,0
-		inner-size = 640x499
+		outer-pos = 718,119
 		inner-pos = 8,31
 		screen-size = 1920x1040
 	elem "rpanewindow"
@@ -332,17 +330,6 @@ window "rpane"
 		command = ".winset \"rpanewindow.left=infowindow\""
 		group = "rpanemode"
 		button-type = pushbox
-	elem "button_codex"
-		type = BUTTON
-		pos = 133,0
-		size = 60x15
-		anchor1 = -1,-1
-		anchor2 = -1,-1
-		background-color = none
-		saved-params = "is-checked"
-		text = "Codex"
-		command = "Codex"
-		group = "rpanemode"
 
 window "preferences_window"
 	elem "preferences_window"
@@ -390,7 +377,6 @@ window "infowindow"
 		is-pane = true
 		outer-size = 656x538
 		outer-pos = 291,0
-		inner-size = 640x499
 		inner-pos = 8,31
 		screen-size = 1920x1040
 	elem "info"

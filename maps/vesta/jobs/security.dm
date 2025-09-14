@@ -1,5 +1,5 @@
 /datum/job/vesta/security
-	title = "Security Officer"
+	title = "Security Operative"
 	supervisors = "the Marshal and the corporation"
 	spawn_positions = 2
 	total_positions = 3
@@ -21,7 +21,27 @@
 		access_maint_tunnels,
 		access_lawyer,
 		access_brig,
-		access_cameras
+		access_cameras,
+		access_hydroponics,
+		access_bar,
+		access_kitchen,
+		access_eva,
+		access_engine,
+		access_engine_equip,
+		access_tech_storage,
+		access_maint_tunnels,
+		access_external_airlocks,
+		access_construction,
+		access_atmospherics,
+		access_emergency_storage,
+		access_mailsorting,
+		access_cargo,
+		access_qm,
+		access_mining,
+		access_mining_station,
+		access_medical,
+		access_medical_equip,
+		access_morgue
 	)
 	min_skill = list(
 		SKILL_LITERACY = SKILL_BASIC,
@@ -35,6 +55,7 @@
 	)
 	skill_points = 32
 	event_categories = list(ASSIGNMENT_SECURITY)
+	hud_icon = "hudsec"
 
 /datum/job/vesta/security/equip_job(var/mob/living/human/H)
 	. = ..()
@@ -94,7 +115,23 @@
 		access_robotics,
 		access_hydroponics,
 		access_hos,
-		access_cameras
+		access_cameras,
+		access_bar,
+		access_engine,
+		access_engine_equip,
+		access_tech_storage,
+		access_maint_tunnels,
+		access_external_airlocks,
+		access_construction,
+		access_atmospherics,
+		access_emergency_storage,
+		access_mailsorting,
+		access_cargo,
+		access_qm,
+		access_mining_station,
+		access_medical,
+		access_medical_equip,
+		access_morgue
 	)
 	min_skill = list(
 		SKILL_LITERACY = SKILL_BASIC,
