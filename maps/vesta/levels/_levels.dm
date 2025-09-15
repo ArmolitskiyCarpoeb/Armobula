@@ -10,6 +10,10 @@
 	strata = /decl/strata/acheron
 	base_turf = /turf/floor/rock/cave
 	exterior_atmos_temp = 246
+	exterior_atmosphere = list(
+		/decl/material/gas/carbon_dioxide = 0.21,
+		/decl/material/gas/nitrogen = 0.79
+	)
 //	exterior_atmosphere = list(
 //		/decl/material/gas/oxygen =   MOLES_O2STANDARD,
 //		/decl/material/gas/nitrogen = MOLES_N2STANDARD
@@ -62,8 +66,8 @@
 
 	exterior_atmos_temp = 245.15
 	exterior_atmosphere = list(
-		/decl/material/gas/carbon_dioxide =   MOLES_O2STANDARD,
-		/decl/material/gas/nitrogen = MOLES_N2STANDARD
+		/decl/material/gas/carbon_dioxide = 0.21,
+		/decl/material/gas/nitrogen = 0.79
 	)
 //	abstract_type = /datum/level_data/main_level/vesta
 //	connected_levels = list(
@@ -81,7 +85,7 @@
 	base_turf = /turf/floor/rock/cave
 	submap_budget   = 7
 	submap_category = MAP_TEMPLATE_CATEGORY_VESTA_CAVES
-	submap_area		= /area/vesta/caves/point_of_interest
+	submap_area		= /area/xvesta/caves/point_of_interest
 	list/mobs_to_spawn = list()
 
 /obj/abstract/level_data_spawner/vesta_caves
