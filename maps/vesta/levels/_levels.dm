@@ -85,7 +85,7 @@
 	base_turf = /turf/floor/rock/cave
 	submap_budget   = 7
 	submap_category = MAP_TEMPLATE_CATEGORY_VESTA_CAVES
-	submap_area		= /area/xvesta/caves/point_of_interest
+	submap_area		= /area/vesta/caves/point_of_interest
 	list/mobs_to_spawn = list()
 
 /obj/abstract/level_data_spawner/vesta_caves

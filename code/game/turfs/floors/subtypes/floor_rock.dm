@@ -20,4 +20,8 @@
 	name           = "cave floor"
 	floor_material = /decl/material/solid/stone/granite
 	temperature = 245
+	initial_gas = list(
+		/decl/material/gas/carbon_dioxide = 0.21,
+		/decl/material/gas/nitrogen = 0.79
+	)
 //	color          = "#2a272b" //"#565656" COLOR DOESNT MATTER

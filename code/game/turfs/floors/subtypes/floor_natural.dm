@@ -10,6 +10,10 @@
 	icon_state        = "dirt"
 	color             = /decl/material/solid/soil::color // preview color
 	_base_flooring    = /decl/flooring/dirt
+	initial_gas = list(
+		/decl/material/gas/carbon_dioxide = 0.21,
+		/decl/material/gas/nitrogen = 0.79
+	)
 
 /turf/floor/chlorine_sand
 	name              = "chlorinated sand"
@@ -53,6 +57,10 @@
 	color = null
 	_flooring = /decl/flooring/grass/moss
 	_base_flooring = /decl/flooring/rock
+	initial_gas = list(
+		/decl/material/gas/carbon_dioxide = 0.21,
+		/decl/material/gas/nitrogen = 0.79
+	)
 
 /turf/floor/grass/wild
 	name              = "wild grass"
