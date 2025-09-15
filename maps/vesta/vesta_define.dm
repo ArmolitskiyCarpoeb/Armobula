@@ -97,10 +97,3 @@
 /decl/spawnpoint/cryo
 	name = "Port Cryogenic Storage"
 	spawn_announcement = "has completed revival in the port cryogenics bay"
-
-/datum/gas_mixture/atmos_vesta
-	temperature = T20C
-	gas = list(
-		/decl/material/gas/oxygen   = MOLES_O2STANDARD,
-		/decl/material/gas/nitrogen = MOLES_N2STANDARD,
-	)

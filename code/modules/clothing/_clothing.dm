@@ -424,13 +424,17 @@
 		var/mob/M = check_hood.loc
 		M.drop_from_inventory(check_hood)
 	check_hood.forceMove(src)
+	update_icon()
+	update_clothing_icon()
 	if(!skip_update)
+		update_icon()
 		update_clothing_icon()
 
 /obj/item/clothing/dropped()
 	. = ..()
 	remove_hood(skip_update = TRUE)
 	update_icon()
+	update_clothing_icon()
 
 /obj/item/clothing/proc/get_vitals_sensor()
 	for(var/obj/item/clothing/accessory in accessories)

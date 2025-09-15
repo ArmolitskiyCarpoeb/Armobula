@@ -39,7 +39,7 @@
 	outfit_type = /decl/outfit/job/vesta/doctor
 	minimal_player_age = 3
 	event_categories = list(ASSIGNMENT_MEDICAL)
-	hud_icon = "hudmed"
+	hud_icon_state = "hudmed"
 
 /datum/job/vesta/doctor/equip_job(var/mob/living/human/H)
 	. = ..()

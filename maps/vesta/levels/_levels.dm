@@ -9,7 +9,7 @@
 //	ambient_light_color = "#f3e6ca"
 	strata = /decl/strata/acheron
 	base_turf = /turf/floor/rock/cave
-	exterior_atmos_temp = 260.15
+	exterior_atmos_temp = 246
 //	exterior_atmosphere = list(
 //		/decl/material/gas/oxygen =   MOLES_O2STANDARD,
 //		/decl/material/gas/nitrogen = MOLES_N2STANDARD
@@ -58,9 +58,13 @@
 	name = "Vesta - Caves"
 	level_id = "vesta_caves"
 	use_global_exterior_ambience = FALSE
-	base_area = null
+	base_area = /area/vesta/caves
 
-	exterior_atmos_temp = 260.15
+	exterior_atmos_temp = 245.15
+	exterior_atmosphere = list(
+		/decl/material/gas/carbon_dioxide =   MOLES_O2STANDARD,
+		/decl/material/gas/nitrogen = MOLES_N2STANDARD
+	)
 //	abstract_type = /datum/level_data/main_level/vesta
 //	connected_levels = list(
 //		"vesta_caves" = WEST,
@@ -75,10 +79,6 @@
 		/datum/random_map/noise/caves/acheron
 	)
 	base_turf = /turf/floor/rock/cave
-//	exterior_atmosphere = list(
-//		/decl/material/gas/oxygen =   MOLES_O2STANDARD,
-//		/decl/material/gas/nitrogen = MOLES_N2STANDARD
-//	)
 	submap_budget   = 7
 	submap_category = MAP_TEMPLATE_CATEGORY_VESTA_CAVES
 	submap_area		= /area/vesta/caves/point_of_interest

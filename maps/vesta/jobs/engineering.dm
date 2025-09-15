@@ -49,7 +49,7 @@
 	)
 	skill_points = 34
 	event_categories = list(ASSIGNMENT_ENGINEER)
-	hud_icon = "hudengineer"
+	hud_icon_state = "hudengineer"
 
 /datum/job/vesta/engineer/equip_job(var/mob/living/human/H)
 	. = ..()

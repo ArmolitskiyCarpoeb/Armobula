@@ -30,6 +30,14 @@
 	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECTION_TEMPERATURE
 	protects_against_weather = TRUE
 
+/obj/item/clothing/head/winterhood/attack_hand(mob/living/carbon/human/H)
+    if(src == H.get_equipped_item(slot_head_str))
+        return
+    ..()
+
+/obj/item/clothing/head/winterhood/MouseDrop(obj/over_object)
+    return
+
 /obj/item/clothing/suit/jacket/winter/captain
 	name = "captain's winter coat"
 	icon = 'icons/clothing/suits/wintercoat/captain.dmi'

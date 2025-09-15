@@ -21,6 +21,8 @@
 	var/check_hood = get_hood()
 	if(!ismob(loc) || !check_hood)
 		remove_hood()
+		update_icon()
+		update_clothing_icon()
 
 	if(usr.get_equipped_item(slot_wear_suit_str) != src)
 		to_chat(usr, SPAN_WARNING("You must be wearing \the [src] to put up the hood!"))
@@ -37,7 +39,11 @@
 		usr.visible_message("\The [usr] [is_toggled ? "pulls up" : "pushes down"] the hood of \the [toggled].")
 		if(is_toggled)
 			usr.equip_to_slot_if_possible(check_hood, slot_head_str, 0, 0, 1)
+			update_clothing_icon()
+			update_icon()
 		else
 			remove_hood()
+			update_icon()
+			update_clothing_icon()
 	else
 		verbs -= /obj/item/clothing/proc/toggle_hood_verb

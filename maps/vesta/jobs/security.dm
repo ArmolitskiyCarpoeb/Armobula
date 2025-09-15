@@ -55,7 +55,7 @@
 	)
 	skill_points = 32
 	event_categories = list(ASSIGNMENT_SECURITY)
-	hud_icon = "hudsec"
+	hud_icon_state = "hudsec"
 
 /datum/job/vesta/security/equip_job(var/mob/living/human/H)
 	. = ..()
@@ -80,7 +80,7 @@
 	ideal_character_age = 40
 	guestbanned = 1
 	not_random_selectable = 1
-	hud_icon = "hudhos"
+	hud_icon_state = "hudhos"
 	access = list(
 		access_security,
 		access_sec_doors,

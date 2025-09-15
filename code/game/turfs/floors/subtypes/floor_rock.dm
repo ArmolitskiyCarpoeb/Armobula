@@ -19,4 +19,5 @@
 /turf/floor/rock/cave //must be "#565656"
 	name           = "cave floor"
 	floor_material = /decl/material/solid/stone/granite
+	temperature = 245
 //	color          = "#2a272b" //"#565656" COLOR DOESNT MATTER

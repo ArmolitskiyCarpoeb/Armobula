@@ -23,6 +23,39 @@
 		return list(access_maint_tunnels)
 	return list()
 
+/datum/job/vesta/chaplain
+	title = "Chaplain"
+	hud_icon_state = "hudchaplain"
+	department_types = list(/decl/department/civilian)
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "the church"
+	access = list(
+		access_morgue,
+		access_chapel_office,
+		access_crematorium,
+		access_maint_tunnels
+	)
+	minimal_access = list(
+		access_morgue,
+		access_chapel_office,
+		access_crematorium
+	)
+	outfit_type = /decl/outfit/job/vesta/chaplain
+	is_holy = TRUE
+	min_skill = list(
+		SKILL_LITERACY = SKILL_ADEPT,
+		SKILL_FINANCE  = SKILL_BASIC
+	)
+	skill_points = 28
+//	software_on_spawn = list(/datum/computer_file/program/reports)
+
+
+/datum/job/vesta/chaplain/equip_job(var/mob/living/human/H)
+	. = ..()
+	if(H)
+		H.newgeneratestats(1,20,1,20,1,20,1,20)
+
 /datum/job/vesta/bartender
 	title = "Bartender"
 //	alt_titles = list("Cook","Barista")
@@ -53,7 +86,7 @@
 		SKILL_BOTANY	= SKILL_MAX
 	)
 	skill_points = 30
-	hud_icon = "hudbartender"
+	hud_icon_state = "hudbartender"
 
 /datum/job/vesta/bartender/equip_job(var/mob/living/human/H)
 	. = ..()
@@ -81,7 +114,7 @@
 	    SKILL_CHEMISTRY = SKILL_BASIC
 	)
 	skill_points = 30
-	hud_icon = "hudchef"
+	hud_icon_state = "hudchef"
 
 /datum/job/vesta/chef/equip_job(var/mob/living/human/H)
 	. = ..()
@@ -108,7 +141,7 @@
 	    SKILL_CHEMISTRY = SKILL_BASIC
 	)
 	event_categories = list(ASSIGNMENT_GARDENER)
-	hud_icon = "hudgardener"
+	hud_icon_state = "hudgardener"
 
 /datum/job/vesta/hydro/equip_job(var/mob/living/human/H)
 	. = ..()
@@ -164,7 +197,7 @@
 		/datum/computer_file/program/deck_management,
 		/datum/computer_file/program/reports
 	)
-	hud_icon = "hudcargo"
+	hud_icon_state = "hudcargo"
 
 /datum/job/vesta/cargo/equip_job(var/mob/living/human/H)
 	. = ..()
@@ -199,7 +232,7 @@
 	    SKILL_EVA      = SKILL_BASIC
 	)
 	skill_points = 32
-	hud_icon = "hudminer"
+	hud_icon_state = "hudminer"
 
 /datum/job/vesta/mining/equip_job(var/mob/living/human/H)
 	. = ..()

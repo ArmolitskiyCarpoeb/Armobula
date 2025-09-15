@@ -20,5 +20,6 @@
 		/datum/job/vesta/engineer,
 		/datum/job/vesta/doctor,
 		/datum/job/vesta/cargo,
-		/datum/job/mining
+		/datum/job/mining,
+		/datum/job/vesta/chaplain
 	)

@@ -6,7 +6,7 @@
 	total_positions = 2
 	department_types = list(/decl/department/science)
 	outfit_type = /decl/outfit/job/vesta/scientist
-	hud_icon = "hudscientist"
+	hud_icon_state = "hudscientist"
 	min_skill = list(
 		SKILL_LITERACY = SKILL_ADEPT,
 		SKILL_COMPUTER = SKILL_BASIC,
@@ -69,7 +69,7 @@
 	selection_color = "#ad6bad"
 	req_admin_notify = 1
 	economic_power = 15
-	hud_icon = "hudheadscientist"
+	hud_icon_state = "hudheadscientist"
 	access = list(
 		access_rd,
 		access_bridge,

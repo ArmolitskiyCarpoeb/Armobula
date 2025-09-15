@@ -1,5 +1,5 @@
 /mob/living/simple_animal/hostile/krivax
-	name = "Кривакс"
+	name = "кривакс"
 	desc = "Покрытый хитиновым экзоскелетом макако-подобный зверь."
 	icon = 'icons/mob/simple_animal/krivax.dmi'
 	mob_size = MOB_SIZE_MEDIUM
@@ -8,7 +8,7 @@
 	max_health = 100
 	bleed_colour = COLOR_SKY_BLUE
 	attack_delay = DEFAULT_QUICK_COOLDOWN
-	natural_weapon = list(/obj/item/natural_weapon/bite, /obj/item/natural_weapon/claws)
+	natural_weapon = /obj/item/natural_weapon/bite
 //	faction = "creature"
 	supernatural = 0
 	ability_handlers = list(/datum/ability_handler/predator)

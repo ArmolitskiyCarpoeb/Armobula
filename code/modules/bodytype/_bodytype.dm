@@ -244,17 +244,17 @@ var/global/list/bodytypes_by_category = list()
 
 	// Bodytype temperature damage thresholds.
 	/// Cold damage level 1 below this point. -30 Celsium degrees
-	var/cold_level_1 = 243
+	var/cold_level_1 = 255
 	/// Cold damage level 2 below this point.
-	var/cold_level_2 = 200
+	var/cold_level_2 = 245
 	/// Cold damage level 3 below this point.
-	var/cold_level_3 = 120
+	var/cold_level_3 = 225
 	/// Heat damage level 1 above this point.
-	var/heat_level_1 = 360
+	var/heat_level_1 = 355
 	/// Heat damage level 2 above this point.
-	var/heat_level_2 = 400
+	var/heat_level_2 = 371
 	/// Heat damage level 3 above this point.
-	var/heat_level_3 = 1000
+	var/heat_level_3 = 500
 
 	// Above this point, discomfort strings will be shown.
 	var/heat_discomfort_level = 315

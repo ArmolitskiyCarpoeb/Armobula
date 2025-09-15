@@ -33,6 +33,13 @@
 	id_type = /obj/item/card/id/vesta/librarian
 //	pda_type = /obj/item/modular_computer/pda
 
+/decl/outfit/job/vesta/chaplain
+	name = "Job - Chaplain"
+	uniform = /obj/item/clothing/jumpsuit/chaplain
+	hands = list(/obj/item/bible)
+	id_type = /obj/item/card/id/civilian
+	pda_type = /obj/item/modular_computer/pda/medical
+
 //cards
 /obj/item/card/id/vesta/cargo
 	name = "identification card"

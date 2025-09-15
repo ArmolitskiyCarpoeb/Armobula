@@ -18,7 +18,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	selection_color = "#1d1d4f"
-	hud_icon = "hudcaptain"
+	hud_icon_state = "hudcaptain"
 	req_admin_notify = 1
 	access = list()
 	minimal_access = list()

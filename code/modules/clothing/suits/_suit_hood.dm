@@ -29,4 +29,5 @@
 /obj/item/clothing/suit/equipped(mob/user, slot)
 	if(slot != slot_wear_suit_str)
 		remove_hood()
+		update_clothing_icon()
 	. = ..()
