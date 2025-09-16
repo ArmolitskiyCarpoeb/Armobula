@@ -230,10 +230,10 @@ var/global/_reboot_announced = FALSE
 	features += get_config_value(/decl/config/toggle/on/abandon_allowed) ? "respawn" : "no respawn"
 
 	if (get_config_value(/decl/config/toggle/vote_mode))
-		features += "vote"
+		features += "democracy"
 
 	if (get_config_value(/decl/config/toggle/on/allow_ai))
-		features += "AI allowed"
+		features += "forbidden technology allowed"
 
 	var/n = 0
 	for (var/mob/M in global.player_list)
