@@ -626,7 +626,7 @@ var/global/list/bodytypes_by_category = list()
 		return 165
 	if(appearance_flags & HAS_SKIN_TONE_TRITON)
 		return 80
-	return 220
+	return 65
 
 /decl/bodytype/proc/apply_bodytype_organ_modifications(obj/item/organ/org)
 	if(!istype(org, /obj/item/organ/external))
