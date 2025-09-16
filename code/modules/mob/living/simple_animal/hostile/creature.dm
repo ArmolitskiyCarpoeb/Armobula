@@ -8,3 +8,6 @@
 	faction = "creature"
 	supernatural = 1
 	ability_handlers = list(/datum/ability_handler/predator)
+	min_gas          = null
+	max_gas          = null
+	minbodytemp      = 0

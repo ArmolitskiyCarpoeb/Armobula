@@ -17,3 +17,12 @@
 		/decl/move_intent/run/animal_fast
 	)
 	butchery_data = /decl/butchery_data/animal/antlion
+	min_gas          = null
+	max_gas          = null
+	minbodytemp      = 0
+
+/mob/living/simple_animal/hostile/krivax/get_door_pry_time()
+	return 10 SECONDS
+
+/mob/living/simple_animal/hostile/krivax/get_pry_desc()
+	return "gnashing"
