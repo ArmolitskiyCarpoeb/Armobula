@@ -2,8 +2,8 @@
 	var/species
 	var/blood_type
 	var/eye_colour = COLOR_BLACK
-	var/skin_colour = COLOR_BLACK
-	var/skin_tone = -75
+	var/skin_colour = COLOR_WHITE
+	var/skin_tone = 0
 	var/list/sprite_accessories = list()
 	var/list/appearance_descriptors = list()
 	var/equip_preview_mob = EQUIP_PREVIEW_ALL
@@ -503,7 +503,7 @@
 		mob_species = pref.get_species_decl()
 		mob_bodytype = mob_species.get_bodytype_by_name(pref.bodytype) || mob_species.default_bodytype
 		if(new_s_tone && (mob_bodytype.appearance_flags & HAS_A_SKIN_TONE) && CanUseTopic(user))
-			pref.skin_tone = 35 - max(min(round(new_s_tone), mob_bodytype.max_skin_tone()), 1)
+			pref.skin_tone = 35 //35 - max(min(round(new_s_tone), mob_bodytype.max_skin_tone()), 1)
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["skin_color"])

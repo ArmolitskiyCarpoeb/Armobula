@@ -17,8 +17,9 @@
 	return capitalize(pick(gender == FEMALE ? global.using_map.first_names_female : global.using_map.first_names_male)) + " " + capitalize(pick(global.using_map.last_names))
 
 /proc/random_skin_tone(var/decl/bodytype/current_bodytype)
-	var/adjusted_max_skin_tone = current_bodytype ? 35 - current_bodytype.max_skin_tone() : -185
-	return clamp(rand(current_bodytype ? 35 - current_bodytype.max_skin_tone() : -185, 34), adjusted_max_skin_tone, 34)
+//	var/adjusted_max_skin_tone = current_bodytype ? 35 - current_bodytype.max_skin_tone() : -185
+//	return clamp(rand(current_bodytype ? 35 - current_bodytype.max_skin_tone() : -185, 34), adjusted_max_skin_tone, 34)
+	return rand(1,65)
 
 //checks whether this item is a module of the robot it is located in.
 /proc/is_robot_module(var/obj/item/thing)
